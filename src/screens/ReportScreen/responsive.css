@@ -1,0 +1,36 @@
+@media (max-width: 768px) {
+  .lftMenu {
+    width: 100% !important;
+  }
+  .wel-cm-bc {
+    width: 50% !important;
+  }
+  .navbar {
+    margin: 0 auto 0 0 !important;
+    display: block !important;
+  }
+  .menu-back {
+    background-color: #f1f1f1;
+    padding: 15px !important;
+  }
+  .wel-cm-bc h4 {
+    margin-top: 0;
+  }
+  .logo-tag {
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 576px) {
+  .wel-cm-bc {
+    width: 100% !important;
+  }
+  .min-pos-ab {
+    position: absolute;
+  }
+}
+
+@media (min-width: 1401px) {
+  .w1400-20 {
+    width: 20% !important;
+  }
+}

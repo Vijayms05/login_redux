@@ -1,0 +1,39 @@
+.text{
+    color: #003866;
+}
+
+
+
+.form-group{
+    position: relative;
+}
+
+.form-group input{
+    text-indent: 35px;      
+}
+.form-group .number{
+    position: absolute;
+    margin-left:5px;
+    top:12px;
+}
+.form-group .icon{
+    position: absolute;
+    margin-left:25px;
+    top:20px;
+}
+
+input[type="text"]::placeholder{
+    padding-left: 4px;
+}
+
+.resume{
+    margin-left:20px;
+    margin-top:20px;
+    width: 250px;
+    height: 150px;
+    border-bottom-left-radius: 55px;
+    border-top-right-radius: 55px;
+    border-top-left-radius: 18px;
+    border-bottom-right-radius:18px ;
+    border:1px dashed black;
+}

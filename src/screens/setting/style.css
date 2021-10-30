@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "f1";
+    src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "f2";
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "f3";
+    src: url("../../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf");
+  }
+  @font-face {
+      font-family: 'Roboto';
+      src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Work+Sans:wght@100;200;400&display=swap');
+  }
+
+
+ h2{
+    font-family: 'f1';
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 48px;
+    color: #003866;    
+ }
+
+ .setting-nav{
+    width: 65%;
+    height: 75%;
+    border: 1px solid darkgrey;
+ }
+ .billingdetails-text{  
+    font-family: 'f3';
+    font-weight: 500;
+    font-style: normal;
+    color:#4C5857;
+    font-size:17px;
+ }
+ .organisationaldetail{
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+ }
+ .help-button{
+    background: #298EE0 !important;
+    border: 0 !important;
+    width: 100%;
+    margin: auto;
+    border-radius: 30px;
+ }
+h4{
+    color: #003866;
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+}
+p{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.87);
+
+}

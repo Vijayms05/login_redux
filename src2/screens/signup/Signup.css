@@ -1,0 +1,22 @@
+.signup-wrapper{
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    background: #FFFFFF;
+}
+.signup-wrapper .signup-logo{
+    position: absolute;
+    width: 973px;
+    height: 730px;
+    left: 100px;
+    top: 207px;
+}
+.signup-form-logo{
+
+    position: absolute;
+    width: 533px;
+    height: 653.69px;
+    left: calc(50% - 533px/2 + 553.5px);
+    top: calc(50% - 653.69px/2 - 0.16px);
+
+}

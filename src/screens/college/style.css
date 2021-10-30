@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "f1";
+    src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "f2";
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "f3";
+    src: url("../../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf");
+  }
+  /*schoolstudent form*/
+  .collegestudent-form{
+    box-shadow: 0px 5px 18px -7px #d1d1d1;
+    border-radius: 10px;
+    margin-top: 21px; 
+  }
+  .collegestudent-form .textselectoption{
+    font-family: 'f3';
+    font-size: 16px;
+    font-style: normal;
+    color: #4C5857 ;
+  }
+  .collegestudent-form h3{
+    font-family: "f1";
+    font-weight: 700;
+    margin-top: 0px;
+    text-align: center;    
+  }
+  .collegestudent-form p{
+    font-family: 'f3';
+    font-size: 15px;
+    color:#638995;
+    text-align: center;
+  } 
+  .collegestudent-formgroup{
+    position: relative;
+  }
+  .collegestudent-formcontrol{    
+    font-family: "f3";  
+    width: 100%;
+    height: 40px;
+    padding-left: 35px !important;
+    font-size: 16px;
+  } 
+  .formselect{
+    font-family: "f3";  
+    width: 100%;
+    height: 40px;
+    padding-left: 35px !important;
+    font-size: 16px;
+  }
+ 
+  .collegestudent-formcontrol:focus {
+    outline: 0 !important;
+    background-color: #fff;
+    border-color: #4dd188 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0%) !important;
+  }
+  label{    
+    font-family: 'f2';
+    text-align: start;
+    font-size: 15px;
+    color:#4C5857;
+  } 
+  .collegestudent-btn{
+    background: #298EE0 !important;
+    border: 0 !important;
+    width: 100%;
+    margin: auto;
+    border-radius: 10%;
+  }
