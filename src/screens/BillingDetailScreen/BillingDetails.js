@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import {  Container, Col, Row, Form, Card, ProgressBar, Table } from 'react-bootstrap'
 import Button from '@restart/ui/esm/Button'
 import { SearchIcon, Billingrit,NumbIcon, ScaleIcon } from '../../assets/images'
-import { FontAwesomeIcon } from '@fortawesome/fontawesome-free'
 
 const BillingDetails = () =>{
     return(

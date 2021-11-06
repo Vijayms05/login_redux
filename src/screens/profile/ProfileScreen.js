@@ -1,14 +1,12 @@
 import React from 'react';
-import Sidebar from '../../component/sidebar/Sidebar';
-import Subscription from '../subscription/Subscription';
-import { Row } from 'react-bootstrap';
 import ProfilePage from './ProfilePage';
+import SideMenu from '../../component/side/SideMenu';
 const ProfileScreen = () => {
     return (
-        <Row>
-            <Sidebar />
+        <div className="d-md-flex ">
+            <SideMenu />
             <ProfilePage />
-        </Row>
+        </div>
     );
 }
 export default ProfileScreen

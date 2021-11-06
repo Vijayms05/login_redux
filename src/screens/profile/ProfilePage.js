@@ -19,7 +19,6 @@ import {
     EyeIcon
 } from '../../assets/images/index';
 
-import './style.css'
 const ProfilePage = (props) => {
     const [show, setShow]=useState(false);
     const [isShow, setIsShow]=useState(false);
@@ -41,7 +40,7 @@ const ProfilePage = (props) => {
     const handlepasswordClose = () => setShow(false);
 
     return (
-        <Col className="py-md-4">  
+        <Col className="py-md-4 pro-rit">  
                     <h3 className="mb-4">Profile</h3>
                     <Row className="mt-3 mb-3">
                         <Col sm={4} className='p-2'>
@@ -85,8 +84,6 @@ const ProfilePage = (props) => {
                                 type="email" 
                                 placeholder="Enter email"                        
                             />
-                            <span >+91 </span>
-                            {/* <ArrowDownIcon className="arrow-down"/>                        */}
                         </Form.Group>
                         <Form.Group className="mb-3 profile-formgroup">
                             <label className="mobile-no mb-2" >Date of Birth</label>                    

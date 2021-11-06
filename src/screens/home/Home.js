@@ -1,15 +1,13 @@
 import React from 'react';
 import './Home.css';
-import './responsive.css';
-import Sidebar from '../../component/sidebar/Sidebar';
 import Subscription from '../subscription/Subscription';
-import { Row } from 'react-bootstrap';
+import SideMenu from '../../component/side/SideMenu';
 const HomeScreen = () => {
     return (
-        <Row>
-            <Sidebar />
+        <div className="d-md-flex test-main">  
+            <SideMenu />
             <Subscription />
-        </Row>
+        </div>
     );
 }
 export default HomeScreen

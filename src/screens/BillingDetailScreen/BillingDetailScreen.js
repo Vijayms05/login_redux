@@ -1,13 +1,12 @@
 import React from 'react';
-import Sidebar from '../../component/sidebar/Sidebar';
-import { Row } from 'react-bootstrap';
 import BillingDetails from './BillingDetails';
+import SideMenu from '../../component/side/SideMenu';
 const BillingDetailScreen = () => {
     return (
-        <Row>
-            <Sidebar />
+        <div className="d-md-flex ">
+            <SideMenu />
             <BillingDetails />
-        </Row>
+        </div>
     );
 }
 export default BillingDetailScreen;

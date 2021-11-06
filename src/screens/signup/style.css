@@ -5,11 +5,6 @@
 .intl-bdy {
   margin: auto;
 }
-.logo {
-  width: 160px;
-  margin: auto;
-  display: block;
-}
 .singImg {
   width: 100%;
 }
@@ -30,11 +25,17 @@
 .inputGroup {
   position: relative;
 }
-.eyeIcon {
-  width: 19px;
+.pwd-btn {
+  width: 37px;
   position: absolute;
-  top: 11px;
-  right: 10px;
+  top: 0px;
+  right: 0;
+  background: none !important;
+  border: 0 !important;
+}
+.pwd-btn .eyeIcon {
+  width: 19px;
+  margin-right: 10px;
 }
 .iputIcon {
   width: 19px;
@@ -72,4 +73,13 @@
 }
 .bdy-in {
   margin: auto;
+}
+
+.read-cert {
+  width: 75%;
+}
+
+.student-prof .card {
+  box-shadow: 0 0 0 #000 !important;
+  border: 1px solid #d9ecfb !important;
 }

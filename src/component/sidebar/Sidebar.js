@@ -1,12 +1,8 @@
 import React from 'react';
-
 import {  Row, Col, Nav, Navbar, } from 'react-bootstrap'
-import {Link} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 import { Logo, MenuHome, TestHome,  ReportHome, BillingHome, SettingsHome, ProfileHome} from '../../assets/images/index'
-
-import Subscription from '../../screens/subscription/Subscription';
 
 const Sidebar =()=>{
   return(  
@@ -29,34 +25,34 @@ const Sidebar =()=>{
                     <h6 className="menu-tit text-start d-none d-md-block">
                         Menu
                     </h6>
-                    <Navbar expand="md">
+                    <Navbar className="nav-bar-menu" expand="md">
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll">
                             <Nav defaultActiveKey="/home" className="me-auto my-2 my-lg-0 text-start menu-back">
-                                <Nav.Link className="linka" href="/home">
+                                <Link className="linka" to="/home">
                                     <MenuHome />
                                     My Subscriptions
-                                </Nav.Link> 
-                                <Nav.Link className="linka"  href="#action2">
+                                </Link> 
+                                <Link className="linka"  to="/test">
                                     <TestHome />
                                     Tests
-                                </Nav.Link >
-                                <Nav.Link className="linka"  href="/report">
+                                </Link >
+                                <Link className="linka"  to="/report">
                                     <ReportHome />
                                     Reports
-                                </Nav.Link>
-                                <Nav.Link className="linka"  href="/billings">
+                                </Link>
+                                <Link className="linka"  to="/billings">
                                     <BillingHome />
                                     Billing
-                                </Nav.Link>
-                                <Nav.Link className="linka"  href="#action4">
+                                </Link>
+                                <Link className="linka"  to="/setting">
                                     <SettingsHome />
                                     Settings
-                                </Nav.Link>
-                                <Nav.Link className="linka"  href="/profile">
+                                </Link>
+                                <Link className="linka"  to="/profile">
                                     <ProfileHome />
                                     Profile
-                                </Nav.Link>
+                                </Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>

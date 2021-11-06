@@ -12,19 +12,36 @@ import searchIc from '../images/search.png';
 import playbutton from '../images/playbutton.png';
 import cardimage from '../images/cardImage.png'
 import eye_icon from '../images/eye_icon.png'
+import eye_icon_hid from '../images/eye_icon_hid.png'
 import billing_back from '../images/billing-back.png'
 import numbicon from '../images/numb.png'
 import scaleIcon from '../images/scale_icon.png'
 import forgetpassword from '../images/Reset_password.png';
 import upload from '../images/upload.png';
 import avatarprofile from '../images/avatarprofile.png';
-import learn_from from './Learn_from _anywhere.png'
+import learn_from from './Learn_from _anywhere.png';
+import circle_left from './circle-left.png'
+import circle_right from './circle-right.png'
+import readingbooks from './Reading_books.png'
+import record_mic_icon from './mic.png'
+import play_button from './playbutton.png'
+import paus_button from './pausbtn.png'
+import frame from './frame.png'
+import frame_logo from './frameone.png'
+import reading_book from './certificate.png'
+import certificate from './reading_book.png'
+import shareicon from './shareicon.png'
+import feedbackicon from './feedbackicon.png'
+import printicon from './printicon.png'
 
 export const Logo = () => <img className="logo" src={logo} alt="logo" />;
 
 export const SiginImage = () => (
   <img src={signin} alt="signin" className="singImg" />
 );
+export const Readingbooks = () => (
+  <img src={readingbooks} alt="readingbooks" className="singImg" />
+)
 export const EmailIcon = () => (
   <img src={email} alt="email" className="iputIcon" />
 );
@@ -62,9 +79,15 @@ export const PlaybtnIcon = () => (
 export const BookBackImg = () => (
   <img src={cardimage} alt="cardimage" className="" />
 );
+
 export const EyeIcon = () => (
   <img src={eye_icon} alt="eye_icon" className="eyeIcon"/>
 );
+
+export const EyeIconHid = () => (
+  <img src={eye_icon_hid} alt="eye_icon_hid" className="eyeIcon"/>
+);
+
 export const  Billingrit= () => (
   <img src={billing_back} alt="billing_back" className="billing_back" />
 );
@@ -85,4 +108,40 @@ export const UploadIcon = () => (
 )
 export const Learnprofessional = () => (
   <img src={learn_from} alt="learnfrom" className="images" />
+)
+export const CircleLeft = () => (
+  <img src={circle_left} alt="circle_left" className="images" />
+)
+export const CircleRight = () => (
+  <img src={circle_right} alt="circle_right" className="images" />
+)
+export const RecordMicIcon = () => (
+  <img src={record_mic_icon} alt="record_mic_icon" className="mic-icon" />
+)
+export const PlayBtn = () => (
+  <img src={play_button} alt="playbutton" className="play-paus-icon" />
+)
+export const PausBtn = () => (
+  <img src={paus_button} alt="paus_button" className="play-paus-icon" />
+)
+export const FrameLogo = () => (
+  <img src={frame_logo} alt="frame_logo" className="frame_logo" />
+)
+export const FrameOneLogo = () => (
+  <img src={frame} alt="frame__onelogo" className="frame__one_logo" />
+)
+export const Readingbook = () => (
+  <img src={reading_book} alt="reading_book" className="read-cert" />
+)
+export const Professionalbook = () => (
+  <img src={certificate} alt="certificate" className="read-cert" />
+)
+export const ShareIcon = () => (
+  <img src={shareicon} alt="shareicon" className="shar-icon-btn" />
+)
+export const PrintIcon = () => (
+  <img src={printicon} alt="printicon" className="shar-icon-btn" />
+)
+export const FeedbackIcon = () => (
+  <img src={feedbackicon} alt="feedbackicon" className="shar-icon-btn" />
 )

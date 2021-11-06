@@ -6,7 +6,7 @@ import {
   Logo, 
   EmailIcon,
   PasswordIcon,
-  EyeIcon
+  EyeIcon, EyeIconHid
 } from '../../assets/images/index';
 
 import {Link} from 'react-router-dom';
@@ -15,6 +15,16 @@ import './style.css';
 import './responsive.css'
 
 const Signup = () => {
+  const [paswordShow, setPaswordShow] = useState(true)
+  const [repaswordShow, setRePaswordShow] = useState(true)
+
+  const clickPasswordShow = () =>{
+    setPaswordShow(!paswordShow);
+  }
+  const clickRePasswordShow = () =>{
+    setRePaswordShow(!repaswordShow);
+  }
+
   return (
     <Col className="tl-bdy">
       <div className="bdy-in">
@@ -35,14 +45,18 @@ const Signup = () => {
                 <EmailIcon />
               </Form.Group>
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
-                <Form.Control className="inputField" type="password" placeholder="Password"/>
+                <Form.Control className="inputField"  type={paswordShow ? 'password' : 'text'} placeholder="Password"/>
                 <PasswordIcon />
-                <EyeIcon />
+                <Button className="pwd-btn" onClick={clickPasswordShow}>
+                  { paswordShow ? <EyeIconHid /> : <EyeIcon />}
+                </Button>
               </Form.Group>
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
-                <Form.Control className="inputField" type="password" placeholder="Re-Enter Password"/>
+                <Form.Control className="inputField" type={repaswordShow ? 'password' : 'text'} placeholder="Re-Enter Password"/>
                 <PasswordIcon />
-                <EyeIcon />
+                <Button className="pwd-btn" onClick={clickRePasswordShow}>
+                  { repaswordShow ? <EyeIconHid /> : <EyeIcon />}
+                </Button>
               </Form.Group>
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Check className="float-start me-2" type="checkbox"/>
