@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { message } from 'antd';
 import {
   SiginImage,
   Logo, 
@@ -8,37 +9,76 @@ import {
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Row, Col, Form, Button} from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
 
 const Login = (props) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword]= useState('')
-  const [paswordShow, setPaswordShow] = useState(true)
-  const [repaswordShow, setRePaswordShow] = useState(true)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  // const [login, setLogin] = useState(false);
+  
 
-  const onEmail = e => {
+  const dispatch = useDispatch();
+
+  const validLogin = useSelector(state => state.loginState.login);
+  const invalidLogin = useSelector(state => state.loginState.error);
+
+  useEffect(() => {
+    if (validLogin) {
+      // setShowLogin(hidePopup);
+      // setLogin(false);
+      // history.push({
+      //   pathname: '/dashboard',
+      // });
+      // } else if (validLogin && !login && !showOtp) {
+      //   sessionStorage.clear();
+      dispatch({ type: 'LOGOUT_SUCCESS' });
+    } else if ( invalidLogin) {
+      message.error('Please enter the valid credentials');
+    }
+  });
+
+  const onUserName = (e) => {
     if (e.target.value.match('^[a-zA-Z0-9_@./#&+-]*$')) {
       setEmail(e.target.value);
     }
-  } 
-  const onPassword = e => {
-    setPassword(e.target.value)
-  }
+  };
 
-  const clickPasswordShow = () =>{
-    setPaswordShow(!paswordShow);
-  }
-  const clickRePasswordShow = () =>{
-    setRePaswordShow(!repaswordShow);
-  }
-  const onClick=()=>{
-    setEmail('')
-    setPassword('')
-    console.log(email, password)
-  }
+  const onPassword = (e) => {
+    if (e.target.value.match('^[a-zA-Z0-9_@./#&+-]*$')) {
+      setPassword(e.target.value);
+    }
+  };
+
+  const splitPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+
+
+  const Login = () => {
+    if (email === '' || password === '') {
+      // setAlertError(true);
+      message.error('Please fill all the fields');
+      // setErrorMsg('Please fill all the fields');
+    // } else if (email === '') {
+    //   setAlertError(true);
+    // } else if (password === '') {
+    //   setAlertError(true);
+    }else {
+      // setLogin(true);
+      const loginDetails = {
+        // email: 'gopinath.chandar@gmail.com',
+        // password: 'Football7&',
+        email,
+        password,
+      };
+      dispatch({ type: 'LOGIN_REQUEST', login: loginDetails });
+    }
+  };
   return (
     <Col className="tl-bdy">
       <div className="bdy-in">
@@ -57,27 +97,28 @@ const Login = (props) => {
                   type="email" 
                   placeholder="E-mail"
                   value={email}
-                  onChange={onEmail}
+                  onChange={onUserName}
                 />
                 <EmailIcon />
               </Form.Group>
               <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                 <Form.Control 
                   className="login-inputField"  
-                  type={paswordShow ? 'password' : 'text'} 
+                  type={showPassword ? 'password' : 'text'} 
                   placeholder="Password"
                   value={password}
                   onChange={onPassword}
                   />
                 <PasswordIcon />
-                <Button className="pwd-btn" onClick={clickPasswordShow}>
-                  { paswordShow ? <EyeIconHid /> : <EyeIcon />}
+                <Button className="pwd-btn" onClick={splitPassword}>
+                  { showPassword ? <EyeIconHid /> : <EyeIcon />}
                 </Button>
               </Form.Group>
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Label className="reset-password"><Link to="/resetpassword">Forget Password</Link> </Form.Label>
               </Form.Group>
-                <Link to="/schoolstudent" className="login-submit-btn" variant="primary" type="submit" onClick={onClick}>
+                <Link to="/schoolstudent" className="login-submit-btn" variant="primary" type="submit" 
+                onClick={Login}>
                     Log in
                 </Link>                                
             </Form>

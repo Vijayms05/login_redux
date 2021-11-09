@@ -1,8 +1,10 @@
 
 import { combineReducers } from 'redux';
-import SignupState from './Signup'
+import signupState from './Signup'
+import loginState from './Login'
 
 const rootReducer = combineReducers({
-    SignupState,
+    signupState,
+    loginState,
 })
 export default rootReducer;

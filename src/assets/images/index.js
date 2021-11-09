@@ -26,11 +26,11 @@ import readingbooks from './Reading_books.png'
 import record_mic_icon from './mic.png'
 import play_button from './playbutton.png'
 import paus_button from './pausbtn.png'
-import frame from './frame.png'
-import frame_logo from './frameone.png'
-import reading_book from './certificate.png'
-import certificate from './reading_book.png'
-import shareicon from './shareicon.png'
+import frame from './Frame.png'
+import frame_logo from './FrameOne.png'
+import reading_book from './Certificate.png'
+import certificate from './Reading_book.png'
+import shareicon from './shareIcon.png'
 import feedbackicon from './feedbackicon.png'
 import printicon from './printicon.png'
 
@@ -107,7 +107,7 @@ export const UploadIcon = () => (
   <img src={upload} alt="upload" className="images" />
 )
 export const Learnprofessional = () => (
-  <img src={learn_from} alt="learnfrom" className="images" />
+  <img src={learn_from} alt="learnfrom" className="singImg" />
 )
 export const CircleLeft = () => (
   <img src={circle_left} alt="circle_left" className="images" />

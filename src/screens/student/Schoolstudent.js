@@ -73,8 +73,27 @@ const Schoolstudent = (props) =>{
                                         onClick={e => setCollege(!college)} />
                                     </Form.Group>
                                 </Col>
-                            </Row>
-                            <Link to="/onboard" className="login-submit-btn" variant="primary" type="submit">
+                            </Row> 
+                            <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                                <Form.Control 
+                                className="student-inputField" 
+                                type="email" 
+                                placeholder="Name of School"
+                                />
+                            </Form.Group>  
+                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
+                                <option selected>Stream</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>   
+                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
+                                <option selected>Standard</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select> 
+                            <Link to="/home" className="login-submit-btn" variant="primary" type="submit">
                                 Continue
                             </Link>                                
                         </Form>         

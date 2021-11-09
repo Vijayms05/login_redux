@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Link, useHistory} from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import {
   Logo,
   Readingbook,
@@ -37,8 +37,8 @@ const Onboardingstudent = (props) =>{
       <div className="student-prof">      
         <div className="d-lg-flex m-auto">
           <Col xs={12} lg={4} className="p-3 text-center m-auto">
-            <Readingbook />                       
-          </Col>
+            <Professionalbook />                       
+          </Col>          
           <Col xs={12} lg={4} className="p-3 p-lg-0 text-center m-auto">
             <Logo />
             <h3 className="onboarding-heading mt-5">Create account as a</h3>
@@ -84,13 +84,13 @@ const Onboardingstudent = (props) =>{
               </Col>                
             </Row> 
             <Col>
-              <Link to="/student" className="onboarding-button mt-3 mb-2">               
+              <Link  className="onboarding-button mt-3 mb-2" onClick={toggleClick}>       {/* to="/student" */}        
                 Continue                     
               </Link> 
             </Col>
           </Col>
           <Col xs={12} lg={4} className="p-3 text-center m-auto">
-            <Professionalbook />                       
+            <Readingbook />                       
           </Col>
         </div>                   
     </div>

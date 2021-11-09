@@ -36,17 +36,23 @@ export const history = createBrowserHistory();
                     <Route exact  path="/" component={Signup} />
                     <Route path="/login" component={Login} />
                     <Route path="/resetpassword" component={ResetPassword} />
+
+                    <Route path="/onboard" component={Onboardingstudent} />
+                    <Route path="/student" component={Studentgroup} />
+                    <Route path="/schoolstudent" component={Schoolstudent} />                   
+                    <Route path="/professional" component={Professional} />
+
+
                     <Route path="/home" component={HomeScreen} />
                     <Route path="/subscription-list" component={SubscriptionDetailScreen} />
                     <Route path="/billings" component={BillingScreen} />
                     <Route path="/billings-details" component={BillingDetailScreen} />
-                    <Route path="/onboard" component={Onboardingstudent} />
+                    
                     <Route path="/test" component={TestMainScreen} />
                     <Route path="/testintro" component={TestIntro} />
-                    <Route path="/schoolstudent" component={Schoolstudent} />
-                    <Route path="/student" component={Studentgroup} />
+                   
                     <Route path="/setting" component={SettingScreens} />
-                    <Route path="/proffesional" component={Professional} />
+                    
                     <Route path="/profile" component={ProfileScreen} />
                     <Route path="/question-page" component={QuestionPage} />
                     <Route path="/fill-question" component={FillQusetionScreen} />
