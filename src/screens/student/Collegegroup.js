@@ -15,7 +15,7 @@ import {
 } from '../../assets/images/index';
 
 
-const Studentgroup = (props) =>{
+const Collegegroup = (props) =>{
     const [input, setInput] = useState('')
     const [nameInput, setNameinput]= useState('')
     const [school, setSchool] = useState(false)
@@ -57,20 +57,27 @@ const Studentgroup = (props) =>{
                             type="email" 
                             placeholder="Enter your Name"
                             />
-                        </Form.Group>   
-                            <Form.Group action="#" class="stud-form-rad">
-                                <Form.Check className="ps-0" label="School"  type="radio" id="test1" name="radio-group" checked />
-                                <Form.Check label="College/ 
-                                        Intermediate  
-                                        (plus one/ plus two)"  type="radio" id="test2" name="radio-group" />
-                            </Form.Group>
-                            <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
-                                <Form.Control 
-                                className="student-inputField" 
-                                type="email" 
-                                placeholder="Name of School"
-                                />
-                            </Form.Group>  
+                        </Form.Group>                           
+                                                  
+                        <Form.Group action="#" class="stud-form-rad">
+                            <Form.Check className="ps-0" label="School"  type="radio" id="test1" name="radio-group" />
+                            <Form.Check label="College/
+                                    Intermediate  
+                                    (plus one/ plus two)"  type="radio" id="test2" name="radio-group" checked/>
+                        </Form.Group>
+                        <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                            <Form.Control 
+                            className="student-inputField" 
+                            type="email" 
+                            placeholder="Name of College"
+                            />
+                        </Form.Group>  
+                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
+                                <option selected>Name of University</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>   
                             <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
                                 <option selected>Stream</option>
                                 <option value="1">One</option>
@@ -78,7 +85,13 @@ const Studentgroup = (props) =>{
                                 <option value="3">Three</option>
                             </select>   
                             <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
-                                <option selected>Standard</option>
+                                <option selected>Brach</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select> 
+                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
+                                <option selected>Year</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -93,4 +106,4 @@ const Studentgroup = (props) =>{
         </Col>
     )
 } 
-export default Studentgroup
+export default Collegegroup

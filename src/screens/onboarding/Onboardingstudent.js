@@ -85,6 +85,9 @@ const Onboardingstudent = (props) =>{
             </Row> 
             <Col>
               <Link to="/student" className="onboarding-button mt-3 mb-2">               
+                student Continue                     
+              </Link> 
+              <Link to="/professional" className="onboarding-button mt-3 mb-2">               
                 Continue                     
               </Link> 
             </Col>

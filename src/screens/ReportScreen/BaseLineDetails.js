@@ -1,13 +1,12 @@
 import React from 'react';
+import BaselineReport from '../../component/reports/BaselineReport ';
 import SideMenu from '../../component/side/SideMenu';
-import { Row } from 'react-bootstrap';
-import ReportPage from '../reportPage/ReportPage';
-const ReportScreen = () => {
+const BaseLineDetails = () => {
     return (
         <div className="d-md-flex test-main">  
             <SideMenu />
-            <ReportPage />
+            <BaselineReport />
         </div>
     );
 }
-export default ReportScreen
+export default BaseLineDetails

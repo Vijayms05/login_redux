@@ -48,33 +48,26 @@ const Schoolstudent = (props) =>{
                     </Col>
                     <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
                         <Logo  />
-                        <Form className="login-form p-4">
-                        <h2>Before you jump in</h2>
-                        <h3>We will personalise this platform accordingly</h3> 
-                        <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
-                            <Form.Control 
-                            className="student-inputField" 
-                            type="email" 
-                            placeholder="Enter your Name"
-                            />
-                        </Form.Group>                           
-                            <Row>
-                                <Col className="mt-0" >  
-                                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                        <Form.Check type="checkbox" label="School"  checked={school} 
-                                        onClick={e => setSchool(!school)} />
-                                    </Form.Group>                  
-                                </Col>
-                                <Col className="mt-1" >
-                                    <Form.Group className="mb-3" controlId="formBasicCheckbox ">
-                                        <Form.Check type="checkbox" label="College/ 
+                            <Form className="login-form p-4">
+                            <h2>Before you jump in</h2>
+                            <h3>We will personalise this platform accordingly</h3> 
+                            <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                                <Form.Control 
+                                className="student-inputField" 
+                                type="email" 
+                                placeholder="Enter your Name"
+                                />
+                            </Form.Group>                           
+                            <Form.Group action="#" class="stud-form-rad">
+                                <Form.Check className="ps-0" label="School"  type="radio" id="test1" name="radio-group" />
+                                <Form.Check label="College/ 
                                         Intermediate  
-                                        (plus one/ plus two)"  checked={college} style={{width:'200px',height:'50px'}}
-                                        onClick={e => setCollege(!college)} />
-                                    </Form.Group>
-                                </Col>
-                            </Row>
-                            <Link to="/onboard" className="login-submit-btn" variant="primary" type="submit">
+                                        (plus one/ plus two)"  type="radio" id="test2" name="radio-group" />
+                            </Form.Group>
+                            <Link to="/schoolstudent" className="login-submit-btn" variant="primary" type="submit">
+                                student Continue
+                            </Link>   
+                            <Link to="/collegstudent" className="login-submit-btn" variant="primary" type="submit">
                                 Continue
                             </Link>                                
                         </Form>         

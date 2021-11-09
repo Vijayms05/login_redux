@@ -6,6 +6,7 @@ import {
     Form,
     Button 
 } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 import {
     Learnprofessional,
@@ -35,45 +36,47 @@ const Professional = (props) => {
     }, [school,college])   
  
     return(
-        <Container fluid >            
-            <Row className="mt-4" >
-                <Col md={6} xl={7} className="m-auto text-center">
-                    <Learnprofessional />
-                </Col>
-                <Col md={6} xl={5}   className="p-5" > 
-                    <Logo />
-                    <Form className="professional-form p-3 m-2"> 
-                        <h3 className="mb-2">Before you jump in</h3>
-                        <p className="mb-3">We will personalise this platform accordingly</p>
-                        <Form.Group className="mb-3 professional-formgroup">
-                            <Form.Control 
-                                placeholder="Enter your name" 
-                                className="px-3 professional-formcontrol"  
-                                value={input}
-                                onChange={onChange}                                    
-                            />
-                        </Form.Group> 
-                        <select className="form-select mb-3 textselectoption" aria-label="Default select example">
-                            <option selected>Industry</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>  
-                        <Form.Group className="mb-3 professional-formgroup">
-                            <Form.Control 
-                                placeholder="Work role" 
-                                className="px-3 professional-formcontrol"  
-                                value={input}
-                                onChange={onChange}                                    
-                            />
-                        </Form.Group>  
-                        <Button className="mb-3 professional-btn" >
-                            Continue
-                        </Button>
-                    </Form>
-                </Col>
-            </Row>
-        </Container>
+        <Col className="tl-bdy">
+            <div className="bdy-in">   
+                <Row >
+                    <Col md={6} xl={7} className="m-auto text-center">
+                        <Learnprofessional />
+                    </Col>
+                    <Col md={6} xl={5} xs className="p-3 m-auto login-wrapper">
+                        <Logo />
+                        <Form className="login-form p-3  m-2 mt-3"> 
+                            <h3 className="mb-2">Before you jump in</h3>
+                            <p className="mb-3 text-center">We will personalise this platform accordingly</p>
+                            <Form.Group className="mb-3 professional-formgroup">
+                                <Form.Control 
+                                    placeholder="Enter your name" 
+                                    className="px-3 professional-formcontrol"  
+                                    value={input}
+                                    onChange={onChange}                                    
+                                />
+                            </Form.Group> 
+                            <select className="form-select mb-3 textselectoption" aria-label="Default select example">
+                                <option selected>Industry</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>  
+                            <Form.Group className="mb-3 professional-formgroup">
+                                <Form.Control 
+                                    placeholder="Work role" 
+                                    className="px-3 professional-formcontrol"  
+                                    value={input}
+                                    onChange={onChange}                                    
+                                />
+                            </Form.Group>  
+                            <Link to="/home" className="login-submit-btn" variant="primary" type="submit">
+                                Continue
+                            </Link>  
+                        </Form>
+                    </Col>
+                </Row>
+            </div>
+        </Col>
     );
 }
 export default Professional

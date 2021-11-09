@@ -26,6 +26,9 @@ import TestIntro from '../screens/TestScreen/TestIntro';
 import TextQusetionScreen from '../screens/TestScreen/TextQusetionScreen';
 import SubscriptionDetailScreen from '../screens/subscriptionList/SubscriptionDetailScreen';
 import Onboardingstudent from '../screens/onboarding/Onboardingstudent';
+import Collegegroup from '../screens/student/Collegegroup';
+import ReportScreen from '../screens/ReportScreen/ReportScreen';
+import BaseLineDetails from '../screens/ReportScreen/BaseLineDetails';
 export const history = createBrowserHistory();
 
  const Routes = () => {
@@ -43,10 +46,13 @@ export const history = createBrowserHistory();
                     <Route path="/onboard" component={Onboardingstudent} />
                     <Route path="/test" component={TestMainScreen} />
                     <Route path="/testintro" component={TestIntro} />
-                    <Route path="/schoolstudent" component={Schoolstudent} />
-                    <Route path="/student" component={Studentgroup} />
+                    <Route path="/student" component={Schoolstudent} />
+                    <Route path="/professional" component={Professional} />
+                    <Route path="/schoolstudent" component={Studentgroup} />
+                    <Route path="/collegstudent" component={Collegegroup} />  
+                    <Route path="/report" component={ReportScreen} />
+                    <Route path="/basline" component={BaseLineDetails} />
                     <Route path="/setting" component={SettingScreens} />
-                    <Route path="/proffesional" component={Professional} />
                     <Route path="/profile" component={ProfileScreen} />
                     <Route path="/question-page" component={QuestionPage} />
                     <Route path="/fill-question" component={FillQusetionScreen} />
