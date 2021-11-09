@@ -16,6 +16,7 @@ import './style.css'
 const Professional = (props) => {
    const [inputName, setInputname]=useState('')
    const [workRole, setWorkrole]= useState('')
+   const [industry, setIndustry]= useState('')
 
     const onName = e =>{
         setInputname(e.target.value)
@@ -23,6 +24,9 @@ const Professional = (props) => {
     const onWork = e => {
         setWorkrole(e.target.value)
     }   
+    const onIndustry = e => {
+        setIndustry(e.target.value)
+    }
     const onProfessional = () =>{
         history.push('/home')
     }
@@ -47,7 +51,11 @@ const Professional = (props) => {
                                     onChange={onName}                                    
                                 />
                             </Form.Group> 
-                            <select className="form-select mb-3 textselectoption" aria-label="Default select example">
+                            <select className="form-select mb-3 textselectoption" 
+                                aria-label="Default select example"
+                                defaultValue={industry}
+                                onChange={onIndustry}
+                                >
                                 <option selected>Industry</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>

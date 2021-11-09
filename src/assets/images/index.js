@@ -22,6 +22,7 @@ import avatarprofile from '../images/avatarprofile.png';
 import learn_from from './Learn_from _anywhere.png';
 import circle_left from './circle-left.png'
 import circle_right from './circle-right.png'
+import arrowLeft from './arrowLeft.png'
 import readingbooks from './Reading_books.png'
 import record_mic_icon from './mic.png'
 import play_button from './playbutton.png'
@@ -41,6 +42,9 @@ export const SiginImage = () => (
 );
 export const Readingbooks = () => (
   <img src={readingbooks} alt="readingbooks" className="singImg" />
+)
+export const Learnprofessional = () => (
+  <img src={learn_from} alt="learnfrom" className="singImg" />
 )
 export const EmailIcon = () => (
   <img src={email} alt="email" className="iputIcon" />
@@ -106,14 +110,14 @@ export const AvatorProfile = () => (
 export const UploadIcon = () => (
   <img src={upload} alt="upload" className="images" />
 )
-export const Learnprofessional = () => (
-  <img src={learn_from} alt="learnfrom" className="singImg" />
-)
 export const CircleLeft = () => (
   <img src={circle_left} alt="circle_left" className="images" />
 )
 export const CircleRight = () => (
   <img src={circle_right} alt="circle_right" className="images" />
+)
+export const LeftArrow = () => (
+  <img src={arrowLeft} alt="arrowLeft" className="arrow-left" />
 )
 export const RecordMicIcon = () => (
   <img src={record_mic_icon} alt="record_mic_icon" className="mic-icon" />

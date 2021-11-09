@@ -20,13 +20,97 @@ import {
 } from '../../assets/images/index';
 
 const ProfilePage = (props) => {
+
     const [show, setShow]=useState(false);
     const [isShow, setIsShow]=useState(false);
     const [password,setPassword] = useState('')
     const [conformPassword,setConformPassword] = useState('')
     const [passwordShown, setPasswordShown] = useState(false);
     const [conformpasswordShown, setConformpasswordShown] = useState(false);
+    
 
+    const [mobileNo, setMobileNo] = useState('');
+    const [state,setState]=useState('label');
+    const [gender,setGender]= useState('')
+    const [marital, setMarital]= useState('')
+    const [country, setCountry]= useState('')
+    const [address, setAddress]= useState('')
+    const [ addressOne, setAddressOne]= useState('')
+    const [district, setDistrict]= useState('')
+    const [pincode, setPincode]= useState('')
+    const [eduStream, setEduStream]= useState('')
+    const [workExp, setWorkExp]= useState('')
+    const [industry, setIndustry]= useState('')
+    const [higherEduStream, setHigherEduStream]=useState('')
+    const [currentRole,setCurrectRole]=useState('')
+    const [learnChange, setLearnChange]= useState('')
+    const [institution, setInstitution]= useState('')
+    const [jobProfile, setJobProfile]= useState('')
+
+
+    const now=80;
+
+    const onMobile = e => {
+        if(e.target.value.match('^[0-9\b]+$')){
+            setMobileNo(e.target.value)
+        }        
+    }
+    const onState = e => {
+        setState(e.target.value)
+    }
+    const onGender = e => {
+        setGender(e.target.value)
+    }
+    const onMarital = e => {
+        setMarital(e.target.value)
+    }
+    const onCountry = e => {
+        setCountry(e.target.value)
+    }
+    const onAddress = e => {
+        setAddress(e.target.value)
+    }
+    const onAddressOne = e => {
+        setAddressOne(e.target.value)
+    }
+    const onDistrict = e => {
+        setDistrict(e.target.value)
+    }
+    const onPincode = e => {
+        setPincode(e.target.value)
+    }
+    const onEduStream= e => {
+        setEduStream(e.target.value)
+    }
+    const onHigherEduStream = e => {
+        setHigherEduStream(e.target.value)
+    }
+    const onWorkExp = e => {
+        setWorkExp(e.target.value)
+    }
+    const onIndustry = e => {
+        setIndustry(e.target.value)
+    }
+    const onInstitution = e => {
+        setInstitution(e.target.value)
+    }
+    const onCurrentRole = e => {
+        setCurrectRole(e.target.value)
+    }
+    const onJobProfile = e => {
+        setJobProfile(e.target.value)
+    }
+    const onLearnChange = e => {
+        setLearnChange(e.target.value)
+    }   
+    
+
+  
+
+    const onSave = () =>{
+
+    }
+    //modal
     const togglePassword =() =>{ 
         setPasswordShown(!passwordShown)
     }
@@ -44,10 +128,10 @@ const ProfilePage = (props) => {
                     <h3 className="mb-4">Profile</h3>
                     <Row className="mt-3 mb-3">
                         <Col sm={4} className='p-2'>
-                            <ProgressBar now={60} className="mb-3"/>                        
+                            <ProgressBar now={now} className="mb-3"/>                        
                         </Col>
                         <Col sm={8}>                       
-                            <label>60% Complete</label>
+                            <label>{now}% Complete</label>
                         </Col>
                     </Row>
                     <Card className="horizontal-card mb-4">
@@ -81,26 +165,35 @@ const ProfilePage = (props) => {
                             <label className="mobile-no mb-2">Mobile Number</label>
                             <Form.Control 
                                 className="profile-formcontrol" 
-                                type="email" 
-                                placeholder="Enter email"                        
+                                type="text" 
+                                placeholder="82505 65285"  
+                                value={mobileNo} 
+                                onChange={onMobile}      
+                                maxLength="10"               
                             />
                         </Form.Group>
                         <Form.Group className="mb-3 profile-formgroup">
                             <label className="mobile-no mb-2" >Date of Birth</label>                    
-                        <Form.Control type="date" placeholder="00-00-0000" /> 
+                        <Form.Control type="date" 
+                            placeholder="00-00-0000" /> 
                         </Form.Group>
                         <Form.Group className="mb-3 profile-formgroup">
                             <label className="mobile-no mb-2" >Gender</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
-                                <option selected>label</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                                defaultValue={gender}
+                                onChange={onGender}
+                            >
+                                <option selected value="1">label</option>
+                                <option value="2">One</option>
+                                <option value="3">Two</option>
+                                <option value="4">Three</option>
                             </select> 
                         </Form.Group>
                         <Form.Group className="mb-5 profile-formgroup">
                             <label className="mobile-no mb-2" >Marital Status</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                              defaultValue={marital}
+                              onChange={onMarital}>
                                 <option selected>label</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -110,7 +203,10 @@ const ProfilePage = (props) => {
                         <h5 className="mb-3">Address</h5>
                         <Form.Group className="mb-3 profile-formgroup">
                             <label className="mobile-no mb-2" >Country</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                                  defaultValue={country}
+                                  onChange={onCountry}
+                            >
                                 <option selected>label</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -119,12 +215,15 @@ const ProfilePage = (props) => {
                         </Form.Group>
                         <Form.Group className="mb-3 profile-formgroup">
                             <label className="mobile-no mb-2" >Address</label>                    
-                            <Form.Control placeholder="Address line 1" className="mb-2" />
-                            <Form.Control placeholder="Address line 2" className="mb-2"/>
+                            <Form.Control placeholder="Address line 1" className="mb-2" value={address} onChange={onAddress}/>
+                            <Form.Control placeholder="Address line 2" className="mb-2" value={addressOne} onChange={onAddressOne}/>
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2" >State</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                                defaultValue={state}
+                                onChange={onState}
+                            >
                                 <option selected>label</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -133,7 +232,9 @@ const ProfilePage = (props) => {
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2">District</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                              defaultValue={district}
+                              onChange={onDistrict}>
                                 <option selected>label</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -142,7 +243,9 @@ const ProfilePage = (props) => {
                         </Form.Group>
                         <Form.Group className="mb-5">
                             <label className="mobile-no mb-2">Pin Code</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                            defaultValue={pincode}
+                            onChange={onPincode}>
                                 <option selected>label</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -152,7 +255,10 @@ const ProfilePage = (props) => {
                         <h5 className="mb-3">Educational And Work Details</h5>
                         <Form.Group className="mb-3 ">
                             <label className="mobile-no mb-2" >Educational Stream</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                                defaultValue={eduStream}
+                                onChange={onEduStream}
+                            >
                                 <option selected>label</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -161,7 +267,10 @@ const ProfilePage = (props) => {
                         </Form.Group>
                         <Form.Group className="mb-3 ">
                             <label className="mobile-no mb-2" >Highest Educational Qualification</label>                    
-                            <select className="form-select mb-3 " aria-label="Default select example">
+                            <select className="form-select mb-3 " aria-label="Default select example"
+                              defaultValue={higherEduStream}
+                              onChange={onHigherEduStream}
+                              >
                                 <option selected>label</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -170,37 +279,40 @@ const ProfilePage = (props) => {
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2" >Work Experience</label>                    
-                            <Form.Control placeholder="Placeholder" />                    
+                            <Form.Control placeholder="Placeholder" value={workExp} onChange={onWorkExp} />                    
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2" >Industry</label>                    
-                            <Form.Control placeholder="Placeholder" />                    
+                            <Form.Control placeholder="Placeholder" value={industry} onChange={onIndustry}/>                    
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2" >Organization/Institution</label>                    
-                            <Form.Control placeholder="Placeholder" />                    
+                            <Form.Control placeholder="Placeholder" value={institution} onChange={onInstitution}/>                    
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2" >Current Role</label>                    
-                            <Form.Control placeholder="Placeholder" />                    
+                            <Form.Control placeholder="Placeholder" value={currentRole} onChange={onCurrentRole}/>                    
                         </Form.Group>   
                         <Col sm={6}>
                             <label className="mobile-no mb-2" >Resume</label>     
                             <div className="upload mb-3" > {/*style={{border: '2px dashed darkgrey',width:'320px', height:'150px', textAlign:'center'}} */}
-                                <div className="icon"><UploadIcon /></div>
+                                <div className="icon"><UploadIcon  /></div>
                                 <small>Click here to add a document</small>                
                             </div> 
                         </Col>
                            
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2" >Desired Job Profile</label>                    
-                            <Form.Control placeholder="Placeholder" />                    
+                            <Form.Control placeholder="Placeholder" value={jobProfile}
+                            onChange={onJobProfile} />                    
                         </Form.Group>            
                         <Form.Group className="mb-4">
                             <label className="mobile-no mb-2" >Learning Changes</label>                    
-                            <Form.Control placeholder="Placeholder" />                    
+                            <Form.Control placeholder="Placeholder" value={learnChange} 
+                            onChange={onLearnChange}/>                    
                         </Form.Group>  
-                        <Button className="profile-button ms-3 mb-3">
+                        <Button className="profile-button ms-3 mb-3"
+                        onClick={onSave}>
                             Save Changes
                         </Button>
                     </Col>  

@@ -6,7 +6,7 @@ import { RecordMicIcon, PlayBtn, PausBtn, CircleLeft, CircleRight } from "../../
 import useRecorder from "./useRecorder";
 
 const VoiceRecoder = () => {
-     let [audioURL, isRecording, startRecording, stopRecording] = useRecorder();
+     let [audioURL, isRecording, startRecording, stopRecording,] = useRecorder();
     return (
         <div className="tl-rt-qst"> 
             <div className="qust-tit">       
@@ -43,7 +43,7 @@ const VoiceRecoder = () => {
                     <CircleLeft />
                     Previous
                 </Button>
-                <div className="d-flex">
+                {/* <div className="d-flex">
                     <Link to="/videorecord" className="nxt-btn">
                         Next
                         <CircleRight />
@@ -51,7 +51,7 @@ const VoiceRecoder = () => {
                     <Button className="skp-btn">
                         Skip
                     </Button>
-                </div>                
+                </div>    */}             
             </div>
             {/* <Video /> */}
         </div>

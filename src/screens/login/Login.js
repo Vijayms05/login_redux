@@ -8,18 +8,17 @@ import {
   PasswordIcon,
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
-
+import { history } from '../../routes/Routes'
 import { Link } from 'react-router-dom';
 import { Row, Col, Form, Button} from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
+// import Signup from '../signup/Signup';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
-  // const [login, setLogin] = useState(false);
-  
+  const [showPassword, setShowPassword] = useState(false); 
 
   const dispatch = useDispatch();
 
@@ -27,17 +26,10 @@ const Login = (props) => {
   const invalidLogin = useSelector(state => state.loginState.error);
 
   useEffect(() => {
-    if (validLogin) {
-      // setShowLogin(hidePopup);
-      // setLogin(false);
-      // history.push({
-      //   pathname: '/dashboard',
-      // });
-      // } else if (validLogin && !login && !showOtp) {
-      //   sessionStorage.clear();
+    if (validLogin) {      
       dispatch({ type: 'LOGOUT_SUCCESS' });
     } else if ( invalidLogin) {
-      message.error('Please enter the valid credentials');
+      console.log('Please enter the valid credentials');
     }
   });
 
@@ -47,10 +39,8 @@ const Login = (props) => {
     }
   };
 
-  const onPassword = (e) => {
-    if (e.target.value.match('^[a-zA-Z0-9_@./#&+-]*$')) {
-      setPassword(e.target.value);
-    }
+  const onPassword = (e) => {  
+      setPassword(e.target.value);   
   };
 
   const splitPassword = () => {
@@ -59,17 +49,10 @@ const Login = (props) => {
 
 
 
-  const Login = () => {
-    if (email === '' || password === '') {
-      // setAlertError(true);
-      message.error('Please fill all the fields');
-      // setErrorMsg('Please fill all the fields');
-    // } else if (email === '') {
-    //   setAlertError(true);
-    // } else if (password === '') {
-    //   setAlertError(true);
-    }else {
-      // setLogin(true);
+  const onLogin = (props) => {    
+    if (email === '' || password === '') {     
+      console.log('Please fill all the fields');     
+    }else {    
       const loginDetails = {
         // email: 'gopinath.chandar@gmail.com',
         // password: 'Football7&',
@@ -78,6 +61,8 @@ const Login = (props) => {
       };
       dispatch({ type: 'LOGIN_REQUEST', login: loginDetails });
     }
+    history.push({pathname:'/onboard'})
+    console.log(email,password)
   };
   return (
     <Col className="tl-bdy">
@@ -117,10 +102,10 @@ const Login = (props) => {
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Label className="reset-password"><Link to="/resetpassword">Forget Password</Link> </Form.Label>
               </Form.Group>
-                <Link to="/schoolstudent" className="login-submit-btn" variant="primary" type="submit" 
-                onClick={Login}>
+                <Button  className="login-submit-btn" variant="primary" type="submit" 
+                onClick={onLogin}>
                     Log in
-                </Link>                                
+                </Button>                                
             </Form>
             <p className="login-p mt-2 mb-3 mt-4 text-center">Don't have an account? <Link to="/">Sign up</Link></p>            
           </Col>

@@ -7,7 +7,8 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { history } from '../../routes/Routes'
 
 import {
     Readingbooks,
@@ -23,16 +24,16 @@ const Studentgroup = (props) =>{
         setInputname(e.target.value)
     }
     
-    const history = useHistory();
+  
 
     const toggleClick = e =>{
         
         e.preventDefault();  
         if(school === 'school')  {
-          history.push("/schoolstudent")
+          history.push({pathname:"/schoolstudent" })
           // console.log(student)
-        }else if(school !== 'college'){
-          history.push("/collegestudent")
+        }else if(school === 'college'){
+          history.push({ pathname: "/collegegroup" })
         }         
     }
     return(
@@ -45,17 +46,17 @@ const Studentgroup = (props) =>{
                     <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
                         <Logo  />
                         <Form className="login-form p-4">
-                        <h2>Before you jump in</h2>
-                        <h3>We will personalise this platform accordingly</h3> 
-                        <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
-                            <Form.Control 
-                            className="student-inputField" 
-                            type="email" 
-                            placeholder="Enter your Name"
-                            value={inputName}
-                            onChange={onInputname}
-                            />
-                        </Form.Group>                           
+                            <h2>Before you jump in</h2>
+                            <h3>We will personalise this platform accordingly</h3> 
+                            <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                                <Form.Control 
+                                className="student-inputField" 
+                                type="email" 
+                                placeholder="Enter your Name"
+                                value={inputName}
+                                onChange={onInputname}
+                                />
+                            </Form.Group>                           
                             <Row>
                                 <Col className="mt-0" >  
                                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -79,7 +80,8 @@ const Studentgroup = (props) =>{
                                 className="login-submit-btn" 
                                 variant="primary" 
                                 type="submit"
-                                onClick={toggleClick}>
+                                onClick={toggleClick}
+                            >
                                 Continue
                             </Button>                                
                         </Form>         

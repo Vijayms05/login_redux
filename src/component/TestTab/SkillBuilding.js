@@ -19,7 +19,7 @@ const SkillBuilding = () =>{
                 </thead>
             </Table>
             <Accordion defaultActiveKey="0" className="txt-tbl-acrd">
-                <Accordion.Item eventKey="0">
+                <Accordion.Item eventKey="0" className="ac-itm">
                     <Accordion.Header className="acc-h1">View Design</Accordion.Header>
                     <Accordion.Body className="p-0">
                         <Table>                                
@@ -53,7 +53,8 @@ const SkillBuilding = () =>{
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
                     <Accordion.Header>Accordion Item #2</Accordion.Header>
-                    <Accordion.Body><Table>                                
+                    <Accordion.Body>
+                        <Table>                                
                             <tbody>
                                 <tr>
                                     <td></td>

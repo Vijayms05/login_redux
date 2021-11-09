@@ -9,14 +9,20 @@ import {
 import Signup from '../screens/signup/Signup';
 import Login from '../screens/login/Login';
 import ResetPassword from '../screens/resetpassword/ResetPassword';
+
+import Onboardingstudent from '../screens/onboarding/Onboardingstudent';
+import Schoolstudent from '../screens/student/Schoolstudent';
+import Studentgroup from '../screens/student/Studentgroup';
+import Collegegroup from '../screens/student/Collegegroup';
+
 import HomeScreen from '../screens/home/Home';
 import BillingScreen from '../screens/BillingScreen/BillingScreen';
 import BillingDetailScreen from '../screens/BillingDetailScreen/BillingDetailScreen';
 import Professional from '../screens/professional/Professional';
 import TestMainScreen from '../screens/TestScreen/TestMainScreen';
 import QuestionPage from '../screens/TestScreen/QuestionPage';
-import Schoolstudent from '../screens/student/Schoolstudent';
-import Studentgroup from '../screens/student/Studentgroup';
+
+
 import SettingScreens from '../screens/setting/SettingScreens';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import FillQusetionScreen from '../screens/TestScreen/FillQusetionScreen';
@@ -25,7 +31,7 @@ import AudioRecorderScreen from '../screens/TestScreen/AudioRecorderScreen';
 import TestIntro from '../screens/TestScreen/TestIntro';
 import TextQusetionScreen from '../screens/TestScreen/TextQusetionScreen';
 import SubscriptionDetailScreen from '../screens/subscriptionList/SubscriptionDetailScreen';
-import Onboardingstudent from '../screens/onboarding/Onboardingstudent';
+
 export const history = createBrowserHistory();
 
  const Routes = () => {
@@ -39,7 +45,8 @@ export const history = createBrowserHistory();
 
                     <Route path="/onboard" component={Onboardingstudent} />
                     <Route path="/student" component={Studentgroup} />
-                    <Route path="/schoolstudent" component={Schoolstudent} />                   
+                    <Route path="/schoolstudent" component={Schoolstudent} />
+                    <Route path="/collegegroup" component={Collegegroup} />                                       
                     <Route path="/professional" component={Professional} />
 
 

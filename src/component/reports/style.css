@@ -1,0 +1,51 @@
+
+
+.baselinereport{
+    position: relative;
+}
+.baselinereport-card{
+    position: absolute;
+    width: 19rem;
+    height: 600px;   
+    background: #FFFFFF;
+    box-shadow: 0px 50px 50px rgba(0, 0, 0, 0.1);
+    /* border-radius: 10px; */
+    border: 2px solid darkgrey;
+}
+.baselinereport-title{
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    color:#003866;
+}
+.baselinereport-text{
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color:#003866;   
+}
+.baselinereport-view{
+    text-align: center;
+    color: #003866;
+    font-family: 'f2';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+}
+.baselinereport-view-btn{
+    background: #40A9FF;
+    border-radius: 12px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    color: white;
+    text-align: center;
+    margin-left: 58px;
+}
+.baselinereport-card:hover{
+    border: 3px solid dodgerblue;
+    border-radius: 20px;
+}

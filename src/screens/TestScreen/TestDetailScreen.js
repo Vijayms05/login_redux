@@ -8,7 +8,7 @@ import Certification from '../../component/TestTab/Certification'
 
 const TestDetailScreen = () =>{
     return(
-        <div className="py-md-4 bill-rit">
+        <div className="py-md-4 mt-5 mt-md-0 bill-rit">
             <Row className="mb-4 mt-4">
                 <Col xs={6} md={6} lg={8} className="ps-0">   
                     <Form.Group  className="w-100 search-box">

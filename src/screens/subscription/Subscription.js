@@ -45,7 +45,7 @@ const Subscription = () =>{
                 </Col>
             </Row>
             <Row>
-                <Col xl={3} lg={4} md={6} xs={6} className="mb-3 w1400-20 sub-lst">
+                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 w1400-20 sub-lst">
                     <Link to="/subscription-list">
                         <Card> 
                             <Card.Body hover>
@@ -75,7 +75,7 @@ const Subscription = () =>{
                 </Col>
             </Row>
             <Row>
-                <Col xl={3} lg={4} md={6} xs={6} className="mb-3 w1400-20">
+                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 w1400-20">
                     <Link className="book-box w-100">
                     <BookBackImg />
                         <div className="play-vid-box">

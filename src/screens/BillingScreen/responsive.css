@@ -12,6 +12,9 @@
 }
 
 @media (max-width: 767px) {
+  .rt-tb-report {
+    margin-top: 15px;
+  }
   .wel-cm-bc {
     width: 100% !important;
   }
@@ -55,7 +58,6 @@
   .test-main {
     height: 100vh;
     margin: auto;
-    display: grid;
   }
   .vid-frame iframe {
     height: 250px;
@@ -90,6 +92,31 @@
     width: 100% !important;
     height: auto !important;
   }
+  .rit-tst .tab-content {
+    overflow-x: scroll;
+  }
+  .tit-cert-box .table,
+  .txt-tbl-acrd {
+    width: 1000px;
+  }
+  .tit-cert-box th {
+    width: 200px !important;
+  }
+  .tit-cert-box td {
+    width: 200px !important;
+  }
+  .tbl-bx-rpt {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .table-box {
+    width: 980px;
+  }
+  .tl-rt-qst {
+    margin-top: 50px;
+  }
+}
+@media (min-width: 568px) and (max-width: 768px) {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .navbar-light .navbar-nav .nav-link {
@@ -110,7 +137,7 @@
     width: 100% !important;
   }
   .test-main .bill-rit {
-    width: 100% !important;
+    width: 70% !important;
   }
   .read-cert {
     width: 305px !important;
@@ -124,26 +151,11 @@
   .tl-skl-bldg {
     display: flex;
   }
-}
-@media (min-width: 992px) {
-  .bill-rit {
-    width: 76% !important;
-    margin: 0 auto;
-    padding: 15px !important;
+  .rit-tst .tab-content {
+    overflow-x: scroll;
   }
-  .table-name {
-    width: 860px;
-  }
-  .tl-skl-bldg {
-    display: flex;
-  }
-}
-
-@media (max-width: 1199px) {
-  .tit-cert-box {
-    overflow: scroll;
-  }
-  .tit-cert-box .table {
+  .tit-cert-box .table,
+  .txt-tbl-acrd {
     width: 1000px;
   }
   .tit-cert-box th {
@@ -152,7 +164,52 @@
   .tit-cert-box td {
     width: 200px !important;
   }
+  .tbl-bx-rpt {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .table-box {
+    width: 980px;
+  }
 }
+@media (min-width: 992px) {
+  .bill-rit {
+    width: 76% !important;
+    margin: 0 auto;
+    padding: 15px !important;
+  }
+  .tl-skl-bldg {
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .tit-cert-box {
+    overflow-x: scroll;
+  }
+  .tit-cert-box .table,
+  .txt-tbl-acrd {
+    width: 1000px;
+  }
+  .tit-cert-box th {
+    width: 200px !important;
+  }
+  .tit-cert-box td {
+    width: 200px !important;
+  }
+  .tbl-bx-rpt {
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .table-box {
+    width: 980px;
+  }
+  .tl-br-cht {
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
 @media (min-width: 1200px) and (max-width: 1400px) {
   .tit-cert-box th {
     width: 180px !important;
@@ -190,5 +247,9 @@
   }
   .tl-rt-qst {
     width: 70%;
+  }
+  .bar-chart {
+    width: 500px;
+    height: 400px;
   }
 }
