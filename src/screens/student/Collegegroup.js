@@ -7,7 +7,7 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { history } from '../../routes/Routes';
 
 import {
     Readingbooks,
@@ -16,29 +16,37 @@ import {
 
 
 const Collegegroup = (props) =>{
-    const [input, setInput] = useState('')
-    const [nameInput, setNameinput]= useState('')
+    const [inputName,setInputName] = useState('')
+    const [branch, setBranch]= useState('')
     const [school, setSchool] = useState(false)
-    const [college, setCollege] = useState(false)
+    const [collegeName, setCollegeName] = useState('')
+    const [ noofuniversity, setNoofuniversity]= useState('')
+    const [collegeYear, setCollegeYear]= useState(' ')
+    const [stream, setStream] = useState('')
 
-    const onChange = e =>{
-        setInput(e.target.value)
+
+    const onInputName = e =>{
+        setInputName(e.target.value)
     }
-    useEffect((e) => {
-        if(!school){
-            setCollege(college)
-
-        }
-        else if(!college){
-            setSchool(school)
-        }else{
-            setCollege(college)
-            setSchool(school)
-        }
-    }, [school,college])   
-    const onName = e => {
-        setNameinput(e.target.value)
-    }    
+    const onCollegeName = e => {
+        setCollegeName(e.target.value)
+    }
+    const onStream = e => {
+        setStream(e.target.value)
+    }
+    const onBranch = e => {
+        setBranch(e.target.value)
+    }
+    const onUniversity = e => {
+        setNoofuniversity(e.target.value)
+    }
+    const onYear = e =>{
+        setCollegeYear(e.target.value)
+    }
+     
+    const onCollegestudent = () =>{
+        history.push({pathname:'/home'})
+    }
     return(
         <Col className="tl-bdy">
             <div className="bdy-in">
@@ -54,51 +62,74 @@ const Collegegroup = (props) =>{
                         <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                             <Form.Control 
                             className="student-inputField" 
-                            type="email" 
+                            type="text" 
                             placeholder="Enter your Name"
+                            value={inputName}
+                            onChange={onInputName}
                             />
                         </Form.Group>                           
                                                   
                         <Form.Group action="#" class="stud-form-rad">
-                            <Form.Check className="ps-0" label="School"  type="radio" id="test1" name="radio-group" />
+                            <Form.Check className="ps-0" 
+                            label="School"  type="radio" id="test1" name="radio-group"  value="school"
+                            checked={school === "school" ? true: false} 
+                            onClick={e =>setSchool("school")}/>
                             <Form.Check label="College/
                                     Intermediate  
-                                    (plus one/ plus two)"  type="radio" id="test2" name="radio-group" checked/>
+                                    (plus one/ plus two)"  type="radio" id="test2" name="radio-group" 
+                                    value="college"
+                                    checked={school === "college" ? true: false} 
+                                    onClick={e =>setSchool("college")}/>
                         </Form.Group>
                         <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                             <Form.Control 
                             className="student-inputField" 
-                            type="email" 
+                            type="text" 
                             placeholder="Name of College"
+                            value={collegeName}
+                            onChange={onCollegeName}
                             />
                         </Form.Group>  
-                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
-                                <option selected>Name of University</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select className="form-select mb-3 schoolstudent-select" 
+                            aria-label="Default select example"
+                            defaultValue={noofuniversity}
+                            onChange={onUniversity}>
+                                <option selected value="1">Name of University</option>
+                                <option value="2">One</option>
+                                <option value="3">Two</option>
+                                <option value="4">Three</option>
                             </select>   
-                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
-                                <option selected>Stream</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select className="form-select mb-3 schoolstudent-select" 
+                            aria-label="Default select example"
+                            defaultValue={stream}
+                            onChange={onStream}>
+                                <option selected value="1">Stream</option>
+                                <option value="2">One</option>
+                                <option value="3">Two</option>
+                                <option value="4">Three</option>
                             </select>   
-                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
-                                <option selected>Brach</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select className="form-select mb-3 schoolstudent-select" 
+                            aria-label="Default select example"
+                            defaultValue={branch}
+                            onChange={onBranch}>
+                                <option selected value="1">Branch</option>
+                                <option value="2">One</option>
+                                <option value="3">Two</option>
+                                <option value="4">Three</option>
                             </select> 
-                            <select className="form-select mb-3 schoolstudent-select" aria-label="Default select example">
-                                <option selected>Year</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select className="form-select mb-3 schoolstudent-select" 
+                            aria-label="Default select example"
+                            defaultValue={collegeYear}
+                            onChange={onYear}>
+                                <option selected value="1">Year</option>
+                                <option value="2">One</option>
+                                <option value="3">Two</option>
+                                <option value="4">Three</option>
                             </select> 
-                            <Link to="/home" className="login-submit-btn" variant="primary" type="submit">
+                            <Button  className="login-submit-btn" variant="primary" type="submit"
+                                onClick={onCollegestudent}>
                                 Continue
-                            </Link>                                
+                            </Button>                                
                         </Form>         
                     </Col>
                 </Row>

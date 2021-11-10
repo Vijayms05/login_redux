@@ -21,13 +21,97 @@ import {
 } from '../../assets/images/index';
 
 const ProfilePage = (props) => {
+
     const [show, setShow]=useState(false);
     const [isShow, setIsShow]=useState(false);
     const [password,setPassword] = useState('')
     const [conformPassword,setConformPassword] = useState('')
     const [passwordShown, setPasswordShown] = useState(false);
     const [conformpasswordShown, setConformpasswordShown] = useState(false);
+    
 
+    const [mobileNo, setMobileNo] = useState('');
+    const [state,setState]=useState('label');
+    const [gender,setGender]= useState('')
+    const [marital, setMarital]= useState('')
+    const [country, setCountry]= useState('')
+    const [address, setAddress]= useState('')
+    const [ addressOne, setAddressOne]= useState('')
+    const [district, setDistrict]= useState('')
+    const [pincode, setPincode]= useState('')
+    const [eduStream, setEduStream]= useState('')
+    const [workExp, setWorkExp]= useState('')
+    const [industry, setIndustry]= useState('')
+    const [higherEduStream, setHigherEduStream]=useState('')
+    const [currentRole,setCurrectRole]=useState('')
+    const [learnChange, setLearnChange]= useState('')
+    const [institution, setInstitution]= useState('')
+    const [jobProfile, setJobProfile]= useState('')
+
+
+    const now=80;
+
+    const onMobile = e => {
+        if(e.target.value.match('^[0-9\b]+$')){
+            setMobileNo(e.target.value)
+        }        
+    }
+    const onState = e => {
+        setState(e.target.value)
+    }
+    const onGender = e => {
+        setGender(e.target.value)
+    }
+    const onMarital = e => {
+        setMarital(e.target.value)
+    }
+    const onCountry = e => {
+        setCountry(e.target.value)
+    }
+    const onAddress = e => {
+        setAddress(e.target.value)
+    }
+    const onAddressOne = e => {
+        setAddressOne(e.target.value)
+    }
+    const onDistrict = e => {
+        setDistrict(e.target.value)
+    }
+    const onPincode = e => {
+        setPincode(e.target.value)
+    }
+    const onEduStream= e => {
+        setEduStream(e.target.value)
+    }
+    const onHigherEduStream = e => {
+        setHigherEduStream(e.target.value)
+    }
+    const onWorkExp = e => {
+        setWorkExp(e.target.value)
+    }
+    const onIndustry = e => {
+        setIndustry(e.target.value)
+    }
+    const onInstitution = e => {
+        setInstitution(e.target.value)
+    }
+    const onCurrentRole = e => {
+        setCurrectRole(e.target.value)
+    }
+    const onJobProfile = e => {
+        setJobProfile(e.target.value)
+    }
+    const onLearnChange = e => {
+        setLearnChange(e.target.value)
+    }   
+    
+
+  
+
+    const onSave = () =>{
+
+    }
+    //modal
     const togglePassword =() =>{ 
         setPasswordShown(!passwordShown)
     }

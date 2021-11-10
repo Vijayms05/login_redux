@@ -13,30 +13,18 @@ import { Row, Col, Form, Button} from 'react-bootstrap';
 import './style.css';
 
 const ResetPassword = (props) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword]= useState('')
-  const [paswordShow, setPaswordShow] = useState(true)
-  const [repaswordShow, setRePaswordShow] = useState(true)
+  const [email, setEmail]=useState('')
 
-  const onEmail = e => {
+  const onUserName = (e) => {
     if (e.target.value.match('^[a-zA-Z0-9_@./#&+-]*$')) {
       setEmail(e.target.value);
     }
-  } 
-  const onPassword = e => {
-    setPassword(e.target.value)
-  }
-
-  const clickPasswordShow = () =>{
-    setPaswordShow(!paswordShow);
-  }
-  const clickRePasswordShow = () =>{
-    setRePaswordShow(!repaswordShow);
-  }
+  };
+ 
   const onClick=()=>{
     setEmail('')
-    setPassword('')
-    console.log(email, password)
+    
+    console.log(email)
   }
   return (
     <Col className="tl-bdy">
@@ -56,11 +44,16 @@ const ResetPassword = (props) => {
                   type="email" 
                   placeholder="E-mail"
                   value={email}
-                  onChange={onEmail}
+                  onChange={onUserName}
                 />
                 <EmailIcon />
               </Form.Group>
-                <Button className="login-submit-btn" variant="primary" type="submit" onClick={onClick}>Send reset instructions</Button>                                
+                <Button 
+                  className="login-submit-btn" 
+                  variant="primary" 
+                  type="submit" 
+                  onClick={onClick}
+                >Send reset instructions</Button>                                
             </Form>
             <p className="login-p mt-2 mb-3 mt-4 text-center">Go back to  <Link to="/">Log in</Link></p>            
           </Col>

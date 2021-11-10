@@ -2,24 +2,30 @@ const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'SIGNUP_REQUEST':
+    case 'LOGIN_REQUEST':
       return {
         ...state,
         isLoading: true,
-        signup: false,
+        login: false,
         error: false,
       };
-    case 'SIGNUP_SUCCESS':
+    case 'LOGIN_SUCCESS':
       return {
         ...state,
         isLoading: false,
-        signup: action.signup,
+        login: action.login,
       };
-    case 'SIGNUP_FAILURE':
+    case 'LOGIN_FAILURE':
       return {
         ...state,
         isLoading: false,
         error: action.error,
+      };
+    case 'LOGOUT_SUCCESS':
+      return {
+        ...state,
+        isLoading: false,
+        login: null,
       };
     default:
       return state;

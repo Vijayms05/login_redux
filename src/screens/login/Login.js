@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { message } from 'antd';
 import {
   SiginImage,
   Logo, 
@@ -7,38 +8,62 @@ import {
   PasswordIcon,
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
-
-import {Link} from 'react-router-dom';
+import { history } from '../../routes/Routes'
+import { Link } from 'react-router-dom';
 import { Row, Col, Form, Button} from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
+// import Signup from '../signup/Signup';
 
 const Login = (props) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword]= useState('')
-  const [paswordShow, setPaswordShow] = useState(true)
-  const [repaswordShow, setRePaswordShow] = useState(true)
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); 
 
-  const onEmail = e => {
+  const dispatch = useDispatch();
+
+  const validLogin = useSelector(state => state.loginState.login);
+  const invalidLogin = useSelector(state => state.loginState.error);
+
+  useEffect(() => {
+    if (validLogin) {      
+      dispatch({ type: 'LOGOUT_SUCCESS' });
+    } else if ( invalidLogin) {
+      console.log('Please enter the valid credentials');
+    }
+  });
+
+  const onUserName = (e) => {
     if (e.target.value.match('^[a-zA-Z0-9_@./#&+-]*$')) {
       setEmail(e.target.value);
     }
-  } 
-  const onPassword = e => {
-    setPassword(e.target.value)
-  }
+  };
 
-  const clickPasswordShow = () =>{
-    setPaswordShow(!paswordShow);
-  }
-  const clickRePasswordShow = () =>{
-    setRePaswordShow(!repaswordShow);
-  }
-  const onClick=()=>{
-    setEmail('')
-    setPassword('')
-    console.log(email, password)
-  }
+  const onPassword = (e) => {  
+      setPassword(e.target.value);   
+  };
+
+  const splitPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+
+
+  const onLogin = (props) => {    
+    if (email === '' || password === '') {     
+      console.log('Please fill all the fields');     
+    }else {    
+      const loginDetails = {
+        // email: 'gopinath.chandar@gmail.com',
+        // password: 'Football7&',
+        email,
+        password,
+      };
+      dispatch({ type: 'LOGIN_REQUEST', login: loginDetails });
+    }
+    history.push({pathname:'/onboard'})
+    console.log(email,password)
+  };
   return (
     <Col className="tl-bdy">
       <div className="bdy-in">
@@ -57,29 +82,30 @@ const Login = (props) => {
                   type="email" 
                   placeholder="E-mail"
                   value={email}
-                  onChange={onEmail}
+                  onChange={onUserName}
                 />
                 <EmailIcon />
               </Form.Group>
               <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                 <Form.Control 
                   className="login-inputField"  
-                  type={paswordShow ? 'password' : 'text'} 
+                  type={showPassword ? 'password' : 'text'} 
                   placeholder="Password"
                   value={password}
                   onChange={onPassword}
                   />
                 <PasswordIcon />
-                <Button className="pwd-btn" onClick={clickPasswordShow}>
-                  { paswordShow ? <EyeIconHid /> : <EyeIcon />}
+                <Button className="pwd-btn" onClick={splitPassword}>
+                  { showPassword ? <EyeIconHid /> : <EyeIcon />}
                 </Button>
               </Form.Group>
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Label className="reset-password"><Link to="/resetpassword">Forget Password</Link> </Form.Label>
               </Form.Group>
-                <Link to="/schoolstudent" className="login-submit-btn" variant="primary" type="submit" onClick={onClick}>
+                <Button  className="login-submit-btn" variant="primary" type="submit" 
+                onClick={onLogin}>
                     Log in
-                </Link>                                
+                </Button>                                
             </Form>
             <p className="login-p mt-2 mb-3 mt-4 text-center">Don't have an account? <Link to="/">Sign up</Link></p>            
           </Col>

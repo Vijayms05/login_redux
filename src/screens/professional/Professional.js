@@ -6,56 +6,56 @@ import {
     Form,
     Button 
 } from "react-bootstrap";
-import { Link } from 'react-router-dom';
 
+import { history } from '../../routes/Routes'
 import {
     Learnprofessional,
     Logo
 } from '../../assets/images/index';
 import './style.css'
 const Professional = (props) => {
-    const [input, setInput] = useState('')
-    const [nameInput, setNameinput]= useState('')
-    const [school, setSchool] = useState(false)
-    const [college, setCollege] = useState(false)
+   const [inputName, setInputname]=useState('')
+   const [workRole, setWorkrole]= useState('')
+   const [industry, setIndustry]= useState('')
 
-    const onChange = e =>{
-        setInput(e.target.value)
+    const onName = e =>{
+        setInputname(e.target.value)
     }
-    useEffect((e) => {
-        if(!school){
-            setCollege(college)
-
-        }
-        else if(!college){
-            setSchool(school)
-        }else{
-            setCollege(college)
-            setSchool(school)
-        }
-    }, [school,college])   
+    const onWork = e => {
+        setWorkrole(e.target.value)
+    }   
+    const onIndustry = e => {
+        setIndustry(e.target.value)
+    }
+    const onProfessional = () =>{
+        history.push('/home')
+    }
  
     return(
         <Col className="tl-bdy">
-            <div className="bdy-in">   
+            <div className="bdy-in">           
                 <Row >
-                    <Col md={6} xl={7} className="m-auto text-center">
+                    <Col md={6}  xl={7} className="text-center m-auto">
                         <Learnprofessional />
-                    </Col>
-                    <Col md={6} xl={5} xs className="p-3 m-auto login-wrapper">
+                    </Col>               
+                    <Col md={6} xl={5}   className="p-5" > 
                         <Logo />
-                        <Form className="login-form p-3  m-2 mt-3"> 
+                        <Form className="professional-form p-3 m-2"> 
                             <h3 className="mb-2">Before you jump in</h3>
-                            <p className="mb-3 text-center">We will personalise this platform accordingly</p>
+                            <p className="mb-3">We will personalise this platform accordingly</p>
                             <Form.Group className="mb-3 professional-formgroup">
                                 <Form.Control 
                                     placeholder="Enter your name" 
                                     className="px-3 professional-formcontrol"  
-                                    value={input}
-                                    onChange={onChange}                                    
+                                    value={inputName}
+                                    onChange={onName}                                    
                                 />
                             </Form.Group> 
-                            <select className="form-select mb-3 textselectoption" aria-label="Default select example">
+                            <select className="form-select mb-3 textselectoption" 
+                                aria-label="Default select example"
+                                defaultValue={industry}
+                                onChange={onIndustry}
+                                >
                                 <option selected>Industry</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -65,13 +65,13 @@ const Professional = (props) => {
                                 <Form.Control 
                                     placeholder="Work role" 
                                     className="px-3 professional-formcontrol"  
-                                    value={input}
-                                    onChange={onChange}                                    
+                                    value={workRole}
+                                    onChange={onWork}                                    
                                 />
                             </Form.Group>  
-                            <Link to="/home" className="login-submit-btn" variant="primary" type="submit">
+                            <Button className="mb-3 professional-btn" onClick={onProfessional} >
                                 Continue
-                            </Link>  
+                            </Button>
                         </Form>
                     </Col>
                 </Row>
