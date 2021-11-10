@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
   Logo,
   Readingbook,
@@ -17,19 +17,19 @@ import {
   Container,
   Button
 } from 'react-bootstrap'
+import { history } from '../../routes/Routes'
 
 const Onboardingstudent = (props) =>{
   const [student, setStudent]=useState('')      
   
   console.log('Student',student)
-  const history = useHistory();
+  // const history = useHistory();
 
   const toggleClick = e =>{
       e.preventDefault();  
       if(student === 'student')  {
-        history.push("/student")
-        // console.log(student)
-      }else if(student === 'professional'){
+        history.push({pathname:'/student'})
+      }else{ //if(student === 'professional')
         history.push("/professional")
       }         
   }

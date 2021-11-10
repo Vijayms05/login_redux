@@ -157,7 +157,8 @@ const Signup = (props) => {
                     onClick={onTermsCondition}/>
                     <Form.Label className="terms-cond-text">I agree Skilltally’s <Link>Privacy Policy</Link> & <Link>Terms of Services</Link>  </Form.Label>
                 </Form.Group>
-                  <Button className="submit-btn" variant="primary" type="submit" onClick={onSubmit}>
+                  <Button className="submit-btn" variant="primary" type="submit" 
+                  onClick={onSubmit}>
                       Creat Account
                   </Button>
               </Form>
