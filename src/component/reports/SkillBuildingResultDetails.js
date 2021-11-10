@@ -60,7 +60,7 @@ const data = [
 ];
 
 
-function BaselineReport() {
+const SkillBuildingResultDetails = () => {
     return (
         <div className="py-md-4 mt-5 mt-md-0 bill-rit">
             <Col md={12} xs className="baselinereport">
@@ -84,7 +84,7 @@ function BaselineReport() {
                 <div className="d-lg-flex">
                     <Col className="p-md-0 in-bs-ln">
                         <Link className="back-a" to="/home"><LeftArrow /> {""} Back to Results </Link>
-                        <h4 className="f1-19 mt-0 mb-3" style={{color:'#003866'}}>Baseline Results</h4>
+                        <h4 className="f1-19 mt-0 mb-3" style={{color:'#003866'}}>Skill Building Results</h4>
                         <div className="tl-br-cht">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart className="bar-chart"
@@ -157,4 +157,4 @@ function BaselineReport() {
     )
 }
 
-export default BaselineReport
+export default SkillBuildingResultDetails

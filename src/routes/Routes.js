@@ -29,6 +29,9 @@ import Onboardingstudent from '../screens/onboarding/Onboardingstudent';
 import Collegegroup from '../screens/student/Collegegroup';
 import ReportScreen from '../screens/ReportScreen/ReportScreen';
 import BaseLineDetails from '../screens/ReportScreen/BaseLineDetails';
+import CertificationDetails from '../screens/ReportScreen/CertificationDetails';
+import SkillBuildingReportList from '../screens/ReportScreen/SkillBuildingReportList';
+import SkillBuildingResult from '../screens/ReportScreen/SkillBuildingResult';
 export const history = createBrowserHistory();
 
  const Routes = () => {
@@ -38,7 +41,7 @@ export const history = createBrowserHistory();
             <Switch>
                     <Route exact  path="/" component={Signup} />
                     <Route path="/login" component={Login} />
-                    <Route path="/resetpassword" component={ResetPassword} />
+                    <Route path="/resetpassword" component={ResetPassword}/>
                     <Route path="/home" component={HomeScreen} />
                     <Route path="/subscription-list" component={SubscriptionDetailScreen} />
                     <Route path="/billings" component={BillingScreen} />
@@ -52,6 +55,9 @@ export const history = createBrowserHistory();
                     <Route path="/collegstudent" component={Collegegroup} />  
                     <Route path="/report" component={ReportScreen} />
                     <Route path="/basline" component={BaseLineDetails} />
+                    <Route path="/certificate-result" component={CertificationDetails} />
+                    <Route path="/skill-building-list" component={SkillBuildingReportList} />
+                    <Route path="/skill-building-result" component={SkillBuildingResult} />
                     <Route path="/setting" component={SettingScreens} />
                     <Route path="/profile" component={ProfileScreen} />
                     <Route path="/question-page" component={QuestionPage} />

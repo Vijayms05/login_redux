@@ -23,8 +23,6 @@ import {
     FeedbackIcon    
 } from '../../assets/images'
 import { Link } from 'react-router-dom'
-
-import './style.css';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -61,10 +59,9 @@ const data = [
   
 ];
 
-
-function CertificationReport() {
+const  CertificationReport = () => {
     return (
-        <Container fluid>
+        <div className="py-md-4 mt-5 mt-md-0 bill-rit">
             <Col md={12} xs className="baselinereport">
                 <Row className="mb-4 mt-4">
                     <Col xs={6} md={6} lg={8} className="ps-0">   
@@ -83,139 +80,79 @@ function CertificationReport() {
                         </Form.Select>
                     </Col>
                 </Row>                 
-                <Row className="mt-1">
-                    <Col md={9}>                        
-                        <div className="mb-3 ms-4 mt-4 ">
-                            <h4 className="text-start" style={{color:'#003866'}}>Certification Results</h4>
-                        </div>              
-                        <Col className="mb-3 ">
-                            <BarChart
-                                width={925}
-                                height={325}
-                                data={data}
-                                margin={{
-                                    top: 5,
-                                    right: 30,
-                                    left: 20,
-                                    bottom: 5,
-                                }}
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="name" />
-                                <YAxis />
-                                <Tooltip />
-                                <Legend />
-                                <Bar dataKey="uv" fill="#298EE0" barSize={40}/>
-                            </BarChart>  
-                            <div className="text-center mb-3">
-                                <h4 className="fs-5 fw-bold">Subject wise Score</h4>
-                            </div>
-                            <div className="text-start mb-3">
-                                <h4 className="fs-5 fw-bold" style={{color:'#003866'}}>Subject wise Score</h4>
-                                <Row>
-                                    <Col style={{color:'#003866',fontWeight:'bold'}}>
-                                        <Row>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>                                    
-                                        </Row>  
-                                        <Row>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>                                    
-                                        </Row>  
-                                        <Row>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>                                    
-                                        </Row>                            
-                                        <Row>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>
-                                            <Col >Subject 1</Col><Col >: 80/100</Col>                                    
-                                        </Row>
+                <div className="d-lg-flex">
+                    <Col className="p-md-0 in-bs-ln">
+                        <Link className="back-a" to="/home"><LeftArrow /> {""} Back to Results </Link>
+                        <h4 className="f1-19 mt-0 mb-3" style={{color:'#003866'}}>Certification Results</h4>
+                        <div className="tl-br-cht">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart className="bar-chart"
+                                    data={data}
+                                >
+                                    <CartesianGrid strokeDasharray="0" />
+                                    <XAxis dataKey="name" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Legend />
+                                    <Bar dataKey="uv" fill="#298EE0" barSize={60}/>
+                                </BarChart> 
+                            </ResponsiveContainer>
+                        </div> 
+                        <h4 className="f1-16 text-center">Subject wise Score</h4>
+                        <div className="text-start mb-3">
+                            <h4 className="f1-17" style={{color:'#003866'}}>Subject wise Score</h4>
+                            <Row>
+                                <Col className="p-0" style={{color:'#003866'}}>
+                                    <Col className="flex-sb" xs={6} md={4}>
+                                        <Col className="p-0 f1-16">Subject 1</Col>
+                                        <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                     </Col>
-                                </Row>
+                                    <Col className="flex-sb" xs={6} md={4}>
+                                        <Col className="p-0 f1-16">Subject 1</Col>
+                                        <Col  className="p-0 f1-16">: 80/100</Col>                                   
+                                    </Col>
+                                </Col>
+                            </Row>
+                        </div>
+                    </Col>
+                    <div className="mt-2 skill-smry">
+                            <h5 className="skil-sum-tit mb-2">Skill Summary</h5> 
+                            <h4 className="skil-sum-baslin">Baseline</h4> 
+                            <div class="flex-spc-btw">
+                                <p className="skil-sum-p">Ranking</p> 
+                                <p className="skil-sum-p">: 12/62</p> 
                             </div>
-                        </Col>
-                    </Col>
-                    <Col md={3}>
-                        <Card >
-                            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                            <Card.Body  className=" baselinereport-card mb-3 ">
-                                <Card.Title className="baselinereport-title mt-1 mb-3">
-                                    Result Summary
-                                </Card.Title>
-                                <Card.Text className="baselinereport-text mb-3">                                    
-                                    <Row>
-                                        <Col className="mb-1">
-                                            Test Name
-                                        </Col>
-                                        <Col className="mb-1">
-                                            :{' '}Baseline
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col className="mb-1">
-                                            Role
-                                        </Col>
-                                        <Col className="mb-1">
-                                            :{' '}UI/UX
-                                        </Col>
-                                    </Row>
-                                    <Row >
-                                        <Col className="mb-1">
-                                            Date
-                                        </Col>
-                                        <Col className="mb-1">
-                                            :{' '}12 May 2021
-                                        </Col>
-                                    </Row>
-                                    <Row >
-                                        <Col className="mb-1">
-                                            Overall Score
-                                        </Col>
-                                        <Col className="mb-1">
-                                            :{' '}80/100
-                                        </Col>
-                                    </Row>
-                                    <Row >
-                                        <Col className="mb-1">
-                                            Avg Peer Score
-                                        </Col>
-                                        <Col className="mb-1">
-                                            :{' '}70/100
-                                        </Col>
-                                    </Row>
-                                    <Row >
-                                        <Col className="mb-1">
-                                            Rank
-                                        </Col>
-                                        <Col className="mb-1">
-                                            :{' '}15/45
-                                        </Col>
-                                    </Row>  
-                                </Card.Text>
-                                <p className="mb-3  baselinereport-view">View Answers</p>
-                                <Button className="baselinereport-view-btn mb-4">
-                                    View
-                                </Button>
-                                <p className="mb-3  baselinereport-view">Actions</p>
-                                <Button className="baselinereport-view-btn mb-3">
-                                    <ShareIcon /> Share
-                                </Button>
-                                <Button className="baselinereport-view-btn mb-3">
-                                    <PrintIcon /> Print
-                                </Button>
-                                <Button className="baselinereport-view-btn mb-3">
-                                    <FeedbackIcon /> Feedback
-                                </Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                            <div class="flex-spc-btw">
+                                <p className="skil-sum-p">Score</p> 
+                                <p className="skil-sum-p">: 60%</p> 
+                            </div>
+                            <Link className="anal-btn">Analysis Result</Link>
+                            
+                            <h4 className="skil-sum-baslin mt-4">Certification</h4> 
+                            <div class="flex-spc-btw">
+                                <p className="skil-sum-p">Ranking</p> 
+                                <p className="skil-sum-p">: 12/62</p> 
+                            </div>
+                            <div class="flex-spc-btw">
+                                <p className="skil-sum-p">Score</p> 
+                                <p className="skil-sum-p">: 60%</p> 
+                            </div>
+                            <Link className="anal-btn">Analysis Result</Link>
+                            
+                            <h4 className="skil-sum-baslin mt-4 text-center">Action</h4>
+                            <Link className="actn-btn">
+                                <ShareIcon />
+                                Share</Link> 
+                                <Link className="actn-btn">
+                                <PrintIcon />
+                                Print</Link>
+                                <Link className="actn-btn">
+                                <FeedbackIcon />
+                                Feed Back</Link>
+                        </div>
+                </div>
             </Col>
-        </Container>
+        </div>
     )
 }
 

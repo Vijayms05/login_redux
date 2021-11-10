@@ -30,6 +30,9 @@ body {
   margin: 0 !important;
   padding: 0 !important;
 }
+.dark-blue {
+  color: #0c4a8b;
+}
 .back-a {
   font-family: "f4";
   font-size: 12.5px;
@@ -402,6 +405,27 @@ body {
 }
 .in-box-table a {
   background: #00d586;
+  border: 0 !important;
+  margin-right: 10px;
+  font-size: 13px;
+  color: #fff !important;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+.rep-btn-ln a {
+  background: #298ee0;
+  border: 0 !important;
+  margin-right: 10px;
+  font-size: 13px;
+  color: #fff !important;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+.skill-in-box-table a {
+  background: #298ee0;
   border: 0 !important;
   margin-right: 10px;
   font-size: 13px;
@@ -837,6 +861,14 @@ body {
   text-align: center;
 }
 
+.profile-cardbutton {
+  font-size: 13.5px !important;
+  font-family: "f3";
+  font-weight: bold;
+  background-color: #137ad3 !important;
+  text-align: center;
+}
+
 .skil-sum-baslin {
   font-size: 14.7px;
   font-family: "f1";
@@ -979,4 +1011,14 @@ body {
 .flex-sb {
   display: flex;
   justify-content: space-between;
+}
+.tl-skl-bldg {
+  display: flex;
+}
+.tl-br-cht {
+  height: 400px;
+}
+.mobile-no {
+  font-size: 15px;
+  font-family: "f3";
 }
