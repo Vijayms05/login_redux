@@ -30,6 +30,9 @@ body {
   margin: 0 !important;
   padding: 0 !important;
 }
+.dark-blue {
+  color: #0c4a8b;
+}
 .back-a {
   font-family: "f4";
   font-size: 12.5px;
@@ -45,6 +48,15 @@ body {
   width: 160px;
   margin: auto;
   display: block;
+}
+.skilltally-logo {
+  width: 60px;
+  margin-left: 20px;
+  display: block;
+}
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
 }
 .lftqst {
   padding: 15px;
@@ -410,6 +422,27 @@ body {
   padding: 5px 15px;
   text-decoration: none;
 }
+.rep-btn-ln a {
+  background: #298ee0;
+  border: 0 !important;
+  margin-right: 10px;
+  font-size: 13px;
+  color: #fff !important;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+.skill-in-box-table a {
+  background: #298ee0;
+  border: 0 !important;
+  margin-right: 10px;
+  font-size: 13px;
+  color: #fff !important;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
 
 .tit-cert-box td:first-child {
   color: #fff;
@@ -488,25 +521,26 @@ body {
   font-weight: bold;
 }
 .vw-txt-inst {
-  background: #3ea8ff;
+  background: #3ea8ff !important;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 0;
   padding: 10px;
   width: 100%;
   text-align: center;
-  font-size: 13.5px;
+  font-size: 14.5px;
   margin-bottom: 8px;
 }
 .fnsh-txt {
-  background: #f94a4a;
+  background: #f94a4a !important ;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 0;
   padding: 10px;
   width: 100%;
   text-align: center;
-  font-size: 13.5px;
+  font-size: 14.5px;
+  /* font-weight: bold; */
   margin-bottom: 8px;
 }
 .prog-bar-test {
@@ -601,7 +635,7 @@ body {
   justify-content: center;
   background: #45acff;
   width: 110px !important;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 7px;
   color: #fff;
   border: 0;
@@ -837,6 +871,14 @@ body {
   text-align: center;
 }
 
+.profile-cardbutton {
+  font-size: 13.5px !important;
+  font-family: "f3";
+  font-weight: bold;
+  background-color: #137ad3 !important;
+  text-align: center;
+}
+
 .skil-sum-baslin {
   font-size: 14.7px;
   font-family: "f1";
@@ -980,5 +1022,45 @@ body {
   display: flex;
   justify-content: space-between;
 }
-/*-------*/
+.tl-skl-bldg {
+  display: flex;
+}
+.tl-br-cht {
+  height: 400px;
+}
+.mobile-no {
+  font-size: 15px;
+  font-family: "f3";
+}
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  /* color: #aaa; */
+  margin-top: 16px;
+  margin-left: 15px;
+  width: 80px;
+  font-size: 16px;
+}
+
+.value {
+  font-size: 25px;
+}
+
+
+
+
+
+
+
+
 

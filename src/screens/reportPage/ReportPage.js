@@ -12,7 +12,7 @@ const ReportPage = () =>{
          console.log("button clicked")          
     }
     return(
-        <Col className="py-md-0 mt-5 mt-md-0 rt-tb-report">  
+        <Col className="py-md-0 mt-md-3 rt-tb-report">  
             <Row>
                 <Col xs={6} md={6} lg={8}>   
                     <Form.Group  className="w-100 search-box">
@@ -50,10 +50,10 @@ const ReportPage = () =>{
                                 <tr>
                                     <td>B Tech 3rd Year</td>
                                     <td><Link className="cert-btn">Certified</Link></td>
-                                    <td><Link to="/basline" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
+                                    <td className="rep-btn-ln"><Link to="/basline" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
 
-                                    <td><Link style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
-                                    <td><Link style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
+                                    <td className="rep-btn-ln"><Link to="/skill-building-list" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
+                                    <td className="rep-btn-ln"><Link to="/certificate-result" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
                                     <td style={{color:'#298EE0'}} >
                                         <Row>
                                             <Col><Link className="rate-btn">15/60</Link></Col>
@@ -66,10 +66,10 @@ const ReportPage = () =>{
                                 <tr>
                                     <td>B Tech 3rd Year</td>
                                     <td><Link className="cert-btn">Certified</Link></td>
-                                    <td><Link  to="/basline" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
+                                    <td className="rep-btn-ln"><Link  to="/basline" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
 
-                                    <td><Link style={{backgroundColor:'#298EE0',color:'white'}} className="btn">Detailed view</Link></td>
-                                    <td><Link style={{backgroundColor:'#298EE0',color:'white'}} className="btn">Detailed view</Link></td>
+                                    <td className="rep-btn-ln"><Link to="/skill-building-list" style={{backgroundColor:'#298EE0',color:'white'}} className="btn">Detailed view</Link></td>
+                                    <td className="rep-btn-ln"><Link to="/certificate-result" style={{backgroundColor:'#298EE0',color:'white'}} className="btn">Detailed view</Link></td>
                                     <td style={{color:'#298EE0'}} >
                                         <Row>
                                             <Col><Link className="rate-btn">15/60</Link></Col>

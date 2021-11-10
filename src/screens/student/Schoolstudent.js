@@ -7,21 +7,22 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import {
     Readingbooks,
     Logo
 } from '../../assets/images/index';
-import { history } from '../../routes/Routes';
+// import { history } from '../../routes/Routes';
 
 const Schoolstudent = (props) => {
     const [inputName, setInputName] = useState('')    
-    const [school, setSchool] = useState('')
+    const [school, setSchool] = useState('school')
     const [schoolName, setSchoolName] = useState('')
     const [stream, setStream]= useState('Stream')
     const [standard, setStandard]= useState('Stream')
    
+    const history = useHistory()
 
     const onInputName = e =>{
         setInputName(e.target.value)
@@ -37,7 +38,7 @@ const Schoolstudent = (props) => {
     }
    
     const onSchoolstudent=()=>{
-        history.push({pathname:'/home'})
+        history.push('/home')
     }
     
     return(
@@ -66,6 +67,7 @@ const Schoolstudent = (props) => {
                                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                         <Form.Check type="checkbox" label="School"  value="school"
                                             checked={school === "school" ? true: false} 
+                                            defaultValue={school}
                                             onClick={e =>setSchool("school")}  />
                                     </Form.Group>                  
                                 </Col>

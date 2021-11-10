@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { history } from '../../routes/Routes'
+// import { history } from '../../routes/Routes'
+import { useHistory } from 'react-router-dom'
 import { message } from 'antd';
 //logo
 import {
@@ -30,7 +31,7 @@ const Signup = (props) => {
   // const [alertError, setAlertError] = useState(false);
   const [paswordShow, setPaswordShow] = useState(true)
   const [repaswordShow, setRePaswordShow] = useState(true)
-
+  const history = useHistory()
   const clickPasswordShow = () =>{
     setPaswordShow(!paswordShow);
   }
@@ -88,7 +89,7 @@ const Signup = (props) => {
     dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});  
     
     }
-    history.push({pathname:'/login'});    
+    history.push('/login')  
 
     // console.log(email,password,repassword,termscondition);
   }  

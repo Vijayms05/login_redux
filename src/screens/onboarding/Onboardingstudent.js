@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import {
   Logo,
   Readingbook,
@@ -17,20 +17,28 @@ import {
   Container,
   Button
 } from 'react-bootstrap'
-import { history } from '../../routes/Routes'
+// import { history } from '../../routes/Routes'
 
 const Onboardingstudent = (props) =>{
   const [student, setStudent]=useState('')      
   
   console.log('Student',student)
-  // const history = useHistory();
+   const history = useHistory();
 
-  const toggleClick = e =>{
-      e.preventDefault();  
+  // const onBoard = () => {
+  //   if(student === 'student'){
+  //     history.push({pathname:"/student"})
+  //   }else if(student === 'professional'){
+  //     history.push({pathname:'/professional'})
+  //   }
+  // }
+  const onBoard = () =>{
+      //  e.preventDefault();  
       if(student === 'student')  {
-        history.push({pathname:'/student'})
-      }else{ //if(student === 'professional')
-        history.push("/professional")
+        history.push('/student')
+        // console.log('./student')
+      }else if(student === 'professional'){ 
+        history.push('/professional')
       }         
   }
     return(
@@ -84,9 +92,10 @@ const Onboardingstudent = (props) =>{
               </Col>                
             </Row> 
             <Col>
-              <Link  className="onboarding-button mt-3 mb-2" onClick={toggleClick}>       {/* to="/student" */}        
+              <Button   className="onboarding-button mt-3 mb-2" onClick={onBoard}
+              >       {/* to="/student" onClick={onBoard} */}        
                 Continue                     
-              </Link> 
+              </Button> 
             </Col>
           </Col>
           <Col xs={12} lg={4} className="p-3 text-center m-auto">
