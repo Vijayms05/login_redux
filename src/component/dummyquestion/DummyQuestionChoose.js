@@ -9,6 +9,7 @@ import {CircleLeft, CircleRight} from '../../assets/images/index'
 import { data } from '../../locale/data';
 
 const DummyQuestionChoose =(props)=>{
+    const []
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [myAnswer, setMyAnswer] = useState("");
     const [score, setScore] = useState(0);
