@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {  Container, Col, Row, Form, Card, ProgressBar, Table } from 'react-bootstrap'
 import Button from '@restart/ui/esm/Button'
-import { SearchIcon, Billingrit,NumbIcon, ScaleIcon } from '../../assets/images'
+import { SearchIcon, Billingrit,NumbIcon, ScaleIcon, TickIcon } from '../../assets/images'
 
 const BillingDetails = () =>{
     return(
@@ -59,16 +59,19 @@ const BillingDetails = () =>{
                         <h5 className="report-h5">What you get</h5>  
                         <p>For most business that what to optimized wen queiries</p>
                         <ul>
-                            <li>All limited links</li>
-                            <li>Own analuystics platform</li>
-                            <li>Chat Support</li>
-                            <li>Optimized Hashtags</li>
-                            <li>Unlimited Users</li>
+                            <li><TickIcon />All limited links</li>
+                            <li><TickIcon />Own analuystics platform</li>
+                            <li><TickIcon />Chat Support</li>
+                            <li><TickIcon />Optimized Hashtags</li>
+                            <li><TickIcon />Unlimited Users</li>
                         </ul>
                     </Row>    
                 </Col> 
                 <Col md={12} lg={6}  className="p-0">
-                    <Row className="mt-3 price-down"> 
+                    
+                <p className="f1-17 mb-1 mt-2">Total</p> 
+                <p className="f1-35 mb-0 dark-green-light" style={{lineHeight: '30px'}}>Rs 560</p> 
+                    <div className="price-down"> 
                         <h5 className="">Price Breakdown</h5>  
                         <div className="price-down-in">
                             <p>Plan Cost</p>
@@ -79,10 +82,11 @@ const BillingDetails = () =>{
                             <p>Rs 50</p>
                         </div>
                         <div className="price-down-in tl-top">
-                            <p>Gst 18% </p>
+                            <p>Total </p>
                             <p>Rs 50</p>
                         </div>
-                    </Row>    
+                    </div>  
+                    <Button className="buy-now-btn">Buy Now</Button>  
                 </Col>   
            </Row>    
         </div>

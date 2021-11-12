@@ -33,6 +33,45 @@ body {
 .dark-blue {
   color: #0c4a8b;
 }
+.dark-blue-light {
+  color: #0c4a8b;
+}
+
+.dark-green-light {
+  color: #50c976;
+}
+
+.f3-13 {
+  font-family: "f3";
+  font-size: 13px;
+}
+
+.f1-15 {
+  font-family: "f1";
+  font-size: 15px;
+}
+
+.f1-16 {
+  font-size: 16px;
+  font-family: "f1";
+}
+.f1-17 {
+  font-size: 17px;
+  font-family: "f1";
+}
+.f1-18 {
+  font-size: 18px;
+  font-family: "f1";
+}
+.f1-19 {
+  font-size: 19px;
+  font-family: "f1";
+}
+.f1-35 {
+  font-size: 2.5rem;
+  font-family: "f1";
+}
+
 .back-a {
   font-family: "f4";
   font-size: 12.5px;
@@ -104,18 +143,6 @@ body {
   font-family: "f1";
   margin-bottom: 0;
   margin-top: 4px;
-}
-.f1-19 {
-  font-size: 19px;
-  font-family: "f1";
-}
-.f1-17 {
-  font-size: 17px;
-  font-family: "f1";
-}
-.f1-16 {
-  font-size: 16px;
-  font-family: "f1";
 }
 .recharts-text {
   font-size: 13px;
@@ -251,8 +278,8 @@ body {
   width: 22px;
 }
 .play-vid {
-  width: 48px;
-  height: 48px;
+  width: 43px;
+  height: 43px;
   background: #45acff;
   border-radius: 50px;
   display: grid;
@@ -266,6 +293,8 @@ body {
 }
 .sub-lst a .card-text {
   color: #000;
+  font-family: "f3";
+  font-size: 13.5px;
 }
 .sub-active {
   font-size: 13px;
@@ -822,6 +851,11 @@ body {
   align-items: center;
 }
 
+.prog-bar-subscrip .progress {
+  width: 175px;
+  background-color: #cfdfef;
+  height: 7px !important;
+}
 .prog-bar-subs .progress {
   width: 250px;
   background-color: #cfdfef;
@@ -903,6 +937,21 @@ body {
   font-size: 12.5px;
   margin: 10px auto;
 }
+.buy-now-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #50c976;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 0;
+  color: #fff;
+  font-family: "f3";
+  width: 132px;
+  height: 36px;
+  font-size: 12.5px;
+  margin: 10px auto;
+}
 .actn-btn {
   display: flex;
   justify-content: center;
@@ -923,21 +972,8 @@ body {
 }
 .lft-skl-bldg {
   height: 80vh;
+  padding: 5px;
   overflow-y: scroll;
-}
-
-.lft-skl-bldg::-webkit-scrollbar {
-  width: 20px;
-}
-
-.lft-skl-bldg::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(255, 255, 255);
-  border-radius: 10px;
-}
-
-.lft-skl-bldg::-webkit-scrollbar-thumb {
-  background: #fff;
-  border-radius: 10px;
 }
 .stud-form-rad {
   display: flex;
@@ -1012,13 +1048,18 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.tl-skl-bldg {
-  display: flex;
-}
 .tl-br-cht {
   height: 400px;
 }
 .mobile-no {
   font-size: 15px;
   font-family: "f3";
+}
+.tic-icon {
+  background: #e4eaed;
+  border-radius: 127px;
+  padding: 3px;
+  width: 19px;
+  height: 19px;
+  margin-right: 6px;
 }

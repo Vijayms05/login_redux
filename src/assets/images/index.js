@@ -34,6 +34,7 @@ import certificate from './reading_book.png'
 import shareicon from './shareicon.png'
 import feedbackicon from './feedbackicon.png'
 import printicon from './printicon.png'
+import tickicon from './tick.png'
 
 export const Logo = () => <img className="logo" src={logo} alt="logo" />;
 
@@ -148,4 +149,7 @@ export const PrintIcon = () => (
 )
 export const FeedbackIcon = () => (
   <img src={feedbackicon} alt="feedbackicon" className="shar-icon-btn" />
+)
+export const TickIcon = () => (
+  <img src={tickicon} alt="feedbackicon" className="tic-icon" />
 )

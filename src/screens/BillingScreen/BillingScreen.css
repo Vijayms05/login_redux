@@ -48,6 +48,16 @@ tbody tr td {
   border: 1px solid #137ad3 !important;
   text-decoration: none;
 }
+.down-load-btn {
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff !important;
+  border: 1px solid #137ad3 !important;
+  background: #137ad3 !important;
+  text-decoration: none;
+  margin-right: 10px;
+}
 .rate-btn {
   font-size: 12px;
   padding: 0px 3px;
@@ -57,11 +67,13 @@ tbody tr td {
 }
 .table-name td a {
   font-family: "f3";
+  padding: 5px 3px;
   font-size: 13px;
   text-align: center;
   vertical-align: middle;
 }
 .dot-tabl {
+  margin-top: -18px;
   width: 4px;
   height: 4px;
   border-radius: 100%;
@@ -90,6 +102,7 @@ tbody tr td {
 }
 .cls-fre h2 {
   font-family: "f1";
+  margin-bottom: 0;
   font-size: 33px;
   text-align: left;
   color: #118af3 !important;
@@ -159,11 +172,14 @@ tbody tr td {
   font-weight: bold;
   font-family: "f3";
   color: #0c4a8b;
+  font-size: 14px;
+  display: flex;
 }
 .price-down {
-  padding: 15px 15px 0 !important;
+  padding: 15px;
   border: 1px solid #e5e5e5;
   border-radius: 10px;
+  margin-top: 20px;
 }
 .price-down h5 {
   list-style: none;
@@ -281,27 +297,28 @@ tbody tr td {
   display: inline-block;
 }
 /* width */
-.parag-test::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 
 /* Track */
-.parag-test::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
 /* Handle */
-.parag-test::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #d0e6f3;
   border-radius: 10px;
 }
 
 /* Handle on hover */
-.parag-test::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #e6f6ff;
   border-radius: 10px;
 }
-.parag-test::-webkit-scrollbar {
+::-webkit-scrollbar {
   border-radius: 10px;
   overflow: hidden;
 }

@@ -12,7 +12,6 @@ import {
     Learnprofessional,
     Logo
 } from '../../assets/images/index';
-import './style.css'
 const Professional = (props) => {
    const [inputName, setInputname]=useState('')
    const [workRole, setWorkrole]= useState('')
