@@ -5,7 +5,7 @@ import { SkilltallyLogo, Logo } from '../../assets/images/index'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import skilltallyLogo from '../../assets/images/skilltally_logo.png'
 
-const QuestionBar = () => {
+const DummyQuestionBar = () => {
     const [qusBar, setQusBar] = useState(true)
 
     const clickqusBar = () => {
@@ -41,7 +41,7 @@ const QuestionBar = () => {
                     <div >
                         <CountdownCircleTimer
                             isPlaying
-                            duration={390}
+                            duration={120}
                             colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                             onComplete={() => [true, 1000]}
                             size={120}
@@ -137,6 +137,6 @@ const formatRemainingTime = time => {
       </div>
     );
   };
-export default QuestionBar
+export default DummyQuestionBar
 
 

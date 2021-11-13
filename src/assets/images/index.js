@@ -1,4 +1,4 @@
-import signin from '../images/Sign_up.png';
+import signin from '../images/sign_up.png';
 import logo from '../images/logo.png';
 import email from '../images/email_icon.png';
 import password from '../images/lock_icon.png';
@@ -16,14 +16,14 @@ import eye_icon_hid from '../images/eye_icon_hid.png'
 import billing_back from '../images/billing-back.png'
 import numbicon from '../images/numb.png'
 import scaleIcon from '../images/scale_icon.png'
-import forgetpassword from '../images/Reset_password.png';
+import forgetpassword from '../images/reset_password.png';
 import upload from '../images/upload.png';
 import avatarprofile from '../images/avatarprofile.png';
-import learn_from from './Learn_from _anywhere.png';
+import learn_from from './learn_from _anywhere.png';
 import circle_left from './circle-left.png'
 import circle_right from './circle-right.png'
 import arrowLeft from './arrowLeft.png'
-import readingbooks from './Reading_books.png'
+import readingbooks from './reading_books.png'
 import record_mic_icon from './mic.png'
 import play_button from './playbutton.png'
 import paus_button from './pausbtn.png'
@@ -43,7 +43,7 @@ export const SiginImage = () => (
 );
 export const Readingbooks = () => (
   <img src={readingbooks} alt="readingbooks" className="singImg" />
-)
+);
 export const Learnprofessional = () => (
   <img src={learn_from} alt="learnfrom" className="singImg" />
 )

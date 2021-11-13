@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import { message } from 'antd';
 import {
   SiginImage,
@@ -8,7 +9,7 @@ import {
   PasswordIcon,
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
-import { history } from '../../routes/Routes'
+
 import { Link } from 'react-router-dom';
 import { Row, Col, Form, Button} from 'react-bootstrap';
 
@@ -18,6 +19,7 @@ const Login = (props) => {
   const [showPassword, setShowPassword] = useState(false); 
 
   const dispatch = useDispatch();
+  const history =useHistory();
 
   const validLogin = useSelector(state => state.loginState.login);
   const invalidLogin = useSelector(state => state.loginState.error);
@@ -58,7 +60,7 @@ const Login = (props) => {
       };
       dispatch({ type: 'LOGIN_REQUEST', login: loginDetails });
     }
-    history.push({pathname:'/onboard'})
+    history.push('/onboard')
     console.log(email,password)
   };
   return (

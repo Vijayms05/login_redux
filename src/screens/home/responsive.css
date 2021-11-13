@@ -89,9 +89,6 @@
   .read-cert {
     width: 305px;
   }
-  .onboarding-button {
-    width: 400px !important;
-  }
   .student-prof .card {
     margin: 10px auto !important;
   }
@@ -133,6 +130,9 @@
   }
   .tl-rt-qst {
     margin-top: 50px;
+  }
+  .student-prof {
+    display: inherit !important;
   }
 }
 @media (max-width: 992px) {
@@ -235,6 +235,9 @@
   .table-box {
     width: 980px;
   }
+  .testIntro {
+    display: grid !important;
+  }
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
@@ -250,6 +253,9 @@
   .bill-rit {
     width: 80% !important;
     margin: 0 auto;
+  }
+  .testIntro {
+    display: grid !important;
   }
 }
 
@@ -278,5 +284,8 @@
   }
   .read-cert {
     width: 75%;
+  }
+  .testIntro {
+    display: grid !important;
   }
 }

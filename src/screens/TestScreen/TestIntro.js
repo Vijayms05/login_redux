@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 const TestIntro = () =>{
     return(
         <Col className="testIntro pt-3">
+            <div className="m-auto"></div>
             <h3 className="heading-test text-center mb-3">Test Instructions</h3>
             <Row>
                 <Col className="text-sm-start">

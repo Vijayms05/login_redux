@@ -88,6 +88,15 @@ body {
   margin: auto;
   display: block;
 }
+.skilltally-logo {
+  width: 60px;
+  margin-left: 20px;
+  display: block;
+}
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+}
 .lftqst {
   padding: 15px;
   width: 320px;
@@ -541,25 +550,26 @@ body {
   font-weight: bold;
 }
 .vw-txt-inst {
-  background: #3ea8ff;
+  background: #3ea8ff !important;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 0;
   padding: 10px;
   width: 100%;
   text-align: center;
-  font-size: 13.5px;
+  font-size: 14.5px;
   margin-bottom: 8px;
 }
 .fnsh-txt {
-  background: #f94a4a;
+  background: #f94a4a !important ;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 0;
   padding: 10px;
   width: 100%;
   text-align: center;
-  font-size: 13.5px;
+  font-size: 14.5px;
+  /* font-weight: bold; */
   margin-bottom: 8px;
 }
 .prog-bar-test {
@@ -654,7 +664,7 @@ body {
   justify-content: center;
   background: #45acff;
   width: 110px !important;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 7px;
   color: #fff;
   border: 0;
@@ -810,10 +820,6 @@ body {
   display: grid;
 }
 
-.stud-prof p {
-  height: 67px;
-  overflow: hidden;
-}
 .subs-list-box {
   background-color: #e8f3ff;
   padding: 20px 19px;
@@ -1062,4 +1068,30 @@ body {
   width: 19px;
   height: 19px;
   margin-right: 6px;
+}
+.timer-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.timer {
+  font-family: "Montserrat";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  margin-top: 16px;
+  margin-left: 15px;
+  width: 80px;
+  font-size: 16px;
+}
+
+.value {
+  font-size: 25px;
+}
+
+.testIntro {
+  height: 100vh;
 }

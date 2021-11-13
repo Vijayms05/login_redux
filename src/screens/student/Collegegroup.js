@@ -7,7 +7,7 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
-import { history } from '../../routes/Routes';
+import { useHistory } from 'react-router-dom'
 
 import {
     Readingbooks,
@@ -18,13 +18,13 @@ import {
 const Collegegroup = (props) =>{
     const [inputName,setInputName] = useState('')
     const [branch, setBranch]= useState('')
-    const [school, setSchool] = useState(false)
+    const [school, setSchool] = useState('college')
     const [collegeName, setCollegeName] = useState('')
     const [ noofuniversity, setNoofuniversity]= useState('')
     const [collegeYear, setCollegeYear]= useState(' ')
     const [stream, setStream] = useState('')
 
-
+    const history = useHistory()
     const onInputName = e =>{
         setInputName(e.target.value)
     }
@@ -45,7 +45,7 @@ const Collegegroup = (props) =>{
     }
      
     const onCollegestudent = () =>{
-        history.push({pathname:'/home'})
+        history.push('/home')
     }
     return(
         <Col className="tl-bdy">
@@ -73,13 +73,14 @@ const Collegegroup = (props) =>{
                             <Form.Check className="ps-0" 
                             label="School"  type="radio" id="test1" name="radio-group"  value="school"
                             checked={school === "school" ? true: false} 
-                            onClick={e =>setSchool("school")}/>
+                            onChange={e =>setSchool("school")}/>
                             <Form.Check label="College/
                                     Intermediate  
                                     (plus one/ plus two)"  type="radio" id="test2" name="radio-group" 
                                     value="college"
                                     checked={school === "college" ? true: false} 
-                                    onClick={e =>setSchool("college")}/>
+                                    defaultValue={school}
+                                    onChange={e =>setSchool("college")}/>
                         </Form.Group>
                         <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                             <Form.Control 

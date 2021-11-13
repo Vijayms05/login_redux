@@ -12,11 +12,13 @@ const ChooseQuestion =()=>{
     <div className="tl-rt-qst">
         <div className="in-rt-qst">   
             <div className="qust-tit text-center">       
-                <h6>"Ends" in Lord Robbins definition of Economics is referred to as:</h6>
-                <p>Economics can be referred to as a type of social science that deals with the behavior of entities</p>
+                <h6>Q1  Who is the prime minister of india ?   </h6>
+                <p>Description : find out who is the prime minister of india</p>
             </div>              
             <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
-                <ToggleButton id="tbg-radio-1" value={1}><span className="chs-lft">A</span><span className="chs-ans">Resources</span>
+                <ToggleButton id="tbg-radio-1" value={1}>
+                    <span className="chs-lft">A</span>
+                    <span className="chs-ans">Resources</span>
                 </ToggleButton>
                 <ToggleButton id="tbg-radio-2" value={2}>
                     <span className="chs-lft">B</span><span className="chs-ans">Demands</span>

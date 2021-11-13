@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { history } from '../../routes/Routes';
+
 import {
     Col,
     Row,
@@ -7,8 +7,8 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
-import { history } from '../../routes/Routes'
+import { useHistory } from 'react-router-dom'
+
 
 import {
     Readingbooks,
@@ -20,6 +20,7 @@ const Studentgroup = (props) =>{
     const [inputName, setInputname] = useState('')   
     const [school, setSchool] = useState(false)  
 
+    const history= useHistory()
     const onInputname = e =>{
         setInputname(e.target.value)
     }
@@ -30,10 +31,10 @@ const Studentgroup = (props) =>{
         
         e.preventDefault();  
         if(school === 'school')  {
-          history.push({pathname:"/schoolstudent" })
+          history.push('/schoolstudent')
           // console.log(student)
         }else if(school === 'college'){
-          history.push({ pathname: "/collegegroup" })
+          history.push('/collegstudent')
         }         
     }
     return(

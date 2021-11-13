@@ -78,6 +78,16 @@
   height: 100vh;
   display: grid;
 }
+.top-stud-proof {
+  width: 200px;
+  height: 200px;
+  text-align: left;
+}
+
+.stud-prof p {
+  height: 67px;
+  overflow: hidden;
+}
 .stud-prof .form-check-input:checked[type="radio"] {
   background: none !important;
 }
@@ -86,11 +96,17 @@
 }
 .stud-prof .form-check-input[type="radio"] {
   border-radius: 9px !important;
+  border: 3px solid rgb(116 171 253);
 }
 .stud-prof .form-check-input {
   border-radius: 9px;
-  width: 13em !important;
-  height: 13em !important;
+  width: 200px !important;
+  height: 200px !important;
   margin: 0 !important;
   background: none !important;
+}
+.form-check-inp {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

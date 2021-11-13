@@ -57,7 +57,7 @@ const ReportPage = () =>{
                                     <td style={{color:'#298EE0'}} >
                                         <Row>
                                             <Col><Link className="rate-btn">15/60</Link></Col>
-                                            <Col>
+                                            <Col style={{marginTop: '22px'}}>
                                                 <div className="dot-tabl"></div>
                                             </Col>
                                         </Row>
@@ -73,7 +73,7 @@ const ReportPage = () =>{
                                     <td style={{color:'#298EE0'}} >
                                         <Row>
                                             <Col><Link className="rate-btn">15/60</Link></Col>
-                                            <Col>
+                                            <Col style={{marginTop: '22px'}}>
                                                 <div className="dot-tabl"></div>
                                             </Col>
                                         </Row>
