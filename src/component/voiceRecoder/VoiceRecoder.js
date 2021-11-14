@@ -15,28 +15,30 @@ const VoiceRecoder = () => {
             </div> 
 
             <Col className="rec-box">
-                <Col className="lft-in-rec-box">    
+                {/* <Col className="lft-in-rec-box">    
                     <div className="rec-mic-icon">    
                         <RecordMicIcon />
                     </div>                
                     <p className="timer-rec">0:00</p>
                     <div className="vert-line"></div>
                     <p className="rec-adio">record audio</p>
-                </Col>
-                <div className="rec-ply-icon">
-                    <Button onClick={startRecording}  disabled={isRecording}>                
-                        <PlayBtn />
-                    </Button> 
-                </div>
-                <div className="rec-ply-icon">
-                    <Button onClick={stopRecording}  disabled={!isRecording}>                
-                        <PausBtn />
-                    </Button>
+                </Col> */}
+                <div className="rec-pas-btn-aud">
+                    <div className="rec-ply-icon">
+                        <Button onClick={(startRecording)}  disabled={isRecording}>                
+                            <RecordMicIcon />
+                        </Button>
+                    </div>
+                    <div className="rec-ply-icon">
+                        <Button onClick={(stopRecording)}  disabled={!isRecording}>                
+                            <PausBtn />
+                        </Button>
+                    </div>
                     
                 </div>
+                <audio autoplay className="rec-aud-tag" src={audioURL} controls controlsList="nodownload noplaybackrate"></audio>
             </Col>
 
-            <audio src={audioURL} controls />
 
             <div className="pre-nxt-skp mt-3">
                 <Button className="pre-btn">

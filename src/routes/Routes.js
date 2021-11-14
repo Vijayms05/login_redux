@@ -40,6 +40,7 @@ import SkillBuildingReportList from '../screens/ReportScreen/SkillBuildingReport
 import SkillBuildingResult from '../screens/ReportScreen/SkillBuildingResult';
 
 import DummyQuestionPage from '../screens/TestScreen/DummyQuestionPage'
+
 export const history = createBrowserHistory();
 
  const Routes = (props) => {

@@ -7,6 +7,7 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
+
 import { useHistory } from 'react-router-dom'
 
 import {
@@ -48,7 +49,7 @@ const Collegegroup = (props) =>{
         history.push('/home')
     }
     return(
-        <Col className="tl-bdy">
+        <div className="tl-bdy sign-tl-bdy">
             <div className="bdy-in">
                 <Row>
                     <Col md={6}  xl={7} className="text-center m-auto">
@@ -57,8 +58,8 @@ const Collegegroup = (props) =>{
                     <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
                         <Logo  />
                         <Form className="login-form p-4">
-                        <h2>Before you jump in</h2>
-                        <h3>We will personalise this platform accordingly</h3> 
+                        <h2 className="f1-19 m-0 text-center">Before you jump in</h2>
+                        <h3 className="f3-13 dark-blue-light mx-0 mt-1 mb-3 text-center">We will personalise this platform accordingly</h3> 
                         <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                             <Form.Control 
                             className="student-inputField" 
@@ -110,24 +111,24 @@ const Collegegroup = (props) =>{
                                 <option value="4">Three</option>
                             </select>   
                             <select className="form-select mb-3 schoolstudent-select" 
-                            aria-label="Default select example"
-                            defaultValue={branch}
-                            onChange={onBranch}>
+                                aria-label="Default select example"
+                                defaultValue={branch}
+                                onChange={onBranch}>
                                 <option selected value="1">Branch</option>
                                 <option value="2">One</option>
                                 <option value="3">Two</option>
                                 <option value="4">Three</option>
                             </select> 
                             <select className="form-select mb-3 schoolstudent-select" 
-                            aria-label="Default select example"
-                            defaultValue={collegeYear}
-                            onChange={onYear}>
+                                aria-label="Default select example"
+                                defaultValue={collegeYear}
+                                onChange={onYear}>
                                 <option selected value="1">Year</option>
                                 <option value="2">One</option>
                                 <option value="3">Two</option>
                                 <option value="4">Three</option>
                             </select> 
-                            <Button  className="login-submit-btn" variant="primary" type="submit"
+                            <Button  className="submit-btn" variant="primary" type="submit"
                                 onClick={onCollegestudent}>
                                 Continue
                             </Button>                                
@@ -135,7 +136,7 @@ const Collegegroup = (props) =>{
                     </Col>
                 </Row>
             </div>
-        </Col>
+        </div>
     )
 } 
 export default Collegegroup
