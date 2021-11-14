@@ -13,6 +13,68 @@ const DummyQuestionBar = () => {
     }
     
     const now = 85 
+    
+    const [show,setShow]=useState(false)
+    const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
+    const [interv, setInterv] = useState();
+    const [status, setStatus] = useState(0);
+    // Not started = 0
+    // started = 1
+    // stopped = 2
+  
+
+    const onStart = () => {
+    //   startRecording()
+      run();
+      setStatus(1);
+      setInterv(setInterval(run, 10));
+      setShow(true)
+      console.log("start timing")
+     
+    };
+  
+    var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
+  
+    const run = () => {
+      if(updatedM === 60){
+        updatedH++;
+        updatedM = 0;
+      }
+      if(updatedS === 60){
+        updatedM++;
+        updatedS = 0;
+      }
+      if(updatedMs === 100){
+        updatedS++;
+        updatedMs = 0;
+      }
+      updatedMs++;
+      return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
+    };
+  
+
+
+    const onStop = () => {
+    //   stopRecording()
+      clearInterval(interv);
+      setStatus(2);
+      setShow(false)
+      
+      console.log("stop timing")
+    };
+  
+    const reset = () => {
+      clearInterval(interv);
+      setStatus(0);
+      setTime({ms:0, s:0, m:0, h:0})
+    };
+  
+    const resume = () => {
+        onStart();
+       
+    }
+
+
   return(  
     <>
         <div className="sid-menu-logo d-md-none">
@@ -25,7 +87,7 @@ const DummyQuestionBar = () => {
         </div>
         <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftqst" >
             {/* <SkilltallyLogo /> */}
-            <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2 mb-2"/>
+            <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2"/>
             <Row >
                 <Col className="mt-4">
                     <div className="qyst-pag">
@@ -41,8 +103,12 @@ const DummyQuestionBar = () => {
                     <div >
                         <CountdownCircleTimer
                             isPlaying
-                            duration={120}
-                            colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
+                            duration={90}
+                            colors={[
+                                ["#004777", 0.33], 
+                                ["#F7B801", 0.33], 
+                                ["#A30000"]
+                            ]}
                             onComplete={() => [true, 1000]}
                             size={120}
                             >
@@ -75,7 +141,8 @@ const DummyQuestionBar = () => {
             </Row> 
             <Row className="atn-top mt-3">
                 <ul className="atn-ul p-0">
-                    <li className="ans-txt">1</li>
+                    <li className="ans-txt" onClick={resume}>
+                        1 </li>
                     <li className="ans-txt">2</li>
                     <li className="not-ans-txt">3</li>
                     <li className="crt-txt">4</li>

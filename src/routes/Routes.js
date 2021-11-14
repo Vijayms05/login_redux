@@ -40,6 +40,7 @@ import SkillBuildingReportList from '../screens/ReportScreen/SkillBuildingReport
 import SkillBuildingResult from '../screens/ReportScreen/SkillBuildingResult';
 
 import DummyQuestionPage from '../screens/TestScreen/DummyQuestionPage'
+import Audioplayer from '../component/dummyquestion/audioAndvideos/Audioplayer';
 export const history = createBrowserHistory();
 
  const Routes = (props) => {
@@ -82,6 +83,7 @@ export const history = createBrowserHistory();
                 
                 {/*Dummy */}
                 <Route path="/dummy" component={DummyQuestionPage} />
+                <Route path="/audioplayer" component={Audioplayer} />
               </Switch>
             </React.Fragment>                
         </Router>
