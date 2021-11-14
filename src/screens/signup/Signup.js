@@ -96,7 +96,7 @@ const Signup = (props) => {
 
   return (
     <>
-      <Col className="tl-bdy">
+      <Col className="tl-bdy sign-tl-bdy">
         <div className="bdy-in">
           <Row>
             <Col md={6} xl={7} className="text-center m-auto">

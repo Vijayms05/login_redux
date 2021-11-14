@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {  Container, Col, Row, Form, Card, ProgressBar, Table } from 'react-bootstrap'
 import Button from '@restart/ui/esm/Button'
 import { SearchIcon } from '../../../assets/images'
+import { Link } from 'react-router-dom'
 
 const BillingPage = () =>{
     return(
@@ -45,14 +46,12 @@ const BillingPage = () =>{
                             <td>Paid</td>
                             <td>90Days</td>
                             <td>Rs.365</td>
-                            <td><a href="" className="cert-btn">Certified</a></td>
+                            <td><Link to="" className="cert-btn">Certified</Link></td>
                             <td style={{color:'#298EE0'}} >
-                                <Row>
-                                    <Col><a className="rate-btn">15/60</a></Col>
-                                    <Col>
+                                <div className="d-flex align-items-center">
+                                    <Button className="down-load-btn">Download Invoice</Button>
                                         <div className="dot-tabl"></div>
-                                    </Col>
-                                </Row>
+                                </div>
                             </td>                               
                         </tr>                           
                     </tbody>

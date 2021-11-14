@@ -29,9 +29,6 @@ const SubscriptionList = () =>{
                 <div className="m-auto">
                     <div className="tl-skl-bldg"> 
                         <Col className="lft-skl-bldg">
-                            {/* <Row> 
-                                <h5 className="report-h5 mt-2">Skill-Building Status</h5>  
-                            </Row>     */}
                             <Row className="billing-add w-100">
                                 <Col className="cls-fre">
                                     <h2 className="">Class12</h2>
@@ -39,8 +36,10 @@ const SubscriptionList = () =>{
                                 <Col className="cls-fre">
                                     <h4 className="">Your Current Plan</h4>
                                     <h2 className="">Free</h2>
+                                    {/* <Link to="/billings" className="anal-btn">Go to Billing</Link> */}
+                                    <Link to="/billings-details" className="anal-btn">Upgrade Now</Link>
                                 </Col>
-                                <Col></Col>
+                                <Col className="d-none d-md-block"></Col>
                                 <Billingrit />
                                 <ScaleIcon />
                                 <NumbIcon />
@@ -54,6 +53,7 @@ const SubscriptionList = () =>{
                                     <div class="tit-subs"><h5>English</h5></div>
                                 </div>                    
                                 <div>                        
+                                    <p className="f3-13 mb-0">Progress</p>    
                                     <div className="prog-bar-subs">
                                         <ProgressBar now={progValue} />
                                         <p className="p-0 mb-0 ms-2">{progValue}%</p>
@@ -67,7 +67,8 @@ const SubscriptionList = () =>{
                                     </div>
                                     <div class="tit-subs"><h5>History</h5></div>
                                 </div>                    
-                                <div>                        
+                                <div>    
+                                    <p className="f3-13 mb-0">Progress</p>                    
                                     <div className="prog-bar-subs">
                                         <ProgressBar now={progValue} />
                                         <p className="p-0 mb-0 ms-2">{progValue}%</p>
@@ -86,7 +87,7 @@ const SubscriptionList = () =>{
                                 <p className="skil-sum-p">Score</p> 
                                 <p className="skil-sum-p">: 60%</p> 
                             </div>
-                            <Link className="anal-btn">Analysis Result</Link>
+                            <Link to="/basline" className="anal-btn">Analysis Result</Link>
                             
                             <h4 className="skil-sum-baslin mt-4">Certification</h4> 
                             <div class="flex-spc-btw">
@@ -97,7 +98,7 @@ const SubscriptionList = () =>{
                                 <p className="skil-sum-p">Score</p> 
                                 <p className="skil-sum-p">: 60%</p> 
                             </div>
-                            <Link className="anal-btn">Analysis Result</Link>
+                            <Link to="/certificate-result" className="anal-btn">Analysis Result</Link>
                             
                             <h4 className="skil-sum-baslin mt-4 text-center">Action</h4>
                             <Link className="actn-btn">

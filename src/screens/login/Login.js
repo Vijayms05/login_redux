@@ -12,8 +12,6 @@ import {
 
 import { Link } from 'react-router-dom';
 import { Row, Col, Form, Button} from 'react-bootstrap';
-import './style.css';
-import './responsive.css'
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
@@ -66,7 +64,7 @@ const Login = (props) => {
     console.log(email,password)
   };
   return (
-    <Col className="tl-bdy">
+    <div className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
         <Row>
           <Col md={6}  xl={7} className="text-center m-auto">
@@ -74,12 +72,12 @@ const Login = (props) => {
           </Col>
           <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
             <Logo  />
-            <Form className="login-form p-4">
-              <h2>Welcome Back</h2>
-              <h3>Enter your credentials to access your account</h3> 
-              <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+            <Form className="sign-form p-4">
+              <h2 className="f1-19 m-0 text-center">Welcome Back</h2>
+              <h3 className="f3-13 dark-blue-light mx-0 mt-1 mb-2 text-center">Enter your credentials to access your account</h3> 
+              <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                 <Form.Control 
-                  className="login-inputField" 
+                  className="inputField" 
                   type="email" 
                   placeholder="E-mail"
                   value={email}
@@ -87,9 +85,9 @@ const Login = (props) => {
                 />
                 <EmailIcon />
               </Form.Group>
-              <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+              <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                 <Form.Control 
-                  className="login-inputField"  
+                  className="inputField"  
                   type={showPassword ? 'password' : 'text'} 
                   placeholder="Password"
                   value={password}
@@ -103,7 +101,7 @@ const Login = (props) => {
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Label className="reset-password"><Link to="/resetpassword">Forget Password</Link> </Form.Label>
               </Form.Group>
-                <Button  className="login-submit-btn" variant="primary" type="submit" 
+                <Button  className="submit-btn" variant="primary" type="submit" 
                 onClick={onLogin}>
                     Log in
                 </Button>                                
@@ -112,7 +110,7 @@ const Login = (props) => {
           </Col>
         </Row>
       </div>
-    </Col>
+    </div>
   );
 };
 

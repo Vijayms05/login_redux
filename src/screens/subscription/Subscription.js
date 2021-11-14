@@ -7,6 +7,8 @@ import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
 
 const Subscription = () =>{
+   const now = 30
+
     return(
         <Col className="py-md-0 mt-5 mt-md-0">   
             <Row>
@@ -45,7 +47,7 @@ const Subscription = () =>{
                 </Col>
             </Row>
             <Row>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 w1400-20 sub-lst">
+                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
                     <Link to="/subscription-list">
                         <Card> 
                             <Card.Body hover>
@@ -55,12 +57,16 @@ const Subscription = () =>{
                                 <Card.Text className="sub-active mb-1 mt-2"> 
                                     Subscription : Active
                                 </Card.Text>
-                                <Card.Text className="mb-2" style={{fontSize:'15px'}}>
+                                <Card.Text className="mb-2" style={{fontSize:'13.5px', fontFamily:'f3'}}>
                                     Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
                                     Morbi in orci risus. Donec pretium
                                 </Card.Text> 
-                                <Card.Text className="text-start">In Process</Card.Text>
-                                <ProgressBar now={30} label="30%" />
+                                <Card.Text className="text-start mb-0">In Progress</Card.Text><div>                        
+                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
+                                        <ProgressBar now={now} />
+                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
+                                    </div> 
+                                </div>
                                 <div className="play-vid">
                                 <PlaybtnIcon />
                                 </div>

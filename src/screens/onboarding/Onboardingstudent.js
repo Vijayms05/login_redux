@@ -47,13 +47,13 @@ const Onboardingstudent = (props) =>{
           <Col xs={12} lg={4} className="p-3 text-center m-auto">
             <Professionalbook />                       
           </Col>          
-          <Col xs={12} lg={4} className="p-3 p-lg-0 text-center m-auto">
+          <Col xs={12} lg={6} xl={4} className="p-3 p-lg-0 text-center m-auto">
             <Logo />
             <h3 className="onboarding-heading mt-5">Create account as a</h3>
             <p className="onboarding-p">We will personalise this platform accordingly</p>                 
             <Row className="mb-3 gx-2">
               <Col xs={12} md={6}>
-                <Card onClick={e =>setStudent("student")} className="w-100" >
+                <Card onClick={e =>setStudent("student")} className="top-stud-proof" >
                     <Card.Body className="stud-prof">
                       <FrameLogo />
                       <Card.Title className='mt-3 ms-2 onboarding-title'>Student</Card.Title>
@@ -63,7 +63,7 @@ const Onboardingstudent = (props) =>{
                       <Form>
                         <Form.Check 
                           type="radio" 
-                          className="position-absolute" style={{top:'25px',right:'25px'}}
+                          className="form-check-inp"
                           value="student"
                           checked={student === "student" ? true: false}  
                         />
@@ -72,7 +72,7 @@ const Onboardingstudent = (props) =>{
                 </Card> 
               </Col>
               <Col xs={12} md={6}>
-                <Card onClick={e=>setStudent("professional")}>
+                <Card onClick={e=>setStudent("professional")} className="top-stud-proof">
                     <Card.Body className="stud-prof">
                       <FrameOneLogo />
                       <Card.Title className='mt-3 ms-2 onboarding-title'>Professional</Card.Title>
@@ -82,7 +82,7 @@ const Onboardingstudent = (props) =>{
                       <Form>
                         <Form.Check 
                           type="radio" 
-                          className="position-absolute" style={{top:'25px',right:'25px'}}
+                          className="form-check-inp"
                           value="professional"
                           checked={student === "professional" ? true : false }                                                     
                           />
@@ -91,14 +91,14 @@ const Onboardingstudent = (props) =>{
                 </Card>
               </Col>                
             </Row> 
-            <Col>
+            <Col className="">
               <Button   className="onboarding-button mt-3 mb-2" onClick={onBoard}
               >       {/* to="/student" onClick={onBoard} */}        
                 Continue                     
               </Button> 
             </Col>
           </Col>
-          <Col xs={12} lg={4} className="p-3 text-center m-auto">
+          <Col xs={12} lg={4} className="p-3 text-center m-auto d-none d-xl-block">
             <Readingbook />                       
           </Col>
         </div>                   

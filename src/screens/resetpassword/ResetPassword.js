@@ -10,7 +10,6 @@ import {
 
 import {Link} from 'react-router-dom';
 import { Row, Col, Form, Button} from 'react-bootstrap';
-import './style.css';
 
 const ResetPassword = (props) => {
   const [email, setEmail]=useState('')
@@ -27,7 +26,7 @@ const ResetPassword = (props) => {
     console.log(email)
   }
   return (
-    <Col className="tl-bdy">
+    <Col className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
         <Row>
           <Col md={6}  xl={7} className="text-center m-auto">
@@ -35,12 +34,12 @@ const ResetPassword = (props) => {
           </Col>
           <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
             <Logo  />
-            <Form className="login-form p-4">
-              <h2>Forget Password</h2>
-              <h3>Enter the email address you used when you first signed up. We'll send you instruction to reset your password. </h3> 
-              <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+            <Form className="sign-form p-4">
+              <h2 className="f1-19 text-center">Forget Password</h2>
+              <h3 className="f3-13 text-center dark-blue-light mt-1 mb-3">Enter the email address you used when you first signed up. We'll send you instruction to reset your password. </h3> 
+              <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                 <Form.Control 
-                  className="login-inputField" 
+                  className="inputField" 
                   type="email" 
                   placeholder="E-mail"
                   value={email}
@@ -49,7 +48,7 @@ const ResetPassword = (props) => {
                 <EmailIcon />
               </Form.Group>
                 <Button 
-                  className="login-submit-btn" 
+                  className="submit-btn" 
                   variant="primary" 
                   type="submit" 
                   onClick={onClick}

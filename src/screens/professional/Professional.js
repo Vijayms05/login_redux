@@ -12,7 +12,6 @@ import {
     Learnprofessional,
     Logo
 } from '../../assets/images/index';
-import './style.css'
 const Professional = (props) => {
    const [inputName, setInputname]=useState('')
    const [workRole, setWorkrole]= useState('')
@@ -32,7 +31,7 @@ const Professional = (props) => {
     }
  
     return(
-        <Col className="tl-bdy">
+        <Col className="tl-bdy sign-tl-bdy">
             <div className="bdy-in">           
                 <Row >
                     <Col md={6}  xl={7} className="text-center m-auto">
@@ -69,7 +68,7 @@ const Professional = (props) => {
                                     onChange={onWork}                                    
                                 />
                             </Form.Group>  
-                            <Button className="mb-3 professional-btn" onClick={onProfessional} >
+                            <Button className="mb-3 submit-btn" onClick={onProfessional} >
                                 Continue
                             </Button>
                         </Form>

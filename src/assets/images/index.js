@@ -31,16 +31,12 @@ import frame from './frame.png'
 import frame_logo from './frameone.png'
 import reading_book from './certificate.png'
 import certificate from './reading_book.png'
-import shareicon from './shareIcon.png'
+import shareicon from './shareicon.png'
 import feedbackicon from './feedbackicon.png'
 import printicon from './printicon.png'
-// import skilltally from './skilltally_logo.png'
+import tickicon from './tick.png'
 
 export const Logo = () => <img className="logo" src={logo} alt="logo" />;
-
-// export const SkilltallyLogo = () => (
-//   <img scr={skilltally} className="skilltally-logo" alt="skill tally logo" />
-// );
 
 export const SiginImage = () => (
   <img src={signin} alt="signin" className="singImg" />
@@ -153,4 +149,7 @@ export const PrintIcon = () => (
 )
 export const FeedbackIcon = () => (
   <img src={feedbackicon} alt="feedbackicon" className="shar-icon-btn" />
+)
+export const TickIcon = () => (
+  <img src={tickicon} alt="feedbackicon" className="tic-icon" />
 )
