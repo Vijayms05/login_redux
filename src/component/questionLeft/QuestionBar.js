@@ -71,7 +71,7 @@ const QuestionBar = (props) => {
                     </Col>
                 </Row>
             </Row> 
-            <Row className="atn-top mt-3">
+            <div className="atn-top mt-3">
                 {/* <div className="atn-ul p-0">
                     <button className="ans-txt"
                         // onClick={setCurrentQuestion(currentQuestion + 1);
@@ -105,7 +105,7 @@ const QuestionBar = (props) => {
                     <li className="ans-txt">17</li>
                     <li className="not-vst-txt">18</li>
                 </ul>
-            </Row> 
+            </div> 
             <div className="prog-bar">
                 <ProgressBar now={now} />
                 <p className="p-0 mb-0 ms-2">{now}%</p>

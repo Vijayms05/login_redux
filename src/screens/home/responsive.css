@@ -312,6 +312,13 @@
     display: grid !important;
   }
   .rec-aud-tag {
-    width: 97%;
+    width: 95%;
+  }
+  .textrec {
+    padding: 0 6rem !important;
   }
 }
+
+/** height-start **/
+
+/** height-end **/

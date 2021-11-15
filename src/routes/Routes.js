@@ -38,8 +38,11 @@ import BaseLineDetails from '../screens/ReportScreen/BaseLineDetails';
 import CertificationDetails from '../screens/ReportScreen/CertificationDetails';
 import SkillBuildingReportList from '../screens/ReportScreen/SkillBuildingReportList';
 import SkillBuildingResult from '../screens/ReportScreen/SkillBuildingResult';
-
 import DummyQuestionPage from '../screens/TestScreen/DummyQuestionPage'
+import TextRecordScreen from '../screens/TestScreen/TextRecordScreen'
+import PlayQuestionScreen from '../screens/TestScreen/PlayQuestionScreen';
+import QuestionAnsRecordScreen from '../screens/TestScreen/QuestionAnsRecordScreen';
+
 
 export const history = createBrowserHistory();
 
@@ -51,9 +54,7 @@ export const history = createBrowserHistory();
                 <Route exact  path="/" component={Signup} />
                 <Route path="/login" component={Login} />
                 <Route path="/resetpassword" component={ResetPassword}/>
-                {/*dashboard */}
                 <Route path="/home" component={HomeScreen} />
-                {/*student and professional */}
                 <Route path="/onboard" component={Onboardingstudent} />
                 <Route path="/schoolstudent" component={Schoolstudent} />
                 <Route path="/professional" component={Professional} />
@@ -80,6 +81,9 @@ export const history = createBrowserHistory();
                 <Route path="/text-question" component={TextQusetionScreen} />
                 <Route path="/audiorecord" component={AudioRecorderScreen} />
                 <Route path="/videorecord" component={VideoRecorderScreen} />
+                <Route path="/textrecord" component={TextRecordScreen} />
+                <Route path="/play-question" component={PlayQuestionScreen} />
+                <Route path="/ques-ans-play" component={QuestionAnsRecordScreen} />
                 <Route path="/dummy" component={DummyQuestionPage} />
               </Switch>
             </React.Fragment>                

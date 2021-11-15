@@ -294,17 +294,17 @@ const ProfilePage = (props) => {
                 aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handlepasswordClose} >                    
                     <Modal.Body >                       
                         <Modal.Title className="text-center mt-3 mb-3 f1-16">Change Password</Modal.Title>   
-                        <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                        <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                             <Form.Control 
-                            className="login-inputField" 
+                            className="inputField" 
                             type="password" 
                             placeholder="Change Password"
                             />
                             <PasswordIcon />
                         </Form.Group>
-                        <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                        <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                             <Form.Control 
-                            className="login-inputField" 
+                            className="inputField" 
                             type="password" 
                             placeholder="Confirm Password"
                             />

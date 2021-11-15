@@ -9,8 +9,8 @@ import {CircleLeft, CircleRight} from '../../assets/images/index'
 
 const TextQuestion =()=>{
   return(  
-    <div className="tl-rt-qst">
-        <div className="in-rt-qst">   
+    <div className="tl-rt-qst d-grid w-100">
+        <div className="m-auto w-75 p-5">   
             <div className="qust-tit text-left">       
                 <h6>Enter your pharagraph: </h6>
             </div>  
@@ -19,13 +19,15 @@ const TextQuestion =()=>{
 
                 </textarea>
             </div>
+           
             <div className="pre-nxt-skp mt-5">
-                <Button className="pre-btn">
-                    <CircleLeft />
-                    Previous
-                </Button>
+               <Link to="/fill-question" className="pre-btn">
+                         <CircleLeft />
+                        Preview 
+                    </Link>
+                <p></p>
                 <div className="d-flex">
-                    <Link to="/audiorecord" className="nxt-btn">
+                    <Link to="/textrecord" className="nxt-btn">
                         Next
                         <CircleRight />
                     </Link>
