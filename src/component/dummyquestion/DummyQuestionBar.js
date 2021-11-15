@@ -1,80 +1,46 @@
 
 import React,{useState}  from 'react';
 import {  Row, Col, Nav, Navbar, ProgressBar,Button } from 'react-bootstrap'
-import { SkilltallyLogo, Logo } from '../../assets/images/index'
+import {  Logo,TimerIcon } from '../../assets/images/index'
+
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import skilltallyLogo from '../../assets/images/skilltally_logo.png'
 
+import { data } from '../../locale/data';
+
 const DummyQuestionBar = () => {
     const [qusBar, setQusBar] = useState(true)
+    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [myAnswer, setMyAnswer] = useState("");
+    const [score, setScore] = useState(0);
+    const [finish, setFinish] = useState(false);
+    const [show, setShow] = useState(false);
+    const [clickAnswer, setClickAnswer] = useState(false);
 
     const clickqusBar = () => {
         setQusBar(!qusBar)
     }
     
-    const now = 85 
-    
-    const [show,setShow]=useState(false)
-    const [time, setTime] = useState({ms:0, s:0, m:0, h:0});
-    const [interv, setInterv] = useState();
-    const [status, setStatus] = useState(0);
-    // Not started = 0
-    // started = 1
-    // stopped = 2
+    const now = 85   
   
-
-    const onStart = () => {
-    //   startRecording()
-      run();
-      setStatus(1);
-      setInterv(setInterval(run, 10));
-      setShow(true)
-      console.log("start timing")
-     
+    const checkAnswer = (variant) => {
+      setMyAnswer(variant);
+      setClickAnswer(true);
     };
   
-    var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
-  
-    const run = () => {
-      if(updatedM === 60){
-        updatedH++;
-        updatedM = 0;
+    const checkCorrectAnswer = () => {
+      if (myAnswer === data[currentQuestion].answer) {
+        setScore(score + 1);
       }
-      if(updatedS === 60){
-        updatedM++;
-        updatedS = 0;
-      }
-      if(updatedMs === 100){
-        updatedS++;
-        updatedMs = 0;
-      }
-      updatedMs++;
-      return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
     };
   
-
-
-    const onStop = () => {
-    //   stopRecording()
-      clearInterval(interv);
-      setStatus(2);
-      setShow(false)
-      
-      console.log("stop timing")
+    const showAnswer = () => {
+      setShow((show) => !show); //better to be toggled like this
     };
-  
     const reset = () => {
-      clearInterval(interv);
-      setStatus(0);
-      setTime({ms:0, s:0, m:0, h:0})
+      setShow(false);
+      setClickAnswer(false);
     };
-  
-    const resume = () => {
-        onStart();
-       
-    }
-
-
   return(  
     <>
         <div className="sid-menu-logo d-md-none">
@@ -103,12 +69,8 @@ const DummyQuestionBar = () => {
                     <div >
                         <CountdownCircleTimer
                             isPlaying
-                            duration={90}
-                            colors={[
-                                ["#004777", 0.33], 
-                                ["#F7B801", 0.33], 
-                                ["#A30000"]
-                            ]}
+                            duration={120}
+                            colors={[["#298EE0", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                             onComplete={() => [true, 1000]}
                             size={120}
                             >
@@ -140,8 +102,16 @@ const DummyQuestionBar = () => {
                 </Row>
             </Row> 
             <Row className="atn-top mt-3">
+                <div className="atn-ul p-0">
+                    <button className="ans-txt"
+                     onClick={() => {
+                        setCurrentQuestion(currentQuestion + 1);
+                        checkCorrectAnswer();
+                        reset();
+                        }} >1</button>
+                </div>
                 <ul className="atn-ul p-0">
-                    <li className="ans-txt" onClick={resume}>
+                    <li className="ans-txt" >
                         1 </li>
                     <li className="ans-txt">2</li>
                     <li className="not-ans-txt">3</li>
@@ -199,8 +169,10 @@ const formatRemainingTime = time => {
   
     return (
       <div className="timer">
-        <div className="text">Remaining time</div>
-        <div className="value">{formatRemainingTime(remainingTime)}</div>
+        <div className="f3-15 text-center mt-1" style={{width: '80px'}}>Time left</div>
+        <div className="value f1-15">
+            <TimerIcon />
+            {formatRemainingTime(remainingTime)}</div>
       </div>
     );
   };

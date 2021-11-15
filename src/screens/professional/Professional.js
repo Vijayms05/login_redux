@@ -7,7 +7,7 @@ import {
     Button 
 } from "react-bootstrap";
 
-import { history } from '../../routes/Routes'
+import { useHistory } from 'react-router-dom';
 import {
     Learnprofessional,
     Logo
@@ -17,6 +17,7 @@ const Professional = (props) => {
    const [workRole, setWorkrole]= useState('')
    const [industry, setIndustry]= useState('')
 
+   const history = useHistory()
     const onName = e =>{
         setInputname(e.target.value)
     }
@@ -40,8 +41,8 @@ const Professional = (props) => {
                     <Col md={6} xl={5}   className="p-5" > 
                         <Logo />
                         <Form className="professional-form p-3 m-2"> 
-                            <h3 className="mb-2">Before you jump in</h3>
-                            <p className="mb-3">We will personalise this platform accordingly</p>
+                            <h2 className="f1-19 m-0 text-center">Before you jump in</h2>
+                            <p className="f3-13 dark-blue-light mx-0 mt-1 mb-3 text-center">We will personalise this platform accordingly</p>
                             <Form.Group className="mb-3 professional-formgroup">
                                 <Form.Control 
                                     placeholder="Enter your name" 

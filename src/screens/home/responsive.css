@@ -23,6 +23,12 @@
   .billing_back {
     width: 92px !important;
   }
+  .rec-aud-tag {
+    width: 90% !important;
+  }
+  .rec-box .rec-ply-icon {
+    margin-right: 7px !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -130,15 +136,23 @@
   }
   .tl-rt-qst {
     margin-top: 50px;
+    height: auto !important;
+    overflow: auto !important;
   }
   .student-prof {
     display: inherit !important;
+  }
+  .rec-aud-tag {
+    width: 92%;
   }
 }
 @media (max-width: 992px) {
   .skl-rpt-bx-tb {
     width: 100%;
     overflow-x: scroll;
+  }
+  .rec-box {
+    padding: 8px 0 !important;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -202,6 +216,9 @@
   .cls-fre h4 {
     font-size: 12px !important;
   }
+  .rec-aud-tag {
+    width: 90%;
+  }
 }
 @media (min-width: 992px) {
   .bill-rit {
@@ -238,6 +255,9 @@
   .testIntro {
     display: grid !important;
   }
+  .rec-aud-tag {
+    width: 95%;
+  }
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
@@ -246,6 +266,9 @@
   }
   .tit-cert-box td {
     width: 180px !important;
+  }
+  .rec-aud-tag {
+    width: 95.5%;
   }
 }
 
@@ -287,5 +310,8 @@
   }
   .testIntro {
     display: grid !important;
+  }
+  .rec-aud-tag {
+    width: 97%;
   }
 }

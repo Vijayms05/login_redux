@@ -80,8 +80,10 @@ export const history = createBrowserHistory();
                 <Route path="/text-question" component={TextQusetionScreen} />
                 <Route path="/audiorecord" component={AudioRecorderScreen} />
                 <Route path="/videorecord" component={VideoRecorderScreen} />
+
                 <Route path="/dummy" component={DummyQuestionPage} />
                 <Route path="/audioplayer" component={Audioplayer} />
+                {/* <Route path="/playrecorder" component={PalyerRecorderScreen} /> */}
               </Switch>
             </React.Fragment>                
         </Router>

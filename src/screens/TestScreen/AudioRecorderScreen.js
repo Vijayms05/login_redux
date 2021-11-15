@@ -5,7 +5,7 @@ import VoiceRecoder from '../../component/voiceRecoder/VoiceRecoder';
 const AudioRecorderScreen = () => {
     return (
         <div className="d-md-flex test-main">            
-           {/* <QuestionBar /> */}
+           <QuestionBar />
            <VoiceRecoder />
         </div>
     );

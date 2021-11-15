@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 // import { history } from '../../routes/Routes'
 import { useHistory } from 'react-router-dom'
-import { message } from 'antd';
+// import { message } from 'antd';
 //logo
 import {
   SiginImage,
@@ -68,16 +68,16 @@ const Signup = (props) => {
       setTermsCondition(false);  
       console.log('Thanks!, Signup form is successfully registered ');   
     } else if (invalidSignup) {
-      message.error(`An account with email ${email} already exists`);
+      console.log(`An account with email ${email} already exists`);
     }
   },[status, invalidSignup])
 
   const onSubmit = e =>{
     if (email === " " || password === " " || repassword === " ") {    
-      message.error('Please fill all the fields')
+      console.log('Please fill all the fields')
     }   
     else if (termscondition === false) {
-      message.error('Please accept the Terms & Conditions and Privacy Policy');
+      console.log('Please accept the Terms & Conditions and Privacy Policy');
     } 
     else {
       const signupDetailsuser = {

@@ -12,7 +12,7 @@ import {
     Button
 } from 'react-bootstrap';
 import SettingBill from '../../component/SettingsTab/SettingBill';
-import SettingsPayment from '../../component/SettingsTab/SettingsPayment';
+// import SettingsPayment from '../../component/SettingsTab/SettingsPayment';
 import SettingsOraganization from '../../component/SettingsTab/SettingsOraganization';
 import SettingsHelp from '../../component/SettingsTab/SettingsHelp';
 
@@ -28,9 +28,9 @@ const Setting = () =>{
                     <Tab eventKey="home" title="Billing Details" className="test-name">
                         <SettingBill />
                     </Tab>
-                    <Tab eventKey="profile" title="Payement Method"  className="test-name">
+                    {/* <Tab eventKey="profile" title="Payement Method"  className="test-name">
                         <SettingsPayment />
-                    </Tab>
+                    </Tab> */}
                     <Tab eventKey="contact" title="Organization Details"  className="test-name">
                         <SettingsOraganization />                        
                     </Tab>

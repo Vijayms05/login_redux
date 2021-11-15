@@ -1,17 +1,17 @@
 
 import React,{useState}  from 'react';
 import {  Row, Col, Nav, Navbar, ProgressBar,Button } from 'react-bootstrap'
-import { SkilltallyLogo, Logo } from '../../assets/images/index'
+import { SkilltallyLogo, Logo,TimerIcon } from '../../assets/images/index'
+
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import skilltallyLogo from '../../assets/images/skilltally_logo.png'
+// import skilltallyLogo from '../../assets/images/skilltally_logo.png'
+// import ChooseQuestion from '../questionRight/ChooseQuestion';
 
-const QuestionBar = () => {
+const QuestionBar = (props) => {   
     const [qusBar, setQusBar] = useState(true)
-
     const clickqusBar = () => {
         setQusBar(!qusBar)
-    }
-    
+    }    
     const now = 85 
   return(  
     <>
@@ -24,25 +24,23 @@ const QuestionBar = () => {
             <Logo />
         </div>
         <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftqst" >
-            {/* <SkilltallyLogo /> */}
-            <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2 mb-2"/>
+            <div className="mb-2">
+                <Logo />
+            </div>
+                {/* <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2 mb-2"/> */}
             <Row >
                 <Col className="mt-4">
                     <div className="qyst-pag">
-                        <h5>
-                            Test Name
-                        </h5>
-                        <h4>
-                            Subject Name
-                        </h4>
+                        <h5>Test Name</h5>
+                        <h4>Subject Name</h4>
                     </div> 
                 </Col>                    
                 <Col>
                     <div >
                         <CountdownCircleTimer
                             isPlaying
-                            duration={390}
-                            colors={[["#004777", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
+                            duration={120}
+                            colors={[["#298EE0", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                             onComplete={() => [true, 1000]}
                             size={120}
                             >
@@ -74,6 +72,13 @@ const QuestionBar = () => {
                 </Row>
             </Row> 
             <Row className="atn-top mt-3">
+                {/* <div className="atn-ul p-0">
+                    <button className="ans-txt"
+                        // onClick={setCurrentQuestion(currentQuestion + 1);
+                        //     checkCorrectAnswer();
+                        //     reset();}
+                    >1</button>
+                </div> */}
                 <ul className="atn-ul p-0">
                     <li className="ans-txt">1</li>
                     <li className="ans-txt">2</li>
@@ -127,13 +132,15 @@ const formatRemainingTime = time => {
   
   const renderTime = ({ remainingTime }) => {
     if (remainingTime === 0) {
-      return <div className="timer">Too lale...</div>;
+      return <div className="timer">Time Is Over</div>;
     }
   
     return (
       <div className="timer">
-        <div className="text">Remaining time</div>
-        <div className="value">{formatRemainingTime(remainingTime)}</div>
+        <div className="f3-15 text-center mt-1" style={{width: '80px'}}>Time left</div>
+        <div className="value f1-15">
+            <TimerIcon />
+            {formatRemainingTime(remainingTime)}</div>
       </div>
     );
   };

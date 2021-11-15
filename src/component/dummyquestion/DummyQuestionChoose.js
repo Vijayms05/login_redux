@@ -1,12 +1,12 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Button from '@restart/ui/esm/Button';
 import { ToggleButtonGroup, ToggleButton, } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 
-import './dummyquestion.css'
-import {CircleLeft, CircleRight} from '../../assets/images/index'
 
+import {CircleLeft, CircleRight} from '../../assets/images/index'
 import { data } from '../../locale/data';
+
 
 const DummyQuestionChoose =(props)=>{
     
@@ -36,48 +36,41 @@ const DummyQuestionChoose =(props)=>{
       setClickAnswer(false);
     };
   
-    const finishHandler = () => {
-      if (currentQuestion === data.length - 1) {
-        setFinish(true);
-      }
-    };
+    // const finishHandler = () => {
+    //   if (currentQuestion === data.length - 1) {
+    //     setFinish(true);
+    //   }
+    // };
   
-    const startOver = () => {
-      setCurrentQuestion(0);
-      setFinish(false);
-      setMyAnswer("");
-      setScore(0);
-    };
-  
-    if (finish) {
-      return (
-        <div className="container m-4 p-4 mx-auto h-min-screen grid grid-rows-1 grid-cols-1 items-center">
-          <div className="wrapper">
-            <h3 className="m-4 p-2 h-30 text-center text-2xl font-bold">
-              {`Game Over! Your Final Score is
-              ${score}/${data.length - 1}
-              points.`}
-            </h3>
-            <button
-              className="w-full h-14 mt-2 px-2 rounded-lg bg-gray-600 text-pink-400 font-bold hover:bg-gray-800 hover:text-pink-600"
-              onClick={() => startOver()}
-            >
-              Start Over
-            </button>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="tl-rt-qst">
-            <div className="in-rt-qst">   
-                <div className="qust-tit text-center">
-                    <h6>{data[currentQuestion].question} </h6>
-                    <p>Description : find out who is the prime minister of india</p>
-                </div>           
-            {/* <span className="m-2 border-2 border-black mx-auto px-2 bg-gray-600 text-pink-400 rounded-lg text-center">
-              {`${currentQuestion}/${data.length - 1}`}
-            </span> */}
+    // const startOver = () => {
+    //   setCurrentQuestion(0);
+    //   setFinish(false);
+    //   setMyAnswer("");
+    //   setScore(0);
+    // };
+  return(  
+    <div className="tl-rt-qst">
+        <div className="in-rt-qst">   
+            <div className="qust-tit text-center">       
+                <h6>{data[currentQuestion].question}</h6>
+                {/* <h6>Q1  Who is the prime minister of india ?   </h6> */}
+                <p>Description : find out who is the prime minister of india</p>
+            </div>              
+            {/* <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
+                <ToggleButton id="tbg-radio-1" value={1}>
+                    <span className="chs-lft">A</span>
+                    <span className="chs-ans">Resources</span>
+                </ToggleButton>
+                <ToggleButton id="tbg-radio-2" value={2}>
+                    <span className="chs-lft">B</span><span className="chs-ans">Demands</span>
+                </ToggleButton>
+                <ToggleButton id="tbg-radio-3" value={3}>
+                <span className="chs-lft">C</span><span className="chs-ans">Scarcity</span>
+                </ToggleButton>
+                <ToggleButton id="tbg-radio-3" value={4}>
+                <span className="chs-lft">D</span><span className="chs-ans">Wants</span>
+                </ToggleButton>
+            </ToggleButtonGroup> */}
             {data[currentQuestion].variants.map((variant) => (
                 <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
                     <ToggleButton id="tbg-radio-1" value={1}
@@ -95,49 +88,46 @@ const DummyQuestionChoose =(props)=>{
                     </ToggleButton>
                 </ToggleButtonGroup>
             ))}
-  
-            {/* {clickAnswer && (
-              <button
-                className="w-full h-14 mt-2 px-2 rounded-lg bg-gray-200 text-blue-400 font-bold hover:bg-gray-400 hover:text-blue-600"
-                onClick={() => showAnswer()}
-              >
-                Show Answer
-              </button>
-            )} */}
-            {show && (
-              <p className="m-2 h-14 mx-auto text-center">
-                Correct Answer: {data[currentQuestion].answer}
-              </p>
-            )}
-  
-            {currentQuestion < data.length - 1 && (
-              <Button
-                    className="nxt-btn"
-                    onClick={() => {
-                    setCurrentQuestion(currentQuestion + 1);
-                    checkCorrectAnswer();
-                    reset();
-                    }}
-                >
-                Next
-                <CircleRight />
-              </Button>
-            )}
-  
-            {/* {currentQuestion === data.length - 1 && (
-              <button
-                className="w-full h-14 mt-2 px-2 rounded-lg bg-gray-600 text-pink-400 font-bold hover:bg-gray-800 hover:text-pink-600"
-                onClick={() => finishHandler()}
-              >
-                FINISH
-              </button>
-            )} */}
-  
-        
-          </div>
+            {/* <div className="fill-qust">
+                <input placeholder="Ans1" /> is a <input placeholder="Ans2"  /> that gives the green colour ro leaves
+            </div> */}
+            <div className="pre-nxt-skp mt-3">
+                <Button className="pre-btn">
+                    <CircleLeft />
+                    Previous
+                </Button>
+                <div className="d-flex">
+                    {currentQuestion < data.length - 1 && (
+                        <Button
+                            className="nxt-btn"
+                            onClick={() => {
+                            setCurrentQuestion(currentQuestion + 1);
+                            checkCorrectAnswer();
+                            reset();
+                            }}
+                        >
+                            Next
+                            <CircleRight />
+                        </Button>
+                    )}
+                    {/* <Link to="/audiorecord" className="nxt-btn">
+                        Next
+                        <CircleRight />
+                    </Link> */}
+                    <Button className="skp-btn"
+                        onClick={() => {
+                            setCurrentQuestion(currentQuestion + 1);
+                            checkCorrectAnswer();
+                            reset();
+                            }}  
+                    >
+                        Skip
+                    </Button>
+                </div>                
+            </div>
         </div>
-      )
-    }
+    </div>
+  );
 }
 export default DummyQuestionChoose
 
