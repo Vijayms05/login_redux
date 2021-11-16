@@ -125,7 +125,7 @@ const ProfilePage = (props) => {
     const handlepasswordClose = () => setShow(false);
 
     return (
-        <Col className="py-md-4 pro-rit">  
+        <Col className="py-md-4 pro-rit ms-4 mt-4   ">  
             <h3 className="mb-4">Profile</h3>
             <Row className="mt-3 mb-3">
                 <Col sm={4} className='p-2'>
@@ -134,18 +134,18 @@ const ProfilePage = (props) => {
                 <Col sm={8}>                       
                     <label>60% Complete</label>
                 </Col>
-            </Row>
+            </Row>            
             <Card className="horizontal-card mb-4">
                 <Card.Body>
                     <div className="d-flex align-items-center">
                         <Col sm={1} xs>
                             <AvatorProfile />
                         </Col>
-                        <Col sm={4} xs className="my-auto">
-                            <label className="title ">
+                        <Col sm={3} xs className="my-auto">
+                            <label className="title " style={{color:'#192A3E',fontWeight:'bold'}}>
                                 Hayat Tamboli
                             </label>
-                            <small>hayat.tamboli@gmail.com</small>
+                            <small style={{color:'#90A0B7'}}>hayat.tamboli@gmail.com</small>
                         </Col>
                         <Col sm={2}  className="rep-btn-ln">
                             <Button className="profile-cardbutton" onClick={handleAvator}>
@@ -159,7 +159,9 @@ const ProfilePage = (props) => {
                         </Col>
                     </div>
                 </Card.Body>
-            </Card>
+            </Card>            
+            
+            
             <div className="px-3">
                 <h5 className="f1-16">Basic Details</h5>
                 <Col sm={6} xs className="p-0">
@@ -294,17 +296,17 @@ const ProfilePage = (props) => {
                 aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handlepasswordClose} >                    
                     <Modal.Body >                       
                         <Modal.Title className="text-center mt-3 mb-3 f1-16">Change Password</Modal.Title>   
-                        <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                        <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                             <Form.Control 
-                            className="login-inputField" 
+                            className="inputField" 
                             type="password" 
                             placeholder="Change Password"
                             />
                             <PasswordIcon />
                         </Form.Group>
-                        <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                        <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                             <Form.Control 
-                            className="login-inputField" 
+                            className="inputField" 
                             type="password" 
                             placeholder="Confirm Password"
                             />

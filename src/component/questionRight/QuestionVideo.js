@@ -4,12 +4,12 @@ import { ToggleButtonGroup, ToggleButton, Row, } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 
 
-import {CircleRight} from '../../assets/images/index'
+import {CircleLeft, CircleRight} from '../../assets/images/index'
 
 
 const QuestionVideo =()=>{
   return(  
-    <div className="tl-rt-qst">
+    <div className="tl-rt-qst d-md-grid w-100">
         <div className="in-rt-qst">   
             <div className="qust-tit">       
                 <h5>"Ends" in Lord Robbins definition of Economics is referred to as:</h5>
@@ -18,13 +18,20 @@ const QuestionVideo =()=>{
             <Row className="my-3 vid-frame">
                 <iframe width="100%" height="400" src="https://www.youtube.com/embed/EKS7ZCZsboc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </Row> 
-            <div className="pre-nxt-skp">
-                <div className="d-flex m-auto">
-                    <Link to="/fill-question" className="nxt-btn">
+            <div className="pre-nxt-skp mt-3">               
+                <Link to="/question-page" className="pre-btn">                    
+                    <CircleLeft />
+                    Preview
+                </Link>                
+                <div className="d-flex">
+                    <Link to="/audiorecord" className="nxt-btn">
                         Next
                         <CircleRight />
                     </Link>
-                </div>                
+                    <Button className="skp-btn">
+                        Skip
+                    </Button>
+                </div>            
             </div>
         </div>
     </div>

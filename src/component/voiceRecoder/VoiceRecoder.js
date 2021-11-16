@@ -8,7 +8,8 @@ import useRecorder from "./useRecorder";
 const VoiceRecoder = () => {
      let [audioURL, isRecording, startRecording, stopRecording,] = useRecorder();
     return (
-        <div className="tl-rt-qst"> 
+        <div className="tl-rt-qstt d-grid w-100 p-2"> 
+        <div className="m-auto w-75">         
             <div className="qust-tit">       
                 <h5>"Ends" in Lord Robbins definition of Economics is referred to as:</h5>
                 <p className="mb-5">Economics can be referred to as a type of social science that deals with the behavior of entities</p>
@@ -39,22 +40,23 @@ const VoiceRecoder = () => {
             </Col>
 
 
-            <div className="pre-nxt-skp mt-3">
-                <Button className="pre-btn">
+            <div className="pre-nxt-skp mt-3">               
+                <Link to="/videorecord" className="pre-btn">                    
                     <CircleLeft />
-                    Previous
-                </Button>
-                {/* <div className="d-flex">
-                    <Link to="/videorecord" className="nxt-btn">
+                    Preview
+                </Link>                
+                <div className="d-flex">
+                    <Link to="/play-question" className="nxt-btn">
                         Next
                         <CircleRight />
                     </Link>
                     <Button className="skp-btn">
                         Skip
                     </Button>
-                </div>    */}             
+                </div>            
             </div>
             {/* <Video /> */}
+        </div>
         </div>
     );
 };

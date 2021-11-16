@@ -26,12 +26,12 @@ const TestDetailScreen = () =>{
                     </Form.Select>
                 </Col>
             </Row> 
-            <div className="m-auto rit-tst">
+            <div className="m-auto rit-tst mt-5 ms-1">
                 <Row> 
                     <h5 className="report-h5 mb-2">Tests</h5>  
                 </Row> 
                 <Row>
-                    <Col xs={6} md={6} lg={4}  className="p-0">
+                    <Col xs={6} md={6} lg={4}  className="p-0 mt-3  ">
                         <Form.Select className="select-form" size="lg" >
                             <option>Select Rol/Book-Qs</option>
                             <option>Large select</option>
@@ -39,17 +39,19 @@ const TestDetailScreen = () =>{
                         </Form.Select>
                     </Col>
                 </Row>
-                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-4 test-tab">
-                    <Tab eventKey="home" title="Baseline" className="test-name">
-                        <Baseline />
-                    </Tab>
-                    <Tab eventKey="profile" title="Skill Building"  className="test-name">
-                        <SkillBuilding />
-                    </Tab>
-                    <Tab eventKey="contact" title="Certification"  className="test-name">
-                        <Certification />
-                    </Tab>
-                </Tabs>
+                <Col xs={10} md={10} lg  className="p-0">
+                    <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-4 test-tab">
+                        <Tab eventKey="home" title="Baseline" className="test-name">
+                            <Baseline />
+                        </Tab>
+                        <Tab eventKey="profile" title="Skill Building"  className="test-name">
+                            <SkillBuilding />
+                        </Tab>
+                        <Tab eventKey="contact" title="Certification"  className="test-name">
+                            <Certification />
+                        </Tab>
+                    </Tabs>
+                </Col>
            </div>
         </div>
     )

@@ -24,10 +24,9 @@ const BillingPage = () =>{
                     </Form.Select>
                 </Col>
             </Row> 
-            <div className="m-auto">
-            <Row> 
-                <h5 className="report-h5">Billings</h5>  
-           </Row>
+            <div className="m-auto ">
+                
+            <h5 className="report-h5 mt-4">Billings</h5>  
            <div className="row-table">
                 <Table  className="mt-2 table-name">
                     <thead>

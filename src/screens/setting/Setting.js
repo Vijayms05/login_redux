@@ -19,7 +19,7 @@ import SettingsHelp from '../../component/SettingsTab/SettingsHelp';
 const Setting = () =>{
     const [state, setstate] = useState('')
     return(
-        <Col className="p-4">   
+        <Col className="p-4 mt-5 ms-3">   
             <div className="m-auto rit-tst">
                 <Row className="sub-search ps-0"> 
                     <h5 className="ps-0 mb-0">Settings</h5>  

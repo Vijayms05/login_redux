@@ -28,13 +28,13 @@ const ReportPage = () =>{
                         <option>Large select</option>
                         <option>Large select</option>
                     </Form.Select>
-                </Col>
+                </Col>  
             </Row>  
-                <div className="ps-3">
+                <div className="ps-3 mt-5">
                     <h5 className="report-h5 mt-3">Reports</h5>
                 </div>
-                <div className="px-3 pb-0 tbl-bx-rpt">
-                    <div className="table-box">
+                <div className="px-3 pb-0 tbl-bx-rpt mt-3">
+                    <div className="table-box border-right">
                         <Table  className="mt-2 table-name-rep mb-0">
                             <thead>
                                 <tr className="tr-name">

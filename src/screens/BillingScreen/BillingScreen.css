@@ -256,7 +256,19 @@ tbody tr td {
   margin: auto;
   display: block;
 }
+.textrec {
+  width: 90%;
+  padding: 0 18px;
+  margin: auto;
+  display: block;
+}
 .testIntro .head-tit {
+  font-family: "f1";
+  color: #0c4a8b;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.textrec .head-tit {
   font-family: "f1";
   color: #0c4a8b;
   font-size: 15px;
@@ -268,7 +280,7 @@ tbody tr td {
   border-radius: 10px;
   box-shadow: 0 0 11px -5px #c5c5c5;
   margin-top: 15px;
-  height: 200px;
+  height: 300px;
   overflow-y: scroll;
 }
 .parag-test {
@@ -287,6 +299,19 @@ tbody tr td {
 }
 .btn-start {
   background-color: #00d586;
+  height: 40px;
+  width: 120px !important;
+  padding: 7px 0;
+  text-align: center;
+  color: #fff !important;
+  border: 0;
+  border-radius: 10px;
+  margin-top: 15px !important;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-prew {
+  background-color: #45acff;
   height: 40px;
   width: 120px !important;
   padding: 7px 0;
