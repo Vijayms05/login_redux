@@ -70,19 +70,19 @@ function BaselineReport() {
                             <Button className="searchrole">
                                 <SearchIcon />
                             </Button>
-                            <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
+                            <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                         </Form.Group>                
                     </Col>
                     <Col xs={6} md={6} lg={4}  className="pe-0">
                         <Form.Select className="select-form" size="lg" >
-                            <option>Large select</option>
+                            <option>Filters</option>
                             <option>Large select</option>
                             <option>Large select</option>
                         </Form.Select>
                     </Col>
                 </Row>                 
-                <div className="d-lg-flex">
-                    <Col className="p-md-0 in-bs-ln">
+                <Row>{/*className="d-lg-flex" */}
+                    <Col className="p-md-0 in-bs-ln" md={9}>
                         <Link className="back-a" to="/home"><LeftArrow /> {""} Back to Results </Link>
                         <h4 className="f1-19 mt-0 mb-3" style={{color:'#003866'}}>Baseline Results</h4>
                         <div className="tl-br-cht">
@@ -100,58 +100,83 @@ function BaselineReport() {
                             </ResponsiveContainer>
                         </div> 
                         <h4 className="f1-16 text-center">Subject wise Score</h4>
-                        <div className="text-start mb-3">
-                            <h4 className="f1-17" style={{color:'#003866'}}>Subject wise Score</h4>
-                            <Row>
-                                <Col className="p-0" style={{color:'#003866'}}>
-                                    <Col className="flex-sb" xs={6} md={4}>
-                                        <Col className="p-0 f1-16">Subject 1</Col>
-                                        <Col  className="p-0 f1-16">: 80/100</Col>                                   
-                                    </Col>
-                                    <Col className="flex-sb" xs={6} md={4}>
-                                        <Col className="p-0 f1-16">Subject 1</Col>
-                                        <Col  className="p-0 f1-16">: 80/100</Col>                                   
-                                    </Col>
+                        <div className="text-start mb-3 mt-3">
+                            <h4 className="f1-17 mb-2" style={{color:'#003866'}}>Subject wise Score</h4>
+                            <Row>                                
+                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                    <Col className="p-0 f1-16">Subject 1</Col>
+                                    <Col  className="p-0 f1-16">: 80/100</Col>                                   
+                                </Col>
+                                <Col className="flex-sb" xs={6} md={4} style={{color:'#003866'}}>
+                                    <Col className="p-0 f1-16">Subject 1</Col>
+                                    <Col  className="p-0 f1-16">: 80/100</Col>                                   
+                                </Col>
+                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                    <Col className="p-0 f1-16">Subject 1</Col>
+                                    <Col  className="p-0 f1-16">: 80/100</Col>                                   
+                                </Col>
+                            </Row>
+                            <Row>                                
+                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                    <Col className="p-0 f1-16">Subject 1</Col>
+                                    <Col  className="p-0 f1-16">: 80/100</Col>                                   
+                                </Col>
+                                <Col className="flex-sb" xs={6} md={4} style={{color:'#003866'}}>
+                                    <Col className="p-0 f1-16">Subject 1</Col>
+                                    <Col  className="p-0 f1-16">: 80/100</Col>                                   
+                                </Col>
+                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                    <Col className="p-0 f1-16">Subject 1</Col>
+                                    <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                 </Col>
                             </Row>
                         </div>
                     </Col>
-                    <div className="mt-2 skill-smry">
-                            <h5 className="skil-sum-tit mb-2">Skill Summary</h5> 
-                            <h4 className="skil-sum-baslin">Baseline</h4> 
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Ranking</p> 
-                                <p className="skil-sum-p">: 12/62</p> 
-                            </div>
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Score</p> 
-                                <p className="skil-sum-p">: 60%</p> 
-                            </div>
-                            <Link className="anal-btn">Analysis Result</Link>
-                            
-                            <h4 className="skil-sum-baslin mt-4">Certification</h4> 
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Ranking</p> 
-                                <p className="skil-sum-p">: 12/62</p> 
-                            </div>
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Score</p> 
-                                <p className="skil-sum-p">: 60%</p> 
-                            </div>
-                            <Link className="anal-btn">Analysis Result</Link>
-                            
-                            <h4 className="skil-sum-baslin mt-4 text-center">Action</h4>
-                            <Link className="actn-btn">
-                                <ShareIcon />
-                                Share</Link> 
-                                <Link className="actn-btn">
-                                <PrintIcon />
-                                Print</Link>
-                                <Link className="actn-btn">
-                                <FeedbackIcon />
-                                Feed Back</Link>
+                    <Col md={3}>{/* className="mt-2 skill-smry" */}
+                        <h5 className="skil-sum-tit mb-2">Skill Summary</h5> 
+                        {/* <h4 className="skil-sum-baslin">Baseline</h4>  */}
+                        <Row >{/*class="flex-spc-btw" className="skil-sum-p"*/}
+                            <Col>Test Name </Col>
+                            <Col> : Baseline </Col>                            
+                        </Row>
+                        <div class="flex-spc-btw">
+                            <p className="skil-sum-p">Role</p> 
+                            <p className="skil-sum-p">: UI/UX</p> 
                         </div>
-                </div>
+                        <div class="flex-spc-btw">
+                            <p className="skil-sum-p">Date</p> 
+                            <p className="skil-sum-p">: 12 May 2021</p> 
+                        </div>
+                        <div class="flex-spc-btw">
+                            <p className="skil-sum-p">Overall Score</p> 
+                            <p className="skil-sum-p">: 80/100</p> 
+                        </div>
+                        {/* <Link className="anal-btn">Analysis Result</Link> */}
+{/*                         
+                        <h4 className="skil-sum-baslin mt-4">Certification</h4>  */}
+                        <div class="flex-spc-btw">
+                            <p className="skil-sum-p">Avg Peer Score</p> 
+                            <p className="skil-sum-p">: 70/100</p> 
+                        </div>
+                        <div class="flex-spc-btw">
+                            <p className="skil-sum-p">Rank</p> 
+                            <p className="skil-sum-p">: 15/45</p> 
+                        </div>
+                        <h5 className="skil-sum-tit mb-2 mt-4">View Answers</h5>
+                        <Link className="anal-btn">View</Link>
+                        
+                        <h4 className="skil-sum-baslin mt-5 text-center">Actions</h4>
+                        <Link className="actn-btn">
+                            <ShareIcon /> Share
+                        </Link> 
+                        <Link className="actn-btn">
+                            <PrintIcon /> Print
+                        </Link>
+                        <Link className="actn-btn">
+                            <FeedbackIcon /> Feed Back
+                        </Link>
+                    </Col>
+                </Row>
             </Col>
         </div>
     )

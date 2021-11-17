@@ -14,11 +14,11 @@ const SkillBuildingReport = () =>{
                     <Button className="searchrole">
                         <SearchIcon />
                     </Button>
-                    <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
+                    <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                 </Form.Group>                
             </Col>
             <Col xs={6} md={6} lg={4} >
-                <Form.Select className="select-form" size="lg" >
+                <Form.Select className="select-form" size="lg" style={{width:'250px'}}>
                     <option>Large select</option>
                     <option>Large select</option>
                     <option>Large select</option>

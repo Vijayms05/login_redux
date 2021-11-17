@@ -13,6 +13,7 @@ const QuestionBar = (props) => {
         setQusBar(!qusBar)
     }    
     const now = 85 
+ 
   return(  
     <>
         <div className="sid-menu-logo d-md-none">
@@ -71,14 +72,7 @@ const QuestionBar = (props) => {
                     </Col>
                 </Row>
             </Row> 
-            <div className="atn-top mt-3">
-                {/* <div className="atn-ul p-0">
-                    <button className="ans-txt"
-                        // onClick={setCurrentQuestion(currentQuestion + 1);
-                        //     checkCorrectAnswer();
-                        //     reset();}
-                    >1</button>
-                </div> */}
+            <div className="atn-top mt-3">                
                 <ul className="atn-ul p-0">
                     <li className="ans-txt">1</li>
                     <li className="ans-txt">2</li>

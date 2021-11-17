@@ -18,6 +18,13 @@ const Login = (props) => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false); 
 
+  const [paswordShow, setPaswordShow] = useState(true)
+  
+  
+  const clickPasswordShow = () =>{
+    setPaswordShow(!paswordShow);
+  }
+  
   const dispatch = useDispatch();
   const history =useHistory();
 
@@ -74,7 +81,7 @@ const Login = (props) => {
             <Logo  />
             <Form className="sign-form p-4">
               <h2 className="f1-19 m-0 text-center">Welcome Back</h2>
-              <h3 className="f3-13 dark-blue-light mx-0 mt-1 mb-2 text-center">Enter your credentials to access your account</h3> 
+              <h3 className="f3-13 dark-blue-light mx-0 mt-1 mb-3 text-center">Enter your credentials to access your account</h3> 
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                 <Form.Control 
                   className="inputField" 
@@ -86,18 +93,21 @@ const Login = (props) => {
                 <EmailIcon />
               </Form.Group>
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
-                <Form.Control 
-                  className="inputField"  
-                  type={showPassword ? 'password' : 'text'} 
-                  placeholder="Password"
-                  value={password}
-                  onChange={onPassword}
-                  />
-                <PasswordIcon />
-                <Button className="pwd-btn" onClick={splitPassword}>
-                  { showPassword ? <EyeIconHid /> : <EyeIcon />}
-                </Button>
-              </Form.Group>
+                  <Form.Control 
+                    className="inputField"  
+                    type={paswordShow ? 'password' : 'text'} 
+                    placeholder="Password"
+                    value={password}
+                    onChange={onPassword}
+                    />
+                  <PasswordIcon />
+                  <Button 
+                    className="pwd-btn" 
+                    onClick={clickPasswordShow}
+                  >
+                    { paswordShow ? <EyeIconHid /> : <EyeIcon />}
+                  </Button>
+                </Form.Group>
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Label className="reset-password"><Link to="/resetpassword">Forget Password</Link> </Form.Label>
               </Form.Group>
@@ -106,7 +116,8 @@ const Login = (props) => {
                     Log in
                 </Button>                                
             </Form>
-            <p className="login-p mt-2 mb-3 mt-4 text-center">Don't have an account? <Link to="/">Sign up</Link></p>            
+            <p className="login-p mt-2 mb-3 mt-4 text-center" 
+            style={{color:'#0B171B',fontSize:'15px'}}>Don't have an account? <Link to="/">Sign up</Link></p>            
           </Col>
         </Row>
       </div>

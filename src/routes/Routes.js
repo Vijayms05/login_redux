@@ -44,6 +44,7 @@ import PlayQuestionScreen from '../screens/TestScreen/PlayQuestionScreen';
 import QuestionAnsRecordScreen from '../screens/TestScreen/QuestionAnsRecordScreen';
 
 import Audioplayer from '../component/dummyquestion/audioAndvideos/Audioplayer'
+import Profile from '../component/sidebarpage1/profile/Profile';
 export const history = createBrowserHistory();
 
  const Routes = (props) => {
@@ -76,6 +77,7 @@ export const history = createBrowserHistory();
                 
                 <Route path="/setting" component={SettingScreens} />
                 <Route path="/profile" component={ProfileScreen} />
+                {/* <Route path="/profile" component={Profile} /> */}
                 <Route path="/question-page" component={QuestionPage} />
                 <Route path="/fill-question" component={FillQusetionScreen} />
                 <Route path="/text-question" component={TextQusetionScreen} />

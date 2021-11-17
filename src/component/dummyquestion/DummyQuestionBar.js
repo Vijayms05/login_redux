@@ -1,5 +1,5 @@
 
-import React,{useState}  from 'react';
+import React,{useState,useRef}  from 'react';
 import {  Row, Col, Nav, Navbar, ProgressBar,Button } from 'react-bootstrap'
 import {  Logo,TimerIcon } from '../../assets/images/index'
 
@@ -8,9 +8,16 @@ import skilltallyLogo from '../../assets/images/skilltally_logo.png'
 
 import { data } from '../../locale/data';
 
-const DummyQuestionBar = () => {
+// import DummyQuestionChoose from './DummyQuestionChoose';
+
+const DummyQuestionBar = (props) => {
+    const [count,setCount]= useState(0)  
+    // let{remainingTime,formatRemainingTime}=renderTime();
+    // let{currentQuestion,setCurrentQuestion,checkCorrectAnswer,reset}=DummyQuestionChoose()  
+    const [ques, setQues]= useState(true)
+    const [timer,setTimer]=useState('00:00')
     const [qusBar, setQusBar] = useState(true)
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    // const [currentQuestion, setCurrentQuestion] = useState(0);
     const [myAnswer, setMyAnswer] = useState("");
     const [score, setScore] = useState(0);
     const [finish, setFinish] = useState(false);
@@ -22,25 +29,65 @@ const DummyQuestionBar = () => {
     }
     
     const now = 85   
+   
   
-    const checkAnswer = (variant) => {
-      setMyAnswer(variant);
-      setClickAnswer(true);
-    };
+    // const checkAnswer = (variant) => {
+    //   setMyAnswer(variant);
+    //   setClickAnswer(true);
+    // };
+
+    // const checkCorrectAnswer = () => {
+    //   if (myAnswer === data[currentQuestion].answer) {
+    //     setScore(score + 1);
+    //   }
+    // };
   
-    const checkCorrectAnswer = () => {
-      if (myAnswer === data[currentQuestion].answer) {
-        setScore(score + 1);
-      }
-    };
+    // const showAnswer = () => {
+    //   setShow((show) => !show); //better to be toggled like this
+    // };
+    // const reset = () => {
+    //   setShow(false);
+    //   setClickAnswer(false);
+    // };
+
   
-    const showAnswer = () => {
-      setShow((show) => !show); //better to be toggled like this
-    };
-    const reset = () => {
-      setShow(false);
-      setClickAnswer(false);
-    };
+    // const finishHandler = () => {
+    //   if (currentQuestion === data.length - 1) {
+    //     setFinish(true);
+    //   }
+    // };
+  
+    // const startOver = () => {
+    //   setCurrentQuestion(0);
+    //   setFinish(false);
+    //   setMyAnswer("");
+    //   setScore(0);
+    // };
+
+    const formatRemainingTime = time => {
+  
+    const minutes = Math.floor((time % 3600) / 60);
+    const seconds = time % 60;   
+  
+    return `${minutes}:${seconds}`;
+  };
+    const renderTime = ({remainingTime}) => {
+        if (remainingTime === 0) {  
+          return <div className="timer">Time Is Over</div>;
+        }else  
+        return (
+          <div className="timer">
+            <div className="f3-15 text-center mt-1" style={{width: '80px'}}>
+                Time left
+            </div> 
+            <div className="value f1-15">
+                <TimerIcon />
+                {formatRemainingTime(remainingTime)} 
+            </div>
+          </div>
+        );
+      };
+    
   return(  
     <>
         <div className="sid-menu-logo d-md-none">
@@ -53,7 +100,8 @@ const DummyQuestionBar = () => {
         </div>
         <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftqst" >
             {/* <SkilltallyLogo /> */}
-            <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2"/>
+            <img src={skilltallyLogo} alt="skill tally" 
+            className="skilltally-logo mt-2"/>
             <Row >
                 <Col className="mt-4">
                     <div className="qyst-pag">
@@ -101,24 +149,27 @@ const DummyQuestionBar = () => {
                     </Col>
                 </Row>
             </Row> 
-            <Row className="atn-top mt-3">
-                <div className="atn-ul p-0">
-                    <button className="ans-txt"
-                     onClick={() => {
-                        setCurrentQuestion(currentQuestion + 1);
-                        checkCorrectAnswer();
-                        reset();
-                        }} >1</button>
+            <Row className="atn-top mt-3">  
+                <div className="atn-ul p-0 mt-2 mb-2">
+                    <Row >
+                        <Col >
+                            <button className="ans-txt not-vst btn" onClick={formatRemainingTime(timer)
+                            }>1</button>
+                        </Col>
+                    </Row>
+                    <ul className="atn-ul p-0">
+                        <li className="ans-txt" >
+                            1 
+                        </li>
+                        <li className="ans-txt">2</li>
+                        <li className="not-ans-txt">3</li>
+                        <li className="crt-txt">4</li>
+                        <li className="ans-txt">5</li>
+                    </ul>
+                   
                 </div>
-                <ul className="atn-ul p-0">
-                    <li className="ans-txt" >
-                        1 </li>
-                    <li className="ans-txt">2</li>
-                    <li className="not-ans-txt">3</li>
-                    <li className="crt-txt">4</li>
-                    <li className="ans-txt">5</li>
-                </ul>
-                <ul className="atn-ul p-0">
+                
+                {/* <ul className="atn-ul p-0">
                     <li className="crt-txt">6</li>
                     <li className="ans-txt">7</li>
                     <li className="not-vst-txt">8</li>
@@ -136,11 +187,11 @@ const DummyQuestionBar = () => {
                     <li className="crt-txt">16</li>
                     <li className="ans-txt">17</li>
                     <li className="not-vst-txt">18</li>
-                </ul>
+                </ul> */}
             </Row> 
             <div className="prog-bar">
-                <ProgressBar now={now} />
-                <p className="p-0 mb-0 ms-2">{now}%</p>
+                <ProgressBar now={count} />
+                <p className="p-0 mb-0 ms-2">{count}%</p>
             </div>  
             <Row className="prog-bar-test">
                 <button className="vw-txt-inst mt-1">
@@ -155,27 +206,10 @@ const DummyQuestionBar = () => {
   );
 }
 
-const formatRemainingTime = time => {
-    const minutes = Math.floor((time % 3600) / 60);
-    const seconds = time % 60;
   
-    return `${minutes}:${seconds}`;
-  };
   
-  const renderTime = ({ remainingTime }) => {
-    if (remainingTime === 0) {
-      return <div className="timer">Too lale...</div>;
-    }
   
-    return (
-      <div className="timer">
-        <div className="f3-15 text-center mt-1" style={{width: '80px'}}>Time left</div>
-        <div className="value f1-15">
-            <TimerIcon />
-            {formatRemainingTime(remainingTime)}</div>
-      </div>
-    );
-  };
+  
 export default DummyQuestionBar
 
 

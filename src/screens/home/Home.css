@@ -34,7 +34,7 @@ body {
   color: #0c4a8b;
 }
 .dark-blue-light {
-  color: #0c4a8b;
+  color: #638995;
 }
 
 .dark-green-light {
@@ -67,10 +67,12 @@ body {
 .f1-16 {
   font-size: 16px;
   font-family: "f1";
+  /* color:#003866; */
 }
 .f1-17 {
   font-size: 17px;
   font-family: "f1";
+  color:#003866;
 }
 .f1-18 {
   font-size: 18px;
@@ -262,9 +264,9 @@ body {
   align-items: center;
   margin-bottom: 0;
   font-family: "f1";
-  color: #0c4a8b;
+  color: #003866;
   padding: 0 !important;
-  font-size: 15px;
+  font-size: 20px;
 }
 .sub-search h5 {
   align-items: center;
@@ -384,7 +386,6 @@ body {
 
 .test-tab {
   border: 0 !important;
-
 }
 .test-tab .tab-pane {
   border: 0 !important;
@@ -404,8 +405,7 @@ body {
 .rit-tst .tab-content {
   padding: 0;
   border: 1px solid #fff;
-  border-radius: 5px;
-  
+  border-radius: 5px;  
 }
 
 .rit-tst .test-name h6 {
@@ -796,7 +796,7 @@ body {
   width: 170px;
 }
 .left-org-txt-hlp {
-  font-size: 15px;
+  font-size: 18px;
   font-family: "f3";
   color: #000;
   width: 200px;
@@ -814,7 +814,7 @@ body {
 }
 .clik-here {
   background-color: #3ea8ff;
-  border-radius: 10px;
+  border-radius: 12px;
   color: #fff;
   font-size: 13px;
   height: 35px;
@@ -822,12 +822,13 @@ body {
   width: 100px;
 }
 .faq-hed {
-  font-size: 16px !important;
+  font-size: 19px !important;
   font-family: "f1" !important;
-  color: #0c4a8b !important;
+  color: #003866 !important;
+  font-weight: bold;
 }
 .faq-phara {
-  font-size: 15px !important;
+  font-size: 16px !important;
   font-family: "f3" !important;
   color: #000 !important;
 }
@@ -923,7 +924,7 @@ body {
   font-size: 15px;
   font-family: "f1";
   font-weight: bold;
-  color: #0c4a8b !important;
+  color: #003866 !important;
   text-align: center;
 }
 
@@ -931,8 +932,26 @@ body {
   font-size: 13.5px !important;
   font-family: "f3";
   font-weight: bold;
-  background-color: #137ad3 !important;
+  background-color: #137ad3 !important; 
   text-align: center;
+}
+.profile-button{
+  width: 145px;
+  height: 42px;
+  
+  background: #298EE0 !important;
+  border-radius: 12px;
+}
+.horizontal-card{  
+  width: 83%; 
+  background: #FFFFFF;
+  box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
+  border-radius: 25.3668px;
+  height: auto;
+}
+.horizontal-card:hover{
+  border-radius: 15px;
+  border:2px solid dodgerblue;
 }
 
 .skil-sum-baslin {
@@ -953,7 +972,8 @@ body {
 }
 .flex-spc-btw {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: center;
 }
 .anal-btn {
   display: flex;
@@ -974,7 +994,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #50c976;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   border: 0;
   color: #fff;
@@ -993,7 +1013,7 @@ body {
   text-decoration: none;
   color: #fff;
   font-family: "f3";
-  width: 90px;
+  width: 120px;
   height: 36px;
   font-size: 12px;
   margin: 10px auto;
@@ -1089,8 +1109,21 @@ body {
 }
 .mobile-no {
   font-size: 15px;
-  font-family: "f3";
+  font-family: "f3";  
 }
+.profile-upload{
+  background: #FFFFFF;
+  border: 1px dashed #6C7773;
+  box-sizing: border-box;
+  border-radius: 35px;  
+  border-top-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  width: 350px;
+  height:110px;
+}
+/* .profile-upload-file{
+  text-align: center;
+} */
 .tic-icon {
   background: #e4eaed;
   border-radius: 127px;
@@ -1243,4 +1276,34 @@ audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-panel {
   background-color: #fff;
   color: #000;
+}
+.profile-formgroup {
+  position: relative;
+}
+.profile-form-control {
+  font-family: "f3";
+  width: 100%;
+  height: 40px;
+  padding-left: 35px !important;
+  font-size: 18px;
+}
+.profile-pwd-btn {
+  width: 37px;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  background: none !important;
+  border: 0 !important;
+}
+.profile-pwd-btn .eyeIcon {
+  width: 19px;
+  position: absolute;
+  margin-top: 36px;
+  right: 18px;
+}
+.profile-formgroup .iputIcon {
+  width: 19px;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 2px;
 }

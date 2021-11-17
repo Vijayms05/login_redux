@@ -12,30 +12,30 @@ const ReportPage = () =>{
          console.log("button clicked")          
     }
     return(
-        <Col className="py-md-0 mt-md-3 rt-tb-report">  
+        <div className="py-md-0 mt-md-3 rt-tb-report ms-2">  
             <Row>
-                <Col xs={6} md={6} lg={8}>   
-                    <Form.Group  className="w-100 search-box">
+                <Col xs={6} md={6} lg>   
+                    <Form.Group  className="w-70 search-box">
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
-                        <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
+                        <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg={4} >
-                    <Form.Select className="select-form" size="lg" >
-                        <option>Large select</option>
+                <Col xs={6} md={6} lg >
+                    <Form.Select className="select-form" size="lg" style={{width:'250px'}} >
+                        <option>Filters</option>
                         <option>Large select</option>
                         <option>Large select</option>
                     </Form.Select>
                 </Col>  
             </Row>  
                 <div className="ps-3 mt-5">
-                    <h5 className="report-h5 mt-3">Reports</h5>
+                    <h5 className="report-h5 ">Reports</h5>
                 </div>
-                <div className="px-3 pb-0 tbl-bx-rpt mt-3">
-                    <div className="table-box border-right">
-                        <Table  className="mt-2 table-name-rep mb-0">
+                <Col sm={12} md={12} lg className="px-3 pb-0 m-auto mt-3">
+                    <div className="table-box">{/*  table-name-rep tbl-bx-rpt*/}
+                        <Table  className="mt-2  mb-0 table-name table table-border">
                             <thead>
                                 <tr className="tr-name">
                                     <th>My Subscriptions</th>
@@ -49,11 +49,28 @@ const ReportPage = () =>{
                             <tbody>
                                 <tr>
                                     <td>B Tech 3rd Year</td>
-                                    <td><Link className="cert-btn">Certified</Link></td>
-                                    <td className="rep-btn-ln"><Link to="/basline" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
+                                    <td>{/*cert-btn */}
+                                        <Link className="btn btn-outline-primary" style={{width:'80px'}}>
+                                            Certified
+                                        </Link>
+                                    </td>
+                                    <td className="rep-btn-ln">
+                                        <Link to="/basline" 
+                                            style={{backgroundColor:'#298EE0',color:'white',width: '110px',
+                                            height: '32px',borderRadius:'10px',textAlign:'center'}} 
+                                            className="btn" 
+                                        >Detailed view</Link></td>
 
-                                    <td className="rep-btn-ln"><Link to="/skill-building-list" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
-                                    <td className="rep-btn-ln"><Link to="/certificate-result" style={{backgroundColor:'#298EE0',color:'white'}} className="btn" >Detailed view</Link></td>
+                                    <td className="rep-btn-ln">
+                                        <Link to="/skill-building-list" style={{backgroundColor:'#298EE0',color:'white',width: '110px',
+                                            height: '32px',borderRadius:'10px',textAlign:'center'}} className="btn"
+                                        >Detailed view</Link>
+                                    </td>
+                                    <td className="rep-btn-ln">
+                                        <Link to="/certificate-result" style={{backgroundColor:'#298EE0',color:'white',width: '110px',
+                                            height: '32px',borderRadius:'10px'}} className="btn"
+                                        >Detailed view</Link>
+                                    </td>
                                     <td style={{color:'#298EE0'}} >
                                         <Row>
                                             <Col><Link className="rate-btn">15/60</Link></Col>
@@ -82,8 +99,8 @@ const ReportPage = () =>{
                             </tbody>
                         </Table>
                     </div>        
-                </div>        
-        </Col>
+                </Col>        
+        </div>
     );
 }
 

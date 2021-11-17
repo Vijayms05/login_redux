@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import {useHistory} from 'react-router-dom'
-import profile from '../../../images/Avatarprofile.png'
+import profile from '../../../assets/images/avatarprofile.png'
 
 import './Profile.css'
 
-import lock from '../../../images/lock_icon.png'
-import eyeIcon from '../../../images/eye_icon.png'
-import upload from '../../../images/upload.png'
-import arrow from '../../../images/arrow.png'
-import modalImage from '../../../images/modalImage.png'
+
+import lock from '../../../assets/images/lock_icon.png'
+import eyeIcon from '../../../assets/images/eye_icon.png'
+import upload from '../../../assets/images/upload.png'
+import arrow from '../../../assets/images/arrow.png'
+import modalImage from '../../../assets/images/modalImage.png'
 
 import { Container, ProgressBar, Col, Card, Row, Button, Form, Modal } from 'react-bootstrap'
 

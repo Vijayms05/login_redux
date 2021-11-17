@@ -69,7 +69,7 @@ const Collegegroup = (props) =>{
                             onChange={onInputName}
                             />
                         </Form.Group>                           
-                                                  
+                        <p style={{color:'#4C5857',fontSize:'17px'}}>Are you school student or college student?</p>
                         <Form.Group action="#" class="stud-form-rad">
                             <Form.Check className="ps-0" 
                             label="School"  type="radio" id="test1" name="radio-group"  value="school"

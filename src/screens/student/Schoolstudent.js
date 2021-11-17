@@ -62,6 +62,7 @@ const Schoolstudent = (props) => {
                                 onChange={onInputName}
                                 />
                             </Form.Group> 
+                            <p style={{color:'#4C5857',fontSize:'17px'}}>Are you school student or college student?</p>
                             <Row>
                                 <Col className="mt-1" >  
                                     <Form.Group className="mb-3" controlId="formBasicCheckbox">

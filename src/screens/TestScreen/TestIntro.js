@@ -25,9 +25,9 @@ const TestIntro = () =>{
             </Col>
             <Row >
                 <Col className="text-sm-start">
-                    {/* <Button className="btn-ext">
+                    <Button className="btn-ext">
                         Exit
-                    </Button> */}
+                    </Button>
                 </Col>
                 <Link to="/question-page" className="btn-start">
                     Next

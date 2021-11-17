@@ -17,8 +17,11 @@ import {
     UploadIcon,
     ModalImage,
     PasswordIcon,
+    EyeIconHid,
     EyeIcon
 } from '../../assets/images/index';
+
+import modalImage from '../../assets/images/modalImage.png'
 
 const ProfilePage = (props) => {
 
@@ -26,6 +29,7 @@ const ProfilePage = (props) => {
     const [isShow, setIsShow]=useState(false);
     const [password,setPassword] = useState('')
     const [conformPassword,setConformPassword] = useState('')
+
     const [passwordShown, setPasswordShown] = useState(false);
     const [conformpasswordShown, setConformpasswordShown] = useState(false);
     
@@ -47,8 +51,18 @@ const ProfilePage = (props) => {
     const [learnChange, setLearnChange]= useState('')
     const [institution, setInstitution]= useState('')
     const [jobProfile, setJobProfile]= useState('')
+    
+    const [showPassword, setShowPassword] = useState(false); 
 
-
+    const [paswordShow, setPaswordShow] = useState(true)
+    
+    
+    const clickPasswordShow = () =>{
+        setPaswordShow(!paswordShow);
+    }
+    const clickConfromPasswordShow = () =>{
+        setConformPassword(!conformpasswordShown);
+    }
     const now=80;
 
     const onMobile = e => {
@@ -124,49 +138,62 @@ const ProfilePage = (props) => {
     const handleavatorClose = () => setIsShow(false);
     const handlepasswordClose = () => setShow(false);
 
+    const onPassword = (e) => {  
+        setPassword(e.target.value);   
+    };
+    const onConformPassword = (e) => {  
+        setConformPassword(e.target.value);   
+    };
+  
+    // const splitPassword = () => {
+    //   setShowPassword(!showPassword);
+    // };
+
     return (
-        <Col className="py-md-4 pro-rit ms-4 mt-4   ">  
-            <h3 className="mb-4">Profile</h3>
+        <Col className="py-md-4 pro-rit ms-5 mt-4   ">  
+            <h3 className="mb-4" style={{color:'#003866',fontSize:'30px'}}>Profile</h3>
             <Row className="mt-3 mb-3">
-                <Col sm={4} className='p-2'>
+                <Col sm={4} className='p-0'>
                     <ProgressBar now={60} className="mb-3"/>                        
                 </Col>
                 <Col sm={8}>                       
                     <label>60% Complete</label>
                 </Col>
-            </Row>            
-            <Card className="horizontal-card mb-4">
-                <Card.Body>
-                    <div className="d-flex align-items-center">
-                        <Col sm={1} xs>
+            </Row> 
+            <Col sm={11} >              
+                <Card.Body className="horizontal-card mb-4">
+                    <Row>
+                        <Col sm={1}  className="mt-2">
                             <AvatorProfile />
                         </Col>
-                        <Col sm={3} xs className="my-auto">
-                            <label className="title " style={{color:'#192A3E',fontWeight:'bold'}}>
+                        <Col sm={3} xs className="my-auto ms-2 mb-2">
+                            <label className="title " style={{color:'#192A3E',fontWeight:'bold',fontSize:'18px'}}>
                                 Hayat Tamboli
                             </label>
                             <small style={{color:'#90A0B7'}}>hayat.tamboli@gmail.com</small>
                         </Col>
-                        <Col sm={2}  className="rep-btn-ln">
-                            <Button className="profile-cardbutton" onClick={handleAvator}>
+                        <Col sm={3}  xs className="rep-btn-ln mb-2 mt-4 text-center">
+                            <button className="profile-cardbutton btn" style={{color:'#FFFFFF',borderRadius:'10px'}} onClick={handleAvator}>
                                 Edit Avatar
-                            </Button>
+                            </button>
                         </Col>
-                        <Col sm={3} className="rep-btn-ln">
-                            <Button className="profile-cardbutton" onClick={handlePassword}>
+                        <Col sm={4} xs className="rep-btn-ln mb-2 mt-4 ">
+                            <button className="profile-cardbutton btn" style={{color:'#FFFFFF',borderRadius:'10px'}} onClick={handlePassword}>
                                 Change Password
-                            </Button>
+                            </button>
                         </Col>
-                    </div>
+                    </Row>
                 </Card.Body>
-            </Card>            
+                
+            </Col>
+            
             
             
             <div className="px-3">
-                <h5 className="f1-16">Basic Details</h5>
+                <h5 className="f1-16" >Basic Details</h5>
                 <Col sm={6} xs className="p-0">
                     <Form.Group className="mb-3 profile-formgroup">
-                        <label className="mobile-no mb-1">Mobile Number</label>
+                        <label className="mobile-no mb-1" >Mobile Number</label>
                         <Form.Control 
                             className="profile-formcontrol" 
                             type="email" 
@@ -174,8 +201,8 @@ const ProfilePage = (props) => {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3 profile-formgroup">
-                        <label className="mobile-no mb-1" >Date of Birth</label>                    
-                    <Form.Control type="date" placeholder="00-00-0000" /> 
+                        <label className="mobile-no mb-1" >Date of Birth</label>                                         
+                        <Form.Control type="date" placeholder="00-00-0000" /> 
                     </Form.Group>
                     <Form.Group className="mb-3 profile-formgroup">
                         <label className="mobile-no mb-1" >Gender</label>                    
@@ -273,8 +300,17 @@ const ProfilePage = (props) => {
                         <Form.Control placeholder="Placeholder" />                    
                     </Form.Group>   
                     <Form.Group className="mb-3"> 
-                        <Form.Control type="file" placeholder="Placeholder">
-                            </Form.Control>                    
+                        <label className="mobile-no mb-2" >Resume</label>
+                        <div className="profile-upload">
+                            <div className="mt-4 text-center">
+                                <UploadIcon />                                
+                            </div>
+                            <div className="mt-1" style={{textAlign:'center'}}>
+                                Click here to add a document</div>
+                            
+                        </div>
+                        {/* <Form.Control type="file" placeholder="Placeholder">
+                            </Form.Control>                     */}
                     </Form.Group>
                         
                     <Form.Group className="mb-3">
@@ -285,9 +321,9 @@ const ProfilePage = (props) => {
                         <label className="mobile-no mb-2" >Learning Changes</label>                    
                         <Form.Control placeholder="Placeholder" />                    
                     </Form.Group>  
-                    <Button className="profile-button">
+                    <button className="profile-button btn " style={{color:'white',borderRadius:'12px'}}>
                         Save Changes
-                    </Button>
+                    </button>
                 </Col>  
             </div>  
             {show === true ? 
@@ -295,38 +331,56 @@ const ProfilePage = (props) => {
                 <Modal 
                 aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handlepasswordClose} >                    
                     <Modal.Body >                       
-                        <Modal.Title className="text-center mt-3 mb-3 f1-16">Change Password</Modal.Title>   
-                        <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
+                        <Modal.Title className="text-center mt-3 mb-3 f1-16" style={{color:'#0B171B'}}>Change Password</Modal.Title>   
+                        <Form.Group className="mb-4 profile-formgroup" controlId="formBasicEmail">
+                            <Form.Label>Enter Password</Form.Label>
                             <Form.Control 
-                            className="inputField" 
-                            type="password" 
-                            placeholder="Change Password"
-                            />
+                                className="profile-form-control" 
+                                type={paswordShow ? 'password' : 'text'} 
+                                placeholder="Password"
+                                value={password}
+                                onChange={onPassword}
+                                />
                             <PasswordIcon />
+                            <Button 
+                                className="profile-pwd-btn " 
+                                onClick={clickPasswordShow}
+                            >
+                                { paswordShow ? <EyeIconHid /> : <EyeIcon />}
+                            </Button>
                         </Form.Group>
-                        <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
+                        <Form.Group className="mb-2 profile-formgroup" controlId="formBasicEmail">
+                            <Form.Label>Conform Password</Form.Label>
                             <Form.Control 
-                            className="inputField" 
-                            type="password" 
-                            placeholder="Confirm Password"
-                            />
+                                className="profile-form-control"  
+                                type={paswordShow ? 'password' : 'text'} 
+                                placeholder="Password"
+                                value={password}
+                                onChange={onPassword}
+                                />
                             <PasswordIcon />
+                            <Button 
+                                className="profile-pwd-btn " 
+                                onClick={clickPasswordShow}
+                            >
+                                { paswordShow ? <EyeIconHid /> : <EyeIcon />}
+                            </Button>
                         </Form.Group>      
                         <div className="text-center">
-                            <Button style={{backgroundColor:'#4DD188', color:'white'}} className="btn mt-3 mb-3"  onClick={handlepasswordClose}>
-                                Submit
-                            </Button>   
+                            <button style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'110px'}} className="btn mt-3 mb-3"  onClick={handlepasswordClose}>
+                                Change
+                            </button>   
                         </div>
                     </Modal.Body>                
                 </Modal>  
             ): null
             }   
 
-            {/* {isShow === true ? 
+            {isShow === true ? 
             <>               
                 <Modal show={isShow} onHide={handleavatorClose} >                    
                     <Modal.Body>                       
-                        <Modal.Title className="text-center mt-3 mb-3">Edit Avatar</Modal.Title>                    
+                        <Modal.Title className="text-center mt-3 mb-3"style={{color:'#0B171B'}}>Edit Avatar</Modal.Title>                    
                         <Row >
                             <Col className="mb-2">
                                 <img src={modalImage} alt="image" />
@@ -349,15 +403,15 @@ const ProfilePage = (props) => {
                         </Row>
                         
                         <div className="text-center">
-                            <a style={{backgroundColor:'#4DD188', color:'white'}} className="btn mt-3 mb-3"  onClick={handleavatorClose}>
+                            <button style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'110px'}} className="btn mt-3 mb-3"  onClick={handleavatorClose}>
                                 Change
-                            </a>   
+                            </button>   
                         </div>
                     </Modal.Body>                
                 </Modal>              
             
             </> : null
-            }    */}
+            }   
         
         </Col>
     )

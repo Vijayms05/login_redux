@@ -13,7 +13,8 @@ const BillingPage = () =>{
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
-                        <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
+                        <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" 
+                        className="search-input" />
                     </Form.Group>                
                 </Col>
                 <Col xs={6} md={6} lg={4}  className="pe-0">
@@ -24,11 +25,11 @@ const BillingPage = () =>{
                     </Form.Select>
                 </Col>
             </Row> 
-            <div className="m-auto ">
+            <div className="m-auto mt-5">
                 
-            <h5 className="report-h5 mt-4">Billings</h5>  
+            <h5 className="report-h5 mb-4">Billings</h5>  
            <div className="row-table">
-                <Table  className="mt-2 table-name">
+                <Table  className="mt-2 table-name table table-bordered">
                     <thead>
                         <tr className="tr-name">
                             <th>Role/Book-Q</th>
@@ -41,11 +42,24 @@ const BillingPage = () =>{
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a className="degree-a" href="/billings-details">B Tech 3rd Year</a></td>
+                            <td><a className="degree-a" href="/billings-details" style={{fontSize:'14px'}}>B Tech 3rd Year</a></td>
                             <td>Paid</td>
                             <td>90Days</td>
                             <td>Rs.365</td>
-                            <td><Link to="" className="cert-btn">Certified</Link></td>
+                            <td><Link to="" className=" btn btn-outline-primary" style={{width:'90px'}}>Certified</Link></td> {/* cert-btn */}
+                            <td style={{color:'#298EE0'}} >
+                                <div className="d-flex align-items-center">
+                                    <Button className="down-load-btn">Download Invoice</Button>
+                                        <div className="dot-tabl"></div>
+                                </div>
+                            </td>                               
+                        </tr>  
+                        <tr>
+                            <td><a className="degree-a" href="/billings-details" style={{fontSize:'14px'}}>B Tech 3rd Year</a></td>
+                            <td>Paid</td>
+                            <td>90Days</td>
+                            <td>Rs.365</td>
+                            <td><Link to="" className="btn btn-outline-success" style={{width:'90px'}}>In Progress</Link></td>
                             <td style={{color:'#298EE0'}} >
                                 <div className="d-flex align-items-center">
                                     <Button className="down-load-btn">Download Invoice</Button>

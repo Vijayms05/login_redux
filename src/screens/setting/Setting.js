@@ -23,8 +23,8 @@ const Setting = () =>{
             <div className="m-auto rit-tst">
                 <Row className="sub-search ps-0"> 
                     <h5 className="ps-0 mb-0">Settings</h5>  
-                </Row> 
-                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-4 test-tab">
+                </Row>                 
+                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-5 test-tab">
                     <Tab eventKey="home" title="Billing Details" className="test-name">
                         <SettingBill />
                     </Tab>
@@ -37,7 +37,7 @@ const Setting = () =>{
                     <Tab eventKey="help" title="Help"  className="test-name">
                         <SettingsHelp />                        
                     </Tab>
-                </Tabs>
+                </Tabs>               
            </div>
         </Col>
     );

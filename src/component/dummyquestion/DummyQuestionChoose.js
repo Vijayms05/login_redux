@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Button from '@restart/ui/esm/Button';
 import { ToggleButtonGroup, ToggleButton, } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
@@ -22,6 +22,9 @@ const DummyQuestionChoose =(props)=>{
       setClickAnswer(true);
     };
   
+
+
+    
     const checkCorrectAnswer = () => {
       if (myAnswer === data[currentQuestion].answer) {
         setScore(score + 1);
@@ -35,6 +38,7 @@ const DummyQuestionChoose =(props)=>{
       setShow(false);
       setClickAnswer(false);
     };
+
   
     // const finishHandler = () => {
     //   if (currentQuestion === data.length - 1) {
@@ -71,7 +75,7 @@ const DummyQuestionChoose =(props)=>{
                 <span className="chs-lft">D</span><span className="chs-ans">Wants</span>
                 </ToggleButton>
             </ToggleButtonGroup> */}
-            {data[currentQuestion].variants.map((variant) => (
+             {data[currentQuestion].variants.map((variant) => (
                 <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
                     <ToggleButton id="tbg-radio-1" value={1}
                     key={variant.id}
@@ -84,7 +88,7 @@ const DummyQuestionChoose =(props)=>{
                     }`}
                     onClick={() => checkAnswer(variant)}
                     >
-                     <span className="chs-ans">{variant}</span>
+                    <span className="chs-ans">{variant}</span>
                     </ToggleButton>
                 </ToggleButtonGroup>
             ))}
@@ -128,6 +132,29 @@ const DummyQuestionChoose =(props)=>{
         </div>
     </div>
   );
+}
+const questionData = (props) =>{
+    return(
+        <div>
+            {data[props.currentQuestion].variants.map((variant) => (
+                <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
+                    <ToggleButton id="tbg-radio-1" value={1}
+                    key={variant.id}
+                    className={`variant ${
+                        props.myAnswer === variant
+                        ? props.myAnswer === data[props.currentQuestion].answer
+                            ? "correctAnswer"
+                            : "incorrectAnswer"
+                        : null
+                    }`}
+                    onClick={() => props.checkAnswer(variant)}
+                    >
+                    <span className="chs-ans">{variant}</span>
+                    </ToggleButton>
+                </ToggleButtonGroup>
+            ))}
+        </div> 
+    )
 }
 export default DummyQuestionChoose
 

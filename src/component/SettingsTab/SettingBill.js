@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const SettingBill = () =>{
     return(
-        <Col lg="6" xl="5" sm="8"> 
+        <Col xs="12" sm="6"> 
             <Form.Select className="form-select mb-3 mt-3 schoolstudent-select" aria-label="Default select example">
                 <option selected>Country</option>
                 <option value="1">India</option>

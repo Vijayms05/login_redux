@@ -54,7 +54,12 @@ const ResetPassword = (props) => {
                   onClick={onClick}
                 >Send reset instructions</Button>                                
             </Form>
-            <p className="login-p mt-2 mb-3 mt-4 text-center">Go back to  <Link to="/">Log in</Link></p>            
+            <p className="forget-p mt-2 mb-3 mt-4 text-center" 
+              style={{color:'#0B171B',fontSize:'15px'}}
+            >
+              Go back to  
+              <Link to="/login">Log in</Link>
+            </p>            
           </Col>
         </Row>
       </div>
