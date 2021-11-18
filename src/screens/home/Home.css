@@ -248,6 +248,18 @@ body {
   background: transparent;
   justify-content: center;
 }
+.pwd-btn {
+  width: 37px;
+  position: absolute;
+  top: 0px;
+  right: 0;
+  background: none !important;
+  border: 0 !important;
+}
+.pwd-btn .search-icon {
+  width: 19px;
+  margin-right: 10px;
+}
 .searchrole img {
   width: 20px;
   margin-top: -6px;
@@ -460,6 +472,7 @@ body {
   background: #00d586;
   border: 0 !important;
   margin-right: 10px;
+  margin-top: 8px;
   font-size: 13px;
   color: #fff !important;
   border-radius: 5px;
@@ -478,14 +491,15 @@ body {
 }
 
 .skill-in-box-table a {
-  background: #298ee0;
+  background: #298EE0;
   border: 0 !important;
   margin-right: 10px;
   font-size: 13px;
   color: #fff !important;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 5px 15px;
   text-decoration: none;
+  height: 31px;
 }
 
 .tit-cert-box td:first-child {
@@ -970,6 +984,21 @@ body {
   margin-bottom: 5px;
   width: 45px;
 }
+.skil-sum-text {
+  font-size: 12.5px;
+  font-family: "f1";
+  font-weight: bold;
+  color: #0c4a8b !important;
+  margin-bottom: 5px;
+  width: 45px;  
+}
+.base-card-report{
+  background: #FFFFFF; 
+  box-shadow: 0px 50px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  border:1px solid grey;
+}
+
 .flex-spc-btw {
   display: flex;
   /* justify-content: space-between; */

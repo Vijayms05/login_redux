@@ -39,7 +39,7 @@ const TestDetailScreen = () =>{
                         </Form.Select>
                     </Col>
                 </Row>
-                <Col xs={10} md={10} lg  className="p-0">
+                <Col xs={10} md={10} lg  className="p-0 bordered ">
                     <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-4 test-tab">
                         <Tab eventKey="home" title="Baseline" className="test-name">
                             <Baseline />

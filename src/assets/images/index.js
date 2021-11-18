@@ -8,7 +8,8 @@ import reportIcon from '../images/logo/side_bar/report.png';
 import rupeesIcon from '../images/logo/side_bar/rupees.png';
 import settingIcon from '../images/logo/side_bar/setting.png';
 import contactIcon from '../images/logo/side_bar/contact.png';
-import searchIc from '../images/search.png';
+import searchIcon from '../images/search.png';
+import search from '../images/search.png';
 import playbutton from '../images/playbutton.png';
 import cardimage from '../images/cardImage.png'
 import eye_icon from '../images/eye_icon.png'
@@ -77,7 +78,10 @@ export const ProfileHome = () => (
 );
 
 export const SearchIcon = () => (
-  <img src={searchIc} alt="search" className="" />
+  <img src={searchIcon} alt="search" className="" />
+);
+export const SearchIconRight = () => (
+  <img src={search} alt="search" className="eyeIcon" />
 );
 export const PlaybtnIcon = () => (
   <img src={playbutton} alt="search" className="" />

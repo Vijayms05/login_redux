@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {  Container, Col, Row, Form, Card, ProgressBar } from 'react-bootstrap'
-import {SearchIcon, PlaybtnIcon, BookBackImg} from '../../assets/images/index'
+import {SearchIcon, PlaybtnIcon, BookBackImg,SearchIconRight, EyeIcon} from '../../assets/images/index'
 import '../../screens/home/Home.css'
 import '../../screens/home/responsive.css'
 import Button from '@restart/ui/esm/Button'
@@ -11,33 +11,34 @@ const Subscription = () =>{
 
     return(
         <Col className="py-md-0 mt-5 mt-md-0">   
-            <Row>
+            <Row className="mt-4">
                 <Col xs={6} md={6} lg={8} className="mb-4 mt-2">   
                     <Form.Group  className="w-100 search-box">
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
-                        <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
+                        <Form.Control type="text"  placeholder="Search Role catalogue" size="md" className="search-input" />
                     </Form.Group>                
                 </Col>
                 <Col xs={6} md={6} lg={4} className="mb-4 mt-2" >
                     <Form.Select className="select-form" size="lg" >
-                        <option>Large select</option>
+                        <option>Filters</option>
                         <option>Large select</option>
                         <option>Large select</option>
                     </Form.Select>
                 </Col>
             </Row>   
             <Row className="sub-search">   
-                <Col xs={12} md={6} lg={8} className="">   
-                    <h5 className="mb-2 mb-md-0">My Subscriptions</h5>    
+                <Col xs={12} md={6} lg={8} >   
+                    <h5 className="mb-2 mb-md-0" style={{color:'#003866'}}>My Subscriptions</h5>    
                 </Col> 
                 <Col xs={12} md={6} lg={4}>   
-                    <Form.Group  className="w-100 search-box">
-                        <Button className="searchrole">
-                            <SearchIcon />
+                    <Form.Group  className="w-90 search-box">                        
+                        <Button className="pwd-btn mt-1">
+                            <SearchIconRight />
                         </Button>
-                        <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
+                        <Form.Control type="text"  placeholder="Search My subscriptions" size="md"  />
+                        
                     </Form.Group>                
                 </Col>
             </Row>
@@ -57,7 +58,7 @@ const Subscription = () =>{
                                 <Card.Text className="sub-active mb-1 mt-2"> 
                                     Subscription : Active
                                 </Card.Text>
-                                <Card.Text className="mb-2" style={{fontSize:'13.5px', fontFamily:'f3'}}>
+                                <Card.Text className="mb-2 mt-2" style={{fontSize:'13.5px', fontFamily:'f3'}}>
                                     Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
                                     Morbi in orci risus. Donec pretium
                                 </Card.Text> 
@@ -72,7 +73,32 @@ const Subscription = () =>{
                                 </div>
                             </Card.Body>
                         </Card>  
-                    </Link>   
+                    </Link>                        
+                </Col>  
+                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">                     
+                    <Card> 
+                        <Card.Body hover>
+                            <Card.Title className="mb-3">
+                                Class 12
+                            </Card.Title>
+                            {/* <Card.Text className="sub-active mb-1 mt-2"> 
+                                Subscription : Active
+                            </Card.Text> */}
+                            <Card.Text className="mb-2 mt-5" style={{fontSize:'13.5px', fontFamily:'f3'}}>
+                                Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
+                                Morbi in orci risus. Donec pretium
+                            </Card.Text> 
+                            <Card.Text className="text-start mb-0">In Progress</Card.Text><div>                        
+                                <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
+                                    <ProgressBar now={now} />
+                                    <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
+                                </div> 
+                            </div>
+                            <div className="play-vid">
+                            <PlaybtnIcon />
+                            </div>
+                        </Card.Body>
+                    </Card>  
                 </Col>   
             </Row>
              <Row>

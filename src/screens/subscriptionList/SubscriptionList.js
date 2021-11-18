@@ -1,7 +1,16 @@
 import React, {useState} from 'react'
 import {  Container, Col, Row, Form, Card, ProgressBar, Table } from 'react-bootstrap'
 import Button from '@restart/ui/esm/Button'
-import { SearchIcon, Billingrit,NumbIcon, ScaleIcon, PlaybtnIcon, ShareIcon, FeedbackIcon, PrintIcon } from '../../assets/images'
+import { 
+    SearchIcon, 
+    Billingrit,
+    NumbIcon, 
+    ScaleIcon, 
+    PlaybtnIcon, 
+    ShareIcon, 
+    FeedbackIcon, 
+    PrintIcon,
+    LeftArrow } from '../../assets/images/index'
 import { Link } from 'react-router-dom'
 
 const SubscriptionList = () =>{
@@ -26,9 +35,10 @@ const SubscriptionList = () =>{
                         </Form.Select>
                     </Col>
                 </Row> 
-                <div className="m-auto">
-                    <div className="tl-skl-bldg"> 
-                        <Col className="lft-skl-bldg">
+                 {/* <div className="m-auto">  */}
+                    <Row> {/* className="tl-skl-bldg" */}
+                        <Link className="back-a mt-4" to="/home"><LeftArrow /> {" "} Back to My Subscrtiptions</Link>
+                        <Col md={9} lg={9}  className="lft-skl-bldg">
                             <Row className="billing-add w-100">
                                 <Col className="cls-fre">
                                     <h2 className="">Class12</h2>
@@ -76,43 +86,59 @@ const SubscriptionList = () =>{
                                 </div>
                             </div>
                         </Col>
-                        <div className="mt-2 skill-smry">
-                            <h5 className="skil-sum-tit mb-2">Skill Summary</h5> 
-                            <h4 className="skil-sum-baslin">Baseline</h4> 
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Ranking</p> 
-                                <p className="skil-sum-p">: 12/62</p> 
-                            </div>
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Score</p> 
-                                <p className="skil-sum-p">: 60%</p> 
-                            </div>
-                            <Link to="/basline" className="anal-btn">Analysis Result</Link>
-                            
-                            <h4 className="skil-sum-baslin mt-4">Certification</h4> 
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Ranking</p> 
-                                <p className="skil-sum-p">: 12/62</p> 
-                            </div>
-                            <div class="flex-spc-btw">
-                                <p className="skil-sum-p">Score</p> 
-                                <p className="skil-sum-p">: 60%</p> 
-                            </div>
-                            <Link to="/certificate-result" className="anal-btn">Analysis Result</Link>
-                            
-                            <h4 className="skil-sum-baslin mt-4 text-center">Action</h4>
-                            <Link className="actn-btn">
-                                <ShareIcon />
-                                Share</Link> 
-                                <Link className="actn-btn">
-                                <PrintIcon />
-                                Print</Link>
-                                <Link className="actn-btn">
-                                <FeedbackIcon />
-                                Feed Back</Link>
-                        </div>
-                    </div>     
-                </div>
+                        <Col md={3} lg={3}  >{/*className="mt-2 skill-smry" */}
+                            <Card style={{ width: '16rem' }} className="mb-3 mt-2 base-card-report">
+                                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                                <Card.Body>{/*className="skil-sum-tit mb-2 mt-3" */}
+                                    <Card.Title className="skil-sum-tit mb-2 mt-3"
+                                    >Skill Summary</Card.Title>
+                                    {/* <h5 className="skil-sum-tit mb-2 mt-3">Result Summary</h5>  */}
+                                    {/* <h4 className="skil-sum-baslin">Baseline</h4>  */}
+                                    <Row>{/*class="flex-spc-btw" className="skil-sum-p"*/}
+                                        <Col className="skil-sum-baslin text-start mt-2">Baseline </Col>
+                                                                    
+                                    </Row>
+                                    <Row className='mt-2'>
+                                        <Col className="skil-sum-text text-start">Ranking </Col> 
+                                        <Col className="skil-sum-text">: 16/45</Col> 
+                                    </Row>
+                                    <Row>
+                                        <Col className="skil-sum-text text-start">Score</Col> 
+                                        <Col className="skil-sum-text ">: 80%</Col> 
+                                    </Row>
+                                    <Link to="/basline" className="anal-btn">Analysis Result</Link>
+                                    <Row>{/*class="flex-spc-btw" className="skil-sum-p"*/}
+                                        <Col className="skil-sum-baslin text-start mt-2">Certification </Col>
+                                    </Row>
+                                    <Row className='mt-2'>
+                                        <Col className="skil-sum-text text-start">Ranking </Col> 
+                                        <Col className="skil-sum-text">: 16/45</Col> 
+                                    </Row>
+                                    <Row>
+                                        <Col className="skil-sum-text text-start">Score</Col> 
+                                        <Col className="skil-sum-text ">: 80%</Col> 
+                                    </Row>
+                                    <Link to="/certificate-result" className="anal-btn">Analysis Result</Link>
+                                
+                                    {/*                                 
+                                    <h5 className="skil-sum-tit mb-2 mt-4">View Answers</h5>
+                                    <Link className="anal-btn">View</Link> */}
+                                    
+                                    <h4 className="skil-sum-baslin mt-5 text-center">Actions</h4>
+                                    <Link className="actn-btn">
+                                        <ShareIcon /> Share
+                                    </Link> 
+                                    <Link className="actn-btn">
+                                        <PrintIcon /> Print
+                                    </Link>
+                                    <Link className="actn-btn">
+                                        <FeedbackIcon /> Feed Back
+                                    </Link>
+                                </Card.Body>
+                            </Card>                        
+                        </Col>                       
+                    </Row>     
+                {/* </div> */}
             </Col>
         </div>
     );

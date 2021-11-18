@@ -80,7 +80,24 @@ function SkillBuildReport() {
                             <option>Large select</option>
                         </Form.Select>
                     </Col>
-                </Row>                 
+                </Row>   
+                <Row>
+                    <Col xs={6} md={6} lg>   
+                        <Form.Group  className="w-70 search-box">
+                            <Button className="searchrole">
+                                <SearchIcon />
+                            </Button>
+                            <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
+                        </Form.Group>                
+                    </Col>
+                    <Col xs={6} md={6} lg >
+                        <Form.Select className="select-form" size="lg" style={{width:'250px'}} >
+                            <option>Filters</option>
+                            <option>Large select</option>
+                            <option>Large select</option>
+                        </Form.Select>
+                    </Col>  
+                </Row>               
                 <div className="d-lg-flex">
                     <Col className="p-md-0 in-bs-ln">
                         <Link className="back-a" to="/home"><LeftArrow /> {""} Back to Results </Link>
