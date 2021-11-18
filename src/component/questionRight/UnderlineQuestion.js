@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@restart/ui/esm/Button';
-import { ToggleButtonGroup, ToggleButton, } from 'react-bootstrap'
+import { ToggleButtonGroup, ToggleButton,Container, Col } from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 
 
@@ -9,32 +9,36 @@ import {CircleLeft, CircleRight} from '../../assets/images/index'
 
 const UnderlineQuestion =()=>{
   return(  
-    <div className="tl-rt-qstt w-100 d-grid p-2"> 
-        <div className="m-auto px-5">   
-            <div className="qust-tit">       
-                <h6>Fill In The Blanks: </h6>
-            </div>  
-            <div className="fill-qust">
-                <input placeholder="Ans1" /> is a <input placeholder="Ans2"  /> that gives the green colour ro leaves
+        <Container className="mt-4 ms-3" >{/*className="textrec pt-3 d-grid"*/}                       
+            <div className="test-record-ssc ms-2">
+                <p>FIB</p>
             </div>
-            <div className="pre-nxt-skp mt-5">
-                <Link to="/ques-ans-play" className="pre-btn ">
+            <h3 className="heading-test mb-0 ms-3">
+                Fill In The Blanks : 
+            </h3>
+            
+            <Col className="mt-5 ms-3" sm={10} >
+                <div className="fill-qust">
+                    <input placeholder="Ans1" /> is a <input placeholder="Ans2"  /> that gives the green colour ro leaves
+                </div>
+            </Col>
+            <div className="pre-nxt-skp mt-5" >
+                <Link to="/ques-ans-play" className="pre-btn ms-3">
                     <CircleLeft />
                     Previous
                 </Link>
-                <div className="d-flex">
-                    <Link to="/text-question" className="nxt-btn">
+                <div className="d-flex ">
+                    <Link to="/text-question" className="nxt-btn me-5">
                         Next
                         <CircleRight />
                     </Link>
-                    <Button className="skp-btn">
+                    <Button className="skp-btn me-5">
                         Skip
                     </Button>
                 </div>                
-            </div>
-        </div>
-    </div>
-  );
+            </div>                  
+        </Container>
+    );
 }
 export default UnderlineQuestion
 

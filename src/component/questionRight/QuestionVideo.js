@@ -16,7 +16,8 @@ const QuestionVideo =()=>{
                 <p>Economics can be referred to as a type of social science that deals with the behavior of entities</p>
             </div> 
             <Row className="my-3 vid-frame">
-                <iframe width="100%" height="400" src="https://www.youtube.com/embed/EKS7ZCZsboc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                {/* <iframe width="100%" height="400" src="https://www.youtube.com/embed/EKS7ZCZsboc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/h_SSu1zu8uA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </Row> 
             <div className="pre-nxt-skp mt-3">               
                 <Link to="/question-page" className="pre-btn">                    

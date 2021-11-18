@@ -12,7 +12,7 @@ const Subscription = () =>{
     return(
         <Col className="py-md-0 mt-5 mt-md-0">   
             <Row className="mt-4">
-                <Col xs={6} md={6} lg={8} className="mb-4 mt-2">   
+                <Col  xs={12} sm={6} md={6} lg={8} className="mb-2 mt-2">   
                     <Form.Group  className="w-100 search-box">
                         <Button className="searchrole">
                             <SearchIcon />
@@ -20,7 +20,7 @@ const Subscription = () =>{
                         <Form.Control type="text"  placeholder="Search Role catalogue" size="md" className="search-input" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg={4} className="mb-4 mt-2" >
+                <Col  xs={12} sm={6} md={6} lg={4} className="mb-2 mt-2" >
                     <Form.Select className="select-form" size="lg" >
                         <option>Filters</option>
                         <option>Large select</option>
@@ -28,7 +28,7 @@ const Subscription = () =>{
                     </Form.Select>
                 </Col>
             </Row>   
-            <Row className="sub-search">   
+            <Row className="sub-search mt-4">   
                 <Col xs={12} md={6} lg={8} >   
                     <h5 className="mb-2 mb-md-0" style={{color:'#003866'}}>My Subscriptions</h5>    
                 </Col> 
@@ -51,7 +51,7 @@ const Subscription = () =>{
                 <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
                     <Link to="/subscription-list">
                         <Card> 
-                            <Card.Body hover>
+                            <Card.Body>
                                 <Card.Title className="mb-3">
                                     Class 12
                                 </Card.Title>
@@ -69,37 +69,39 @@ const Subscription = () =>{
                                     </div> 
                                 </div>
                                 <div className="play-vid">
-                                <PlaybtnIcon />
+                                    <PlaybtnIcon />
                                 </div>
                             </Card.Body>
                         </Card>  
                     </Link>                        
                 </Col>  
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">                     
-                    <Card> 
-                        <Card.Body hover>
-                            <Card.Title className="mb-3">
-                                Class 12
-                            </Card.Title>
-                            {/* <Card.Text className="sub-active mb-1 mt-2"> 
-                                Subscription : Active
-                            </Card.Text> */}
-                            <Card.Text className="mb-2 mt-5" style={{fontSize:'13.5px', fontFamily:'f3'}}>
-                                Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
-                                Morbi in orci risus. Donec pretium
-                            </Card.Text> 
-                            <Card.Text className="text-start mb-0">In Progress</Card.Text><div>                        
-                                <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                    <ProgressBar now={now} />
-                                    <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                </div> 
-                            </div>
-                            <div className="play-vid">
-                            <PlaybtnIcon />
-                            </div>
-                        </Card.Body>
-                    </Card>  
-                </Col>   
+                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
+                    <Link to="/subscription-list">
+                        <Card> 
+                            <Card.Body>
+                                <Card.Title className="mb-3">
+                                    Class 11
+                                </Card.Title>
+                                {/* <Card.Text className="sub-active mb-1 mt-2"> 
+                                    Subscription : Active
+                                </Card.Text> */}
+                                <Card.Text className="mb-2 mt-5" style={{fontSize:'13.5px', fontFamily:'f3'}}>
+                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
+                                    Morbi in orci risus. Donec pretium
+                                </Card.Text> 
+                                <Card.Text className="text-start mb-0">In Progress</Card.Text><div>                        
+                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
+                                        <ProgressBar now={now} />
+                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
+                                    </div> 
+                                </div>
+                                <div className="play-vid">
+                                    <PlaybtnIcon />
+                                </div>
+                            </Card.Body>
+                        </Card>  
+                    </Link>                        
+                </Col>  
             </Row>
              <Row>
                 <Col className="role-tit">

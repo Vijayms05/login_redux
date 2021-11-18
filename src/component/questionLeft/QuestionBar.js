@@ -1,7 +1,7 @@
 
 import React,{useState}  from 'react';
 import {  Row, Col, Nav, Navbar, ProgressBar,Button } from 'react-bootstrap'
-import { SkilltallyLogo, Logo,TimerIcon } from '../../assets/images/index'
+import { SkillTallyLogo, Logo,TimerIcon } from '../../assets/images/index'
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 // import skilltallyLogo from '../../assets/images/skilltally_logo.png'
@@ -22,14 +22,16 @@ const QuestionBar = (props) => {
                 <p className="sec-line"></p>
                 <p className="trd-line"></p>
             </Button>
-            <Logo />
+            <SkillTallyLogo />
         </div>
         <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftqst" >
-            <div className="mb-2">
-                <Logo />
-            </div>
+             <div className="ms-3">
+                <SkillTallyLogo />
+            </div>          
+            
+            
                 {/* <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2 mb-2"/> */}
-            <Row >
+            <Row className="mb-0">
                 <Col className="mt-4">
                     <div className="qyst-pag">
                         <h5>Test Name</h5>
@@ -43,35 +45,34 @@ const QuestionBar = (props) => {
                             duration={120}
                             colors={[["#298EE0", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
                             onComplete={() => [true, 1000]}
-                            size={120}
+                            size={115}
                             >
                             {renderTime}
                         </CountdownCircleTimer>
                     </div>                            
                 </Col>
-            </Row>    
-            <Row>
-                <Row className="check_qus_left">
-                    <Col className="atn-ans">
-                        <h6 className="ans-txt">105</h6>
-                        <p>Answered</p>
-                    </Col>
-                    <Col className="crt-qus">
-                        <h6 className="crt-txt">3</h6>
-                        <p>Current Questions</p>
-                    </Col>
-                </Row>
-                <Row className="check_qus_left">
-                    <Col className="not-ans">
-                        <h6 className="not-ans-txt">105</h6>
-                        <p>Not Answerd</p>
-                    </Col>
-                    <Col className="not-vst">
-                        <h6 className="not-vst-txt">3</h6>
-                        <p>Not Visit</p>
-                    </Col>
-                </Row>
-            </Row> 
+            </Row>                
+            <Row className="check_qus_left">
+                <Col className="atn-ans">
+                    <h6 className="ans-txt">105</h6>
+                    <p>Answered</p>
+                </Col>
+                <Col className="crt-qus">
+                    <h6 className="crt-txt">3</h6>
+                    <p>Current Questions</p>
+                </Col>
+            </Row>
+            <Row className="check_qus_left">
+                <Col className="not-ans">
+                    <h6 className="not-ans-txt">105</h6>
+                    <p>Not Answerd</p>
+                </Col>
+                <Col className="not-vst">
+                    <h6 className="not-vst-txt">3</h6>
+                    <p>Not Visit</p>
+                </Col>
+            </Row>           
+               
             <div className="atn-top mt-3">                
                 <ul className="atn-ul p-0">
                     <li className="ans-txt">1</li>
@@ -105,7 +106,7 @@ const QuestionBar = (props) => {
                 <p className="p-0 mb-0 ms-2">{now}%</p>
             </div>  
             <Row className="prog-bar-test">
-                <button className="vw-txt-inst mt-1">
+                <button className="vw-txt-inst">
                     View Test Instructions
                 </button>  
                 <button className="fnsh-txt ">

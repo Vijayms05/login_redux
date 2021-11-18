@@ -19,7 +19,7 @@ const SubscriptionList = () =>{
         <div className="py-md-4 bill-rit">
             <Col>
                 <Row className="mb-4 mt-5 mt-md-0">
-                    <Col xs={6} md={6} lg={8} className="ps-0">   
+                    <Col xs={12} sm={6} md={6} lg={8} className="mb-2">   
                         <Form.Group  className="w-100 search-box">
                             <Button className="searchrole">
                                 <SearchIcon />
@@ -27,7 +27,7 @@ const SubscriptionList = () =>{
                             <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
                         </Form.Group>                
                     </Col>
-                    <Col xs={6} md={6} lg={4}  className="pe-0">
+                    <Col xs={12} sm={6} md={6} lg={4}  className=" mb-2">
                         <Form.Select className="select-form" size="lg" >
                             <option>Filter</option>
                             <option>Large select</option>
@@ -37,17 +37,25 @@ const SubscriptionList = () =>{
                 </Row> 
                  {/* <div className="m-auto">  */}
                     <Row> {/* className="tl-skl-bldg" */}
-                        <Link className="back-a mt-4" to="/home"><LeftArrow /> {" "} Back to My Subscrtiptions</Link>
-                        <Col md={9} lg={9}  className="lft-skl-bldg">
+                        <Link className="back-a " to="/home"><LeftArrow /> {" "} Back to My Subscrtiptions</Link>
+                        <Col md={9} lg={9} className="mt-2">
                             <Row className="billing-add w-100">
                                 <Col className="cls-fre">
-                                    <h2 className="">Class12</h2>
+                                    <h2>Class12</h2>
                                 </Col>
-                                <Col className="cls-fre">
-                                    <h4 className="">Your Current Plan</h4>
-                                    <h2 className="">Free</h2>
+                                <Col className="cls-fre" > {/*className="cls-fre"*/}
+                                    <h4 className="mb-0">Your Current Plan</h4>                                   
+                                    <Row>
+                                        <Col  className="subscription-class-46">
+                                            46
+                                        </Col>
+                                        <Col className="subscription-class-days">
+                                            Days Left
+                                        </Col>
+                                    </Row>
+                                    {/* <h2 className="">Free</h2> */}
                                     {/* <Link to="/billings" className="anal-btn">Go to Billing</Link> */}
-                                    <Link to="/billings-details" className="anal-btn">Upgrade Now</Link>
+                                    <Link to="/billings-details" className="anal-btn mb-1 ">Go to Billing</Link>
                                 </Col>
                                 <Col className="d-none d-md-block"></Col>
                                 <Billingrit />
@@ -55,39 +63,71 @@ const SubscriptionList = () =>{
                                 <NumbIcon />
                             </Row> 
                             <h5 className="report-h5 mb-2 mt-4">Skill Building Status</h5>  
-                            <div className="subs-list-box">
-                                <div className="in-sub-list-box">
-                                    <div className="play-vid-subs">
-                                        <PlaybtnIcon />
-                                    </div>
-                                    <div class="tit-subs"><h5>English</h5></div>
-                                </div>                    
-                                <div>                        
-                                    <p className="f3-13 mb-0">Progress</p>    
-                                    <div className="prog-bar-subs">
-                                        <ProgressBar now={progValue} />
-                                        <p className="p-0 mb-0 ms-2">{progValue}%</p>
-                                    </div> 
+                            <div className="lft-skl-bldg">
+                                <div className="subs-list-box">
+                                    <div className="in-sub-list-box">
+                                        <div className="play-vid-subs">
+                                            <PlaybtnIcon />
+                                        </div>
+                                        <div class="tit-subs"><h5>English</h5></div>
+                                    </div>                    
+                                    <div>                        
+                                        <p className="f3-13 mb-0">Progress</p>    
+                                        <div className="prog-bar-subs">
+                                            <ProgressBar now={progValue} />
+                                            <p className="p-0 mb-0 ms-2">{progValue}%</p>
+                                        </div> 
+                                    </div>                                
                                 </div>
-                            </div>
-                            <div className="subs-list-box">
-                                <div className="in-sub-list-box">
-                                    <div className="play-vid-subs">
-                                        <PlaybtnIcon />
+                                <div className="subs-list-box">
+                                    <div className="in-sub-list-box">
+                                        <div className="play-vid-subs">
+                                            <PlaybtnIcon />
+                                        </div>
+                                        <div class="tit-subs"><h5>History</h5></div>
+                                    </div>                    
+                                    <div>    
+                                        <p className="f3-13 mb-0">Progress</p>                    
+                                        <div className="prog-bar-subs">
+                                            <ProgressBar now={progValue} />
+                                            <p className="p-0 mb-0 ms-2">{progValue}%</p>
+                                        </div> 
                                     </div>
-                                    <div class="tit-subs"><h5>History</h5></div>
-                                </div>                    
-                                <div>    
-                                    <p className="f3-13 mb-0">Progress</p>                    
-                                    <div className="prog-bar-subs">
-                                        <ProgressBar now={progValue} />
-                                        <p className="p-0 mb-0 ms-2">{progValue}%</p>
-                                    </div> 
+                                </div>
+                                <div className="subs-list-box">
+                                    <div className="in-sub-list-box">
+                                        <div className="play-vid-subs">
+                                            <PlaybtnIcon />
+                                        </div>
+                                        <div class="tit-subs"><h5>Arts</h5></div>
+                                    </div>                    
+                                    <div>                        
+                                        <p className="f3-13 mb-0">Progress</p>    
+                                        <div className="prog-bar-subs">
+                                            <ProgressBar now={progValue} />
+                                            <p className="p-0 mb-0 ms-2">{progValue}%</p>
+                                        </div> 
+                                    </div>                                
+                                </div>
+                                <div className="subs-list-box">
+                                    <div className="in-sub-list-box">
+                                        <div className="play-vid-subs">
+                                            <PlaybtnIcon />
+                                        </div>
+                                        <div class="tit-subs"><h5>Photography</h5></div>
+                                    </div>                    
+                                    <div>                        
+                                        <p className="f3-13 mb-0">Progress</p>    
+                                        <div className="prog-bar-subs">
+                                            <ProgressBar now={progValue} />
+                                            <p className="p-0 mb-0 ms-2">{progValue}%</p>
+                                        </div> 
+                                    </div>                                
                                 </div>
                             </div>
                         </Col>
                         <Col md={3} lg={3}  >{/*className="mt-2 skill-smry" */}
-                            <Card style={{ width: '16rem' }} className="mb-3 mt-2 base-card-report">
+                            <Card style={{ width: '16rem' }} className="mb-3 base-card-report">
                                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                                 <Card.Body>{/*className="skil-sum-tit mb-2 mt-3" */}
                                     <Card.Title className="skil-sum-tit mb-2 mt-3"

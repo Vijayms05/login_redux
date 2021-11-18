@@ -105,7 +105,7 @@ tbody tr td {
 .cls-fre h2 {
   font-family: "f1";
   margin-bottom: 0;
-  font-size: 33px;
+  font-size: 30px;
   text-align: left;
   color: #298EE0 !important;
   z-index: 11;
@@ -119,18 +119,37 @@ tbody tr td {
   z-index: 11;
   text-align: center;
 }
+.cls-fre .subscription-class-46{
+  font-family: "f1";
+  margin-bottom: 0;
+  font-size: 35px;
+  width: 30px;
+  text-align: left;
+  color: #298EE0 !important;
+  z-index: 11;
+  text-align: center;
+}
+ .subscription-class-days{
+  font-family: "f1";
+  margin-bottom: 0;
+  font-size: 20px;
+  width: 20px;  
+  text-align: left;
+  color: #298EE0 !important;
+  z-index: 11;  
+  text-align: center;
+}
 .billing-add {
   background: #fff;
-  /* border-radius: 10px; */
-  /* box-shadow: -3px 15px 12px -4px #ededed; */
+  border-radius: 10px;
+  box-shadow: -3px 15px 12px -4px #ededed;
   height: 135px;
   width: 70%;
   align-items: center;
   overflow: hidden;
   position: relative;
   background: #FFFFFF;
-  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
+ 
 }
 .billing_back {
   position: absolute;
@@ -288,12 +307,13 @@ tbody tr td {
   margin-top: 15px;
   height: 300px;
   overflow-y: scroll;
-}
-.parag-test {
   font-size: 14.5px;
   line-height: 26px;
   font-family: "f3";
+  width: 90%;  
+  margin-left: 30px;
 }
+
 .btn-ext {
   background-color: red;
   width: 70px !important;

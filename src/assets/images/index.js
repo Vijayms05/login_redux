@@ -37,8 +37,17 @@ import feedbackicon from './feedbackicon.png'
 import printicon from './printicon.png'
 import tickicon from './tick.png'
 import timericon from './timer.png'
+import skilltallylogo from './skilltally_logo.png'
 
-export const Logo = () => <img className="logo" src={logo} alt="logo" />;
+export const Logo = () => (
+  <img className="logo" src={logo} alt="logo" />
+)
+
+
+export const SkillTallyLogo = () => (
+  <img  src={skilltallylogo} alt="logo" />
+)
+
 
 export const SiginImage = () => (
   <img src={signin} alt="signin" className="singImg" />
@@ -84,7 +93,7 @@ export const SearchIconRight = () => (
   <img src={search} alt="search" className="eyeIcon" />
 );
 export const PlaybtnIcon = () => (
-  <img src={playbutton} alt="search" className="" />
+  <img src={playbutton} alt="search" className="play-btn-icon" />
 );
 export const BookBackImg = () => (
   <img src={cardimage} alt="cardimage" className="" />
