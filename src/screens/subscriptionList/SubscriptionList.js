@@ -19,15 +19,15 @@ const SubscriptionList = () =>{
         <div className="py-md-4 bill-rit">
             <Col>
                 <Row className="mb-4 mt-5 mt-md-0">
-                    <Col xs={12} sm={6} md={6} lg={8} className="mb-2">   
+                    <Col xs={12} sm={6} md={5} lg={6} className="mb-2">   
                         <Form.Group  className="w-100 search-box">
                             <Button className="searchrole">
                                 <SearchIcon />
                             </Button>
-                            <Form.Control type="text"  placeholder="Search..." size="md" className="search-input" />
+                            <Form.Control type="text"  placeholder="Search Role catalogue" size="md" className="search-input" />
                         </Form.Group>                
                     </Col>
-                    <Col xs={12} sm={6} md={6} lg={4}  className=" mb-2">
+                    <Col xs={12} sm={6} md={3} lg={3}  className=" mb-2">
                         <Form.Select className="select-form" size="lg" >
                             <option>Filter</option>
                             <option>Large select</option>
@@ -38,13 +38,13 @@ const SubscriptionList = () =>{
                  {/* <div className="m-auto">  */}
                     <Row> {/* className="tl-skl-bldg" */}
                         <Link className="back-a " to="/home"><LeftArrow /> {" "} Back to My Subscrtiptions</Link>
-                        <Col md={9} lg={9} className="mt-2">
+                      <Col md={8} lg={8}>
                             <Row className="billing-add w-100">
                                 <Col className="cls-fre">
                                     <h2>Class12</h2>
                                 </Col>
-                                <Col className="cls-fre" > {/*className="cls-fre"*/}
-                                    <h4 className="mb-0">Your Current Plan</h4>                                   
+                                <Col className="cls-fre " > {/*className="cls-fre"*/}
+                                    <h4 >Your Current Plan</h4>                                   
                                     <Row>
                                         <Col  className="subscription-class-46">
                                             46
@@ -55,12 +55,13 @@ const SubscriptionList = () =>{
                                     </Row>
                                     {/* <h2 className="">Free</h2> */}
                                     {/* <Link to="/billings" className="anal-btn">Go to Billing</Link> */}
-                                    <Link to="/billings-details" className="anal-btn mb-1 ">Go to Billing</Link>
+                                    <Link to="/billings-details" className="anal-btn mb-2 ">Go to Billing</Link>
                                 </Col>
-                                <Col className="d-none d-md-block"></Col>
-                                <Billingrit />
-                                <ScaleIcon />
-                                <NumbIcon />
+                                <Col className="d-none d-md-block">
+                                    <Billingrit />
+                                    <ScaleIcon />
+                                    <NumbIcon />
+                                </Col>                                
                             </Row> 
                             <h5 className="report-h5 mb-2 mt-4">Skill Building Status</h5>  
                             <div className="lft-skl-bldg">
@@ -126,7 +127,7 @@ const SubscriptionList = () =>{
                                 </div>
                             </div>
                         </Col>
-                        <Col md={3} lg={3}  >{/*className="mt-2 skill-smry" */}
+                        <Col md={3} lg={3} className="mt-2 skill-smry"  >{/*className="mt-2 skill-smry" */}
                             <Card style={{ width: '16rem' }} className="mb-3 base-card-report">
                                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                                 <Card.Body>{/*className="skil-sum-tit mb-2 mt-3" */}

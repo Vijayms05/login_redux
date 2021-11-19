@@ -22,8 +22,8 @@ const SideMenu = () => {
             </Button>
             <Logo />
         </div>
-        <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftsdbr" >
-        <Logo />
+        <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftsdbr mt-4" >
+            <Logo />
             <h6 className="logo-tag">
                 measure to lead
             </h6>

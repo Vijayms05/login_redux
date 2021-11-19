@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const SettingsOraganization = () =>{
     return(
-        <Col lg="6" xl="5" sm="8"> 
+        <Container  sm={8} className="border p-2"> 
            <div className="d-flex align-center mb-1 mt-4">
                 <p className="left-org-txt">Organzation Name</p>
                 <p className="rt-org-txt">: Name</p>
@@ -18,7 +18,7 @@ const SettingsOraganization = () =>{
                 <p className="left-org-txt">Organzation Role</p>
                 <p className="rt-org-txt">: Designer</p>
            </div>
-        </Col>
+        </Container>
     )
 }
 

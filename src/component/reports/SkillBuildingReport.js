@@ -31,11 +31,11 @@ const SkillBuildingReport = () =>{
                 <Table>
                     <thead>
                         <tr>
-                        <th>Subject Name</th>
-                        <th>Test Name</th>
-                        <th>Chapter</th>
-                        <th>Topic</th>
-                        <th></th>
+                            <th>Subject Name</th>
+                            <th>Test Name</th>
+                            <th>Chapter</th>
+                            <th>Topic</th>
+                            <th></th>
                         </tr>
                     </thead>
                 </Table>

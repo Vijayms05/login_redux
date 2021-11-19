@@ -63,7 +63,7 @@ const data = [
 function BaselineReport() {
     return (
         <div className="py-md-4 mt-5 mt-md-0 bill-rit">
-            <Col md={12} xs className="baselinereport">              
+            <Col md={12}  xs className="baselinereport">              
                 <Row>
                     <Col xs={6} md={6} lg>   
                         <Form.Group  className="w-70 search-box">
@@ -82,7 +82,7 @@ function BaselineReport() {
                     </Col>  
                 </Row>                
                 <Row >{/*className="d-lg-flex" */}
-                    <Col md={9} lg={9}>{/*className="p-md-0 in-bs-ln" */}
+                    <Col md={8} lg={8}>{/*className="p-md-0 in-bs-ln" */}
                         <Link className="back-a mt-4" to="/home"><LeftArrow /> {""} Back to Results </Link>
                         <h4 className="f1-19 mt-0 mb-3 mt-3" style={{color:'#003866'}}>Baseline Results</h4>
                         <div className="tl-br-cht mt-3 mb-2">
@@ -132,20 +132,21 @@ function BaselineReport() {
                             </Row>
                         </div>
                     </Col>
-                    <Col md={3} lg={3}  >{/*className="mt-2 skill-smry" */}
-                        <Card style={{ width: '16rem' }} className="mb-3 mt-2 base-card-report">
+                    <Col md={4} lg={4} className='mt-4' >{/*className="mt-2 skill-smry" */}
+                        <Card  >
                             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                            <Card.Body>{/*className="skil-sum-tit mb-2 mt-3" */}
-                                <Card.Title className="skil-sum-tit mb-2 mt-3"
+                            <Card.Body className="border mb-3 mt-2 p-1 text-center" 
+                            style={{ width: '275px' }}>{/*className="skil-sum-tit mb-2 mt-3" */}
+                                <Card.Title className="skil-sum-tit mb-3 mt-2"
                                 >Result Summary</Card.Title>
                                 {/* <h5 className="skil-sum-tit mb-2 mt-3">Result Summary</h5>  */}
                                 {/* <h4 className="skil-sum-baslin">Baseline</h4>  */}
                                 <Row>{/*class="flex-spc-btw" className="skil-sum-p"*/}
-                                    <Col className="skil-sum-text text-start">Test Name </Col>
+                                    <Col className="skil-sum-text ">Test Name </Col>
                                     <Col className="skil-sum-text"> : Baseline </Col>                            
                                 </Row>
                                 <Row>
-                                    <Col className="skil-sum-text text-start">Role</Col> 
+                                    <Col className="skil-sum-text ">Role</Col> 
                                     <Col className="skil-sum-text">: UI/UX</Col> 
                                 </Row>
                                 <Row>

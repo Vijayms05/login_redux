@@ -104,46 +104,47 @@ tbody tr td {
 }
 .cls-fre h2 {
   font-family: "f1";
-  margin-bottom: 0;
   font-size: 30px;
-  text-align: left;
   color: #298EE0 !important;
-  z-index: 11;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 28px;
+}
+.cls-fre h1 {
+  font-family: "f1";
+  margin-bottom: 0;
+  font-size: 50px;
+  color: #298EE0 !important;
+  justify-content: center;
+  align-items: center;
 }
 .cls-fre h4 {
   font-family: "f1";
   font-size: 20px;
   text-align: left;
   color: #080D14 !important;
-  z-index: 11;
   text-align: center;
 }
-.cls-fre .subscription-class-46{
-  font-family: "f1";
-  margin-bottom: 0;
-  font-size: 35px;
-  width: 30px;
-  text-align: left;
-  color: #298EE0 !important;
-  z-index: 11;
-  text-align: center;
+  .subscription-class-46{
+  font-family: "f1";  
+  font-size: 55px; 
+  color: #298EE0 !important; 
+  justify-content: center;
+  align-items: center;
 }
- .subscription-class-days{
+.cls-fre .subscription-class-days{
   font-family: "f1";
   margin-bottom: 0;
-  font-size: 20px;
-  width: 20px;  
-  text-align: left;
+  font-size: 25px;
   color: #298EE0 !important;
-  z-index: 11;  
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 .billing-add {
   background: #fff;
   border-radius: 10px;
   box-shadow: -3px 15px 12px -4px #ededed;
-  height: 135px;
+  height: 155px;
   width: 70%;
   align-items: center;
   overflow: hidden;
@@ -155,7 +156,7 @@ tbody tr td {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 135px !important;
+  width: 175px !important;
   padding: 0 !important;
 }
 .scale-back {

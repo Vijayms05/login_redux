@@ -57,7 +57,7 @@ const ResetPassword = (props) => {
             <p className="forget-p mt-2 mb-3 mt-4 text-center" 
               style={{color:'#0B171B',fontSize:'15px'}}
             >
-              Go back to  
+              Go back to {" "}  
               <Link to="/login">Log in</Link>
             </p>            
           </Col>

@@ -117,9 +117,10 @@ const SkillBuildingResultDetails = () => {
                         </div>
                     </Col>
                     <Col md={3} lg={3}  >{/*className="mt-2 skill-smry" */}
-                        <Card style={{ width: '16rem' }} className="mb-3 mt-2 base-card-report">
+                        <Card  >
                             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                            <Card.Body>{/*className="skil-sum-tit mb-2 mt-3" */}
+                            <Card.Body className="mb-3 mt-2 base-card-report text-center" 
+                            style={{ width: '285px' }}>{/*className="skil-sum-tit mb-2 mt-3" */}
                                 <Card.Title className="skil-sum-tit mb-2 mt-3"
                                 >Result Summary</Card.Title>
                                 {/* <h5 className="skil-sum-tit mb-2 mt-3">Result Summary</h5>  */}

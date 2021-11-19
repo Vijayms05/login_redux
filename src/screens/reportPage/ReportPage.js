@@ -34,8 +34,8 @@ const ReportPage = () =>{
                     <h5 className="report-h5 ">Reports</h5>
                 </div>
                 <div className="px-3 pb-0 m-auto mt-3 "style={{width:'920px'}} >
-                    <div className="table-box">{/*  table-name-rep tbl-bx-rpt*/}
-                        <Table  className="mt-2  mb-0 table-name table table-border">
+                    <Col md={12} className="table-box">{/*  table-name-rep tbl-bx-rpt*/}
+                        <Table  className="mt-2  mb-0 table-name table table-border ">
                             <thead>
                                 <tr className="tr-name">
                                     <th>My Subscriptions</th>
@@ -46,7 +46,7 @@ const ReportPage = () =>{
                                     <th colSpan="2">Current Rank</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="border p-2">
                                 <tr>
                                     <td>B Tech 3rd Year</td>
                                     <td>{/*cert-btn */}
@@ -57,18 +57,18 @@ const ReportPage = () =>{
                                     <td className="rep-btn-ln">
                                         <Link to="/basline" 
                                             style={{backgroundColor:'#298EE0',color:'white',width: '110px',
-                                            height: '32px',borderRadius:'10px',textAlign:'center'}} 
+                                            height: '30px',borderRadius:'10px',textAlign:'center'}} 
                                             className="btn" 
                                         >Detailed view</Link></td>
 
                                     <td className="rep-btn-ln">
                                         <Link to="/skill-building-list" style={{backgroundColor:'#298EE0',color:'white',width: '110px',
-                                            height: '32px',borderRadius:'10px',textAlign:'center'}} className="btn"
+                                            height: '30px',borderRadius:'10px',textAlign:'center'}} className="btn"
                                         >Detailed view</Link>
                                     </td>
                                     <td className="rep-btn-ln">
                                         <Link to="/certificate-result" style={{backgroundColor:'#298EE0',color:'white',width: '110px',
-                                            height: '32px',borderRadius:'10px'}} className="btn"
+                                            height: '30px',borderRadius:'10px'}} className="btn"
                                         >Detailed view</Link>
                                     </td>
                                     <td style={{color:'#298EE0'}} >
@@ -90,18 +90,18 @@ const ReportPage = () =>{
                                     <td className="rep-btn-ln">
                                         <Link to="/basline" 
                                             style={{backgroundColor:'#298EE0',color:'white',width: '110px',
-                                            height: '32px',borderRadius:'10px',textAlign:'center'}} 
+                                            height: '30px',borderRadius:'10px',textAlign:'center'}} 
                                             className="btn" 
                                         >Detailed view</Link></td>
 
                                     <td className="rep-btn-ln">
                                         <Link to="/skill-building-list" style={{backgroundColor:'#298EE0',color:'white',width: '110px',
-                                            height: '32px',borderRadius:'10px',textAlign:'center'}} className="btn"
+                                            height: '30px',borderRadius:'10px',textAlign:'center'}} className="btn"
                                         >Detailed view</Link>
                                     </td>
                                     <td className="rep-btn-ln">
                                         <Link to="/certificate-result" style={{backgroundColor:'#298EE0',color:'white',width: '110px',
-                                            height: '32px',borderRadius:'10px'}} className="btn"
+                                            height: '30px',borderRadius:'10px'}} className="btn"
                                         >Detailed view</Link>
                                     </td>
                                     <td style={{color:'#298EE0'}} >
@@ -115,7 +115,7 @@ const ReportPage = () =>{
                                 </tr>
                             </tbody>
                         </Table>
-                    </div>        
+                    </Col>        
                 </div>        
         </div>
     );

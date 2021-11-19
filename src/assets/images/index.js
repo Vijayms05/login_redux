@@ -24,6 +24,7 @@ import learn_from from './learn_from _anywhere.png';
 import circle_left from './circle-left.png'
 import circle_right from './circle-right.png'
 import arrowLeft from './arrowLeft.png'
+import downArrow from './arrow.png'
 import readingbooks from './reading_books.png'
 import record_mic_icon from './mic.png'
 import play_button from './playbutton.png'
@@ -133,6 +134,9 @@ export const CircleRight = () => (
 )
 export const LeftArrow = () => (
   <img src={arrowLeft} alt="arrowLeft" className="arrow-left" />
+)
+export const DownArrow = () => (
+  <img src={downArrow} alt="arrowLeft" className="arrow-down" />
 )
 export const RecordMicIcon = () => (
   <img src={record_mic_icon} alt="record_mic_icon" className="mic-icon" />

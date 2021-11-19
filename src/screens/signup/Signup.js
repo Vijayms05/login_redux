@@ -160,7 +160,7 @@ const Signup = (props) => {
                 </Form.Group>
                   <Button className="submit-btn" variant="primary" type="submit" 
                   onClick={onSubmit}>
-                      Creat Account
+                      Create Account
                   </Button>
               </Form>
             </Col>

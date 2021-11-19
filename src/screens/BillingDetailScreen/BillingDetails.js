@@ -27,21 +27,31 @@ const BillingDetails = () =>{
             <div className="m-auto">
                 <Row> 
                     <h5 className="report-h5 mt-4">Billing</h5>  
-                </Row>  
-                <Row className="billing-add mt-3">
-                    <Col className="cls-fre">
-                        <h2>Class 12</h2>
-                    </Col>
-                    <Col className="cls-fre">
-                        <h4>Your Current Plan</h4>
-                        <h2 style={{fontSize:'52px'}}>Free</h2>
-                    </Col>
-                    <Col>
-                        <Billingrit />
-                        <ScaleIcon />
-                        <NumbIcon />                    
-                    </Col>                    
-                </Row> 
+                </Row>
+                <Col sm={11} className="ms-2"  >              
+                    <Card.Body className="billing-add mt-3 horizontal-card mb-4">
+                        <Row >
+                            <Col xs sm={3} className="cls-fre mt-2 text-center">
+                                <h2 >Class 12</h2>
+                            </Col>
+                            <Col sm={5} xs className=" cls-fre ms-2 mb-2 text-center">
+                                <h4>Your Current Plan</h4>
+                                <h1>Free</h1>
+                            </Col>
+                            <Col sm={2}  xs >
+                                <Billingrit />
+                                <ScaleIcon />
+                                <NumbIcon /> 
+                            </Col>
+                            
+                        </Row>
+                    </Card.Body>
+                    
+                </Col>
+                
+                {/* <Row className="billing-add mt-3">
+                                       
+                </Row>  */}
                 <Row className="mt-5"> 
                     <h5 className="report-h5">Upgrade Now</h5>  
                 </Row>       

@@ -16,6 +16,7 @@ import {
     AvatorProfile,
     UploadIcon,
     ModalImage,
+    DownArrow,
     PasswordIcon,
     EyeIconHid,
     EyeIcon
@@ -190,15 +191,16 @@ const ProfilePage = (props) => {
             
             
             <div className="px-3">
-                <h5 className="f1-16" >Basic Details</h5>
+                <h5 className="f1-16-header" >Basic Details</h5>
                 <Col sm={6} xs className="p-0">
-                    <Form.Group className="mb-3 profile-formgroup">
+                    <Form.Group className="mb-3 inputGroup">
                         <label className="mobile-no mb-1" >Mobile Number</label>
                         <Form.Control 
-                            className="profile-formcontrol" 
-                            type="email" 
-                            placeholder="Enter email"                        
+                            className="inputField-mobile-no" 
+                            type="text" 
+                            placeholder="98245 65862"                        
                         />
+                        <span>+91 <DownArrow /></span>
                     </Form.Group>
                     <Form.Group className="mb-3 profile-formgroup">
                         <label className="mobile-no mb-1" >Date of Birth</label>                                         
@@ -222,7 +224,7 @@ const ProfilePage = (props) => {
                             <option value="3">Three</option>
                         </select> 
                     </Form.Group>
-                    <h5 className="f1-16">Address</h5>
+                    <h5 className="f1-16-header">Address</h5>
                     <Form.Group className="mb-3 profile-formgroup">
                         <label className="mobile-no mb-1" >Country</label>                    
                         <select className="form-select mb-3 " aria-label="Default select example">
@@ -264,7 +266,7 @@ const ProfilePage = (props) => {
                             <option value="3">Three</option>
                         </select> 
                     </Form.Group>
-                    <h5 className="f1-16">Educational And Work Details</h5>
+                    <h5 className="f1-16-header">Educational And Work Details</h5>
                     <Form.Group className="mb-3 ">
                         <label className="mobile-no mb-2" >Educational Stream</label>                    
                         <select className="form-select mb-3 " aria-label="Default select example">
