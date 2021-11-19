@@ -1350,7 +1350,15 @@ audio::-webkit-media-controls-panel {
   background: #4DD188;
   border-radius: 50px;
   padding: 6px;
-  text-align: center;
-  
+  text-align: center;  
 }
-
+.test-record-lct-hv p{  
+  width: 97px;
+  height: 36px;  
+  /* Forest/500 ( main ) */
+  color:white;
+  background: #4DD188;
+  border-radius: 50px;
+  padding: 6px;
+  text-align: center;  
+}

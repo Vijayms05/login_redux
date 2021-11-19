@@ -51,7 +51,7 @@ const ChooseQuestion =(props)=>{
     <div className="tl-rt-qst d-grid m-auto">
         <div className="in-rt-qst">   
             <div className="qust-tit text-center">       
-                <h6>{data[currentQuestion].question}</h6>
+                <h6>Q{data[currentQuestion].id}{" "}{data[currentQuestion].question}</h6>
                 {/* <h6>Q1  Who is the prime minister of india ?   </h6> */}
                 <p>Description : find out who is the prime minister of india</p>
             </div>              
