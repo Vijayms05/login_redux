@@ -113,7 +113,7 @@ body {
   display: block;
 }
 .skilltally-logo {
-  width: 60px;
+  width: 80px;
   margin-left: 20px;
   display: block;
 }
@@ -1413,3 +1413,6 @@ audio::-webkit-media-controls-panel {
   text-align: center;  
 }
 
+.image-upload>.upload-input {
+  display: none;
+}

@@ -23,24 +23,18 @@ import {
 } from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
-
+import { EmailRegex } from '../../constant/Constant'
 const Signup = (props) => {
   const [email,setEmail]= useState('')
   const [password, setPassword] = useState('')
   const [repassword, setRepassword]= useState('')  
   const [termscondition, setTermsCondition] = useState(false)
-  // const [alertMsg, setAlertMsg] = useState('');
-  // const [alertError, setAlertError] = useState(false);
+  
   const [paswordShow, setPaswordShow] = useState(true)
   const [repaswordShow, setRePaswordShow] = useState(true)
+
   const history = useHistory()
   
-  const clickPasswordShow = () =>{
-    setPaswordShow(!paswordShow);
-  }
-  const clickRePasswordShow = () =>{
-    setRePaswordShow(!repaswordShow);
-  }
 
   const dispatch = useDispatch();
  
@@ -48,17 +42,28 @@ const Signup = (props) => {
   const invalidSignup = useSelector( state => state.signupState.error)
 
   const status = validSignup && validSignup.status;
+
+
+  const clickPasswordShow = () =>{
+    setPaswordShow(!paswordShow);
+  }
+  const clickRePasswordShow = () =>{
+    setRePaswordShow(!repaswordShow);
+  }
   
-  const onEmail = (e) => {
-    if (e.target.value.match('^[a-zA-Z0-9_@./#&+-]*$')) {
-      setEmail(e.target.value);
-    }
+  const onEmail = e => {
+    setEmail( e.target.value);
+    console.log(e)
+  //   if (e.target.value.match(EmailRegex)) {
+  //     setEmail(e.target.value);
+  //   }
   };
   const onPassword = (e) => {
     setPassword(e.target.value);
   };
-  const onRePassword = e => {    
-    setRepassword(e.target.value) 
+const onRePassword = e => { 
+    setRepassword(e.target.value)    
+    
   }
   const onTermsCondition = () =>{
     setTermsCondition(!termscondition)
@@ -79,7 +84,7 @@ const Signup = (props) => {
     if (email === " " ||
       password === " " ||
       repassword === " ") {       
-      toast.error('Please fill all the fields')        
+      toast.error('Please fill all the fields',{position:toast.POSITION.TOP_RIGHT})        
     }   
     else if (termscondition === false) {      
       toast.error('Please accept the Terms & Conditions and Privacy Policy',{position:toast.POSITION.TOP_RIGHT})
@@ -91,8 +96,7 @@ const Signup = (props) => {
         repassword,
         termscondition      
       };     
-    dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});    
-  
+    dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});
     }
     history.push('/login')  
   }  
@@ -113,7 +117,7 @@ const Signup = (props) => {
                   <Form.Control 
                     className=' inputField'
                     type="email" 
-                    placeholder="Enter email"
+                    placeholder="Enter e-mail"
                     value={email}
                     onChange={onEmail}
                     />

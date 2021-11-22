@@ -4,7 +4,7 @@ import {  Row, Col, Nav, Navbar, ProgressBar,Button } from 'react-bootstrap'
 import { SkillTallyLogo, Logo,TimerIcon } from '../../assets/images/index'
 
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-// import skilltallyLogo from '../../assets/images/skilltally_logo.png'
+import skilltallyLogo from '../../assets/images/skilltally_logo.png'
 // import ChooseQuestion from '../questionRight/ChooseQuestion';
 
 const QuestionBar = (props) => {   
@@ -22,16 +22,15 @@ const QuestionBar = (props) => {
                 <p className="sec-line"></p>
                 <p className="trd-line"></p>
             </Button>
-            <SkillTallyLogo />
+            <Logo />
         </div>
         <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftqst" >
              <div className="ms-3">
-                <SkillTallyLogo />
-            </div>          
-            
+                <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2"/>
+            </div> 
             
                 {/* <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2 mb-2"/> */}
-            <Row className="mb-0">
+            <Row>
                 <Col className="mt-4">
                     <div className="qyst-pag">
                         <h5>Test Name</h5>
@@ -45,7 +44,7 @@ const QuestionBar = (props) => {
                             duration={120}
                             colors={[["#298EE0"], ["#F7B801"], ["#A30000"]]}
                             onComplete={() => [true, 1000]}
-                            size={110}  
+                            size={99}  
                             strokeWidth={9}
                         >
                             {renderTime}
@@ -102,7 +101,10 @@ const QuestionBar = (props) => {
                     <li className="not-vst-txt">18</li>
                 </ul>
             </div> 
-            <div className="prog-bar">
+        
+           
+            <div className="prog-bar">   
+            <p style={{fontSize:'13px'}}>question</p>           
                 <ProgressBar now={now} />
                 <p className="p-0 mb-0 ms-2">{now}%</p>
             </div>  

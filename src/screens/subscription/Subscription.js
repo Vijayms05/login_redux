@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {  Container, Col, Row, Form, Card, ProgressBar } from 'react-bootstrap'
 import {SearchIcon, PlaybtnIcon, BookBackImg,SearchIconRight, EyeIcon} from '../../assets/images/index'
 import '../../screens/home/Home.css'
@@ -6,7 +6,25 @@ import '../../screens/home/responsive.css'
 import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
 
-const Subscription = () =>{
+const classes = [
+    "Class 12",
+    "Class 11",
+    "Class 10"
+  ];
+
+const Subscription = (props) =>{
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const handleChange = event => {
+       setSearchTerm(event.target.value);
+     };
+    useEffect(() => {
+       const results = classes.filter(classes =>
+        classes.toLowerCase().includes(searchTerm)
+       );
+       setSearchResults(results);
+     }, [searchTerm]);  
+
    const now = 30
 
     return(
@@ -21,6 +39,8 @@ const Subscription = () =>{
                             type="text"  
                             placeholder="Search Role catalogue" 
                             size="md" className="search-input" 
+                            value={searchTerm}
+                            onChange={handleChange}
                         />
                     </Form.Group>                
                 </Col>
@@ -54,29 +74,32 @@ const Subscription = () =>{
             <Row>
                 <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
                     <Link to="/subscription-list">
-                        <Card> 
-                            <Card.Body>
-                                <Card.Title className="mb-3">
-                                    Class 12
-                                </Card.Title>
-                                <Card.Text className="sub-active mb-1 mt-2"> 
-                                    Subscription : Active
-                                </Card.Text>
-                                <Card.Text className="mb-2 mt-2" style={{fontSize:'13.5px', fontFamily:'f3'}}>
-                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
-                                    Morbi in orci risus. Donec pretium
-                                </Card.Text> 
-                                <Card.Text className="text-start mb-0">In Progress</Card.Text><div>                        
-                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                        <ProgressBar now={now} />
-                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                    </div> 
-                                </div>
-                                <div className="play-vid">
-                                    <PlaybtnIcon />
-                                </div>
-                            </Card.Body>
-                        </Card>  
+                       
+                            <Card> 
+                                <Card.Body>
+                                    <Card.Title className="mb-3">
+                                        Class 12
+                                    </Card.Title>
+                                    <Card.Text className="sub-active mb-1 mt-2"> 
+                                        Subscription : Active
+                                    </Card.Text>
+                                    <Card.Text className="mb-2 mt-2" style={{fontSize:'13.5px', fontFamily:'f3'}}>
+                                        Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
+                                        Morbi in orci risus. Donec pretium
+                                    </Card.Text> 
+                                    <Card.Text className="text-start mb-0">In Progress</Card.Text><div>                        
+                                        <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
+                                            <ProgressBar now={now} />
+                                            <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
+                                        </div> 
+                                    </div>
+                                    <div className="play-vid">
+                                        <PlaybtnIcon />
+                                    </div>
+                                </Card.Body>
+                            </Card>  
+                       
+                        
                     </Link>                        
                 </Col>  
                 <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">

@@ -46,7 +46,7 @@ export const Logo = () => (
 
 
 export const SkillTallyLogo = () => (
-  <img  src={skilltallylogo} alt="logo" />
+  <img  src={skilltallylogo} alt="skilltally-logo"   />
 )
 
 
