@@ -82,7 +82,7 @@ const SkillBuildingResultDetails = () => {
                     </Col>  
                 </Row>                
                 <Row>{/*div className="d-lg-flex" className="p-md-0 in-bs-ln"*/}
-                    <Col md={9} lg={9}>
+                    <Col md={8} lg={8} sm={6}>
                         <Link className="back-a mt-3" to="/home"><LeftArrow /> {""} Back to Results </Link>
                         <h4 className="f1-19 mt-0 mb-3 mt-2" style={{color:'#003866'}}>Skill Building Results</h4>
                         <div className="tl-br-cht">
@@ -116,11 +116,11 @@ const SkillBuildingResultDetails = () => {
                             </Row>
                         </div>
                     </Col>
-                    <Col md={3} lg={3}  >{/*className="mt-2 skill-smry" */}
-                        <Card  >
+                    <Col md={4} lg={4} sm={6} >{/*className="mt-2 skill-smry" */}
+                        <Card  className=" mb-3 mt-2 p-1 base-card-report text-center" style={{ width: '285px' }}>
                             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                            <Card.Body className="mb-3 mt-2 base-card-report text-center" 
-                            style={{ width: '285px' }}>{/*className="skil-sum-tit mb-2 mt-3" */}
+                            <Card.Body  
+                            >{/*className="skil-sum-tit mb-2 mt-3" */}
                                 <Card.Title className="skil-sum-tit mb-2 mt-3"
                                 >Result Summary</Card.Title>
                                 {/* <h5 className="skil-sum-tit mb-2 mt-3">Result Summary</h5>  */}

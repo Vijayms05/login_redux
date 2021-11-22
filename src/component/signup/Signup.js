@@ -14,9 +14,9 @@ import eyeIcon from '../../images/eye_icon.png'
 import {Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const Signup = () => {
+const Signup = (props) => {
     const [email,setEmail] = useState('')
-    const [reEmail,setReemail]=useState('')
+   
     const [password,setPassword] = useState('')
     const [conformPassword,setConformPassword] = useState('')
     const [isCheck, setCheck]=useState(false) 
@@ -40,7 +40,7 @@ const Signup = () => {
         console.log(email, password, conformPassword, isCheck)
     }
     return ( 
-        <Container fluid>
+        <Container fluid>            
             <Row className=" justify-content-center align-items-center" >
                 <Col xs={8} md={8} sm={7} lg>
                    <div className="auto"><SiginImage /></div>

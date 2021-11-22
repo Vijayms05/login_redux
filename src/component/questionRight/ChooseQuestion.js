@@ -25,8 +25,7 @@ const ChooseQuestion =(props)=>{
       if (myAnswer === data[currentQuestion].answer) {
         setScore(score + 1);
       }
-    };
-  
+    };  
   
     const reset = () => {
       setShow(false);
@@ -70,7 +69,7 @@ const ChooseQuestion =(props)=>{
                 <span className="chs-lft">D</span><span className="chs-ans">Wants</span>
                 </ToggleButton>
             </ToggleButtonGroup>
-            {/* {data[currentQuestion].variants.map((variant) => (
+             {/* {data[currentQuestion].variants.map((variant) => (
                 <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
                     <ToggleButton id="tbg-radio-1" value={1}
                     key={variant.id}
@@ -86,7 +85,7 @@ const ChooseQuestion =(props)=>{
                      <span className="chs-ans">{variant}</span>
                     </ToggleButton>
                 </ToggleButtonGroup>
-            ))} */}
+            ))}  */}
             {/* <div className="fill-qust">
                 <input placeholder="Ans1" /> is a <input placeholder="Ans2"  /> that gives the green colour ro leaves
             </div> */}

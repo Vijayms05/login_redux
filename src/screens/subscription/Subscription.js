@@ -135,7 +135,7 @@ const Subscription = () =>{
                 </Col> 
                 <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
                     <Link to="/subscription-list">
-                        <Card style={{background:'#EBEBEB'}}> 
+                        <Card style={{background:'#EBEBEB'}} className="home-card "> 
                             <Card.Body>
                                 <Card.Title className="mb-3">
                                     Class 9

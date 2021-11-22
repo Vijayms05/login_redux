@@ -48,7 +48,7 @@ const TestIntro = () =>{
                         </Button>
                     </Col>
                     <Link to="/question-page" className="btn-start">
-                        Next
+                        Start Test
                     </Link>
                 </Row>
             </div>

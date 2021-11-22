@@ -81,7 +81,7 @@ const  CertificationReport = () => {
                     </Col>  
                 </Row>                
                 <Row >{/*className="d-lg-flex" */}
-                    <Col md={9} lg={9}>{/*className="p-md-0 in-bs-ln" */}
+                    <Col md={8} lg={8} sm={6}>{/*className="p-md-0 in-bs-ln" */}
                         {/* <Link className="back-a mt-4" to="/home"><LeftArrow /> {""} Back to Results </Link> */}
                         <h4 className="f1-19 mt-0 mb-3 mt-3" style={{color:'#003866'}}>Certification Results</h4>
                         <div className="tl-br-cht mt-3 mb-2">
@@ -131,8 +131,8 @@ const  CertificationReport = () => {
                             </Row>
                         </div>
                     </Col>
-                    <Col md={3} lg={3}  >{/*className="mt-2 skill-smry" */}
-                        <Card style={{ width: '16rem' }} className="mb-3 mt-2 base-card-report">
+                    <Col md={4} lg={4} sm={6} >{/*className="mt-2 skill-smry" */}
+                        <Card style={{ width: '285px' }} className="mb-3 mt-2  base-card-report text-center">
                             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                             <Card.Body>{/*className="skil-sum-tit mb-2 mt-3" */}
                                 <Card.Title className="skil-sum-tit mb-2 mt-3"

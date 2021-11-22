@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const SettingsOraganization = () =>{
     return(
-        <Container  sm={8} className="border p-2"> 
+        <Container className="border p-2"> 
            <div className="d-flex align-center mb-1 mt-4">
                 <p className="left-org-txt">Organzation Name</p>
                 <p className="rt-org-txt">: Name</p>

@@ -2,7 +2,9 @@ import React, {useState,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 // import { history } from '../../routes/Routes'
 import { useHistory } from 'react-router-dom'
-// import { message } from 'antd';
+import { message } from 'antd';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //logo
 import {
   SiginImage,
@@ -32,6 +34,7 @@ const Signup = (props) => {
   const [paswordShow, setPaswordShow] = useState(true)
   const [repaswordShow, setRePaswordShow] = useState(true)
   const history = useHistory()
+  
   const clickPasswordShow = () =>{
     setPaswordShow(!paswordShow);
   }
@@ -66,18 +69,20 @@ const Signup = (props) => {
       setEmail('');
       setPassword('');
       setTermsCondition(false);  
-      console.log('Thanks!, Signup form is successfully registered ');   
+     toast.success('Thanks!, Signup form is successfully registered ',{position: toast.POSITION.TOP_CENTER});   
     } else if (invalidSignup) {
-      console.log(`An account with email ${email} already exists`);
+      toast.error(`An account with email ${email} already exists`,{position: toast.POSITION.TOP_RIGHT});
     }
   },[status, invalidSignup])
 
-  const onSubmit = e =>{
-    if (email === " " || password === " " || repassword === " ") {    
-      console.log('Please fill all the fields')
+  const onSubmit = () =>{
+    if (email === " " ||
+      password === " " ||
+      repassword === " ") {       
+      toast.error('Please fill all the fields')        
     }   
-    else if (termscondition === false) {
-      console.log('Please accept the Terms & Conditions and Privacy Policy');
+    else if (termscondition === false) {      
+      toast.error('Please accept the Terms & Conditions and Privacy Policy',{position:toast.POSITION.TOP_RIGHT})
     } 
     else {
       const signupDetailsuser = {
@@ -86,12 +91,10 @@ const Signup = (props) => {
         repassword,
         termscondition      
       };     
-    dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});  
-    
+    dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});    
+  
     }
     history.push('/login')  
-
-    // console.log(email,password,repassword,termscondition);
   }  
 
   return (
@@ -108,7 +111,7 @@ const Signup = (props) => {
                 <h2 className="f1-19 mb-3 text-center">Create account and get started</h2>
                 <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
-                    className="inputField"  
+                    className=' inputField'
                     type="email" 
                     placeholder="Enter email"
                     value={email}
@@ -127,6 +130,7 @@ const Signup = (props) => {
                     placeholder="Password"
                     value={password}
                     onChange={onPassword}
+                    minLength="8"
                     />
                   <PasswordIcon />
                   <Button 
@@ -143,6 +147,7 @@ const Signup = (props) => {
                     placeholder="Re-Enter Password"
                     value={repassword}
                     onChange={onRePassword}
+                    minLength="8"
                   />
                   <PasswordIcon />
                   <Button 
@@ -167,6 +172,9 @@ const Signup = (props) => {
           </Row>
         </div>
       </Col>
+      {/* <Col md={12} sm={12} className="login-error-signup">
+        <span className={status ? 'success-msg' : 'login-error-msg'}>{alertMsg}</span>
+      </Col> */}
      
        
     </>

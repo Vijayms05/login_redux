@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {  Container, Col, Row, Form, Card, ProgressBar, Table } from 'react-bootstrap'
 import Button from '@restart/ui/esm/Button'
+import { Link } from 'react-router-dom'
 import { SearchIcon, Billingrit,NumbIcon, ScaleIcon, TickIcon } from '../../assets/images'
 
 const BillingDetails = () =>{
@@ -28,8 +29,26 @@ const BillingDetails = () =>{
                 <Row> 
                     <h5 className="report-h5 mt-4">Billing</h5>  
                 </Row>
-                <Col sm={11} className="ms-2"  >              
-                    <Card.Body className="billing-add mt-3 horizontal-card mb-4">
+                <Col md={8} lg={8} className="ms-2"  > 
+                    <Card>
+                        <Card.Body className="billing-add w-100">
+                            <Row>
+                                <Col className="cls-fre text-center mt-3 mb-3" sm={4} >
+                                    <h2 style={{fontSize:'33px'}}>Class12</h2>
+                                </Col>
+                                <Col className="cls-fre text-center mt-4 " sm={5} > {/*className="cls-fre"*/}
+                                    <h4 style={{fontSize:'22px'}}>Your Current Plan</h4>                                   
+                                    <h1 style={{fontSize:'65px'}}>Free</h1>
+                                </Col>
+                                <Col > {/*className="d-none d-md-block" */}
+                                    <Billingrit />
+                                    <ScaleIcon />
+                                    <NumbIcon />
+                                </Col>
+                            </Row>                    
+                        </Card.Body>                
+                    </Card>           
+                    {/* <Card.Body className="billing-add mt-3 horizontal-card mb-4">
                         <Row >
                             <Col xs sm={3} className="cls-fre mt-2 text-center">
                                 <h2 >Class 12</h2>
@@ -45,7 +64,7 @@ const BillingDetails = () =>{
                             </Col>
                             
                         </Row>
-                    </Card.Body>
+                    </Card.Body> */}
                     
                 </Col>
                 

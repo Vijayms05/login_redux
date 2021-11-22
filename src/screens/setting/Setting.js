@@ -25,10 +25,10 @@ const Setting = () =>{
                 <Row className="sub-search ps-0"> 
                     <h5 className="ps-0 mb-0">Settings</h5>  
                 </Row>  
-                <Col sm={10} >            
+                <Col sm={8} className="border mt-3" >            
                     <Tabs defaultActiveKey="home" 
                         id="uncontrolled-tab-example" 
-                        className="mt-5 test-tab "
+                        className="test-tab "
                     >
                         <Tab eventKey="home" title="Billing Details" className="test-name">
                             <SettingBill />

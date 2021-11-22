@@ -43,10 +43,11 @@ const QuestionBar = (props) => {
                         <CountdownCircleTimer
                             isPlaying
                             duration={120}
-                            colors={[["#298EE0", 0.33], ["#F7B801", 0.33], ["#A30000"]]}
+                            colors={[["#298EE0"], ["#F7B801"], ["#A30000"]]}
                             onComplete={() => [true, 1000]}
-                            size={115}
-                            >
+                            size={110}  
+                            strokeWidth={9}
+                        >
                             {renderTime}
                         </CountdownCircleTimer>
                     </div>                            

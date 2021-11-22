@@ -104,3 +104,18 @@
 .navbar-nav {
   flex-direction: column !important;
 }
+
+.skilltally-loader{
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  top:100px;
+}
+
+.login-error-signup {
+  margin: 3% 0;
+}
+.success-msg {
+  color: green;
+  white-space: nowrap;
+}

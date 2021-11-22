@@ -151,7 +151,7 @@ const ProfilePage = (props) => {
     // };
 
     return (
-        <Col className="py-md-4 pro-rit ms-5 mt-4   ">  
+        <Col className="py-md-4 pro-rit ms-5 mt-4 mb-3  ">  
             <h3 className="mb-4" style={{color:'#003866',fontSize:'30px'}}>Profile</h3>
             <Row className="mt-3 mb-3">
                 <Col sm={4} className='p-0'>
@@ -162,24 +162,26 @@ const ProfilePage = (props) => {
                 </Col>
             </Row> 
             <Col sm={11} >              
-                <Card.Body className="horizontal-card mb-4">
+                <Card.Body className="horizontal-card mb-4 text-center">
                     <Row>
-                        <Col sm={1}  className="mt-2">
+                        <Col sm={1} xs  className="mt-2">
                             <AvatorProfile />
                         </Col>
-                        <Col sm={3} xs className="my-auto ms-2 mb-2">
-                            <label className="title " style={{color:'#192A3E',fontWeight:'bold',fontSize:'18px'}}>
+                        <Col sm={3} xs className="my-auto ms-2 mb-2 text-start">
+                            <label className="title  " 
+                            style={{color:'#192A3E',fontWeight:'bold',fontSize:'18px'}}>
                                 Hayat Tamboli
                             </label>
                             <small style={{color:'#90A0B7'}}>hayat.tamboli@gmail.com</small>
                         </Col>
-                        <Col sm={3}  xs className="rep-btn-ln mb-2 mt-4 text-center">
-                            <button className="profile-cardbutton btn" style={{color:'#FFFFFF',borderRadius:'10px'}} onClick={handleAvator}>
+                        <Col sm={3}  xs className="rep-btn-ln mb-2 mt-4 ">
+                            <button className="profile-cardbutton btn" 
+                            style={{color:'#FFFFFF',borderRadius:'10px'}} onClick={handleAvator}>
                                 Edit Avatar
                             </button>
                         </Col>
                         <Col sm={4} xs className="rep-btn-ln mb-2 mt-4 ">
-                            <button className="profile-cardbutton btn" style={{color:'#FFFFFF',borderRadius:'10px'}} onClick={handlePassword}>
+                            <button className="profile-cardbutton btn" style={{color:'#FFFFFF',borderRadius:'10px',background:'#298ee0'}} onClick={handlePassword}>
                                 Change Password
                             </button>
                         </Col>
@@ -195,12 +197,13 @@ const ProfilePage = (props) => {
                 <Col sm={6} xs className="p-0">
                     <Form.Group className="mb-3 inputGroup">
                         <label className="mobile-no mb-1" >Mobile Number</label>
+                        
                         <Form.Control 
                             className="inputField-mobile-no" 
                             type="text" 
                             placeholder="98245 65862"                        
                         />
-                        <span>+91 <DownArrow /></span>
+                        <span style={{position:'absolute', marginTop:'-30px',marginLeft:'10px'}}>+91 <DownArrow /></span>
                     </Form.Group>
                     <Form.Group className="mb-3 profile-formgroup">
                         <label className="mobile-no mb-1" >Date of Birth</label>                                         
@@ -368,7 +371,7 @@ const ProfilePage = (props) => {
                                 { paswordShow ? <EyeIconHid /> : <EyeIcon />}
                             </Button>
                         </Form.Group>      
-                        <div className="text-center">
+                        <div className="text-center mb-2">
                             <button style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'110px'}} className="btn mt-3 mb-3"  onClick={handlepasswordClose}>
                                 Change
                             </button>   

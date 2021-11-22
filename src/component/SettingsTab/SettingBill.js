@@ -4,10 +4,9 @@ import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
 
 const SettingBill = () =>{
-    return(
-           
+    return(           
         <Container className='border w-80' >
-            <Col  sm={8} className=" p-2" >  
+            <Col className=" p-2" >  
                 <Form.Select className="form-select mb-3 mt-3 schoolstudent-select" aria-label="Default select example">
                     <option selected>Country</option>
                     <option value="1">India</option>

@@ -356,7 +356,9 @@ body {
 } */
 .sub-lst a {
   text-decoration: none;
+ 
 }
+
 .sub-lst a .card-text {
   color: #000;
   font-family: "f3";
@@ -509,7 +511,7 @@ body {
   padding: 5px 15px;
   text-decoration: none;
 }
-.rep-btn-ln a {
+.rep-btn-ln  a{
   background: #298ee0;
   border: 0 !important;
   margin-right: 10px;
@@ -671,7 +673,7 @@ body {
 }
 .qus-tl-box {
   display: inherit !important;
-  margin-top: 25px;
+  margin-top: 25px; 
 }
 .qus-tl-box label {
   display: inherit;
@@ -1027,12 +1029,18 @@ body {
   
 }
 .base-card-report{
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: -3px 15px 12px -4px #ededed;
+  overflow: hidden;
+  position: relative;
   background: #FFFFFF; 
-  box-shadow: 0px 50px 50px grey(0, 0, 0, 0.1);
-  border-radius: 16px;
-  border:1px solid grey;
 }
-
+.base-card-report:hover{
+  border:none;
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;  
+}
 .flex-spc-btw {
   display: flex;
   /* justify-content: space-between; */
@@ -1050,7 +1058,7 @@ body {
   width: 132px;
   height: 36px;
   font-size: 12.5px;
-  margin: 4px auto;
+  margin: 2px auto;
 }
 .buy-now-btn {
   display: flex;
@@ -1357,7 +1365,7 @@ audio::-webkit-media-controls-panel {
   padding-left: 58px !important;
   font-size: 13px;
 }
- span{
+.inputField-mobile-no  span{
   position: absolute;
   
   margin-top:-30px;
