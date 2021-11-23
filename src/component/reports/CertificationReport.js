@@ -59,7 +59,7 @@ const data = [
   
 ];
 
-const  CertificationReport = () => {
+const  CertificationReport = (props) => {
     return (
         <div className="py-md-4 mt-5 mt-md-0 bill-rit">
              <Col md={12} xs className="baselinereport">              

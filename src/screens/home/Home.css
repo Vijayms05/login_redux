@@ -1416,3 +1416,39 @@ audio::-webkit-media-controls-panel {
 .image-upload>.upload-input {
   display: none;
 }
+.ans-exp-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #45acff;
+  width: 160px !important;
+  height: 45px !important;
+  border-radius: 8px;
+  padding: 7px;
+  color: #fff;
+  border: 0;
+  margin-top: 10px !important;
+  font-family: "f3";
+  font-size: 13.5px;
+  transition: 0.1s all linear;
+  text-decoration: none;
+}
+.ans-exp-btn:hover {
+  color: #fff;
+}
+.ans-exp-btn img {
+  width: 15px;
+  height: 15px;
+  margin-right: 7px;
+}
+.ans-content{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  color:#4DD188;
+  width: 160px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}

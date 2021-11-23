@@ -17,18 +17,15 @@ const Professional = (props) => {
    const [workRole, setWorkrole]= useState('')
    const [industry, setIndustry]= useState('')
 
-   const history = useHistory()
-    const onName = e =>{
-        setInputname(e.target.value)
-    }
-    const onWork = e => {
-        setWorkrole(e.target.value)
-    }   
+   const history = useHistory();   
+   
     const onIndustry = e => {
         setIndustry(e.target.value)
     }
-    const onProfessional = () =>{
+    const onProfessional = (e) =>{
+        e.preventDefault();
         history.push('/home')
+        console.log(inputName,workRole,industry)
     }
  
     return(
@@ -48,15 +45,15 @@ const Professional = (props) => {
                                     placeholder="Enter your name" 
                                     className="px-3 professional-formcontrol"  
                                     value={inputName}
-                                    onChange={onName}                                    
+                                    onChange={e => setInputname(e.target.value)}                                    
                                 />
                             </Form.Group> 
                             <select className="form-select mb-3 textselectoption" 
                                 aria-label="Default select example"
                                 defaultValue={industry}
-                                onChange={onIndustry}
-                                >
-                                <option selected>Industry</option>
+                                onChange={e => setIndustry(e.target.value)}
+                            >
+                                <option selected>-- Select Industry --</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -66,10 +63,13 @@ const Professional = (props) => {
                                     placeholder="Work role" 
                                     className="px-3 professional-formcontrol"  
                                     value={workRole}
-                                    onChange={onWork}                                    
+                                    onChange={e => setWorkrole(e.target.value)}                                    
                                 />
                             </Form.Group>  
-                            <Button className="mb-3 submit-btn" onClick={onProfessional} >
+                            <Button 
+                                className="mb-3 submit-btn" 
+                                onClick={onProfessional} 
+                            >
                                 Continue
                             </Button>
                         </Form>

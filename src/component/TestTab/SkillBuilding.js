@@ -43,18 +43,15 @@ const SkillBuilding = () =>{
                                             <td>Smart Animate</td>
                                             <td className="in-box-table "> 
                                                 {/* <Link to="/testintro" onClick={handleOpen}>Task Test</Link> */}
-                                                <div className="in-box-tab me-2 ms-3">                  
-                                                    <div className="text-center">
-                                                        <button style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'98px',height:'32px'}} 
-                                                            className="btn mt-3 mb-3"  onClick={onTaskTest}>Task Test
-                                                        </button>   
-                                                    </div>
-                                                
-                                                    <div className="test-dot-tabl"></div>
-                                                    
-                                                    {/* <Link to="/testintro">Task Test</Link> */}
-                                                    
+                                                                 
+                                                <div className="text-center">
+                                                    <button style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'150px'}} 
+                                                        className="btn mt-3 mb-3" onClick={onTaskTest}>Task Test
+                                                    </button>  
                                                 </div>
+                                                <div className="test-dot-tabl"></div>
+                                                    
+                                                   
                                             </td>     
                                         </tr>
                                         <tr>
@@ -68,7 +65,7 @@ const SkillBuilding = () =>{
                                                     <button style={{backgroundColor:'#298EE0', color:'white', borderRadius:'13px',width:'150px'}} 
                                                         className="btn mt-3 mb-3" >
                                                         Analyze Results
-                                                    </button>   
+                                                    </button>                                                       
                                                 </div>
                                                 {/* <Col className="ms-2"> */}
                                                     <div className="test-dot-tabl"></div>

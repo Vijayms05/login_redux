@@ -45,6 +45,9 @@ import QuestionAnsRecordScreen from '../screens/TestScreen/QuestionAnsRecordScre
 
 import Audioplayer from '../component/dummyquestion/audioAndvideos/Audioplayer'
 import Profile from '../component/sidebarpage1/profile/Profile';
+import ResultPage from '../screens/TestScreen/ResultPage';
+
+
 export const history = createBrowserHistory();
 
  const Routes = (props) => {
@@ -70,7 +73,7 @@ export const history = createBrowserHistory();
                 <Route path="/testintro" component={TestIntro} />
                 
                 <Route path="/report" component={ReportScreen} />
-                <Route path="/basline" component={BaseLineDetails} />
+                <Route path="/baseline" component={BaseLineDetails} />
                 <Route path="/certificate-result" component={CertificationDetails} />
                 <Route path="/skill-building-list" component={SkillBuildingReportList} />
                 <Route path="/skill-building-result" component={SkillBuildingResult} />
@@ -86,6 +89,9 @@ export const history = createBrowserHistory();
                 <Route path="/textrecord" component={TextRecordScreen} />
                 <Route path="/play-question" component={PlayQuestionScreen} />
                 <Route path="/ques-ans-play" component={QuestionAnsRecordScreen} />
+                {/*Result bar */}
+                <Route path="/result-page" component={ResultPage} />
+                
                 
                 <Route path="/dummy" component={DummyQuestionPage} />
                 <Route path="/audioplayer" component={Audioplayer} />

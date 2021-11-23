@@ -26,10 +26,10 @@ const HorizontalCard = () =>{
                             <h4 >Your Current Plan</h4>                                   
                             <Row>
                                 <Col  className="subscription-class-46 text-center">{/**/}
-                                    <h6 style={{fontSize:'52px',textAlign:'end'}}>46</h6>   
+                                    <h6 style={{fontSize:'52px',textAlign:'end',color:'#298EE0'}}>46</h6>   
                                 </Col>
                                 <Col className="subscription-class-days text-center">{/**/}
-                                <h5 style={{fontSize:'27px',textAlign:'start',width:'25'}}> Days Left</h5>
+                                <h5 style={{fontSize:'27px',textAlign:'start',width:'25',color:'#298EE0'}}> Days Left</h5>
                                 </Col>
                             </Row>
                             {/* <h2 className="">Free</h2> */}

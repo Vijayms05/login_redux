@@ -20,14 +20,14 @@ const Collegestudent = (props) =>{
     const [nameInput, setNameinput]= useState('')
     const [school, setSchool] = useState(false)
     const [college, setCollege] = useState(false)
+    const [university, setUniversity]=useState('')
+    const [stream, setStream] = useState('')
+    const [branch, setBranch] = useState('')
+    const [year, setYear] = useState('')
 
-    const onChange = e =>{
-        setInput(e.target.value)
-    }
     useEffect((e) => {
         if(!school){
             setCollege(college)
-
         }
         else if(!college){
             setSchool(school)
@@ -36,8 +36,10 @@ const Collegestudent = (props) =>{
             setSchool(school)
         }
     }, [school,college])   
-    const onName = e => {
-        setNameinput(e.target.value)
+   
+    const onCollege=(e)=>{
+        e.preventDefault();
+        console.log(input, nameInput, school, college, university, stream, branch, year)
     }
     
     return(
@@ -57,23 +59,32 @@ const Collegestudent = (props) =>{
                                     placeholder="Enter your name" 
                                     className="px-3 collegestudent-formcontrol"  
                                     value={input}
-                                    onChange={onChange}                                    
+                                    onChange={e => setInput(e.target.value)}                                    
                                 />
                             </Form.Group>
                             <label className="mb-3 ">Are you school student or college student?</label>
                             <Row>
                                 <Col className="mt-2">  
                                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                        <Form.Check type="checkbox" label="School"  checked={school} 
-                                        onClick={e => setSchool(!school)} />
+                                        <Form.Check 
+                                            type="checkbox" 
+                                            label="School"  
+                                            checked={school} 
+                                            onClick={e => setSchool(!school)}
+                                        />
                                     </Form.Group>                  
                                 </Col>
                                 <Col className="mt-2">
                                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                        <Form.Check type="checkbox" label="College/ 
-                                        Intermediate  
-                                        (plus one/ plus two)"  checked={college} style={{width:'200px',height:'50px'}}
-                                        onClick={e => setCollege(!college)} />
+                                        <Form.Check 
+                                            type="checkbox" 
+                                            label="College/ 
+                                                Intermediate  
+                                                (plus one/ plus two)"  
+                                            checked={college} 
+                                            style={{width:'200px',height:'50px'}}
+                                            onClick={e => setCollege(!college)} 
+                                        />
                                     </Form.Group>
                                 </Col>
                             </Row>  
@@ -82,34 +93,51 @@ const Collegestudent = (props) =>{
                                     className="px-3 schoolstudent-formcontrol"
                                     placeholder="Name of the College" 
                                     value={nameInput}
-                                    onChange={onName}
+                                    onChange={e => setNameinput(e.target.value)}
                                 />
                             </Form.Group>   
-                            <select className="form-select mb-3 textselectoption" aria-label="Default select example">
+                            <select 
+                                className="form-select mb-3 textselectoption" 
+                                aria-label="Default select example"
+                                onChange={e => setUniversity(e.target.value)}
+                            >
                                 <option selected>Name of University</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>   
-                            <select className="form-select mb-3 textselectoption" aria-label="Default select example">
-                                <option selected>Stream</option>
+                            <select 
+                                className="form-select mb-3 textselectoption" 
+                                aria-label="Default select example"
+                                onChange={e => setStream(e.target.value)}
+                            >
+                                <option selected>-- Stream --</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select> 
-                            <select className="form-select mb-3 textselectoption" aria-label="Default select example">
-                                <option selected>Branch</option>
+                            <select 
+                                className="form-select mb-3 textselectoption" 
+                                aria-label="Default select example"
+                                onChange={e =>setBranch(e.target.value)}>
+                                <option selected>-- Branch --</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select> 
-                            <select className="form-select mb-3 textselectoption" aria-label="Default select example">
-                                <option selected>Year</option>
+                            <select 
+                                className="form-select mb-3 textselectoption" 
+                                aria-label="Default select example"
+                                onChange={e => setYear(e.target.value)}
+                            >
+                                <option selected>-- Year --</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select> 
-                            <Button className="mb-3 collegestudent-btn" >
+                            <Button 
+                                className="mb-3 collegestudent-btn" 
+                                onClick={onCollege}>
                                 Continue
                             </Button>
                         </Form>

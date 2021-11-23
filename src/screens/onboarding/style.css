@@ -17,7 +17,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  top: 15px;
+  top: 13px;
   /* line-height: 110%; */
   text-align: center;
   color: #638995;
@@ -32,8 +32,8 @@
 .onboarding-text {
   font-family: "f3";
   font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 14px;
   color: #638995;
 }
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import { message } from 'antd';
 import {
   SiginImage,
   Logo, 
@@ -8,22 +8,38 @@ import {
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
 
-import {Link} from 'react-router-dom';
-import { Row, Col, Form, Button} from 'react-bootstrap';
+import { validEmail } from '../../constant/Constant';
+import {Link, useHistory} from 'react-router-dom';
+import { 
+  Row, 
+  Col, 
+  Form, 
+  Button
+} from 'react-bootstrap';
 
 const ResetPassword = (props) => {
   const [email, setEmail]=useState('')
-
-  const onUserName = (e) => {
-    if (e.target.value.match('^[a-zA-Z0-9_@./#&+-]*$')) {
-      setEmail(e.target.value);
+  const history= useHistory();
+  const onEmail = (e) => {  
+    const email = e.target.value
+    if(!validEmail.text(email)){
+      message.error('Your Forget password Mail Id is Invalid')      
+    }else{
+      if(props.email === email) {
+        setEmail(e.target.value);
+        message.success('Your Forget password Mail Id is Verified')
+      }else{
+        message.error('Your Forget password Mail Id is not same')
     }
+    }        
   };
  
-  const onClick=()=>{
+  const onClick=(e)=>{
+    e.preventDefault();
     setEmail('')
-    
+    message.success('Forget Password is Successfully verified')
     console.log(email)
+    history.push('/onboard');
   }
   return (
     <Col className="tl-bdy sign-tl-bdy">
@@ -43,7 +59,7 @@ const ResetPassword = (props) => {
                   type="email" 
                   placeholder="E-mail"
                   value={email}
-                  onChange={onUserName}
+                  onChange={onEmail}
                 />
                 <EmailIcon />
               </Form.Group>

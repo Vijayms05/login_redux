@@ -1,10 +1,26 @@
 import React, {useState} from 'react'
-import {  Container, Col, Row, Form, Card, ProgressBar, Table } from 'react-bootstrap'
+import {  
+    Container, 
+    Col, 
+    Row, 
+    Form, 
+    Card, 
+    ProgressBar, 
+    Table 
+} from 'react-bootstrap'
 import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
-import { SearchIcon, Billingrit,NumbIcon, ScaleIcon, TickIcon } from '../../assets/images'
+import { 
+    SearchIcon, 
+    Billingrit,
+    NumbIcon, 
+    ScaleIcon, 
+    TickIcon 
+} from '../../assets/images'
 
-const BillingDetails = () =>{
+const BillingDetails = (props) =>{
+    const [billingFilter, setFilter] = useState('')
+    const [days, setDays] = useState('')
     return(
         <div className="py-md-4 bill-rit ms-2">
             <Row className="mb-4 mt-4">
@@ -13,15 +29,22 @@ const BillingDetails = () =>{
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
-                        <Form.Control type="text"  
-                        placeholder="Search My Subscriptions" size="md" className="search-input rounded-pill" />
+                        <Form.Control 
+                            type="text"  
+                            placeholder="Search My Subscriptions" 
+                            size="md" 
+                            className="search-input rounded-pill" />
                     </Form.Group>                
                 </Col>
                 <Col xs={6} md={6} lg  className="pe-0">
-                    <Form.Select className="select-form " size="md" style={{width:'250px'}}>
-                        <option>Filters</option>
-                        <option>Large select</option>
-                        <option>Large select</option>
+                    <Form.Select 
+                        className="select-form " size="md" 
+                        style={{width:'250px'}}
+                        onChange={e => setFilter(e.target.value)}
+                        >
+                        <option selected>-- Select Filters --</option>
+                        <option value='1'>Large select</option>
+                        <option value='2'>Large select</option>
                     </Form.Select>
                 </Col>
             </Row> 
@@ -47,30 +70,8 @@ const BillingDetails = () =>{
                                 </Col>
                             </Row>                    
                         </Card.Body>                
-                    </Card>           
-                    {/* <Card.Body className="billing-add mt-3 horizontal-card mb-4">
-                        <Row >
-                            <Col xs sm={3} className="cls-fre mt-2 text-center">
-                                <h2 >Class 12</h2>
-                            </Col>
-                            <Col sm={5} xs className=" cls-fre ms-2 mb-2 text-center">
-                                <h4>Your Current Plan</h4>
-                                <h1>Free</h1>
-                            </Col>
-                            <Col sm={2}  xs >
-                                <Billingrit />
-                                <ScaleIcon />
-                                <NumbIcon /> 
-                            </Col>
-                            
-                        </Row>
-                    </Card.Body> */}
-                    
-                </Col>
-                
-                {/* <Row className="billing-add mt-3">
-                                       
-                </Row>  */}
+                    </Card>
+                </Col>               
                 <Row className="mt-5"> 
                     <h5 className="report-h5">Upgrade Now</h5>  
                 </Row>       
@@ -79,10 +80,12 @@ const BillingDetails = () =>{
                         <Row>
                             <h4 className="plan-h4 p-0 mt-4">Select Plan Validity</h4>
                             <Col xs={6} md={6} lg  className="p-0">
-                                <Form.Select className="select-form w-50" size="md" >
-                                    <option>30 Days</option>
-                                    <option>30 Days</option>
-                                    <option>30 Days</option>
+                                <Form.Select 
+                                    className="select-form w-50" size="md" 
+                                    onChange={e => setDays(e.target.value)}>
+                                    <option selected>-- Select Days --</option>
+                                    <option value='1'>30 Days</option>
+                                    <option value='2'>30 Days</option>
                                 </Form.Select>
                             </Col>
                         </Row> 

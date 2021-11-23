@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import {
     Col,
     Row,
@@ -13,32 +12,35 @@ import {
     Readingbooks,
     Logo
 } from '../../assets/images/index';
-// import { history } from '../../routes/Routes';
+import { message } from 'antd'
+import { validText } from '../../constant/Constant';
 
 const Schoolstudent = (props) => {
     const [inputName, setInputName] = useState('')    
     const [school, setSchool] = useState('school')
     const [schoolName, setSchoolName] = useState('')
-    const [stream, setStream]= useState('Stream')
-    const [standard, setStandard]= useState('Stream')
+    const [stream, setStream]= useState('')
+    const [standard, setStandard]= useState('')
    
-    const history = useHistory()
+    const history = useHistory();
+   
+    const onSchoolstudent=(e)=>{
+        e.preventDefault();
+      
+        if (!validText.test(inputName)) {      
+            message.error('Your Name is Invalid')
+        }else{
+        message.success('Your Name is Valid')
+        }
 
-    const onInputName = e =>{
-        setInputName(e.target.value)
-    }
-    const onSchoolName = e => {
-        setSchoolName(e.target.value)
-    }
-    const onStream = e => {
-        setStream(e.target.value)
-    }
-    const onStandard = e => {
-        setStandard(e.target.value)
-    }
-   
-    const onSchoolstudent=()=>{
+        if (!validText.test(schoolName)) {      
+            message.error('Your School Name is Invalid')
+        }else{
+            message.success('Your School Name is Valid')
+        }
+        
         history.push('/home')
+        console.log(inputName, school, schoolName, stream, standard)
     }
     
     return(
@@ -59,7 +61,7 @@ const Schoolstudent = (props) => {
                                 type="text" 
                                 placeholder="Enter your Name"
                                 value={inputName}
-                                onChange={onInputName}
+                                onChange={e => setInputName(e.target.value)}
                                 />
                             </Form.Group> 
                             <p style={{color:'#4C5857',fontSize:'17px'}}>Are you school student or college student?</p>
@@ -90,14 +92,14 @@ const Schoolstudent = (props) => {
                                     type="text" 
                                     placeholder="Name of School"
                                     value={schoolName}
-                                    onChange={onSchoolName}
+                                    onChange={e => setSchoolName(e.target.value)}
                                 />
                             </Form.Group>  
                             <select className="form-select mb-3 schoolstudent-select" 
                                 defaultValue={stream}
-                                onChange={onStream}
+                                onChange={e => setStream(e.target.value)}
                                 aria-label="Default select example">
-                                <option selected value="1">Stream</option>
+                                <option selected value="1">-- Select Stream --</option>
                                 <option value="2">One</option>
                                 <option value="3">Two</option>
                                 <option value="4">Three</option>
@@ -105,10 +107,10 @@ const Schoolstudent = (props) => {
                             <select 
                                 className="form-select mb-3 schoolstudent-select" 
                                 defaultValue={standard}
-                                onChange={onStandard}
+                                onChange={e => setStandard(e.target.value)}
                                 aria-label="Default select example"
                             >
-                                <option selected value="1">Standard</option>
+                                <option selected value="1"> -- Select Standard --</option>
                                 <option value="2">One</option>
                                 <option value="3">Two</option>
                                 <option value="4">Three</option>

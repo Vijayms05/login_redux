@@ -1,10 +1,23 @@
 import React, {useState, useEffect} from 'react'
-import {  Container, Col, Row, Form, Card, ProgressBar } from 'react-bootstrap'
-import {SearchIcon, PlaybtnIcon, BookBackImg,SearchIconRight, EyeIcon} from '../../assets/images/index'
+import {  
+    Container, 
+    Col, 
+    Row, 
+    Form, 
+    Card, 
+    ProgressBar 
+} from 'react-bootstrap'
+import {
+    SearchIcon, 
+    PlaybtnIcon, 
+    BookBackImg,
+    SearchIconRight, 
+    EyeIcon
+} from '../../assets/images/index'
 import '../../screens/home/Home.css'
 import '../../screens/home/responsive.css'
 import Button from '@restart/ui/esm/Button'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const classes = [
     "Class 12",
@@ -15,12 +28,13 @@ const classes = [
 const Subscription = (props) =>{
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const history = useHistory();
     const handleChange = event => {
        setSearchTerm(event.target.value);
      };
     useEffect(() => {
-       const results = classes.filter(classes =>
-        classes.toLowerCase().includes(searchTerm)
+       const results = classes.filter(classe =>
+        classe.toLowerCase().includes(searchTerm)
        );
        setSearchResults(results);
      }, [searchTerm]);  
@@ -61,8 +75,11 @@ const Subscription = (props) =>{
                         <Button className="pwd-btn mt-1">
                             <SearchIconRight />
                         </Button>
-                        <Form.Control type="text"  placeholder="Search My subscriptions" size="md"  />
-                        
+                        <Form.Control 
+                            type="text"  
+                            placeholder="Search My subscriptions" 
+                            size="md"  
+                        />                        
                     </Form.Group>                
                 </Col>
             </Row>
@@ -73,9 +90,8 @@ const Subscription = (props) =>{
             </Row>
             <Row>
                 <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    <Link to="/subscription-list">
-                       
-                            <Card> 
+                    {/* <Link to="/subscription-list"> */}                       
+                            <Card onClick={()=> history.push('/subscription-list')}> 
                                 <Card.Body>
                                     <Card.Title className="mb-3">
                                         Class 12
@@ -83,11 +99,11 @@ const Subscription = (props) =>{
                                     <Card.Text className="sub-active mb-1 mt-2"> 
                                         Subscription : Active
                                     </Card.Text>
-                                    <Card.Text className="mb-2 mt-2" style={{fontSize:'13.5px', fontFamily:'f3'}}>
+                                    <Card.Text className="mb-2 mt-3" style={{fontSize:'13.5px', fontFamily:'f3',color:'#0B171B'}}>
                                         Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat. 
                                         Morbi in orci risus. Donec pretium
                                     </Card.Text> 
-                                    <Card.Text className="text-start mb-0">In Progress</Card.Text><div>                        
+                                    <Card.Text className="text-start mb-0" style={{fontSize:'13.5px', fontFamily:'f3',color:'#0B171B'}}>In Progress</Card.Text><div>                        
                                         <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
                                             <ProgressBar now={now} />
                                             <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
@@ -98,9 +114,7 @@ const Subscription = (props) =>{
                                     </div>
                                 </Card.Body>
                             </Card>  
-                       
-                        
-                    </Link>                        
+                    {/* </Link>                         */}
                 </Col>  
                 <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
                     <Link to="/subscription-list">

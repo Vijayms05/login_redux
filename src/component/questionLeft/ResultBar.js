@@ -7,7 +7,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import skilltallyLogo from '../../assets/images/skilltally_logo.png'
 // import ChooseQuestion from '../questionRight/ChooseQuestion';
 
-const QuestionBar = (props) => {   
+const ResultBar = (props) => {   
     const [qusBar, setQusBar] = useState(true)
     const clickqusBar = () => {
         setQusBar(!qusBar)
@@ -25,19 +25,19 @@ const QuestionBar = (props) => {
             <Logo />
         </div>
         <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftqst" >
-             <div className="ms-3">
+             <div className="ms-2">
                 <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-1"/>
             </div> 
             
                 {/* <img src={skilltallyLogo} alt="skill tally" className="skilltally-logo mt-2 mb-2"/> */}
             <Row>
-                <Col className="mt-4">
+                <Col className="mt-3 mb-3 text-center">
                     <div className="qyst-pag">
                         <h5>Test Name</h5>
                         <h4>Subject Name</h4>
                     </div> 
                 </Col>                    
-                <Col>
+                {/* <Col>
                     <div >
                         <CountdownCircleTimer
                             isPlaying
@@ -50,30 +50,26 @@ const QuestionBar = (props) => {
                             {renderTime}
                         </CountdownCircleTimer>
                     </div>                            
-                </Col>
+                </Col> */}
             </Row>                
             <Row className="check_qus_left">
                 <Col className="atn-ans">
                     <h6 className="ans-txt">105</h6>
                     <p>Answered</p>
                 </Col>
-                <Col className="crt-qus">
-                    <h6 className="crt-txt">3</h6>
-                    <p>Current Questions</p>
+                <Col className="not-vst">
+                    <h6 className="not-vst-txt">3</h6>
+                    <p>Not Visit</p>
                 </Col>
             </Row>
             <Row className="check_qus_left">
                 <Col className="not-ans">
                     <h6 className="not-ans-txt">105</h6>
                     <p>Not Answerd</p>
-                </Col>
-                <Col className="not-vst">
-                    <h6 className="not-vst-txt">3</h6>
-                    <p>Not Visit</p>
-                </Col>
+                </Col>                
             </Row>           
                
-            <div className="atn-top mt-2">                
+            <div className="atn-top mt-5 mb-2">                
                 <ul className="atn-ul p-0">
                     <li className="ans-txt">1</li>
                     <li className="ans-txt">2</li>
@@ -102,45 +98,24 @@ const QuestionBar = (props) => {
                 </ul>
             </div> 
         
-            <p style={{fontSize:'13px'}}>question</p>
-            <div className="prog-bar">                       
+           
+            {/* <div className="prog-bar">   
+            <p style={{fontSize:'13px'}}>question</p>           
                 <ProgressBar now={now} />
                 <p className="p-0 mb-0 ms-2">{now}%</p>
-            </div>  
+            </div>   */}
             <Row className="prog-bar-test">
-                <button className="vw-txt-inst">
+                {/* <button className="vw-txt-inst">
                     View Test Instructions
-                </button>  
+                </button>   */}
                 <button className="fnsh-txt ">
-                    Finish Test
+                    Exit
                 </button>    
             </Row>
         </div>
     </>
   );
 }
-
-const formatRemainingTime = time => {
-    const minutes = Math.floor((time % 3600) / 60);
-    const seconds = time % 60;
-  
-    return `${minutes}:${seconds}`;
-  };
-  
-  const renderTime = ({ remainingTime }) => {
-    if (remainingTime === 0) {
-      return <div className="timer">Time Is Over</div>;
-    }
-  
-    return (
-      <div className="timer">
-        <div className="f3-15 text-center mt-1" style={{width: '80px'}}>Time left</div>
-        <div className="value f1-15">
-            <TimerIcon />
-            {formatRemainingTime(remainingTime)}</div>
-      </div>
-    );
-  };
-export default QuestionBar
+export default ResultBar
 
 

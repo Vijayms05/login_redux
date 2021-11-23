@@ -17,29 +17,25 @@ import {
   Container,
   Button
 } from 'react-bootstrap'
-// import { history } from '../../routes/Routes'
+import { message } from 'antd'
 
 const Onboardingstudent = (props) =>{
   const [student, setStudent]=useState('')      
   
   console.log('Student',student)
-   const history = useHistory();
-
-  // const onBoard = () => {
-  //   if(student === 'student'){
-  //     history.push({pathname:"/student"})
-  //   }else if(student === 'professional'){
-  //     history.push({pathname:'/professional'})
-  //   }
-  // }
-  const onBoard = () =>{
-      //  e.preventDefault();  
+  const history = useHistory();
+  
+  const onBoard = (e) =>{
+      e.preventDefault();  
       if(student === 'student')  {
         history.push('/student')
-        // console.log('./student')
+        message.success('Welcome to Student Page')
       }else if(student === 'professional'){ 
         history.push('/professional')
-      }         
+        message.success('Welcome to Professional Page')
+      }  
+      console.log(student)
+
   }
     return(
       <div className="student-prof">      
@@ -56,8 +52,8 @@ const Onboardingstudent = (props) =>{
                 <Card onClick={e =>setStudent("student")} className="top-stud-proof" >
                     <Card.Body className="stud-prof">
                       <FrameLogo />
-                      <Card.Title className='mt-3 ms-2 onboarding-title'>Student</Card.Title>
-                      <Card.Text className="mt-2 ms-2 onboarding-text">
+                      <Card.Title className='mt-2 ms-1 onboarding-title'>Student</Card.Title>
+                      <Card.Text className="mt-1 ms-1 onboarding-text">
                         Use our syllabus based practice tests to get ahead of your class
                       </Card.Text>   
                       <Form>
@@ -75,9 +71,9 @@ const Onboardingstudent = (props) =>{
                 <Card onClick={e=>setStudent("professional")} className="top-stud-proof">
                     <Card.Body className="stud-prof">
                       <FrameOneLogo />
-                      <Card.Title className='mt-3 ms-2 onboarding-title'>Professional</Card.Title>
-                      <Card.Text className="mt-2 ms-2 onboarding-text">
-                      Use our skill-certification tests to measure where you stand
+                      <Card.Title className='mt-2 ms-1 onboarding-title'>Professional</Card.Title>
+                      <Card.Text className="mt-1 ms-1 onboarding-text">
+                        Use our skill-certification tests to measure where you stand
                       </Card.Text>
                       <Form>
                         <Form.Check 
@@ -92,8 +88,10 @@ const Onboardingstudent = (props) =>{
               </Col>                
             </Row> 
             <Col className="">
-              <Button   className="onboarding-button mt-3 mb-2" onClick={onBoard}
-              >       {/* to="/student" onClick={onBoard} */}        
+              <Button   
+                className="submit-btn mt-3 mb-2"
+                onClick={onBoard}
+              >        
                 Continue                     
               </Button> 
             </Col>

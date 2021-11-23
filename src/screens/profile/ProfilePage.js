@@ -77,7 +77,7 @@ const ProfilePage = (props) => {
     const now=80;
 
     const onMobile = (e) => {
-        console.log(MobileRegex.match(e.target.value));
+        // console.log(MobileRegex.match(e.target.value));
         setMobileNo(e.target.value);
         // if(e.target.value.match(MobileRegex)){
         //     setMobileNo(e.target.value)
@@ -246,6 +246,7 @@ const ProfilePage = (props) => {
                                 className="inputField-mobile-no" 
                                 type="text" 
                                 placeholder="98245 65862"    
+                                pattern="^\d{3}-\d{3}-\d{4}$"
                                 onChange={onMobile}
                                 value={mobileNo}  
                                 maxLength={10}                                              

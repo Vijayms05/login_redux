@@ -1,11 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-// import { history } from '../../routes/Routes'
 import { useHistory } from 'react-router-dom'
 import { message } from 'antd';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-//logo
+// import { toast } from 'react-toastify';
 import {
   SiginImage,
   Logo, 
@@ -23,7 +20,9 @@ import {
 } from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
-import { EmailRegex } from '../../constant/Constant'
+import { validEmail,validPassword } from '../../constant/Constant'
+import { history } from '../../routes/Routes'
+
 const Signup = (props) => {
   const [email,setEmail]= useState('')
   const [password, setPassword] = useState('')
@@ -32,10 +31,10 @@ const Signup = (props) => {
   
   const [paswordShow, setPaswordShow] = useState(true)
   const [repaswordShow, setRePaswordShow] = useState(true)
-
-  const history = useHistory()
+  const [emailErr, setEmailErr] = useState(false);
+  const [pwdError, setPwdError] = useState(false);
   
-
+  const history = useHistory(); 
   const dispatch = useDispatch();
  
   const validSignup = useSelector( state => state.signupState.signup)
@@ -43,51 +42,62 @@ const Signup = (props) => {
 
   const status = validSignup && validSignup.status;
 
-
+  const onEmail = (e)=>{
+    const email= e.target.value
+    setEmail(email);
+    if (!validEmail.test(email)) {      
+      message.error('Your Mail is Invalid')
+   }else{
+    message.success('Your Mail is Valid')
+   }
+  }
+  const onPassword = (e)=>{
+    const password = e.target.value;
+    setPassword(password);
+    if (!validPassword.test(password)) {      
+      message.error('Your password is Invalid')
+   }else{
+    message.success('Your password is valid')
+   }
+  }
+  const onRePassword =(e)=> {
+    setRepassword(e.target.value)
+    if(password !== repassword){
+      message.error('Please check the  Conform Password')
+    }else{
+      message.success('Your conform password is valid')
+    }
+  }
   const clickPasswordShow = () =>{
     setPaswordShow(!paswordShow);
   }
   const clickRePasswordShow = () =>{
     setRePaswordShow(!repaswordShow);
-  }
-  
-  const onEmail = e => {
-    setEmail( e.target.value);
-    console.log(e)
-  //   if (e.target.value.match(EmailRegex)) {
-  //     setEmail(e.target.value);
-  //   }
-  };
-  const onPassword = (e) => {
-    setPassword(e.target.value);
-  };
-const onRePassword = e => { 
-    setRepassword(e.target.value)    
-    
-  }
-  const onTermsCondition = () =>{
-    setTermsCondition(!termscondition)
-  }
+  }  
+
   useEffect(()=>{
     if (status) {
-      setRepassword('');
-      setEmail('');
-      setPassword('');
-      setTermsCondition(false);  
-     toast.success('Thanks!, Signup form is successfully registered ',{position: toast.POSITION.TOP_CENTER});   
-    } else if (invalidSignup) {
-      toast.error(`An account with email ${email} already exists`,{position: toast.POSITION.TOP_RIGHT});
+      setEmail('')
+      setPassword('')
+      setRepassword('')     
+      setTermsCondition(false)
+      console.log(status)
+    }else if(validSignup){
+      message.success('Thanks!, Signup form is successfully registered ');
+    } else if(invalidSignup) {
+      message.error(`An account with email ${email} already exists`);
     }
   },[status, invalidSignup])
 
-  const onSubmit = () =>{
-    if (email === " " ||
-      password === " " ||
-      repassword === " ") {       
-      toast.error('Please fill all the fields',{position:toast.POSITION.TOP_RIGHT})        
+
+  const onSubmit = (e) =>{
+    e.preventDefault();  
+    
+    if (!email || !password || !repassword ) {       
+      message.error('Please fill all the fields')        
     }   
     else if (termscondition === false) {      
-      toast.error('Please accept the Terms & Conditions and Privacy Policy',{position:toast.POSITION.TOP_RIGHT})
+      message.error('Please accept the Terms & Conditions and Privacy Policy')
     } 
     else {
       const signupDetailsuser = {
@@ -96,13 +106,14 @@ const onRePassword = e => {
         repassword,
         termscondition      
       };     
-    dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});
+      dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});
     }
-    history.push('/login')  
+    console.log(email,password,repassword,termscondition)
+    history.push({pathname:'/login'})
   }  
 
   return (
-    <>
+   
       <Col className="tl-bdy sign-tl-bdy">
         <div className="bdy-in">
           <Row>
@@ -112,7 +123,9 @@ const onRePassword = e => {
             <Col md={6} xl={5} className="p-3">
               <Logo  />
               <Form className="sign-form p-4">
-                <h2 className="f1-19 mb-3 text-center">Create account and get started</h2>
+                <h2 className="f1-19 mb-3 text-center">
+                  Create account and get started
+                </h2>
                 <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
                     className=' inputField'
@@ -122,11 +135,8 @@ const onRePassword = e => {
                     onChange={onEmail}
                     />
                   <EmailIcon />
-                </Form.Group>
-                {/* <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
-                  <Form.Control className="inputField" type="email" placeholder="Re-Enter email"/>
-                  <EmailIcon />
-                </Form.Group> */}
+                </Form.Group>   
+                {/* {emailErr && <p style={{color:'red',fontSize:'15px',textAlign:'center'}}>Your Mail id is Invalid</p>}           */}
                 <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
                     className="inputField"  
@@ -142,8 +152,11 @@ const onRePassword = e => {
                     onClick={clickPasswordShow}
                   >
                     { paswordShow ? <EyeIconHid /> : <EyeIcon />}
-                  </Button>
+                  </Button>                  
                 </Form.Group>
+                
+                {/* {pwdError && <p style={{color:'red',fontSize:'15px',textAlign:'center'}}>Your password is invalid</p> */}
+      
                 <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
                     className="inputField" 
@@ -161,27 +174,39 @@ const onRePassword = e => {
                     { repaswordShow ? <EyeIconHid /> : <EyeIcon />}
                   </Button>
                 </Form.Group>
+                {/* {pwdError && <p style={{color:'red',fontSize:'15px',textAlign:'center'}}>Your password is invalid</p>} */}
                 <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
-                    <Form.Check className="float-start me-2" type="checkbox"
-                    checked={termscondition}
-                    onClick={onTermsCondition}/>
-                    <Form.Label className="terms-cond-text">I agree Skilltally’s <Link>Privacy Policy</Link> & <Link>Terms of Services</Link>  </Form.Label>
+                    <Form.Check 
+                      className="float-start me-2" 
+                      type="checkbox"
+                      checked={termscondition}
+                      onClick={() => {
+                        setTermsCondition(!termscondition)
+                        if(!termscondition){
+                          message.success("verify the terms and condition")
+                        }else{
+                          message.error("please accept the terms and condition")
+                        }
+                      }}
+                    />
+                    <Form.Label className="terms-cond-text">
+                      I agree Skilltally’s <Link>Privacy Policy</Link> 	&#38; <Link>Terms of Services</Link>  
+                    </Form.Label>
                 </Form.Group>
-                  <Button className="submit-btn" variant="primary" type="submit" 
-                  onClick={onSubmit}>
+                  <Button 
+                    className="submit-btn"
+                    variant="primary" 
+                    type="submit" 
+                    onClick={onSubmit}
+                  >
                       Create Account
                   </Button>
               </Form>
             </Col>
           </Row>
         </div>
-      </Col>
-      {/* <Col md={12} sm={12} className="login-error-signup">
-        <span className={status ? 'success-msg' : 'login-error-msg'}>{alertMsg}</span>
-      </Col> */}
-     
-       
-    </>
+      </Col>    
+   
   );
 };
 

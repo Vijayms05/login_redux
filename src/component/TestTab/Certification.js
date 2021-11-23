@@ -14,9 +14,9 @@ const Certification = () =>{
                         <p>UI - UX Baseline</p>
                     <div className="in-box-tab me-2">
                         <div className="text-center">
-                            <button style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'98px'}} 
+                            <button style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'98px',height:'32px'}} 
                                 className="btn mt-3 mb-3"  onClick={handleOpen}>Task Test
-                            </button>   
+                            </button>                           
                         </div>
                         {/* <Button onClick={handleOpen}>Task Test</Button> */}
                         <div className="test-dot-tabl"></div>

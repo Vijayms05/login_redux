@@ -8,12 +8,9 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './redux/store'
 //provider
 import { Provider } from 'react-redux'
-
-
-
+import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+// import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
   <React.StrictMode>
