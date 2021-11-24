@@ -509,7 +509,7 @@ body {
   padding: 5px 15px;
   text-decoration: none;
 }
-.rep-btn-ln  a{
+.rep-btn-ln  {
   background: #298ee0;
   border: 0 !important;
   margin-right: 10px;
@@ -983,6 +983,7 @@ body {
   background-color: #137ad3 !important; 
   text-align: center;
 }
+
 .profile-button{
   width: 145px;
   height: 42px;
@@ -991,7 +992,7 @@ body {
   border-radius: 12px;
 }
 .horizontal-card{  
-  width: 83%; 
+  width: 80%; 
   background: #FFFFFF;
   box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
   border-radius: 25.3668px;

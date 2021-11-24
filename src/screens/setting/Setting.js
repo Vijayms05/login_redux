@@ -21,11 +21,11 @@ const Setting = () =>{
     const [key, setKey] = useState('home')
     return(
         <Col className="p-4 mt-5 ms-3">   
-            <div className="m-auto rit-tst">
+            <div className="m-auto rit-tst mt-3">
                 <Row className="sub-search ps-0"> 
-                    <h5 className="ps-0 mb-0">Settings</h5>  
+                    <h5 className="ps-0 mb-0 ">Settings</h5>  
                 </Row>  
-                <Col sm={8} className="border mt-3" >            
+                <Col sm={8} className="border mt-5" >            
                     <Tabs defaultActiveKey="home" 
                         id="uncontrolled-tab-example" 
                         className="test-tab "

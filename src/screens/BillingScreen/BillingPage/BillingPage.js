@@ -8,7 +8,7 @@ const BillingPage = () =>{
     return(
         <div className="py-md-4 bill-rit">
             <Row className="mb-4 mt-4">
-                <Col xs={6} md={6} lg={8} className="ps-0 test-search-box">   
+                <Col xs={6} md={6} lg={8} className="ps-0 billing-search-box">   
                     <Form.Group  className="w-100 search-box">
                         <Button className="searchrole">
                             <SearchIcon />
@@ -17,7 +17,7 @@ const BillingPage = () =>{
                         className="search-input" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg={4}  className="pe-0 test-search-box">
+                <Col xs={6} md={6} lg={4}  className="pe-0 billing-search-box">
                     <Form.Select className="select-form" size="lg" >
                         <option>Large select</option>
                         <option>Large select</option>

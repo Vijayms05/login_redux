@@ -65,7 +65,28 @@
     width: 193px;
     height: 72px;
   }
-  
+  .billing-details-card{
+    width: 385px !important;
+    height: 151px;
+    text-align: center;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    font-size: large;
+  }
+  .billing-details-text{
+    width: 193px;
+    height: 72px;   
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px !important;
+    line-height: 72px;
+    color: #298EE0;
+  }
+  .billing-details-buy{
+    width: 420px;
+  }
   .search-box-right{
     display: none !important;
   }
@@ -154,6 +175,9 @@
   .test-search-box{
     display: none;
   }
+  .billing-search-box{
+    display: none;
+  }
   .test-select{
     width: 200px;
   }
@@ -223,6 +247,23 @@
   }
   .rec-box .rec-ply-icon {
     margin-right: 7px !important;
+  }
+  .profile-cardbutton{
+    width: 123px;
+    height: 42px;
+ 
+
+    background: #298EE0;
+    border-radius: 12px;
+  }
+  .profile-cardbutton-change{
+    width: 174px;
+    height: 42px;
+ 
+
+    background: #298EE0;
+    border-radius: 12px;
+    
   }
 }
 

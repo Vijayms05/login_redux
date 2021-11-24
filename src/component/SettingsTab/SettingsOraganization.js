@@ -3,9 +3,9 @@ import {  Container, Col, Row, Form, Card, ProgressBar, Table, Tab, Tabs } from 
 import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
 
-const SettingsOraganization = () =>{
+const SettingsOraganization = (props) =>{
     return(
-        <Container className="border p-2"> 
+        <Container className=" p-2"> 
            <div className="d-flex align-center mb-1 mt-4">
                 <p className="left-org-txt">Organzation Name</p>
                 <p className="rt-org-txt">: Name</p>

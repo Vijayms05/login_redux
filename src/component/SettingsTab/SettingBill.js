@@ -26,7 +26,7 @@ const SettingBill = (props) =>{
         setState(e.target.value)
     }
     return(           
-        <Container className='border w-80' >
+        <Container className=' w-80' >
             <Col className=" p-2" >  
                 <Form.Select className="form-select mb-3 mt-3 schoolstudent-select" 
                 aria-label="Default select example" onChange={onCountry}>

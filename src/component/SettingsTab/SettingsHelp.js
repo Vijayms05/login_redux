@@ -3,9 +3,9 @@ import {  Container, Col, Row, Form, Card, ProgressBar, Table, Tab, Tabs } from 
 import Button from '@restart/ui/esm/Button'
 import { Link } from 'react-router-dom'
 
-const SettingsHelp = () =>{
+const SettingsHelp = (props) =>{
     return(
-        <Container className="border p-2"> 
+        <Container className=" p-2"> 
            <div className="d-flex align-center mb-3 mt-3">
                <p className="left-org-txt-hlp">Privacy Policy</p>
                <Button className="clik-here">Click Here</Button>
