@@ -808,18 +808,21 @@ body {
   padding: 10px;
   z-index: 100;
   box-shadow: 0px 5px 5px -8px #000;
+  align-items: center;
+  justify-content: center;
 }
 .sid-menu-icon {
   padding: 7px 7px 5px;
   border: 0;
   float: left;
   background: #fff;
+  color:  #298EE0;
 }
 .sid-menu-icon p {
   width: 25px;
   height: 3px;
   background: #000;
-  margin-bottom: 3px;
+  margin: 3px;
 }
 .vid-frame {
   border-radius: 10px;

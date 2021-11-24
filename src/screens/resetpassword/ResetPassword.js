@@ -51,8 +51,8 @@ const ResetPassword = (props) => {
           <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
             <Logo  />
             <Form className="sign-form p-4">
-              <h2 className="f1-19 text-center">Forget Password</h2>
-              <h3 className="f3-13 text-center dark-blue-light mt-1 mb-3">Enter the email address you used when you first signed up. We'll send you instruction to reset your password. </h3> 
+              <h2 className="f1-19 text-center forget-header">Forget Password</h2>
+              <h3 className="f3-13 text-center dark-blue-light mt-1 mb-3 login-sub-header">Enter the email address you used when you first signed up. We'll send you instruction to reset your password. </h3> 
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                 <Form.Control 
                   className="inputField" 

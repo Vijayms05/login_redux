@@ -38,21 +38,21 @@ const Onboardingstudent = (props) =>{
 
   }
     return(
-      <div className="student-prof">      
+      <div className="student-prof text-center">      
         <div className="d-lg-flex m-auto">
           <Col xs={12} lg={4} className="p-3 text-center m-auto">
             <Professionalbook />                       
           </Col>          
           <Col xs={12} lg={6} xl={4} className="p-3 p-lg-0 text-center m-auto">
             <Logo />
-            <h3 className="onboarding-heading mt-5">Create account as a</h3>
-            <p className="onboarding-p">We will personalise this platform accordingly</p>                 
+            <h3 className="onboarding-heading mt-5 forget-header">Create account as a</h3>
+            <p className="onboarding-p login-sub-header">We will personalise this platform accordingly</p>                 
             <Row className="mb-3 gx-2">
               <Col xs={12} md={6}>
                 <Card onClick={e =>setStudent("student")} className="top-stud-proof" >
                     <Card.Body className="stud-prof">
                       <FrameLogo />
-                      <Card.Title className='mt-2 ms-1 onboarding-title'>Student</Card.Title>
+                      <Card.Title className='mt-2 ms-1 onboarding-title' style={{color:'#0b171b'}}>Student</Card.Title>
                       <Card.Text className="mt-1 ms-1 onboarding-text">
                         Use our syllabus based practice tests to get ahead of your class
                       </Card.Text>   
@@ -71,7 +71,7 @@ const Onboardingstudent = (props) =>{
                 <Card onClick={e=>setStudent("professional")} className="top-stud-proof">
                     <Card.Body className="stud-prof">
                       <FrameOneLogo />
-                      <Card.Title className='mt-2 ms-1 onboarding-title'>Professional</Card.Title>
+                      <Card.Title className='mt-2 ms-1  onboarding-title' style={{color:'#0b171b'}}>Professional</Card.Title>
                       <Card.Text className="mt-1 ms-1 onboarding-text">
                         Use our skill-certification tests to measure where you stand
                       </Card.Text>
@@ -87,9 +87,9 @@ const Onboardingstudent = (props) =>{
                 </Card>
               </Col>                
             </Row> 
-            <Col className="">
+            <Col>
               <Button   
-                className="submit-btn mt-3 mb-2"
+                className="submit-btn onboard-btn mt-3 mb-2"
                 onClick={onBoard}
               >        
                 Continue                     

@@ -14,13 +14,13 @@ const SideMenu = () => {
     const now = 85 
   return(  
     <>
-        <div className="sid-menu-logo d-md-none">
-            <Button onClick={clickqusBar} className="sid-menu-icon">
+        <div className="sid-menu-logo d-md-none text-center">
+            <Button onClick={clickqusBar} className="sid-menu-icon p-2 mt-3">
                 <p className="fst-line"></p>
                 <p className="sec-line"></p>
                 <p className="trd-line"></p>
             </Button>
-            <Logo />
+            <div className="p-2"><Logo /></div>
         </div>
         <div style={ {left :  qusBar ? "-320px" : "0" }} className="lftsdbr mt-4" >
             <Logo />

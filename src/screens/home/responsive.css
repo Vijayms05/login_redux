@@ -1,4 +1,157 @@
-@media (max-width: 576px) {
+@media (min-width: 375px) and (max-width: 576px) { 
+  .lftsdbr {
+    top: 50px;
+    height: 95vh !important;
+    width:  258px !important;
+    padding: 15px 24px ;
+  }
+  .search-box{
+    width: 384px !important;
+    height: 60px !important;
+    border: 1px solid #8D9591;
+    box-sizing: border-box;
+    border-radius: 16px;
+    margin:10px;
+  }
+ 
+  .searchrole img {
+    width: 30px;
+    left: 8.25%;
+    right: 8.37%;
+    top: 8.25%;
+    bottom: 8.43%;
+  }
+  .search-input{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px !important;    
+    color: #ADB3AF;
+
+  }
+  .sub-filter{
+    display: none !important;
+  }
+  .search-box-right{
+    display: none !important;
+  }
+  .sub-header{
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px !important;
+  }
+  .role-tit{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px !important;
+  }
+  .searchrole{
+    left: 4.25%;
+    right: 4.37%;
+    top: 8.25%;
+    width:25px;
+    width:25px;
+    bottom:4.43%;
+  }
+  .searchrole .search-input{
+    font-size: 30px;
+    padding-left: 50px !important;
+   
+  }
+  .submit-btn{
+    width: 336px;
+    height: 62px;
+    border-radius: 12px !important;
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px !important;
+  }
+  .reset-password{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+  }
+  .signup-header{   
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 48px;
+    color: #0B171B;
+  }
+  .terms-cond-text{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px !important;
+    line-height: 110%;
+  }
+  .login-p{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px !important;
+  }
+  .forget-p{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 16px !important;    
+  }
+  .onboard-btn{
+    width: 158px !important;
+    height: 70px !important;
+  }
+  .top-stud-proof{
+    width: 220px !important;
+    height: 220px !important;
+  }
+  .stud-prof .form-check-input {
+    border-radius: 9px;
+    width: 215px !important;
+    height: 220px !important;
+    margin: 0 !important;
+    background: none !important;
+  }
+  
+  .onboarding-title{
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px !important;
+    color:#0B171B;
+  }
+  .login-sub-header{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px !important;
+    letter-spacing: -0.02em;
+    color: #638995;
+  }
+  .login-header{
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px !important;
+  }
+  
+  .inputField{
+    font-family: 'f3';
+    font-style: normal;
+    font-weight: 500 !important;
+    font-size: 17px !important;
+  }
+  .forget-header{
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px !important;
+  }
   .min-pos-ab {
     position: absolute;
   }
@@ -65,6 +218,7 @@
     top: 50px;
     position: fixed;
     height: 95vh !important;
+    width:  288px !important;
   }
   .lftsdbr .logo {
     display: none !important;

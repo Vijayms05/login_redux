@@ -32,14 +32,14 @@ const Professional = (props) => {
         <Col className="tl-bdy sign-tl-bdy">
             <div className="bdy-in">           
                 <Row >
-                    <Col md={6}  xl={7} className="text-center m-auto">
+                    <Col xs={12} sm={6} md={6}  xl={7} className="text-center m-auto">
                         <Learnprofessional />
                     </Col>               
-                    <Col md={6} xl={5}   className="p-5" > 
+                    <Col xs={12} sm={6} md={6} xl={5}   className="p-5" > 
                         <Logo />
                         <Form className="professional-form p-3 m-2"> 
-                            <h2 className="f1-19 m-0 text-center">Before you jump in</h2>
-                            <p className="f3-13 dark-blue-light mx-0 mt-1 mb-3 text-center">We will personalise this platform accordingly</p>
+                            <h2 className="f1-19 m-0 text-center signup-header">Before you jump in</h2>
+                            <p className="f3-13 dark-blue-light login-sub-header mx-0 mt-1 mb-3 text-center">We will personalise this platform accordingly</p>
                             <Form.Group className="mb-3 professional-formgroup">
                                 <Form.Control 
                                     placeholder="Enter your name" 
@@ -53,7 +53,7 @@ const Professional = (props) => {
                                 defaultValue={industry}
                                 onChange={e => setIndustry(e.target.value)}
                             >
-                                <option selected>-- Select Industry --</option>
+                                <option selected>Select Industry</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>

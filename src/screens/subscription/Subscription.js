@@ -42,10 +42,10 @@ const Subscription = (props) =>{
    const now = 30
 
     return(
-        <Col className="py-md-0 mt-5 mt-md-0">   
+        <Container fluid className="py-md-0 mt-5 mt-md-0">   
             <Row className="mt-4">
-                <Col  xs={12} sm={6} md={7}  className="mb-2 mt-2">   
-                    <Form.Group  className="w-100 search-box">
+                <Col  sm={6} md={7}  className="mb-2 mt-2">   
+                    <Form.Group  className="search-box">
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
@@ -58,7 +58,7 @@ const Subscription = (props) =>{
                         />
                     </Form.Group>                
                 </Col>
-                <Col  xs={12} sm={6} md={3}   className="mb-2 mt-2" >
+                <Col sm={6} md={3}   className="mb-2 mt-2 sub-filter" >
                     <Form.Select className="select-form" size="lg" >
                         <option>Filters</option>
                         <option>Large select</option>
@@ -68,10 +68,10 @@ const Subscription = (props) =>{
             </Row>   
             <Row className="sub-search mt-4">   
                 <Col xs={12} md={6} lg={8} >   
-                    <h5 className="mb-2 mb-md-0" style={{color:'#003866'}}>My Subscriptions</h5>    
+                    <h5 className="mb-2 mb-md-0 sub-header" style={{color:'#003866'}}>My Subscriptions</h5>    
                 </Col> 
                 <Col xs={12} md={6} lg={4}>   
-                    <Form.Group  className="w-90 search-box">                        
+                    <Form.Group  className="w-90 search-box search-box-right">                        
                         <Button className="pwd-btn mt-1">
                             <SearchIconRight />
                         </Button>
@@ -215,7 +215,7 @@ const Subscription = (props) =>{
                     </Link>
                 </Col>
             </Row>          
-        </Col>
+        </Container>
     );
 }
 

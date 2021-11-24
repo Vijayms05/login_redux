@@ -94,10 +94,10 @@ const Login = (props) => {
           <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
             <Logo  />
             <Form className="sign-form p-4">
-              <h2 className="f1-19 m-0 text-center">
+              <h2 className="f1-19 m-0 text-center login-header">
                 Welcome Back
               </h2>
-              <h3 className="f3-13 dark-blue-light mx-0 mt-1 mb-3 text-center">
+              <h3 className="f3-13 dark-blue-light login-sub-header mx-0 mt-1 mb-3 text-center">
                 Enter your credentials to access your account
               </h3> 
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">

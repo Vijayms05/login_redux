@@ -123,7 +123,7 @@ const Signup = (props) => {
             <Col md={6} xl={5} className="p-3">
               <Logo  />
               <Form className="sign-form p-4">
-                <h2 className="f1-19 mb-3 text-center">
+                <h2 className="f1-19 mb-3 text-center signup-header">
                   Create account and get started
                 </h2>
                 <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
@@ -194,7 +194,7 @@ const Signup = (props) => {
                     </Form.Label>
                 </Form.Group>
                   <Button 
-                    className="submit-btn"
+                    className="submit-btn mt-3"
                     variant="primary" 
                     type="submit" 
                     onClick={onSubmit}

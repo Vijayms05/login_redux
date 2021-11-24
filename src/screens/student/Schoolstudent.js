@@ -53,8 +53,8 @@ const Schoolstudent = (props) => {
                     <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
                         <Logo  />
                         <Form className="login-form p-4">
-                            <h2 className="f1-19 m-0 text-center">Before you jump in</h2>
-                            <h3 className="f3-13 dark-blue-light mx-0 mt-1 mb-3 text-center">We will personalise this platform accordingly</h3> 
+                            <h2 className="f1-19 m-0 text-center signup-header">Before you jump in</h2>
+                            <h3 className="f3-13 dark-blue-light mx-0 mt-1 login-sub-header mb-3 text-center">We will personalise this platform accordingly</h3> 
                             <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                                 <Form.Control 
                                 className="student-inputField" 

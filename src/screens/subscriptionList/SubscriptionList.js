@@ -35,7 +35,7 @@ const SubscriptionList = () =>{
                         />
                     </Form.Group>                
                 </Col>
-                <Col xs={12} sm={6} md={3} lg={3}  className=" mb-2">
+                <Col xs={12} sm={6} md={3} lg={3}  className="sub-filter mb-2">
                     <Form.Select 
                         className="select-form" 
                         size="lg" 
