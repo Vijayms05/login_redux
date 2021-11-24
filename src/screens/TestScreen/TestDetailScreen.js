@@ -11,14 +11,14 @@ const TestDetailScreen = () =>{
         <div className="py-md-4 mt-5 mt-md-0 bill-rit m-auto">
             <Row className="mb-4 mt-4">
                 <Col xs={6} md={6} lg={8} className="ps-0">   
-                    <Form.Group  className="w-100 search-box">
+                    <Form.Group  className="w-100 search-box test-search-box">
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
                         <Form.Control type="text"  placeholder="Search Test Name" size="md" className="search-input" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg={4}  className="pe-0">
+                <Col xs={6} md={6} lg={4}  className="pe-0 test-search-box">
                     <Form.Select className="select-form" size="lg" >
                         <option selected>Filter</option>
                         <option value="1">Large select</option>
@@ -27,11 +27,11 @@ const TestDetailScreen = () =>{
                 </Col>
             </Row> 
             <div className="m-auto rit-tst mt-5 ms-1">
-                <Row> 
+                <Col sm={6}> 
                     <h5 className="report-h5 mb-2">Tests</h5>  
-                </Row> 
+                </Col> 
                 <Row>
-                    <Col xs={6} md={6} lg={4}  className="p-0 mt-3  ">
+                    <Col sm={6} md={6} lg={4}  className="p-0 mt-3  test-select">
                         <Form.Select className="select-form" size="lg" >
                             <option>Select Rol/Book-Qs</option>
                             <option>Large select</option>

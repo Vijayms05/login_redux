@@ -5,6 +5,35 @@
     width:  258px !important;
     padding: 15px 24px ;
   }
+  .hori-image{
+    display: none;
+  }
+  .horizontal-card{  
+    width: 100%; 
+    background: #FFFFFF;
+    box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
+    border-radius: 25.3668px;
+    height: auto;
+  }
+  .horizontal-card:hover{
+    border-radius: 15px;
+    border:2px solid dodgerblue;
+  }
+  .skill-profile{
+    width: 478px;
+    height: 84px;
+    left: 18px;
+    top: 160px;
+    font-family: 'f1';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 48px;    
+    color: #003866;
+  }
+  .sub-progress{
+    display: none !important;
+  }
   .search-box{
     width: 384px !important;
     height: 60px !important;
@@ -32,6 +61,11 @@
   .sub-filter{
     display: none !important;
   }
+  .sub-class{
+    width: 193px;
+    height: 72px;
+  }
+  
   .search-box-right{
     display: none !important;
   }
@@ -117,7 +151,15 @@
     margin: 0 !important;
     background: none !important;
   }
-  
+  .test-search-box{
+    display: none;
+  }
+  .test-select{
+    width: 200px;
+  }
+  .report-h5{
+    margin:35px !important;
+  }
   .onboarding-title{
     font-family: 'f1';
     font-style: normal;

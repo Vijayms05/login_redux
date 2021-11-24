@@ -15,14 +15,14 @@ const ReportPage = () =>{
         <div className="py-md-0 mt-md-3 rt-tb-report ms-2">  
             <Row>
                 <Col xs={6} md={6} lg={8} className="mt-3">   
-                    <Form.Group  className="w-100 search-box">
+                    <Form.Group  className="w-100 search-box test-search-box">
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
                         <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg={4} className="mt-3" >
+                <Col xs={6} md={6} lg={4} className="mt-3 test-search-box" >
                     <Form.Select className="select-form" size="lg" style={{width:'250px'}} >
                         <option>Filters</option>
                         <option>Large select</option>

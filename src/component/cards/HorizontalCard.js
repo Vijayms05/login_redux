@@ -19,10 +19,10 @@ const HorizontalCard = () =>{
             <Card>
                 <Card.Body className="billing-add w-100">
                     <Row>
-                        <Col className="cls-fre text-center mt-3 mb-3" sm={4} >
+                        <Col className="cls-fre sub-class text-center mt-3 mb-3" sm={4} >
                             <h2 style={{fontSize:'33px'}}>Class12</h2>
                         </Col>
-                        <Col className="cls-fre " sm={5} > {/*className="cls-fre"*/}
+                        <Col className="cls-fre " sm={6} > {/*className="cls-fre"*/}
                             <h4 >Your Current Plan</h4>                                   
                             <Row>
                                 <Col  className="subscription-class-46 text-center">{/**/}
@@ -36,7 +36,7 @@ const HorizontalCard = () =>{
                             {/* <Link to="/billings" className="anal-btn">Go to Billing</Link> */}
                             <Link to="/billings-details" className="anal-btn">Go to Billing</Link>
                         </Col>
-                        <Col > {/*className="d-none d-md-block" */}
+                        <Col className="hori-image" > {/*className="d-none d-md-block" */}
                             <Billingrit />
                             <ScaleIcon />
                             <NumbIcon />

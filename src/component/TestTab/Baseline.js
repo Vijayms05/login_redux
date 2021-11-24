@@ -11,7 +11,7 @@ const Baseline = () =>{
         history.push('/testintro');
     }
     return(
-        <Col>
+        <Col sm={12} md={12}>
             <h6>Test Name</h6>
             <div className="in-box-tab py-1">
                 <p>UI - UX Baseline</p>

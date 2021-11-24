@@ -132,7 +132,7 @@ body {
 }
 .lftsdbr {
   padding: 15px;
-  width: 250px;
+  width: 280px;
   background: #fff;
   z-index: 111;
   height: 100vh;
@@ -232,19 +232,17 @@ body {
 .navbar-nav {
   flex-direction: column !important;
 }
-.search-input {
-  padding-left: 50px !important;
-}
 .search-box {
   position: relative;
   height: 45px;
   border: 1px solid #e5e5e5;
   border-radius: 5px;
 }
-.search-box input {
+.search-box .search-input {
   background: none;
   border: 0;
   height: 43px;
+  padding-left: 35px;
 }
 .searchrole {
   position: absolute;

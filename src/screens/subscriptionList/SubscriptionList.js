@@ -48,7 +48,7 @@ const SubscriptionList = () =>{
             </Row>                 
             <Row>
                 <Link className="back-a " to="/home"><LeftArrow /> {" "} Back to My Subscrtiptions</Link>
-                <Col md={8} lg={8}>
+                <Col sm={8} md={8} lg={8}>
                     <HorizontalCard />                        
                     <h5 className="report-h5 mb-2 mt-4">Skill Building Status</h5>  
                     <div className="lft-skl-bldg">
@@ -59,7 +59,7 @@ const SubscriptionList = () =>{
                                 </div>
                                 <div class="tit-subs"><h5>English</h5></div>
                             </div>                    
-                            <div>                        
+                            <div className="sub-progress">                        
                                 <p className="f3-13 mb-0">Progress</p>    
                                 <div className="prog-bar-subs">
                                     <ProgressBar now={progValue} />

@@ -66,12 +66,11 @@ const ProfilePage = (props) => {
       setRePaswordShow(!repaswordShow);
     }    
    
-    const onPassword = (e) => {
-      setPassword(e.target.value);
-    };
-  const onRePassword = e => { 
-      setRepassword(e.target.value)    
-      
+    // const onPassword = (e) => {
+    //   setPassword(e.target.value);
+    // };
+  const onRePassword = e => {   
+      setRepassword(e.target.value)          
     }
   
     const now=80;
@@ -184,53 +183,53 @@ const ProfilePage = (props) => {
     }
     const handlePassword = () => setShow(true);
     const handleavatorClose = () => setIsShow(false);
-    const handlepasswordClose = () => setShow(false);
-
- 
+    const handlepasswordClose = () => setShow(false); 
   
     const onChangePassword= () =>{
-        //  handlepasswordClose();
-        onPassword('');
-        onRePassword('');
+        handlepasswordClose();
+        // onPassword('');
+        // onRePassword('');
     }
-  
-   
 
     return (
         <>            
             <Col className="py-md-4 pro-rit ms-5 mt-4 mb-3  ">  
                 {/* {isLoading && <Loader />} */}
-                <h3 className="mb-4" style={{color:'#003866',fontSize:'30px'}}>Profile</h3>
-                <Row className="mt-3 mb-3">
-                    <Col sm={4} className='p-0'>
+                <h3 className="mb-2 mt-5 skill-profile" 
+                    style={{color:'#003866',fontSize:'30px'}}>
+                    Profile
+                </h3>
+                <Row className="mt-2 mb-3">
+                    <Col xs={6} sm={6} m={6} className='p-0'>
                         <ProgressBar now={60} className="mb-3"/>                        
                     </Col>
-                    <Col sm={8}>                       
+                    <Col xs={6} sm={6} md={6}>                       
                         <label>60% Complete</label>
                     </Col>
                 </Row> 
-                <Col sm={11} >              
-                    <Card.Body className="horizontal-card mb-4 text-center">
+                <Col sm={12} >              
+                    <Card.Body className="horizontal-card mb-4 ">
                         <Row>
-                            <Col sm={1} md={1} xs  className="mt-2">
+                            <Col  sm={1} xs className="mt-2">
                                 <AvatorProfile />
                             </Col>
-                            <Col sm={3} md={3} xs className="my-auto ms-2 mb-2 text-start">
+                            <Col  sm={3} xs className="mb-2 text-start">
                                 <label className="title  " 
                                 style={{color:'#192A3E',fontWeight:'bold',fontSize:'18px'}}>
                                     Hayat Tamboli
                                 </label>
                                 <small style={{color:'#90A0B7'}}>hayat.tamboli@gmail.com</small>
                             </Col>
-                            <Col sm={3} md={3} xs className="rep-btn-ln mb-2 mt-4 ">
+                            <Col sm={2} xs className=" mb-2 mt-4 text-start">
                                 <button className="profile-cardbutton btn" 
                                 style={{color:'#FFFFFF',borderRadius:'10px'}} 
                                 onClick={handleAvator}>
                                     Edit Avatar
                                 </button>
                             </Col>
-                            <Col sm={4} md={4} xs className="rep-btn-ln mb-2 mt-4 ">
-                                <button className="profile-cardbutton btn" style={{color:'#FFFFFF',borderRadius:'10px',background:'#298ee0'}} onClick={onChangePassword}>
+                            <Col sm={4} xs  className="rep-btn-ln mb-2 mt-4 text-start"> 
+                                <button className="profile-cardbutton btn" 
+                                style={{color:'#FFFFFF',borderRadius:'10px',background:'#298ee0'}} onClick={onChangePassword}>
                                     Change Password
                                 </button>
                             </Col>
@@ -361,7 +360,8 @@ const ProfilePage = (props) => {
                         <Form.Group className="mb-3">
                             <label className="mobile-no mb-2" >Current Role</label>                    
                             <Form.Control placeholder="Placeholder" onChange={onRole} value={role}/>                    
-                        </Form.Group>   
+                        </Form.Group> 
+                          
                         <Form.Group className="mb-3"> 
                             <label className="mobile-no mb-2" >Resume</label>
                             <div className="profile-upload" >
@@ -394,7 +394,7 @@ const ProfilePage = (props) => {
                             <label className="mobile-no mb-2" >Learning Changes</label>                    
                             <Form.Control placeholder="Placeholder" value={learn} onChange={onLearnChange}/>                    
                         </Form.Group>  
-                        <button className="profile-button btn " 
+                        <button className="profile-button btn mb-3 " 
                         style={{color:'white',borderRadius:'12px'}} onClick={onSave}>
                             Save Changes
                         </button>
@@ -403,7 +403,7 @@ const ProfilePage = (props) => {
                 {show === true ? 
                 (                          
                     <Modal 
-                    aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handlepasswordClose} >                    
+                    aria-labelledby="contained-modal-title-vcenter" show={show} onHide={handleavatorClose} >                    
                         <Modal.Body >                       
                             <Modal.Title className="text-center mt-3 mb-3 f1-16" style={{color:'#0B171B'}}>Change Password</Modal.Title>   
                             <Form.Group className="mb-4 profile-formgroup" controlId="formBasicEmail">
@@ -413,7 +413,7 @@ const ProfilePage = (props) => {
                                     type={paswordShow ? 'password' : 'text'} 
                                     placeholder="Password"
                                     value={password}
-                                    onChange={onPassword}
+                                    onChange={e => setPassword(e.target.value)}
                                     />
                                 <PasswordIcon />
                                 <Button 
@@ -443,7 +443,7 @@ const ProfilePage = (props) => {
                             <div className="text-center mb-2">
                                 <button 
                                 style={{backgroundColor:'#4DD188', color:'white', borderRadius:'13px',width:'110px'}} className="btn mt-3 mb-3"  
-                                onClick={handlepasswordClose}>
+                                onClick={handleavatorClose}>
                                     Change
                                 </button>   
                             </div>

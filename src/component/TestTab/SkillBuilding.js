@@ -17,7 +17,7 @@ const SkillBuilding = () =>{
     }
     return(
         <>
-            <Col xs={12} className="auto">
+            <Col sm={12} >
                 <div className="tit-cert-box border ">
                     <Table >
                         <thead>

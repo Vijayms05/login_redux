@@ -79,6 +79,7 @@ const Subscription = (props) =>{
                             type="text"  
                             placeholder="Search My subscriptions" 
                             size="md"  
+                            className="search-input"
                         />                        
                     </Form.Group>                
                 </Col>
