@@ -16,32 +16,34 @@ import {
 } from '../../assets/images/index';
 
 const Collegegroup = (props) =>{
-    const [inputName,setInputName] = useState('')
-    const [branch, setBranch]= useState('')
-    const [school, setSchool] = useState('college')
-    const [collegeName, setCollegeName] = useState('')
-    const [ noofuniversity, setNoofuniversity]= useState('')
-    const [collegeYear, setCollegeYear]= useState(' ')
-    const [stream, setStream] = useState('')
+
+    const {collegeName, noofuniversity, collegeYear, stream, branch, setStream,
+        setBranch, setCollegeName, setNoofuniversity, setCollegeYear}=props;
+ 
+    // const [branch, setBranch]= useState('')
+    // const [collegeName, setCollegeName] = useState('')
+    // const [ noofuniversity, setNoofuniversity]= useState('')
+    // const [collegeYear, setCollegeYear]= useState(' ')
+    // const [stream, setStream] = useState('')
 
     const history = useHistory();   
   
-    const onCollegestudent = (e) =>{
-        e.preventDefault();
-        history.push('/home')
-        console.log(inputName, branch, school, collegeName, noofuniversity, collegeYear, stream)
-    }
+    // const onCollegestudent = (e) =>{
+    //     e.preventDefault();
+    //     history.push('/home')
+    //     console.log(inputName, branch, school, collegeName, noofuniversity, collegeYear, stream)
+    // }
     return(
         <div className="tl-bdy sign-tl-bdy">
             <div className="bdy-in">
                 <Row>
-                    <Col xs={6} md={6}  xl={7} className="text-center m-auto">
+                    {/* <Col xs={6} md={6}  xl={7} className="text-center m-auto">
                         <Readingbooks />
-                    </Col>
+                    </Col> */}
                     <Col xs={6} md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
-                        <Logo  />
+                        {/* <Logo  /> */}
                         <Form className="login-form p-4">
-                        <h2 className="f1-19 m-0 text-center signup-header">Before you jump in</h2>
+                        {/* <h2 className="f1-19 m-0 text-center signup-header">Before you jump in</h2>
                         <h3 className="f3-13 dark-blue-light mx-0 mt-1 mb-3 text-center login-sub-header">We will personalise this platform accordingly</h3> 
                         <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                             <Form.Control 
@@ -76,7 +78,7 @@ const Collegegroup = (props) =>{
                                     />
                                 </Form.Group>                            
                             </Col>
-                        </Row>                        
+                        </Row>                         */}
                         <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                             <Form.Control 
                             className="student-inputField" 
@@ -122,14 +124,14 @@ const Collegegroup = (props) =>{
                                 <option value="3">Two</option>
                                 <option value="4">Three</option>
                             </select> 
-                            <Button  
+                            {/* <Button  
                                 className="submit-btn" 
                                 variant="primary" 
                                 type="submit"
                                 onClick={onCollegestudent}
                             >
                                 Continue
-                            </Button>                                
+                            </Button>                                 */}
                         </Form>         
                     </Col>
                 </Row>

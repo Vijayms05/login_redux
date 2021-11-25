@@ -17,6 +17,7 @@ import {
   Col, 
   Form, 
   Button,
+  Container
 } from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
@@ -40,33 +41,17 @@ const Signup = (props) => {
   const validSignup = useSelector( state => state.signupState.signup)
   const invalidSignup = useSelector( state => state.signupState.error)
 
-  const status = validSignup && validSignup.status;
+  // const status = validSignup && validSignup.status;
 
-  const onEmail = (e)=>{
-    const email= e.target.value
-    setEmail(email);
-    if (!validEmail.test(email)) {      
-      message.error('Your Mail is Invalid')
-   }else{
-    message.success('Your Mail is Valid')
-   }
+  const onEmail = (e)=>{    
+    setEmail(e.target.value);   
   }
-  const onPassword = (e)=>{
-    const password = e.target.value;
-    setPassword(password);
-    if (!validPassword.test(password)) {      
-      message.error('Your password is Invalid')
-   }else{
-    message.success('Your password is valid')
-   }
+  const onPassword = (e)=>{    
+    setPassword(e.target.value);   
   }
   const onRePassword =(e)=> {
     setRepassword(e.target.value)
-    if(password !== repassword){
-      message.error('Please check the  Conform Password')
-    }else{
-      message.success('Your conform password is valid')
-    }
+   
   }
   const clickPasswordShow = () =>{
     setPaswordShow(!paswordShow);
@@ -76,22 +61,50 @@ const Signup = (props) => {
   }  
 
   useEffect(()=>{
-    if (status) {
-      setEmail('')
-      setPassword('')
-      setRepassword('')     
-      setTermsCondition(false)
-      console.log(status)
-    }else if(validSignup){
+    validateEmail();
+    validatePassword();
+    validateRePassword();
+    validationTerms();
+
+    if(validSignup){
       message.success('Thanks!, Signup form is successfully registered ');
     } else if(invalidSignup) {
       message.error(`An account with email ${email} already exists`);
     }
-  },[status, invalidSignup])
+  },[validSignup, invalidSignup])
 
+  const validateEmail = ()=>{
+    if(!validEmail.test(email)){
+      message.error('Your Email is Invalid')
+    }else{
+     message.success('Your Email is valid')
+    }
+  }
+  const validatePassword = ()=>{
+    if (!validPassword.test(password)) {      
+      message.error('Your password is Invalid')
+   }else{
+    message.success('Your password is valid')
+   }
+  }
+  const validateRePassword = ()=>{
+    if(password !== repassword){
+      message.error('Please check the  Conform Password')
+    }else{
+      message.success('Your conform password is valid')
+    }
+  }
+   const validationTerms = ()=>{
+    if(termscondition === false){
+      message.error("please accept the terms and condition")
+    }else{
+      message.success("verify the terms and condition")      
+    }
+  }
 
   const onSubmit = (e) =>{
     e.preventDefault();  
+    // validation();
     
     if (!email || !password || !repassword ) {       
       message.error('Please fill all the fields')        
@@ -114,13 +127,13 @@ const Signup = (props) => {
 
   return (
    
-      <Col className="tl-bdy sign-tl-bdy">
-        <div className="bdy-in">
+    <Container fluid>{/* className="tl-bdy sign-tl-bdy"*/}
+      <div className="bdy-in">
           <Row>
-            <Col md={6} xl={7} className="text-center m-auto">
+            <Col sm={6} md={6} lg={6} className="text-center m-auto">
               <SiginImage />
             </Col>
-            <Col md={6} xl={5} className="p-3">
+            <Col  sm={6} md={6} lg={6}  className="p-3">
               <Logo  />
               <Form className="sign-form p-4">
                 <h2 className="f1-19 mb-3 text-center signup-header">
@@ -180,14 +193,10 @@ const Signup = (props) => {
                       className="float-start me-2" 
                       type="checkbox"
                       checked={termscondition}
-                      onClick={() => {
+                      onClick={() => 
                         setTermsCondition(!termscondition)
-                        if(!termscondition){
-                          message.success("verify the terms and condition")
-                        }else{
-                          message.error("please accept the terms and condition")
-                        }
-                      }}
+                       
+                      }
                     />
                     <Form.Label className="terms-cond-text">
                       I agree Skilltally’s <Link>Privacy Policy</Link> 	&#38; <Link>Terms of Services</Link>  
@@ -205,7 +214,7 @@ const Signup = (props) => {
             </Col>
           </Row>
         </div>
-      </Col>    
+      </Container>    
    
   );
 };

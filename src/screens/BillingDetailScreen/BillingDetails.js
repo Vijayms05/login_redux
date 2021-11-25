@@ -17,6 +17,7 @@ import {
     ScaleIcon, 
     TickIcon 
 } from '../../assets/images'
+import HorizontalCardFree from '../../component/cards/HorizontalCardFree'
 
 const BillingDetails = (props) =>{
     const [billingFilter, setFilter] = useState('')
@@ -53,24 +54,26 @@ const BillingDetails = (props) =>{
                     <h5 className="report-h5 mt-5">Billing</h5>  
                 </Row>
                 <Col sm={6} md={8} lg={8} className="ms-2 "  > 
-                    <Card>
+                    <HorizontalCardFree />
+
+                    {/* <Card>
                         <Card.Body className="billing-add billing-details-card">
                             <Row>
                                 <Col className="cls-fre text-center mt-3 mb-3 billing-details-text" sm={4} >
                                     <h2 style={{fontSize:'33px'}}>Class12</h2>
                                 </Col>
-                                <Col className="cls-fre text-center mt-4 billing-search-box " sm={5} > {/*className="cls-fre"*/}
+                                <Col className="cls-fre text-center mt-4 billing-search-box " sm={5} > className="cls-fre"
                                     <h4 style={{fontSize:'22px'}}>Your Current Plan</h4>                                   
                                     <h1 style={{fontSize:'65px'}}>Free</h1>
                                 </Col>
-                                <Col className="billing-search-box"> {/*className="d-none d-md-block" */}
+                                <Col className="billing-search-box"> className="d-none d-md-block"
                                     <Billingrit />
                                     <ScaleIcon />
                                     <NumbIcon />
                                 </Col>
                             </Row>                    
                         </Card.Body>                
-                    </Card>
+                    </Card> */}
                 </Col>               
                 <Row className="mt-5"> 
                     <h5 className="report-h5">Upgrade Now</h5>  

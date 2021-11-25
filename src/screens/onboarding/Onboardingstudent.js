@@ -40,15 +40,15 @@ const Onboardingstudent = (props) =>{
     return(
       <div className="student-prof text-center">      
         <div className="d-lg-flex m-auto">
-          <Col xs={12} lg={4} className="p-3 text-center m-auto">
+          <Col xs={12}  md={4} lg={4} xl={4} className="p-3 text-center m-auto">
             <Professionalbook />                       
           </Col>          
-          <Col xs={12} lg={6} xl={4} className="p-3 p-lg-0 text-center m-auto">
+          <Col xs={12} md={4} lg={6} className="p-3 p-lg-0 text-center m-auto">
             <Logo />
             <h3 className="onboarding-heading mt-5 forget-header">Create account as a</h3>
             <p className="onboarding-p login-sub-header">We will personalise this platform accordingly</p>                 
             <Row className="mb-3 gx-2">
-              <Col xs={12} md={6}>
+              <Col>
                 <Card onClick={e =>setStudent("student")} className="top-stud-proof" >
                     <Card.Body className="stud-prof">
                       <FrameLogo />
@@ -67,7 +67,7 @@ const Onboardingstudent = (props) =>{
                   </Card.Body> 
                 </Card> 
               </Col>
-              <Col xs={12} md={6}>
+              <Col  >
                 <Card onClick={e=>setStudent("professional")} className="top-stud-proof">
                     <Card.Body className="stud-prof">
                       <FrameOneLogo />
@@ -96,7 +96,7 @@ const Onboardingstudent = (props) =>{
               </Button> 
             </Col>
           </Col>
-          <Col xs={12} lg={4} className="p-3 text-center m-auto d-none d-xl-block">
+          <Col xs={12} md={4} lg={4} className="p-3 text-center m-auto d-none ">
             <Readingbook />                       
           </Col>
         </div>                   

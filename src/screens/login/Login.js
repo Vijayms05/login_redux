@@ -26,52 +26,53 @@ const Login = (props) => {
   const validLogin = useSelector(state => state.loginState.login);
   const invalidLogin = useSelector(state => state.loginState.error);
 
-  const status = validLogin && invalidLogin;
+  // const status = validLogin && invalidLogin;
 
   useEffect(() => {
-    if(status){
-      setEmail('')
-      setPassword('')
-    }
-    else if (validLogin) {      
+   validateEmail();
+    validatePassword();
+     if (validLogin) {      
       dispatch({ type: 'LOGOUT_SUCCESS' });
     } else if ( invalidLogin) {
       message.error('Please enter the valid credentials');
     }
-  },[status, validLogin, invalidLogin]);
+  },[ validLogin, invalidLogin]);
 
   const onEmail = (e) => {  
-    const email = e.target.value
-    if(!validEmail.text(email)){
-      message.error('Your Login Mail Id is Invalid')      
-    }else{
-      if(props.email === email) {
-        setEmail(e.target.value);
-        message.success('Your Login Mail Id is Verified')
-      }else{
-        message.error('Your Login Mail Id is not same')
-      }
-    }        
+    setEmail(e.target.value);        
   };
   const onPassword = (e) => {  
-    const password= e.target.value
-    if (!validPassword.test(password)) {      
-      message.error('Your password is Invalid')
-   }else{
-     if(props.password === password){
-      setPassword(e.target.value);
-      message.success('Your Login Password is Verified')
-     }else{
-      message.error('Your Login Password is not same')
-     }
-   }         
+    setPassword(e.target.value);            
   };
   const clickPasswordShow = () =>{
     setShowPassword(!showPassword);
   }
+  const validateEmail= ()=>{
+    if(!validEmail.test(email)){
+      message.error('Your Login Mail Id is Invalid')      
+    }else{
+      if(props.email === email) {        
+        message.success('Your Login Mail Id is Verified')
+      }else{
+        message.error('Your Login Mail Id is not same')
+      }
+    }   
+  }
+  const validatePassword = ()=>{    
+    if (!validPassword.test(password)) {      
+      message.error('Your password is Invalid')
+   }else{
+     if(props.password === password){     
+      message.success('Your Login Password is Verified')
+     }else{
+      message.error('Your Login Password is not same')
+     }
+   } 
+  }
 
   const onLogin = (e) => {    
     e.preventDefault();
+    
     if (!email || !password ) {       
       message.error('Please fill all the fields')        
     }else {    
@@ -88,10 +89,10 @@ const Login = (props) => {
     <div className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
         <Row>
-          <Col md={6}  xl={7} className="text-center m-auto">
+          <Col  sm={6} md={6}  xl={7}  className="text-center m-auto">
             <SiginImage />
           </Col>
-          <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
+          <Col  sm={6} md={6} xl={5}  className="p-3 mt-4 login-wrapper">
             <Logo  />
             <Form className="sign-form p-4">
               <h2 className="f1-19 m-0 text-center login-header">
@@ -111,21 +112,34 @@ const Login = (props) => {
                 <EmailIcon />
               </Form.Group>
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
-                  <Form.Control 
-                    className="inputField"  
-                    type={showPassword ? 'password' : 'text'} 
-                    placeholder="Password"
-                    value={password}
-                    onChange={onPassword}
-                    />
-                  <PasswordIcon />
-                  <Button 
-                    className="pwd-btn" 
-                    onClick={clickPasswordShow}
-                  >
-                    { showPassword ? <EyeIconHid /> : <EyeIcon />}
-                  </Button>
-                </Form.Group>
+                <Form.Control 
+                  className="inputField"  
+                  type={showPassword ? 'password' : 'text'} 
+                  placeholder="Password"
+                  value={password}
+                  onChange={onPassword}
+                  />
+                <PasswordIcon />
+                <Button 
+                  className="pwd-btn" 
+                  onClick={clickPasswordShow}
+                >
+                  { showPassword ? <EyeIconHid /> : <EyeIcon />}
+                </Button>
+              </Form.Group>              
+              <Row className="mb-4">
+                <Col>
+                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Admin" />
+                  </Form.Group>
+                </Col>
+                <Col>
+                  <Form.Group className="mb-3" controlId="formBasicCheckbox1">
+                    <Form.Check type="checkbox" label="Organisational" />
+                  </Form.Group>
+                </Col>
+              </Row>
+             
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                 <Form.Label className="reset-password">
                   <Link to="/resetpassword">Forget Password?</Link> 
@@ -140,8 +154,8 @@ const Login = (props) => {
               className="login-p mt-2 mb-3 mt-4 text-center" 
               style={{color:'#0B171B',fontSize:'15px'}} 
             >
-              Don't have an account? 
-              <Link to="/">Sign up</Link>
+              Don't have an account? {' '}
+              <Link to="/signup">Sign up</Link>
             </p>            
           </Col>
         </Row>

@@ -259,12 +259,10 @@
   .profile-cardbutton-change{
     width: 174px;
     height: 42px;
- 
-
     background: #298EE0;
-    border-radius: 12px;
-    
+    border-radius: 12px;    
   }
+
 }
 
 @media (max-width: 767px) {
@@ -381,6 +379,9 @@
   }
   .rec-aud-tag {
     width: 92%;
+  }
+  .hori-image{
+    display: none;
   }
 }
 @media (max-width: 992px) {

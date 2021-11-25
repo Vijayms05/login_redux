@@ -23,7 +23,6 @@ import BillingDetailScreen from '../screens/BillingDetailScreen/BillingDetailScr
 import TestMainScreen from '../screens/TestScreen/TestMainScreen';
 import QuestionPage from '../screens/TestScreen/QuestionPage';
 
-
 import SettingScreens from '../screens/setting/SettingScreens';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import FillQusetionScreen from '../screens/TestScreen/FillQusetionScreen';
@@ -44,7 +43,7 @@ import PlayQuestionScreen from '../screens/TestScreen/PlayQuestionScreen';
 import QuestionAnsRecordScreen from '../screens/TestScreen/QuestionAnsRecordScreen';
 
 import Audioplayer from '../component/dummyquestion/audioAndvideos/Audioplayer'
-import Profile from '../component/sidebarpage1/profile/Profile';
+// import Profile from '../component/sidebarpage1/profile/Profile';
 import ResultPage from '../screens/TestScreen/ResultPage';
 
 
@@ -55,8 +54,8 @@ export const history = createBrowserHistory();
         <Router history={history}>
             <React.Fragment>
               <Switch>
-                <Route exact  path="/" component={Signup} />
-                <Route path="/login" component={Login} />
+                <Route exact  path="/signup" component={Signup} />
+                <Route path="/" component={Login} />
                 <Route path="/resetpassword" component={ResetPassword}/>
                 <Route path="/home" component={HomeScreen} />
                 <Route path="/onboard" component={Onboardingstudent} />

@@ -37,6 +37,9 @@ const ResetPassword = (props) => {
   const onClick=(e)=>{
     e.preventDefault();
     setEmail('')
+    if(!email){
+      message.error("Please fill the field");
+    }
     message.success('Forget Password is Successfully verified')
     console.log(email)
     history.push('/onboard');
@@ -45,10 +48,10 @@ const ResetPassword = (props) => {
     <Col className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
         <Row>
-          <Col md={6}  xl={7} className="text-center m-auto">
+          <Col xs={12} sm={6} md={6}  xl={7} className="text-center m-auto">
             <SiginImage />
           </Col>
-          <Col md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
+          <Col xs={12} sm={6} md={6}  xl={7} className="p-3 mt-4 login-wrapper">
             <Logo  />
             <Form className="sign-form p-4">
               <h2 className="f1-19 text-center forget-header">Forget Password</h2>

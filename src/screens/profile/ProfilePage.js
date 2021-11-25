@@ -205,7 +205,7 @@ const ProfilePage = (props) => {
                 <Col xs={12} >              
                     <Card.Body className="horizontal-card mb-4 text-center">
                         <Row>
-                            <Col sm={1}  xs  className="mt-2">
+                            <Col sm={1}  xs  className="mt-2 mb-2">
                                 <AvatorProfile />
                             </Col>
                             <Col sm={4}  xs  className="my-auto ms-3 mb-2 text-start">
