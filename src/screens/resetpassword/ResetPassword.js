@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { message } from 'antd';
 import {
   SiginImage,
@@ -7,7 +7,6 @@ import {
   PasswordIcon,
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
-
 import { validEmail } from '../../constant/Constant';
 import {Link, useHistory} from 'react-router-dom';
 import { 
@@ -20,22 +19,28 @@ import {
 const ResetPassword = (props) => {
   const [email, setEmail]=useState('')
   const history= useHistory();
+  useEffect(() => {
+    // validateEmail()
+  }, [])
+
   const onEmail = (e) => {  
-    const email = e.target.value
+    setEmail(e.target.value);          
+  };
+
+  const validateEmail = ()=>{
     if(!validEmail.text(email)){
       message.error('Your Forget password Mail Id is Invalid')      
     }else{
-      if(props.email === email) {
-        setEmail(e.target.value);
+      if(props.email === email) {        
         message.success('Your Forget password Mail Id is Verified')
       }else{
         message.error('Your Forget password Mail Id is not same')
     }
-    }        
-  };
+    }   
+  }
  
-  const onClick=(e)=>{
-    e.preventDefault();
+  const onForgetPassword=(e)=>{
+    // e.preventDefault();
     setEmail('')
     if(!email){
       message.error("Please fill the field");
@@ -45,13 +50,13 @@ const ResetPassword = (props) => {
     history.push('/onboard');
   }
   return (
-    <Col className="tl-bdy sign-tl-bdy">
+    <div className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
         <Row>
-          <Col xs={12} sm={6} md={6}  xl={7} className="text-center m-auto">
+          <Col sm={6} md={6} lg={6}  xl={7} className="text-center m-auto">
             <SiginImage />
           </Col>
-          <Col xs={12} sm={6} md={6}  xl={7} className="p-3 mt-4 login-wrapper">
+          <Col  sm={6} md={6} lg={6}  xl={5} className="p-3 mt-4 login-wrapper">
             <Logo  />
             <Form className="sign-form p-4">
               <h2 className="f1-19 text-center forget-header">Forget Password</h2>
@@ -70,7 +75,7 @@ const ResetPassword = (props) => {
                   className="submit-btn" 
                   variant="primary" 
                   type="submit" 
-                  onClick={onClick}
+                  onClick={onForgetPassword}
                 >Send reset instructions</Button>                                
             </Form>
             <p className="forget-p mt-2 mb-3 mt-4 text-center" 
@@ -82,7 +87,7 @@ const ResetPassword = (props) => {
           </Col>
         </Row>
       </div>
-    </Col>
+    </div>
   );
 };
 

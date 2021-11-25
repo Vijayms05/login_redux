@@ -63,9 +63,9 @@ const data = [
 function BaselineReport() {
     return (
         <div className="py-md-4 mt-5 mt-md-0 bill-rit">
-            <Col md={12}  xs className="baselinereport">              
+            <Col sm={6} md={6}  xl={7} className="baselinereport">              
                 <Row>
-                    <Col xs={6} md={6} lg>   
+                    <Col xs={12} sm={6} md={6}  xl={7}>   
                         <Form.Group  className="w-70 search-box">
                             <Button className="searchrole">
                                 <SearchIcon />
@@ -73,7 +73,7 @@ function BaselineReport() {
                             <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                         </Form.Group>                
                     </Col>
-                    <Col xs={6} md={6} lg >
+                    <Col xs={12} sm={6} md={6}  xl={7} >
                         <Form.Select className="select-form" size="lg" style={{width:'250px'}} >
                             <option>Filters</option>
                             <option>Large select</option>

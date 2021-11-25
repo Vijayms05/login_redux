@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
- import { useHistory } from 'react-router-dom'
+
 import {
   SiginImage,
   Logo, 
@@ -21,7 +21,7 @@ const Login = (props) => {
   const [showPassword, setShowPassword] = useState(false); 
 
   const dispatch = useDispatch();
-  const history =useHistory();
+  // const history =useHistory();
 
   const validLogin = useSelector(state => state.loginState.login);
   const invalidLogin = useSelector(state => state.loginState.error);
@@ -29,8 +29,8 @@ const Login = (props) => {
   // const status = validLogin && invalidLogin;
 
   useEffect(() => {
-   validateEmail();
-    validatePassword();
+  //  validateEmail();
+  //   validatePassword();
      if (validLogin) {      
       dispatch({ type: 'LOGOUT_SUCCESS' });
     } else if ( invalidLogin) {
@@ -71,7 +71,9 @@ const Login = (props) => {
   }
 
   const onLogin = (e) => {    
-    e.preventDefault();
+    // e.preventDefault();
+    // validateEmail();
+    // validatePassword();
     
     if (!email || !password ) {       
       message.error('Please fill all the fields')        
@@ -82,7 +84,7 @@ const Login = (props) => {
       };
       dispatch({ type: 'LOGIN_REQUEST', login: loginDetails });
     }
-    history.push('/onboard'); 
+    history.push({pathname:'/onboard'}); 
     console.log(email,password);
   };
   return (

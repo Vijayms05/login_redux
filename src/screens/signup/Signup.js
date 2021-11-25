@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
+import { history } from '../../routes/Routes'
 import { message } from 'antd';
 // import { toast } from 'react-toastify';
 import {
@@ -22,7 +23,6 @@ import {
 import './style.css';
 import './responsive.css'
 import { validEmail,validPassword } from '../../constant/Constant'
-import { history } from '../../routes/Routes'
 
 const Signup = (props) => {
   const [email,setEmail]= useState('')
@@ -32,10 +32,10 @@ const Signup = (props) => {
   
   const [paswordShow, setPaswordShow] = useState(true)
   const [repaswordShow, setRePaswordShow] = useState(true)
-  const [emailErr, setEmailErr] = useState(false);
-  const [pwdError, setPwdError] = useState(false);
+  // const [emailErr, setEmailErr] = useState(false);
+  // const [pwdError, setPwdError] = useState(false);
   
-  const history = useHistory(); 
+  // const history = useHistory(); 
   const dispatch = useDispatch();
  
   const validSignup = useSelector( state => state.signupState.signup)
@@ -61,10 +61,10 @@ const Signup = (props) => {
   }  
 
   useEffect(()=>{
-    validateEmail();
-    validatePassword();
-    validateRePassword();
-    validationTerms();
+    // validateEmail();
+    // validatePassword();
+    // validateRePassword();
+    // validationTerms();
 
     if(validSignup){
       message.success('Thanks!, Signup form is successfully registered ');
@@ -103,8 +103,12 @@ const Signup = (props) => {
   }
 
   const onSubmit = (e) =>{
-    e.preventDefault();  
-    // validation();
+    // e.preventDefault();  
+    
+    // validateEmail();
+    // validatePassword();
+    // validateRePassword();
+    // validationTerms();
     
     if (!email || !password || !repassword ) {       
       message.error('Please fill all the fields')        
@@ -122,7 +126,7 @@ const Signup = (props) => {
       dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});
     }
     console.log(email,password,repassword,termscondition)
-    history.push({pathname:'/login'})
+    history.push({pathname:'/'});
   }  
 
   return (
@@ -194,8 +198,7 @@ const Signup = (props) => {
                       type="checkbox"
                       checked={termscondition}
                       onClick={() => 
-                        setTermsCondition(!termscondition)
-                       
+                        setTermsCondition(!termscondition)                       
                       }
                     />
                     <Form.Label className="terms-cond-text">

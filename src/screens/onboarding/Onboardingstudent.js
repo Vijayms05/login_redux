@@ -40,10 +40,10 @@ const Onboardingstudent = (props) =>{
     return(
       <div className="student-prof text-center">      
         <div className="d-lg-flex m-auto">
-          <Col xs={12}  md={4} lg={4} xl={4} className="p-3 text-center m-auto">
+          <Col sm={4} md={4} lg={4}  xl={4} className="p-3 text-center m-auto">
             <Professionalbook />                       
           </Col>          
-          <Col xs={12} md={4} lg={6} className="p-3 p-lg-0 text-center m-auto">
+          <Col sm={4} md={4} lg={4}  xl={4} className="p-3 p-lg-0 text-center m-auto">
             <Logo />
             <h3 className="onboarding-heading mt-5 forget-header">Create account as a</h3>
             <p className="onboarding-p login-sub-header">We will personalise this platform accordingly</p>                 
@@ -95,8 +95,8 @@ const Onboardingstudent = (props) =>{
                 Continue                     
               </Button> 
             </Col>
-          </Col>
-          <Col xs={12} md={4} lg={4} className="p-3 text-center m-auto d-none ">
+          </Col>  
+          <Col sm={4} md={4} lg={4}  xl={4} className="p-3 text-center m-auto  ">
             <Readingbook />                       
           </Col>
         </div>                   

@@ -52,51 +52,52 @@ export const history = createBrowserHistory();
  const Routes = (props) => {
     return (
         <Router history={history}>
-            <React.Fragment>
-              <Switch>
-                <Route exact  path="/signup" component={Signup} />
-                <Route path="/" component={Login} />
-                <Route path="/resetpassword" component={ResetPassword}/>
-                <Route path="/home" component={HomeScreen} />
-                <Route path="/onboard" component={Onboardingstudent} />
-                <Route path="/schoolstudent" component={Schoolstudent} />
-                <Route path="/professional" component={Professional} />
-                <Route path="/student" component={Studentgroup} />
-                <Route path="/collegstudent" component={Collegegroup} /> 
-                
-                <Route path="/subscription-list" component={SubscriptionDetailScreen} />
-                <Route path="/billings" component={BillingScreen} />
-                <Route path="/billings-details" component={BillingDetailScreen} />
-                
-                <Route path="/test" component={TestMainScreen} />
-                <Route path="/testintro" component={TestIntro} />
-                
-                <Route path="/report" component={ReportScreen} />
-                <Route path="/baseline" component={BaseLineDetails} />
-                <Route path="/certificate-result" component={CertificationDetails} />
-                <Route path="/skill-building-list" component={SkillBuildingReportList} />
-                <Route path="/skill-building-result" component={SkillBuildingResult} />
-                
-                <Route path="/setting" component={SettingScreens} />
-                <Route path="/profile" component={ProfileScreen} />
-                {/* <Route path="/profile" component={Profile} /> */}
-                <Route path="/question-page" component={QuestionPage} />
-                <Route path="/fill-question" component={FillQusetionScreen} />
-                <Route path="/text-question" component={TextQusetionScreen} />
-                <Route path="/audiorecord" component={AudioRecorderScreen} />
-                <Route path="/videorecord" component={VideoRecorderScreen} />
-                <Route path="/textrecord" component={TextRecordScreen} />
-                <Route path="/play-question" component={PlayQuestionScreen} />
-                <Route path="/ques-ans-play" component={QuestionAnsRecordScreen} />
-                {/*Result bar */}
-                <Route path="/result-page" component={ResultPage} />
-                
-                
-                <Route path="/dummy" component={DummyQuestionPage} />
-                <Route path="/audioplayer" component={Audioplayer} />
-                {/* <Route path="/playrecorder" component={PalyerRecorderScreen} /> */}
-              </Switch>
-            </React.Fragment>                
+          <React.Fragment>
+            <Switch>
+              <Route exact path="/" component={Login} />
+              <Route  path="/signup" component={Signup} />
+              
+              <Route path="/resetpassword" component={ResetPassword}/>
+              <Route path="/home" component={HomeScreen} />
+              <Route path="/onboard" component={Onboardingstudent} />
+              <Route path="/schoolstudent" component={Schoolstudent} />
+              <Route path="/professional" component={Professional} />
+              <Route path="/student" component={Studentgroup} />
+              <Route path="/collegstudent" component={Collegegroup} /> 
+              
+              <Route path="/subscription-list" component={SubscriptionDetailScreen} />
+              <Route path="/billings" component={BillingScreen} />
+              <Route path="/billings-details" component={BillingDetailScreen} />
+              
+              <Route path="/test" component={TestMainScreen} />
+              <Route path="/testintro" component={TestIntro} />
+              
+              <Route path="/report" component={ReportScreen} />
+              <Route path="/baseline" component={BaseLineDetails} />
+              <Route path="/certificate-result" component={CertificationDetails} />
+              <Route path="/skill-building-list" component={SkillBuildingReportList} />
+              <Route path="/skill-building-result" component={SkillBuildingResult} />
+              
+              <Route path="/setting" component={SettingScreens} />
+              <Route path="/profile" component={ProfileScreen} />
+              {/* <Route path="/profile" component={Profile} /> */}
+              <Route path="/question-page" component={QuestionPage} />
+              <Route path="/fill-question" component={FillQusetionScreen} />
+              <Route path="/text-question" component={TextQusetionScreen} />
+              <Route path="/audiorecord" component={AudioRecorderScreen} />
+              <Route path="/videorecord" component={VideoRecorderScreen} />
+              <Route path="/textrecord" component={TextRecordScreen} />
+              <Route path="/play-question" component={PlayQuestionScreen} />
+              <Route path="/ques-ans-play" component={QuestionAnsRecordScreen} />
+              {/*Result bar */}
+              <Route path="/result-page" component={ResultPage} />
+              
+              
+              <Route path="/dummy" component={DummyQuestionPage} />
+              <Route path="/audioplayer" component={Audioplayer} />
+              {/* <Route path="/playrecorder" component={PalyerRecorderScreen} /> */}
+            </Switch>
+          </React.Fragment>                
         </Router>
     );
 }

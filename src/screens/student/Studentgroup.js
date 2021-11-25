@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import React, { useState } from 'react'
-
+import { history } from '../../routes/Routes';
 import {
     Col,
     Row,
@@ -8,7 +8,7 @@ import {
     Button,
     Container
 } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 import {
     Readingbooks,
@@ -33,35 +33,28 @@ const Studentgroup = (props) =>{
     const [streamSchool, setStreamSchool]= useState('')
     const [standard, setStandard]= useState('')
 
-    const history= useHistory();
-   
-    const onName = (e)=>{
-        const inputName= e.target.value
-        setInputname(inputName);
-        if (!validText.test(inputName)) {      
-          message.error('Your Name is Invalid')
-       }else{
-        message.success('Your Name is Valid')
-       }
+    // const history= useHistory();
+   const validateName = () =>{
+    if (!validText.test(inputName)) {      
+        message.error('Your Name is Invalid')
+     }else{
+      message.success('Your Name is Valid')
     }
-    // onvalidateSchool = ()=>{
-
-    // }
+   }
+    const onName = (e)=>{       
+        setInputname(e.target.value);       
+    }    
 
     const toggleClick = e =>{        
-        e.preventDefault();  
-        
-        if(student === 'school')  {
-        //   history.push('/schoolstudent')
-        }else if(student === 'college'){
-        //   history.push('/collegstudent')
-        }   
+        // e.preventDefault();
+
         console.log(inputName)     
-        if(inputName === " " ){
-            message.error('Please Select the School or Professional')
-        }else{
-            message.success('Student is Successfully verified ')
-        }
+        // if(inputName === " " ){
+        //     message.error('Please Select the School or Professional')
+        // }else{
+        //     message.success('Student is Successfully verified ')
+        // }
+        history.push({pathname:'/home'})
     }
     return(
         <div className="tl-bdy sign-tl-bdy">
@@ -70,7 +63,7 @@ const Studentgroup = (props) =>{
                     <Col sm={6} md={6}  xl={7} className="text-center m-auto">
                         <Readingbooks />
                     </Col>
-                    <Col sm={6} md={6} xl={5} xs className="p-3 mt-4 login-wrapper">
+                    <Col sm={6} md={6} xl={5}  className="p-3 mt-4 login-wrapper">
                         <Logo  />
                         <Form className="login-form p-4">
 
@@ -118,7 +111,7 @@ const Studentgroup = (props) =>{
                                 </Col>                                
                             </Row>
                             <Col className="mt-1">
-                                {student === 'school'? 
+                                {student === 'school' ? 
                                     (
                                         <Form >                            
                                             <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
@@ -151,7 +144,9 @@ const Studentgroup = (props) =>{
                                                 <option value="4">Three</option>
                                             </select> 
                                         </Form>
-                                    ):(
+                                    ): 
+                                        student === 'college'?
+                                        (
                                         <Form>
                                             <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                                                 <Form.Control 
@@ -198,10 +193,13 @@ const Studentgroup = (props) =>{
                                                 <option value="3">Two</option>
                                                 <option value="4">Three</option>
                                             </select> 
-                                        </Form>   
+                                        </Form>  
+
 
                                     )
+                                        :null
                                 }
+                                
 
                             </Col>
                             <Button 

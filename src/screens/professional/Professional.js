@@ -7,7 +7,8 @@ import {
     Button 
 } from "react-bootstrap";
 
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
+import { history } from '../../routes/Routes'
 import {
     Learnprofessional,
     Logo
@@ -17,14 +18,14 @@ const Professional = (props) => {
    const [workRole, setWorkrole]= useState('')
    const [industry, setIndustry]= useState('')
 
-   const history = useHistory();   
+//    const history = useHistory();   
    
     const onIndustry = e => {
         setIndustry(e.target.value)
     }
     const onProfessional = (e) =>{
         e.preventDefault();
-        history.push('/home')
+        history.push({pathname:'/home'});
         console.log(inputName,workRole,industry)
     }
  
@@ -32,10 +33,10 @@ const Professional = (props) => {
         <Col className="tl-bdy sign-tl-bdy">
             <div className="bdy-in">           
                 <Row >
-                    <Col xs={12} sm={6} md={6}  xl={7} className="text-center m-auto">
+                    <Col sm={6} md={6}  xl={7} className="text-center m-auto">
                         <Learnprofessional />
                     </Col>               
-                    <Col xs={12} sm={6} md={6} xl={5}   className="p-5" > 
+                    <Col sm={6} md={6}  xl={7}  className="p-5" > 
                         <Logo />
                         <Form className="professional-form p-3 m-2"> 
                             <h2 className="f1-19 m-0 text-center signup-header">Before you jump in</h2>
