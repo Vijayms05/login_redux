@@ -68,7 +68,7 @@ const Subscription = (props) =>{
             </Row>   
             <Row className="sub-search mt-4">   
                 <Col xs={12} md={6} lg={8} >   
-                    <h5 className="mb-2 mb-md-0 sub-header" style={{color:'#003866'}}>My Subscriptions</h5>    
+                    <h5 className="mb-2 mb-md-0 sub-header" style={{color:'#003866',paddingLeft:'15px !important'}}>My Subscriptions</h5>    
                 </Col> 
                 <Col xs={12} md={6} lg={4}>   
                     <Form.Group  className="w-90 search-box search-box-right">                        
@@ -79,7 +79,7 @@ const Subscription = (props) =>{
                             type="text"  
                             placeholder="Search My subscriptions" 
                             size="md"  
-                            className="search-input"
+                            className="search-input-right"
                         />                        
                     </Form.Group>                
                 </Col>

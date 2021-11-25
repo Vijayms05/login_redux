@@ -1,30 +1,45 @@
 import React, { useState, useEffect } from 'react'
 import { 
-    Col, 
-    Container, 
+    Col,      
     Row, 
     Form,
     Button 
 } from "react-bootstrap";
-
+import { message } from 'antd';
 // import { useHistory } from 'react-router-dom';
 import { history } from '../../routes/Routes'
 import {
     Learnprofessional,
     Logo
 } from '../../assets/images/index';
+import { validText } from '../../constant/Constant';
 const Professional = (props) => {
    const [inputName, setInputname]=useState('')
    const [workRole, setWorkrole]= useState('')
    const [industry, setIndustry]= useState('')
 
-//    const history = useHistory();   
+// const history = useHistory();   
+    useEffect(() => {
+        // validateName();
+        // validateWork();
+    }, [])
    
-    const onIndustry = e => {
-        setIndustry(e.target.value)
+    const validateName = ()=>{
+        if(!validText.test(inputName)){
+            message.error('Your Name is Invalid')
+        }else{
+         message.success('Your Name is Valid')
+       }
+    }
+    const validateWork = ()=>{
+        if(!validText.test(workRole)){
+            message.error('Your Name is Invalid')
+        }else{
+         message.success('Your Name is Valid')
+       }
     }
     const onProfessional = (e) =>{
-        e.preventDefault();
+        // e.preventDefault();
         history.push({pathname:'/home'});
         console.log(inputName,workRole,industry)
     }
@@ -36,7 +51,7 @@ const Professional = (props) => {
                     <Col sm={6} md={6}  xl={7} className="text-center m-auto">
                         <Learnprofessional />
                     </Col>               
-                    <Col sm={6} md={6}  xl={7}  className="p-5" > 
+                    <Col sm={6} md={6}  xl={5}  className="p-5" > 
                         <Logo />
                         <Form className="professional-form p-3 m-2"> 
                             <h2 className="f1-19 m-0 text-center signup-header">Before you jump in</h2>

@@ -47,7 +47,7 @@ const ChooseResult =(props)=>{
     //   setScore(0);
     // };
   return(  
-    <div className="tl-rt-qst d-grid m-auto">
+    <div className=" m-auto">{/*tl-rt-qst d-grid */}
         <div className="in-rt-qst">   
             <div className="qust-tit text-center">       
                 <h6>Q{data[currentQuestion].id}{" "}{data[currentQuestion].question}</h6>
@@ -106,7 +106,7 @@ const ChooseResult =(props)=>{
                         <FeedbackIcon /> Feed Back
                     </Button> 
                 </div>              
-                <div className="d-flex">
+                <div className="d-flex ms-2">
                     <Button className="nxt-btn">
                         Next
                         <CircleRight />

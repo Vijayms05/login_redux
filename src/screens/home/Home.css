@@ -242,7 +242,19 @@ body {
   background: none;
   border: 0;
   height: 43px;
-  padding-left: 35px;
+  padding-left: 42px !important;
+}
+.search-box .search-input::placeholder{
+  font-size: 16px;
+}
+.search-box .search-input-right::placeholder{
+  font-size: 16px;
+}
+.search-box .search-input-right {
+  background: none;
+  border: 0;
+  height: 43px;
+  padding-left: 15px !important;
 }
 .searchrole {
   position: absolute;

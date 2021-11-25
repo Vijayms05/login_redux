@@ -1,24 +1,29 @@
 import React, {useState} from 'react'
-import {  Container, Col, Row, Form, Card, ProgressBar, Table } from 'react-bootstrap'
+import {   
+    Col, 
+    Row, 
+    Form, 
+    Card, 
+    ProgressBar 
+} from 'react-bootstrap'
 import Button from '@restart/ui/esm/Button'
 import HorizontalCard from '../../component/cards/HorizontalCard'
  
 import { 
     SearchIcon, 
-    Billingrit,
-    NumbIcon, 
-    ScaleIcon, 
     PlaybtnIcon, 
     ShareIcon, 
     FeedbackIcon, 
     PrintIcon,
-    LeftArrow } from '../../assets/images/index'
-import { Link, useHistory} from 'react-router-dom'
+    LeftArrow 
+} from '../../assets/images/index'
+import { Link } from 'react-router-dom'
+import { history } from '../../routes/Routes';
 
 const SubscriptionList = () =>{
     const [filter, setFilter] = useState('')
     const progValue="25";
-    const history= useHistory();
+    // const history= useHistory();
     return(
         <div className="py-md-4 bill-rit">            
             <Row className="mb-4 mt-5 mt-md-0">
@@ -48,7 +53,7 @@ const SubscriptionList = () =>{
             </Row>                 
             <Row>
                 <Link className="back-a " to="/home"><LeftArrow /> {" "} Back to My Subscrtiptions</Link>
-                <Col sm={8} md={8} lg={8}>
+                <Col sm={6} md={8} lg={8}>
                     <HorizontalCard />                        
                     <h5 className="report-h5 mb-2 mt-4">Skill Building Status</h5>  
                     <div className="lft-skl-bldg">
@@ -67,14 +72,14 @@ const SubscriptionList = () =>{
                                 </div> 
                             </div>                                
                         </div>
-                        <div className="subs-list-box" onClick={()=> history.push('/test')}>
+                        <div className="subs-list-box" onClick={()=> history.push({pushname:'/test'})}>
                             <div className="in-sub-list-box">
                                 <div className="play-vid-subs">
                                     <PlaybtnIcon />
                                 </div>
                                 <div class="tit-subs"><h5>History</h5></div>
                             </div>                    
-                            <div>    
+                            <div className="sub-progress">    
                                 <p className="f3-13 mb-0">Progress</p>                    
                                 <div className="prog-bar-subs">
                                     <ProgressBar now={progValue} />
@@ -82,14 +87,14 @@ const SubscriptionList = () =>{
                                 </div> 
                             </div>
                         </div>
-                        <div className="subs-list-box" onClick={()=> history.push('/test')}>
+                        <div className="subs-list-box" onClick={()=> history.push({pushname:'/test'})}>
                             <div className="in-sub-list-box">
                                 <div className="play-vid-subs">
                                     <PlaybtnIcon />
                                 </div>
                                 <div class="tit-subs"><h5>Arts</h5></div>
                             </div>                    
-                            <div>                        
+                            <div className="sub-progress">                        
                                 <p className="f3-13 mb-0">Progress</p>    
                                 <div className="prog-bar-subs">
                                     <ProgressBar now={progValue} />
@@ -97,14 +102,14 @@ const SubscriptionList = () =>{
                                 </div> 
                             </div>                                
                         </div>
-                        <div className="subs-list-box" onClick={()=> history.push('/test')}>
+                        <div className="subs-list-box" onClick={()=> history.push({pushname:'/test'})}>
                             <div className="in-sub-list-box">
                                 <div className="play-vid-subs">
                                     <PlaybtnIcon />
                                 </div>
                                 <div class="tit-subs"><h5>Photography</h5></div>
                             </div>                    
-                            <div>                        
+                            <div className="sub-progress">                        
                                 <p className="f3-13 mb-0">Progress</p>    
                                 <div className="prog-bar-subs">
                                     <ProgressBar now={progValue} />
@@ -114,7 +119,7 @@ const SubscriptionList = () =>{
                         </div>
                     </div>
                 </Col>
-                <Col md={3} lg={3} className="mt-2 skill-smry"  >
+                <Col sm={6} md={3} lg={3} className="mt-2 skill-smry"  >
                     <Card style={{ width: '16rem' }} className="mb-3 base-card-report">                           
                         <Card.Body>
                             <Card.Title className="skil-sum-tit mb-2 mt-3"

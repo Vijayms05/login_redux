@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   SiginImage,
   Logo, 
@@ -8,14 +7,20 @@ import {
   PasswordIcon,
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
-
 import { Link } from 'react-router-dom';
-import { Row, Col, Form, Button} from 'react-bootstrap';
+import { 
+  Row, 
+  Col, 
+  Form, 
+  Button
+} from 'react-bootstrap';
 import { validEmail, validPassword } from '../../constant/Constant';
 import { message } from 'antd';
-import { history } from '../../routes/Routes'
+import { history } from '../../routes/Routes';
+import { Hidden } from '@material-ui/core';
 
 const Login = (props) => {
+  const [user,setUser]=useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false); 
@@ -74,7 +79,11 @@ const Login = (props) => {
     // e.preventDefault();
     // validateEmail();
     // validatePassword();
-    
+    if( user === "user" || user === "organizationuser"){
+        message.success(`Welcome to ${user}`)
+    }else{
+      message.error('Please select User or  Organization User')
+    }
     if (!email || !password ) {       
       message.error('Please fill all the fields')        
     }else {    
@@ -91,10 +100,10 @@ const Login = (props) => {
     <div className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
         <Row>
-          <Col  sm={6} md={6}  xl={7}  className="text-center m-auto">
+          <Col  sm={6} md={6}  xl={7}   className="text-center m-auto">
             <SiginImage />
           </Col>
-          <Col  sm={6} md={6} xl={5}  className="p-3 mt-4 login-wrapper">
+          <Col  sm={6} md={6} xl={5} className="p-3 mt-4 login-wrapper">
             <Logo  />
             <Form className="sign-form p-4">
               <h2 className="f1-19 m-0 text-center login-header">
@@ -129,19 +138,32 @@ const Login = (props) => {
                   { showPassword ? <EyeIconHid /> : <EyeIcon />}
                 </Button>
               </Form.Group>              
-              <Row className="mb-4">
+              <Row>
                 <Col>
-                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Admin" />
+                  <Form.Group className="mb-3" >
+                    <Form.Check                       
+                      label="User"
+                      value="user"
+                      type="radio"
+                      id="formBasicCheckbox"
+                      checked={user === "user" ? true:false} 
+                      onClick={e =>setUser("user")}
+                    />
                   </Form.Group>
                 </Col>
                 <Col>
                   <Form.Group className="mb-3" controlId="formBasicCheckbox1">
-                    <Form.Check type="checkbox" label="Organisational" />
+                    <Form.Check 
+                      label="Organizational User"
+                      value="organizationuser"
+                      type="radio"
+                      id="formBasicCheckbox1"
+                      checked={user === "organizationuser" ? true: false} 
+                      onClick={e =>setUser("organizationuser")}
+                    />
                   </Form.Group>
                 </Col>
-              </Row>
-             
+              </Row>             
               <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                 <Form.Label className="reset-password">
                   <Link to="/resetpassword">Forget Password?</Link> 

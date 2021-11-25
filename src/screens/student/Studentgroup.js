@@ -20,12 +20,14 @@ import { validText } from '../../constant/Constant';
 
 
 const Studentgroup = (props) =>{
+    const { validateName } = props;
+    
     const [inputName, setInputname] = useState('')   
     const [student, setStudent] = useState(false)  
 
     const [branch, setBranch]= useState('')
     const [collegeName, setCollegeName] = useState('')
-    const [ noofuniversity, setNoofuniversity]= useState('')
+    const [noofuniversity, setNoofuniversity]= useState('')
     const [collegeYear, setCollegeYear]= useState(' ')
     const [stream, setStream] = useState('')
     
@@ -34,8 +36,15 @@ const Studentgroup = (props) =>{
     const [standard, setStandard]= useState('')
 
     // const history= useHistory();
-   const validateName = () =>{
-    if (!validText.test(inputName)) {      
+//    const validateName = () =>{
+//     if (!validText.test(inputName)) {      
+//         message.error('Your Name is Invalid')
+//      }else{
+//       message.success('Your Name is Valid')
+//     }
+//    }
+   const validateCollege = () =>{
+    if (!validText.test(collegeName)) {      
         message.error('Your Name is Invalid')
      }else{
       message.success('Your Name is Valid')
@@ -89,6 +98,7 @@ const Studentgroup = (props) =>{
                                 <Col className="mt-3" >  
                                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                         <Form.Check 
+                                       
                                             type="checkbox" 
                                             label="School"  
                                             value="school"
