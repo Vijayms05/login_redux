@@ -131,7 +131,7 @@ const Signup = (props) => {
 
   return (
    
-    <Container fluid>{/* className="tl-bdy sign-tl-bdy"*/}
+    <div className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
           <Row>
             <Col sm={6} md={6} lg={6} className="text-center m-auto">
@@ -217,7 +217,7 @@ const Signup = (props) => {
             </Col>
           </Row>
         </div>
-      </Container>    
+      </div>    
    
   );
 };

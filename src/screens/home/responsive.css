@@ -476,6 +476,9 @@
     margin: 0 auto;
     padding: 15px !important;
   }
+  .flex-wrap-inherit{
+    flex-wrap: inherit !important ;
+  }
   .tl-skl-bldg {
     display: flex;
   }
