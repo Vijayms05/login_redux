@@ -94,11 +94,10 @@ const Studentgroup = (props) =>{
                             <p style={{color:'#4C5857',fontSize:'17px'}}>
                                 Are you school student or college student?
                             </p>                       
-                            <Row>
+                            <Row className="d-sm-flex  flex-wrap-inherit">
                                 <Col className="mt-3" >  
-                                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                        <Form.Check 
-                                       
+                                    <Form.Group className="mb-2" controlId="formBasicCheckbox">
+                                        <Form.Check                                        
                                             type="checkbox" 
                                             label="School"  
                                             value="school"
@@ -106,13 +105,13 @@ const Studentgroup = (props) =>{
                                             onClick={e =>setStudent("school")}  />
                                     </Form.Group>                  
                                 </Col>
-                                <Col className="mt-1" >
-                                    <Form.Group className="mb-3" controlId="formBasicCheckbox ">
+                                <Col className="mt-3" >
+                                    <Form.Group className="mb-2" controlId="formBasicCheckbox ">
                                         <Form.Check 
                                             type="checkbox" 
                                             label="College/Intermediate  
                                             (plus one/ plus two)" 
-                                            style={{width:'200px',height:'50px'}}
+                                            style={{width:'160px',height:'60px'}}
                                             value="college"
                                             checked={student === "college" ? true: false} 
                                             onClick={e =>setStudent("college")} 

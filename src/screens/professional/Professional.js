@@ -45,8 +45,8 @@ const Professional = (props) => {
     }
  
     return(
-        <Col className="tl-bdy sign-tl-bdy">
-            <div className="bdy-in">           
+        <div className="tl-bdy sign-tl-bdy">
+            <div className="bdy-in">         
                 <Row >
                     <Col sm={6} md={6}  xl={7} className="text-center m-auto">
                         <Learnprofessional />
@@ -92,7 +92,7 @@ const Professional = (props) => {
                     </Col>
                 </Row>
             </div>
-        </Col>
+        </div>
     );
 }
 export default Professional

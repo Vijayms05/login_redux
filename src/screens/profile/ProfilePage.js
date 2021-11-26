@@ -191,9 +191,9 @@ const ProfilePage = (props) => {
 
     return (
         <>            
-            <Col className="py-md-4 pro-rit ms-5 mt-4 mb-3  ">  
+            <Col className="py-md-4 pro-rit mt-0 mb-3 ps-4">  
                 {/* {isLoading && <Loader />} */}
-                <h3 className="mb-2 mt-5 skill-profile" style={{color:'#003866',fontSize:'30px'}}>Profile</h3>
+                <h3 className="mb-2 mt-0 skill-profile" style={{color:'#003866',fontSize:'30px'}}>Profile</h3>
                 <Row className="mt-2 mb-3">
                     <Col sm={4} className='p-0'>
                         <ProgressBar now={60} className="mb-3"/>                        
@@ -208,7 +208,7 @@ const ProfilePage = (props) => {
                             <Col sm={1}  xs  className="mt-2 mb-2">
                                 <AvatorProfile />
                             </Col>
-                            <Col sm={4}  xs  className="my-auto ms-3 mb-2 text-start">
+                            <Col sm={4}  xs  className="my-auto mb-2 text-start">
                                 <label className="title  " 
                                 style={{color:'#192A3E',fontWeight:'bold',fontSize:'18px'}}>
                                     Hayat Tamboli
@@ -217,14 +217,14 @@ const ProfilePage = (props) => {
                             </Col>
                             <Col sm={3}  xs  className=" mb-2 mt-4 ">
                                 <button className="profile-cardbutton btn" 
-                                style={{color:'#FFFFFF',borderRadius:'10px'}} 
+                                style={{color:'#FFFFFF',borderRadius:'10px',width:'100px !important'}} 
                                 onClick={handleShow}>
                                     Edit Avatar
                                 </button>
                             </Col>
                             <Col sm={3}  xs className=" mb-2 mt-4 ">
                                 <button className="profile-cardbutton profile-cardbutton-change btn"
-                                 style={{color:'#FFFFFF',borderRadius:'10px',
+                                 style={{color:'#FFFFFF',borderRadius:'10px',width:'150px !important',
                                  background:'#298ee0'}} onClick={handleShowPassword}>
                                     Change Password
                                 </button>

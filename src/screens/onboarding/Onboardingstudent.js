@@ -98,7 +98,7 @@ const Onboardingstudent = (props) =>{
               </Button> 
             </Col>
           </Col>  
-          <Col className="p-3 text-center m-auto  ">
+          <Col className="p-3 text-center m-auto ">
             <Readingbook />                       
           </Col>
         </div>                   

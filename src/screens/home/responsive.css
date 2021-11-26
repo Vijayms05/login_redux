@@ -23,7 +23,7 @@
     border:2px solid dodgerblue;
   }
   .skill-profile{
-    width: 478px;
+    /* width: 478px; */
     height: 84px;
     left: 18px;
     top: 160px;
@@ -254,8 +254,6 @@
   .profile-cardbutton{
     width: 123px;
     height: 42px;
- 
-
     background: #298EE0;
     border-radius: 12px;
   }
@@ -391,6 +389,18 @@
 @media (min-width:768px)and(max-width: 992px) {
   .hori-image{
     display: none;
+  }
+  .profile-cardbutton{
+    width: 123px;
+    height: 42px;
+    background: #298EE0;
+    border-radius: 12px;
+  }
+  .profile-cardbutton-change{
+    width: 174px;
+    height: 42px;
+    background: #298EE0;
+    border-radius: 12px;    
   }
 }
 @media (max-width: 992px) {

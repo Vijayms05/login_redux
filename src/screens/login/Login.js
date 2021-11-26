@@ -17,7 +17,7 @@ import {
 import { validEmail, validPassword } from '../../constant/Constant';
 import { message } from 'antd';
 import { history } from '../../routes/Routes';
-import { Hidden } from '@material-ui/core';
+import axios from '../../server/api'
 
 const Login = (props) => {
   const [user,setUser]=useState('');
@@ -34,6 +34,13 @@ const Login = (props) => {
   // const status = validLogin && invalidLogin;
 
   useEffect(() => {
+    // axios.get('/')
+    // .then(res =>{
+    //   console.log(res.data)
+    // })
+    // .catch( error => {
+    //   console.log(error);
+    // })
   //  validateEmail();
   //   validatePassword();
      if (validLogin) {      
@@ -95,6 +102,7 @@ const Login = (props) => {
     }
     history.push({pathname:'/onboard'}); 
     console.log(email,password);
+    
   };
   return (
     <div className="tl-bdy sign-tl-bdy">

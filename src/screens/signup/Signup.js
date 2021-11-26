@@ -23,6 +23,7 @@ import {
 import './style.css';
 import './responsive.css'
 import { validEmail,validPassword } from '../../constant/Constant'
+import axios from '../../server/api';
 
 const Signup = (props) => {
   const [email,setEmail]= useState('')
@@ -61,6 +62,15 @@ const Signup = (props) => {
   }  
 
   useEffect(()=>{
+
+    // axios.post('/signup')
+    // .then(res =>{          
+    //   console.log(res.data);
+    // })
+    // .catch(error =>{
+    //   console.log(error);
+    // });    
+      
     // validateEmail();
     // validatePassword();
     // validateRePassword();
@@ -103,7 +113,7 @@ const Signup = (props) => {
   }
 
   const onSubmit = (e) =>{
-    // e.preventDefault();  
+    e.preventDefault();      
     
     // validateEmail();
     // validatePassword();
@@ -125,8 +135,9 @@ const Signup = (props) => {
       };     
       dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});
     }
-    console.log(email,password,repassword,termscondition)
-    history.push({pathname:'/'});
+    console.log(email,password,repassword,termscondition);
+ 
+    // history.push({pathname:'/'});
   }  
 
   return (
@@ -193,17 +204,17 @@ const Signup = (props) => {
                 </Form.Group>
                 {/* {pwdError && <p style={{color:'red',fontSize:'15px',textAlign:'center'}}>Your password is invalid</p>} */}
                 <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
-                    <Form.Check 
-                      className="float-start me-2" 
-                      type="checkbox"
-                      checked={termscondition}
-                      onClick={() => 
-                        setTermsCondition(!termscondition)                       
-                      }
-                    />
-                    <Form.Label className="terms-cond-text">
-                      I agree Skilltally’s <Link>Privacy Policy</Link> 	&#38; <Link>Terms of Services</Link>  
-                    </Form.Label>
+                  <Form.Check 
+                    className="float-start me-2" 
+                    type="checkbox"
+                    checked={termscondition}
+                    onClick={() => 
+                      setTermsCondition(!termscondition)                       
+                    }
+                  />
+                  <Form.Label className="terms-cond-text">
+                    I agree Skilltally’s <Link>Privacy Policy</Link> 	&#38; <Link>Terms of Services</Link>  
+                  </Form.Label>
                 </Form.Group>
                   <Button 
                     className="submit-btn mt-3"
