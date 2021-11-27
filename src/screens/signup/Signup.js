@@ -4,12 +4,14 @@ import { useDispatch,useSelector } from 'react-redux';
 import { history } from '../../routes/Routes'
 import { message } from 'antd';
 // import { toast } from 'react-toastify';
+import axios from 'axios'
 import {
   SiginImage,
   Logo, 
   EmailIcon,
   PasswordIcon,
-  EyeIcon, EyeIconHid
+  EyeIcon, 
+  EyeIconHid
 } from '../../assets/images/index';
 
 import {Link} from 'react-router-dom';
@@ -23,9 +25,12 @@ import {
 import './style.css';
 import './responsive.css'
 import { validEmail,validPassword } from '../../constant/Constant'
-import axios from '../../server/api';
+
+// const baseURL = "https://jsonplaceholder.typicode.com/posts";
+// const baseURL ="http://localhost:3000/signup"
 
 const Signup = (props) => {
+  const [post,setPost]=useState({title:'',body:''})
   const [email,setEmail]= useState('')
   const [password, setPassword] = useState('')
   const [repassword, setRepassword]= useState('')  
@@ -61,16 +66,27 @@ const Signup = (props) => {
     setRePaswordShow(!repaswordShow);
   }  
 
-  useEffect(()=>{
-
-    // axios.post('/signup')
-    // .then(res =>{          
-    //   console.log(res.data);
+  useEffect(()=>{ 
+    // axios.get(baseURL).then((response)=>{
+    //   setPost(response.data)
+    //   console.log(response.data)
+    // });
+    // axios.post(baseURL,{
+    //   title:"Hello World",
+    //   body:"This is a new post."
+    // }).then((response)=>{
+    //   setPost(response.data)
+    //   console.log(response.data)
     // })
-    // .catch(error =>{
-    //   console.log(error);
-    // });    
-      
+    // axios.post(baseURL,{
+    //  email:email,
+    //  password:password,
+    //  repassword:repassword,
+    //  termscondition:termscondition
+    // }).then((response)=>{
+    //   setPost(response.data)
+    //   console.log(response.data)
+    // })
     // validateEmail();
     // validatePassword();
     // validateRePassword();
@@ -113,8 +129,8 @@ const Signup = (props) => {
   }
 
   const onSubmit = (e) =>{
-    e.preventDefault();      
-    
+    e.preventDefault(); 
+
     // validateEmail();
     // validatePassword();
     // validateRePassword();
@@ -139,7 +155,18 @@ const Signup = (props) => {
  
     // history.push({pathname:'/'});
   }  
+  // function createPost() {
+  //   axios
+  //     .post(baseURL, {
+  //       title: "Hello World!",
+  //       body: "This is a new post."
+  //     })
+  //     .then((response) => {
+  //       setPost(response.data);
+  //     });
+  // }
 
+  // if (!post) return "No post!"
   return (
    
     <div className="tl-bdy sign-tl-bdy">
@@ -227,9 +254,12 @@ const Signup = (props) => {
               </Form>
             </Col>
           </Row>
+          {/* <div>
+            <h1>{post.title}</h1>
+            <p>{post.body}</p> 
+          </div>           */}
         </div>
-      </div>    
-   
+      </div>       
   );
 };
 

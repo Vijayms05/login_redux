@@ -251,8 +251,16 @@
   .rec-box .rec-ply-icon {
     margin-right: 7px !important;
   }
+  
+ 
+
+}
+@media (max-width: 576px) { 
+  .sign-form, .terms-cond-text{
+    width:350px !important;
+  }
   .profile-cardbutton{
-    width: 123px;
+    width: 174px;
     height: 42px;
     background: #298EE0;
     border-radius: 12px;
@@ -263,7 +271,6 @@
     background: #298EE0;
     border-radius: 12px;    
   }
-
 }
 
 @media (max-width: 767px) {

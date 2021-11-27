@@ -17,7 +17,7 @@ import {
 import { validEmail, validPassword } from '../../constant/Constant';
 import { message } from 'antd';
 import { history } from '../../routes/Routes';
-import axios from '../../server/api'
+import axios from 'axios'
 
 const Login = (props) => {
   const [user,setUser]=useState('');
@@ -34,13 +34,11 @@ const Login = (props) => {
   // const status = validLogin && invalidLogin;
 
   useEffect(() => {
-    // axios.get('/')
-    // .then(res =>{
-    //   console.log(res.data)
-    // })
-    // .catch( error => {
-    //   console.log(error);
-    // })
+    axios.get('http://localhost:3000/')
+    .then(request=>{
+      console.log(request.data)
+    })
+    
   //  validateEmail();
   //   validatePassword();
      if (validLogin) {      
@@ -83,6 +81,10 @@ const Login = (props) => {
   }
 
   const onLogin = (e) => {    
+   
+    // .catch(error =>{
+    //   console.log(error)
+    // })
     // e.preventDefault();
     // validateEmail();
     // validatePassword();
@@ -100,7 +102,7 @@ const Login = (props) => {
       };
       dispatch({ type: 'LOGIN_REQUEST', login: loginDetails });
     }
-    history.push({pathname:'/onboard'}); 
+    // history.push({pathname:'/onboard'}); 
     console.log(email,password);
     
   };
@@ -111,7 +113,7 @@ const Login = (props) => {
           <Col  sm={6} md={6}  xl={7}   className="text-center m-auto">
             <SiginImage />
           </Col>
-          <Col  sm={6} md={6} xl={5} className="p-3 mt-4 login-wrapper">
+          <Col  sm={6} md={6} xl={5} className="p-2 mt-2 login-wrapper">
             <Logo  />
             <Form className="sign-form p-4">
               <h2 className="f1-19 m-0 text-center login-header">
