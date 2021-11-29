@@ -21,7 +21,7 @@ import {
     EyeIconHid,
     EyeIcon
 } from '../../assets/images/index';
-import { MobileRegex } from '../../constant/Constant';
+import { MobileRegex } from '../../service/Constant';
 
 import modalImage from '../../assets/images/modalImage.png'
 import { IndeterminateCheckBoxOutlined } from '@material-ui/icons';
@@ -201,13 +201,13 @@ const ProfilePage = (props) => {
                     <label>60% Complete</label>
                 </Col>
             </Row> 
-            <Col xs={12} >              
+            <Col xs={12} sm={12} >              
                 <Card.Body className="horizontal-card mb-4 text-center">
                     <Row>
                         <Col sm={1}  xs  className="mt-2 mb-2">
                             <AvatorProfile />
                         </Col>
-                        <Col sm={4}  xs  className="my-auto mb-2 text-start">
+                        <Col sm={3}  xs  className="my-auto mb-2 ps-4 text-start">
                             <label className="title  " 
                             style={{color:'#192A3E',fontWeight:'bold',fontSize:'18px'}}>
                                 Hayat Tamboli
@@ -216,14 +216,15 @@ const ProfilePage = (props) => {
                         </Col>
                         <Col sm={3}  xs  className=" mb-2 mt-4 ">
                             <button className="profile-cardbutton btn" 
-                            style={{color:'#FFFFFF',borderRadius:'10px',width:'100px !important'}} 
+                            style={{color:'#FFFFFF',borderRadius:'10px',width:'170px !important'}} 
                             onClick={handleShow}>
                                 Edit Avatar
                             </button>
                         </Col>
                         <Col sm={3}  xs className=" mb-2 mt-4 ">
-                            <button className="profile-cardbutton profile-cardbutton-change btn"
-                                style={{color:'#FFFFFF',borderRadius:'10px',width:'150px !important',
+                            <button className="profile-cardbutton btn"
+                                style={{color:'#FFFFFF',borderRadius:'10px',
+                                width:'170px !important',
                                 background:'#298ee0'}} onClick={handleShowPassword}>
                                 Change Password
                             </button>

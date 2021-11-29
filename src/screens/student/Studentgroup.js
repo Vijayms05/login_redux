@@ -14,7 +14,7 @@ import {
     Readingbooks,
     Logo
 } from '../../assets/images/index';
-import { validText } from '../../constant/Constant';
+import { validText } from '../../service/Constant';
 // import Schoolstudent from './Schoolstudent';
 // import Collegegroup from './Collegegroup';
 
@@ -43,13 +43,13 @@ const Studentgroup = (props) =>{
 //       message.success('Your Name is Valid')
 //     }
 //    }
-   const validateCollege = () =>{
-    if (!validText.test(collegeName)) {      
-        message.error('Your Name is Invalid')
-     }else{
-      message.success('Your Name is Valid')
-    }
-   }
+//    const validateCollege = () =>{
+//     if (!validText.test(collegeName)) {      
+//         message.error('Your Name is Invalid')
+//      }else{
+//       message.success('Your Name is Valid')
+//     }
+//    }
     const onName = (e)=>{       
         setInputname(e.target.value);       
     }    

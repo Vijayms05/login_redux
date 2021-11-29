@@ -7,7 +7,7 @@ import {
   PasswordIcon,
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
-import { validEmail } from '../../constant/Constant';
+import { validEmail } from '../../service/Constant';
 import {Link, useHistory} from 'react-router-dom';
 import { 
   Row, 
@@ -27,25 +27,25 @@ const ResetPassword = (props) => {
     setEmail(e.target.value);          
   };
 
-  const validateEmail = ()=>{
-    if(!validEmail.text(email)){
-      message.error('Your Forget password Mail Id is Invalid')      
-    }else{
-      if(props.email === email) {        
-        message.success('Your Forget password Mail Id is Verified')
-      }else{
-        message.error('Your Forget password Mail Id is not same')
-    }
-    }   
-  }
+  // const validateEmail = ()=>{
+  //   if(!validEmail.text(email)){
+  //     message.error('Your Forget password Mail Id is Invalid')      
+  //   }else{
+  //     if(props.email === email) {        
+  //       message.success('Your Forget password Mail Id is Verified')
+  //     }else{
+  //       message.error('Your Forget password Mail Id is not same')
+  //   }
+  //   }   
+  // }
  
   const onForgetPassword=(e)=>{
     // e.preventDefault();
     setEmail('')
     if(!email){
-      message.error("Please fill the field");
+      // message.error("Please fill the field");
     }
-    message.success('Forget Password is Successfully verified')
+    // message.success('Forget Password is Successfully verified')
     console.log(email)
     history.push('/onboard');
   }

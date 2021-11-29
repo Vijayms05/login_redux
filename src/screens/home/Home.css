@@ -543,6 +543,9 @@ body {
   text-decoration: none;
   height: 31px;
 }
+/* .loginadmin{
+  border:1px solid rgb(51, 49, 49);
+} */
 
 .tit-cert-box td:first-child {
   color: #fff;
@@ -1004,7 +1007,7 @@ body {
   border-radius: 12px;
 }
 .horizontal-card{  
-  width: 80%; 
+  width: 95%; 
   background: #FFFFFF;
   box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
   border-radius: 25.3668px;
@@ -1125,7 +1128,6 @@ body {
 .stud-form-rad input[type="radio"]:checked,
 [type="radio"]:not(:checked) {
   position: absolute;
-  left: -9999px;
 }
 .stud-form-rad input[type="radio"]:checked + label,
 .stud-form-rad input[type="radio"]:not(:checked) + label {
@@ -1235,11 +1237,9 @@ body {
   width: 80px;
   font-size: 16px;
 }
-
 .value {
   font-size: 25px;
 }
-
 .testIntro {
   height: 100vh;
 }
@@ -1255,7 +1255,6 @@ body {
   background: #4dd188;
   border-radius: 50px;
 }
-
 .micro-vid {
   display: flex;
   justify-content: center;

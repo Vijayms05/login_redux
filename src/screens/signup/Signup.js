@@ -24,13 +24,19 @@ import {
 } from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
-import { validEmail,validPassword } from '../../constant/Constant'
+import { validEmail,validPassword,postItem,getItem } from '../../service/Constant'
 
-// const baseURL = "https://jsonplaceholder.typicode.com/posts";
-// const baseURL ="http://localhost:3000/signup"
+
 
 const Signup = (props) => {
-  const [post,setPost]=useState({title:'',body:''})
+  // const [postData, setPostData]=useState({
+  //   dataEmail:'',
+  //   dataPassword:'',
+  //   dataRePassword:'',
+  //   dataTermscondtion:false,
+  // })
+  const [posts,setPosts]=useState([]);
+  const [post,setPost]=useState({id:'',userId:'',title:'',body:''});
   const [email,setEmail]= useState('')
   const [password, setPassword] = useState('')
   const [repassword, setRepassword]= useState('')  
@@ -67,26 +73,22 @@ const Signup = (props) => {
   }  
 
   useEffect(()=>{ 
-    // axios.get(baseURL).then((response)=>{
-    //   setPost(response.data)
-    //   console.log(response.data)
+    postItem();
+    getItem();
+    // axios.get(baseURL).then((res)=>{     
+    //   setPost(res.data)     
+    //   console.log(res.data)
     // });
-    // axios.post(baseURL,{
-    //   title:"Hello World",
-    //   body:"This is a new post."
-    // }).then((response)=>{
-    //   setPost(response.data)
-    //   console.log(response.data)
-    // })
-    // axios.post(baseURL,{
-    //  email:email,
-    //  password:password,
-    //  repassword:repassword,
-    //  termscondition:termscondition
-    // }).then((response)=>{
-    //   setPost(response.data)
-    //   console.log(response.data)
-    // })
+    // dummyApi.post(baseURL,{
+    //   userId:11,
+    //   id:101,
+    //   title:'hello world',
+    //   body: `cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta 
+    //   in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut`
+    // }).then((res)=>{     
+    //   setPost(res.data)     
+    //   console.log(res.data)
+    // });
     // validateEmail();
     // validatePassword();
     // validateRePassword();
@@ -99,34 +101,34 @@ const Signup = (props) => {
     }
   },[validSignup, invalidSignup])
 
-  const validateEmail = ()=>{
-    if(!validEmail.test(email)){
-      message.error('Your Email is Invalid')
-    }else{
-     message.success('Your Email is valid')
-    }
-  }
-  const validatePassword = ()=>{
-    if (!validPassword.test(password)) {      
-      message.error('Your password is Invalid')
-   }else{
-    message.success('Your password is valid')
-   }
-  }
-  const validateRePassword = ()=>{
-    if(password !== repassword){
-      message.error('Please check the  Conform Password')
-    }else{
-      message.success('Your conform password is valid')
-    }
-  }
-   const validationTerms = ()=>{
-    if(termscondition === false){
-      message.error("please accept the terms and condition")
-    }else{
-      message.success("verify the terms and condition")      
-    }
-  }
+  // const validateEmail = ()=>{
+  //   if(!validEmail.test(email)){
+  //     message.error('Your Email is Invalid')
+  //   }else{
+  //    message.success('Your Email is valid')
+  //   }
+  // }
+  // const validatePassword = ()=>{
+  //   if (!validPassword.test(password)) {      
+  //     message.error('Your password is Invalid')
+  //  }else{
+  //   message.success('Your password is valid')
+  //  }
+  // }
+  // const validateRePassword = ()=>{
+  //   if(password !== repassword){
+  //     message.error('Please check the  Conform Password')
+  //   }else{
+  //     message.success('Your conform password is valid')
+  //   }
+  // }
+  //  const validationTerms = ()=>{
+  //   if(termscondition === false){
+  //     message.error("please accept the terms and condition")
+  //   }else{
+  //     message.success("verify the terms and condition")      
+  //   }
+  // }
 
   const onSubmit = (e) =>{
     e.preventDefault(); 
@@ -137,10 +139,10 @@ const Signup = (props) => {
     // validationTerms();
     
     if (!email || !password || !repassword ) {       
-      message.error('Please fill all the fields')        
+      // message.error('Please fill all the fields')        
     }   
     else if (termscondition === false) {      
-      message.error('Please accept the Terms & Conditions and Privacy Policy')
+      // message.error('Please accept the Terms & Conditions and Privacy Policy')
     } 
     else {
       const signupDetailsuser = {
@@ -153,7 +155,7 @@ const Signup = (props) => {
     }
     console.log(email,password,repassword,termscondition);
  
-    // history.push({pathname:'/'});
+    history.push({pathname:'/'});
   }  
   // function createPost() {
   //   axios
@@ -254,10 +256,26 @@ const Signup = (props) => {
               </Form>
             </Col>
           </Row>
-          {/* <div>
-            <h1>{post.title}</h1>
-            <p>{post.body}</p> 
-          </div>           */}
+          {posts.map((items)=>{
+            return(
+              <div>                
+                <p key={items}>
+                  {items.id}
+                </p>
+                <p>{items.userId}</p>
+                <p>{items.title}</p>  
+                <p>{items.body}</p>                                                              
+              </div>
+            )
+          })}
+          <div>                  
+            <p>
+              {post.id}
+            </p>
+            <p>{post.userId}</p>
+            <p>{post.title}</p>  
+            <p>{post.body}</p>                                                              
+          </div>          
         </div>
       </div>       
   );

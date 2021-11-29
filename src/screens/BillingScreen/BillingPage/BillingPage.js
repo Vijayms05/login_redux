@@ -4,7 +4,7 @@ import Button from '@restart/ui/esm/Button'
 import { SearchIcon } from '../../../assets/images'
 import { Link } from 'react-router-dom'
 
-const BillingPage = () =>{
+const BillingPage = (props) =>{
     return(
         <div className="py-md-4 bill-rit">
             <Row className="mb-4 mt-4">

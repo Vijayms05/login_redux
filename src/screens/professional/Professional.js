@@ -12,7 +12,7 @@ import {
     Learnprofessional,
     Logo
 } from '../../assets/images/index';
-import { validText } from '../../constant/Constant';
+import { validText } from '../../service/Constant';
 const Professional = (props) => {
    const [inputName, setInputname]=useState('')
    const [workRole, setWorkrole]= useState('')
@@ -24,20 +24,20 @@ const Professional = (props) => {
         // validateWork();
     }, [])
    
-    const validateName = ()=>{
-        if(!validText.test(inputName)){
-            message.error('Your Name is Invalid')
-        }else{
-         message.success('Your Name is Valid')
-       }
-    }
-    const validateWork = ()=>{
-        if(!validText.test(workRole)){
-            message.error('Your Name is Invalid')
-        }else{
-         message.success('Your Name is Valid')
-       }
-    }
+    // const validateName = ()=>{
+    //     if(!validText.test(inputName)){
+    //         message.error('Your Name is Invalid')
+    //     }else{
+    //      message.success('Your Name is Valid')
+    //    }
+    // }
+    // const validateWork = ()=>{
+    //     if(!validText.test(workRole)){
+    //         message.error('Your Name is Invalid')
+    //     }else{
+    //      message.success('Your Name is Valid')
+    //    }
+    // }
     const onProfessional = (e) =>{
         // e.preventDefault();
         history.push({pathname:'/home'});

@@ -13,7 +13,7 @@ import {
     Logo
 } from '../../assets/images/index';
 import { message } from 'antd'
-import { validText } from '../../constant/Constant';
+import { validText } from '../../service/Constant';
 
 const Schoolstudent = (props) => {
     const {schoolName, stream, standard,setSchoolName,

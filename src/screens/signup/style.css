@@ -97,7 +97,7 @@
 }
 .stud-prof .form-check-input[type="radio"] {
   border-radius: 9px !important;
-  border: 3px solid rgb(116 171 253);
+  border: 3px solid rgb(116 171 253); 
 }
 .stud-prof .form-check-input {
   border-radius: 9px;

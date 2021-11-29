@@ -46,6 +46,7 @@ import Audioplayer from '../component/dummyquestion/audioAndvideos/Audioplayer'
 // import Profile from '../component/sidebarpage1/profile/Profile';
 import ResultPage from '../screens/TestScreen/ResultPage';
 
+// import DummyPost from '../dummy/DummyPost';
 
 export const history = createBrowserHistory();
 
@@ -54,6 +55,8 @@ export const history = createBrowserHistory();
         <Router history={history}>
           <React.Fragment>
             <Switch>
+              {/* Dummy */}
+              {/* <Route  path="/" component={DummyPost} /> */}
               <Route exact path="/" component={Login} />
               <Route  path="/signup" component={Signup} />
               

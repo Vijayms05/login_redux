@@ -26,16 +26,15 @@ const Onboardingstudent = (props) =>{
   const history = useHistory();
   
   const onBoard = (e) =>{
-      e.preventDefault();  
+      // e.preventDefault();  
       if(student === 'student')  {
         history.push('/student')
-        message.success('Welcome to Student Page')
+        // message.success('Welcome to Student Page')
       }else if(student === 'professional'){ 
-        history.push('/professional')
-        message.success('Welcome to Professional Page')
+        history.push('/professional');
+        // message.success('Welcome to Professional Page')
       }  
       console.log(student)
-
   }
     return(
       <div className="student-prof text-center">      
@@ -52,8 +51,8 @@ const Onboardingstudent = (props) =>{
                 <Card onClick={e =>setStudent("student")} className="top-stud-proof mb-2">{/*className="top-stud-proof"*/}
                   <Card.Body className="stud-prof auto">{/*className="stud-prof" */}
                     <FrameLogo />
-                    <Card.Title className='mt-2 ms-1 onboarding-title text-start' style={{color:'#0b171b'}}>Student</Card.Title>
-                    <Card.Text className="mt-1 ms-1 onboarding-text text-start">
+                    <Card.Title className='mt-2 ps-1 onboarding-title text-start' style={{color:'#0b171b'}}>Student</Card.Title>
+                    <Card.Text className="mt-1 ps-1 onboarding-text text-start">
                       Use our syllabus based practice tests to get ahead of your class
                     </Card.Text>   
                     <Form>
@@ -71,10 +70,10 @@ const Onboardingstudent = (props) =>{
                 <Card onClick={e=>setStudent("professional")} className="top-stud-proof mb-2" >
                   <Card.Body className="stud-prof">
                     <FrameOneLogo />
-                    <Card.Title className='mt-2 ms-1  onboarding-title text-start' style={{color:'#0b171b'}}>
+                    <Card.Title className='mt-2 ps-1 onboarding-title text-start' style={{color:'#0b171b'}}>
                       Professional
                     </Card.Title>
-                    <Card.Text className="mt-1 ms-1 onboarding-text text-start">
+                    <Card.Text className="mt-1 ps-1 onboarding-text text-start">
                       Use our skill-certification tests to measure where you stand
                     </Card.Text>
                     <Form>
