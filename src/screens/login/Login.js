@@ -17,94 +17,75 @@ import {
 import { validEmail, validPassword } from '../../service/Constant';
 import { message } from 'antd';
 import { history } from '../../routes/Routes';
-import axios from 'axios'
-// import dummyApi from '../../service/api';
+import axios from 'axios';
 
-// const baseURL = 'http://localhost:3000/posts/'
-const Login = (props) => {
+const Login = (props) => {  
   const [user,setUser]=useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false); 
+  
+  const [emailErr, setEmailErr]=useState(null)
+  const [passwordErr, setPasswordErr]=useState(null)
+  const [userErr, setUserErr]=useState(null)
 
   const dispatch = useDispatch();
   // const history =useHistory();
 
   const validLogin = useSelector(state => state.loginState.login);
   const invalidLogin = useSelector(state => state.loginState.error);
-
-  const [post, setPost] = useState({
-    title: '',author: '',id:null
-  });
-   
+  
   // const status = validLogin && invalidLogin;
 
-  useEffect(() => {
-    // axios.get('http://localhost:3000/')
-    // .then(request=>{
-    //   console.log(request.data)
-    // })
-    
-  //  validateEmail();
-  //   validatePassword();
+  useEffect(() => {       
      if (validLogin) {      
       dispatch({ type: 'LOGOUT_SUCCESS' });
     } else if ( invalidLogin) {
-      // message.error('Please enter the valid credentials');
+      message.error('Please enter the valid credentials');
     }
   },[ validLogin, invalidLogin]);
 
   const onEmail = (e) => {  
-    setEmail(e.target.value);        
+    setEmail(e.target.value);    
+    if(validEmail.test(e.target.value)){     
+      setEmailErr(false);
+    }else{
+      setEmailErr(true);
+    }
   };
   const onPassword = (e) => {  
-    setPassword(e.target.value);            
+    setPassword(e.target.value);   
+    if(e.target.value!=''){
+      setPasswordErr(false);
+    }  else{
+      setPasswordErr(true);
+    }         
   };
+  const onUser = e =>{
+    console.log(e)
+    if(e.target.checked == user){        
+      setUserErr(false);
+    }else{
+      setUserErr(true)
+    }    
+  }
   const clickPasswordShow = () =>{
     setShowPassword(!showPassword);
   }
-  // const validateEmail= ()=>{
-  //   if(!validEmail.test(email)){
-  //     message.error('Your Login Mail Id is Invalid')      
-  //   }else{
-  //     if(props.email === email) {        
-  //       message.success('Your Login Mail Id is Verified')
-  //     }else{
-  //       message.error('Your Login Mail Id is not same')
-  //     }
-  //   }   
-  // }
-  // const validatePassword = ()=>{    
-  //   if (!validPassword.test(password)) {      
-  //     message.error('Your password is Invalid')
-  //  }else{
-  //    if(props.password === password){     
-  //     message.success('Your Login Password is Verified')
-  //    }else{
-  //     message.error('Your Login Password is not same')
-  //    }
-  //  } 
-  // }
+  
   const onLogin = (e) => {    
-   
-    // .catch(error =>{
-    //   console.log(error)
-    // })
-    // e.preventDefault();
-    // validateEmail();
-    // validatePassword();
-    if( user === "user" || user === "organizationuser"){
-        // message.success(`Welcome to ${user}`)
-    }else{
-      // message.error('Please select User or  Organization User')
+    e.preventDefault();
+ 
+    if(user === " "){
+      // ('Please select User or  Organization User')
     }
-    if (!email || !password ) {       
-      // message.error('Please fill all the fields')        
+    if (!email || !password ) {          
+      console.log('Please fill all the fields')
     }else {    
       const loginDetails = {
         email,
         password
-      };
+      }
       dispatch({ type: 'LOGIN_REQUEST', login: loginDetails });
     }
     history.push({pathname:'/onboard'}); 
@@ -136,7 +117,12 @@ const Login = (props) => {
                     onChange={onEmail}
                   />
                   <EmailIcon />
-                </Form.Group>
+                </Form.Group>  
+                {emailErr  ?
+                (<p style={{fontSize:'16px',color:'red'}} className="mb-2"> 
+                 Invalid Email
+                </p>
+                ):''}             
                 <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
                     className="inputField"  
@@ -152,55 +138,47 @@ const Login = (props) => {
                   >
                     { showPassword ? <EyeIconHid /> : <EyeIcon />}
                   </Button>
-                </Form.Group>              
+                </Form.Group>    
+                {passwordErr  ?
+                (<p style={{fontSize:'16px',color:'red'}} className="mb-2"> 
+                  Please enter your Password
+                </p>
+                ):''}             
                 <Row>
                   <Col > 
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="flexRadioDefault"                    
-                      id="flexRadioDefault1" checked={user === "user" ? true:false} 
-                      onClick={e =>setUser("user")}/>
-                    <label className="form-check-label" for="flexRadioDefault1">
-                      User
-                    </label>
-                  </div>
-            
-                    {/* <Form.Check                       
-                      label="User"
-                      value="user"
-                      type="radio"
-                      id="formBasicCheckbox"
-                      className="loginadmin"
-                      checked={user === "user" ? true:false} 
-                      onClick={e =>setUser("user")}
-                    />                     */}
+                    <div className="form-check">
+                      <input className="form-check-input" type="radio" name="flexRadioDefault"                    
+                        id="flexRadioDefault1" checked={user === "user" ? true:false} 
+                        onClick={onUser}/>
+                      <label className="form-check-label" for="flexRadioDefault1">
+                        User
+                      </label>
+                    </div>   
                   </Col>
                   <Col >
                     <div className="form-check">
                       <input className="form-check-input" type="radio" 
-                      name="flexRadioDefault" id="flexRadioDefault2"  checked={user === "organizationuser" ? true: false} 
-                      onClick={e =>setUser("organizationuser")}/>
+                      name="flexRadioDefault" id="flexRadioDefault2"  
+                      checked={user === "organizationuser" ? true: false} 
+                      onClick={onUser}/>
                       <label className="form-check-label" for="flexRadioDefault2" style={{width:'150px'}}>
                         Organisation User
                       </label>
-                    </div>   
-                    {/* <Form.Check 
-                      value="organizationuser"
-                      type="radio"
-                      id="formBasicCheckbox1"
-                      // className="loginadmin"
-                      checked={user === "organizationuser" ? true: false} 
-                      onClick={e =>setUser("organizationuser")}
-                    />     
-                    <Form.Label>Organizational User</Form.Label>                */}
+                    </div> 
                   </Col>
-                </Row>             
+                </Row>   
+                {userErr  ?
+                (<p style={{fontSize:'16px',color:'red'}} className="mb-2"> 
+                  Please select the User or Organizational User
+                </p>
+                ):''}            
                 <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Label className="reset-password">
                     <Link to="/resetpassword">Forget Password?</Link> 
                   </Form.Label>
                 </Form.Group>
                   <Button  className="submit-btn" variant="primary" type="submit" 
-                    onClick={onLogin}>
+                    disabled={emailErr == false && passwordErr == false && userErr == false ? false : true} onClick={onLogin}>
                       Log in
                   </Button>                                
               </Form>

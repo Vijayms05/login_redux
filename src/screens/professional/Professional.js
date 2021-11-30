@@ -20,26 +20,29 @@ const Professional = (props) => {
 
 // const history = useHistory();   
     useEffect(() => {
-        // validateName();
-        // validateWork();
+        validateName();
+        validateWork();
     }, [])
    
-    // const validateName = ()=>{
-    //     if(!validText.test(inputName)){
-    //         message.error('Your Name is Invalid')
-    //     }else{
-    //      message.success('Your Name is Valid')
-    //    }
-    // }
-    // const validateWork = ()=>{
-    //     if(!validText.test(workRole)){
-    //         message.error('Your Name is Invalid')
-    //     }else{
-    //      message.success('Your Name is Valid')
-    //    }
-    // }
+    const validateName = ()=>{
+        if(!validText.test(inputName)){
+            message.error('Your Name is Invalid')
+        }else{
+         message.success('Your Name is Valid')
+       }
+    }
+
+    const validateWork = ()=>{
+        if(!validText.test(workRole)){
+            message.error('Your Name is Invalid')
+        }else{
+         message.success('Your Name is Valid')
+       }
+    }
+
     const onProfessional = (e) =>{
-        // e.preventDefault();
+        e.preventDefault();
+        
         history.push({pathname:'/home'});
         console.log(inputName,workRole,industry)
     }

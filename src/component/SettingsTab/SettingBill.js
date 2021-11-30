@@ -30,7 +30,7 @@ const SettingBill = (props) =>{
             <Col className=" p-2" >  
                 <Form.Select className="form-select mb-3 mt-3 schoolstudent-select" 
                 aria-label="Default select example" onChange={onCountry}>
-                    <option selected>-- Country --</option>
+                    <option selected> Country </option>
                     <option value="1">India</option>
                     <option value="2">USA</option>
                     <option value="3">UAE</option>

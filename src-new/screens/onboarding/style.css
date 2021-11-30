@@ -1,0 +1,53 @@
+.onboarding-student-wrapper {
+  position: relative;
+  top: 85px;
+}
+
+.onboarding-heading {
+  color: #0b171b;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 20px;
+  font-family: "f1";
+  text-align: center;
+}
+.onboarding-p {
+  font-family: "f3";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  top: 13px;
+  text-align: center;
+  color: #638995;
+}
+.onboarding-title {
+  font-family: "f1";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  color: #0b171b;
+}
+.onboarding-text{
+  font-family: "f3";
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 15px !important;  
+  width: 185px !important;
+  height: 120px !important;
+  /* margin:10px; */
+  color: #638995;
+}
+
+.onboarding-button {
+  background: #40a9ff !important;
+  border: 0 !important;
+  width: 80%;
+  height: 43px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  display: inline-block;
+}

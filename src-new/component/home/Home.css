@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "f1";
+  src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf");
+}
+
+@font-face {
+  font-family: "f2";
+  src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "f3";
+  src: url("../../assets/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "f4";
+  src: url("../../assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+:focus {
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0%) !important;
+}
+::placeholder {
+  font-size: 13px;
+}
+.row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.lftMenu {
+  width: 300px !important;
+  height: 100vh;
+  border-right: 1px solid #c7e6ff;
+}
+.logo-tag {
+  font-family: "f1";
+  font-size: 14px;
+  text-align: center;
+  margin-top: 2px;
+}
+.wel-cm-bc h4 {
+  margin-top: 25px;
+}
+.wel-cm-bc h4 {
+  font-size: 14px;
+  font-family: "f2";
+  margin-bottom: 0;
+}
+.wel-cm-bc h5 {
+  font-size: 17px;
+  font-family: "f1";
+  margin-bottom: 0;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.wel-cm-bc p {
+  font-size: 14px;
+  font-family: "f4";
+  padding: 10px;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  background-color: #ecf6ff;
+  border-radius: 5px;
+  display: inline-block;
+  color: #156eb7;
+}
+.menuLink {
+  margin-top: 10px;
+}
+.menuLink h6 {
+  font-size: 13px;
+  font-family: "f3";
+  color: #156eb7;
+  font-weight: bold;
+}
+.navbar {
+  padding-top: 0 !important;
+}
+.menu-tit {
+  font-size: 13px;
+  font-family: "f3";
+  color: #156eb7;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.linka.active {
+  color: #298ee0 !important;
+}
+.linka {
+  font-family: "f3";
+  font-size: 15px;
+  font-weight: bold;
+  color: #474c4e;
+  text-decoration: none;
+  padding: 10px 15px 15px 0 !important;
+}
+.menuIcon {
+  width: 15px;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+.navbar-nav {
+  flex-direction: column !important;
+}
+
+.skilltally-loader{
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  top:100px;
+}
+
+.login-error-signup {
+  margin: 3% 0;
+}
+.success-msg {
+  color: green;
+  white-space: nowrap;
+}

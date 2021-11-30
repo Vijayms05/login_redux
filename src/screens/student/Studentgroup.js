@@ -1,5 +1,5 @@
 import { message } from 'antd';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { history } from '../../routes/Routes';
 import {
     Col,
@@ -20,7 +20,7 @@ import { validText } from '../../service/Constant';
 
 
 const Studentgroup = (props) =>{
-    const { validateName } = props;
+    // const { validateName } = props;
     
     const [inputName, setInputname] = useState('')   
     const [student, setStudent] = useState(false)  
@@ -36,33 +36,37 @@ const Studentgroup = (props) =>{
     const [standard, setStandard]= useState('')
 
     // const history= useHistory();
-//    const validateName = () =>{
-//     if (!validText.test(inputName)) {      
-//         message.error('Your Name is Invalid')
-//      }else{
-//       message.success('Your Name is Valid')
-//     }
-//    }
-//    const validateCollege = () =>{
-//     if (!validText.test(collegeName)) {      
-//         message.error('Your Name is Invalid')
-//      }else{
-//       message.success('Your Name is Valid')
-//     }
-//    }
+    useEffect(() => {
+        validateName();
+        validateCollege();       
+    }, [])
+   const validateName = () =>{
+    if (!validText.test(inputName)) {      
+        message.error('Your Name is Invalid')
+     }else{
+      message.success('Your Name is Valid')
+    }
+   }
+   const validateCollege = () =>{
+    if (!validText.test(collegeName)) {      
+        message.error('Your Name is Invalid')
+     }else{
+      message.success('Your Name is Valid')
+    }
+   }
     const onName = (e)=>{       
         setInputname(e.target.value);       
     }    
 
-    const toggleClick = e =>{        
-        // e.preventDefault();
+    const toggleClick = (e) =>{        
+        e.preventDefault();
 
         console.log(inputName)     
-        // if(inputName === " " ){
-        //     message.error('Please Select the School or Professional')
-        // }else{
-        //     message.success('Student is Successfully verified ')
-        // }
+        if(inputName === " " ){
+            // message.error('Please Select the School or Professional')
+        }else{
+            // message.success('Student is Successfully verified ')
+        }
         history.push({pathname:'/home'})
     }
     return(

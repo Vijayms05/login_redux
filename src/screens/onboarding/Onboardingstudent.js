@@ -29,10 +29,10 @@ const Onboardingstudent = (props) =>{
       // e.preventDefault();  
       if(student === 'student')  {
         history.push('/student')
-        // message.success('Welcome to Student Page')
+         message.success('Welcome to Student Page',5)
       }else if(student === 'professional'){ 
         history.push('/professional');
-        // message.success('Welcome to Professional Page')
+         message.success('Welcome to Professional Page',5)
       }  
       console.log(student)
   }

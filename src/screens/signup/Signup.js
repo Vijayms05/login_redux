@@ -1,9 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-// import { useHistory } from 'react-router-dom'
 import { history } from '../../routes/Routes'
+
 import { message } from 'antd';
-// import { toast } from 'react-toastify';
 import axios from 'axios'
 import {
   SiginImage,
@@ -24,19 +23,11 @@ import {
 } from 'react-bootstrap';
 import './style.css';
 import './responsive.css'
-import { validEmail,validPassword,postItem,getItem } from '../../service/Constant'
+import { validEmail } from '../../service/Constant'
 
-
-
-const Signup = (props) => {
-  // const [postData, setPostData]=useState({
-  //   dataEmail:'',
-  //   dataPassword:'',
-  //   dataRePassword:'',
-  //   dataTermscondtion:false,
-  // })
-  const [posts,setPosts]=useState([]);
-  const [post,setPost]=useState({id:'',userId:'',title:'',body:''});
+const Signup = (props) => { 
+  // const [posts,setPosts]=useState([]);
+  // const [post,setPost]=useState({id:'',userId:'',title:'',body:''});
   const [email,setEmail]= useState('')
   const [password, setPassword] = useState('')
   const [repassword, setRepassword]= useState('')  
@@ -44,26 +35,56 @@ const Signup = (props) => {
   
   const [paswordShow, setPaswordShow] = useState(true)
   const [repaswordShow, setRePaswordShow] = useState(true)
-  // const [emailErr, setEmailErr] = useState(false);
-  // const [pwdError, setPwdError] = useState(false);
   
-  // const history = useHistory(); 
+  const [emailErr,setEmailErr]=useState(null);
+  const [passwordErr,setPasswordErr]=useState(null);
+  const [repasswordErr,setRePasswordErr]=useState(null);
+  const [termconditionErr,setTermconditionErr]=useState(null);
+  const [isSubmit, setIsSubmit]=useState(false);
+  
   const dispatch = useDispatch();
+  // const history = useHistory();
  
   const validSignup = useSelector( state => state.signupState.signup)
   const invalidSignup = useSelector( state => state.signupState.error)
 
   // const status = validSignup && validSignup.status;
 
-  const onEmail = (e)=>{    
-    setEmail(e.target.value);   
+  const onEmail = (e)=>{          
+      setEmail(e.target.value);   
+      if(validEmail.test(e.target.value)){
+        setEmailErr(false);
+      }else{
+        setEmailErr(true);
+      }      
   }
   const onPassword = (e)=>{    
-    setPassword(e.target.value);   
+    setPassword(e.target.value); 
+    if(e.target.value!=''){
+      setPasswordErr(false);
+    }  else{
+      setPasswordErr(true);
+    }
   }
   const onRePassword =(e)=> {
-    setRepassword(e.target.value)
-   
+    setRepassword(e.target.value) ;
+    if(e.target.value!=''){
+      if(password==e.target.value){
+        setRePasswordErr(false);
+      }else{
+        setRePasswordErr(true);
+      }
+    }else{
+      setRePasswordErr(true);
+    }  
+  }
+  const onTermscondition = (e)=>{
+    setTermsCondition(!termscondition) ;
+     if(e.target.checked==false){
+      setTermconditionErr(true);
+     }else{
+      setTermconditionErr(false)
+     }
   }
   const clickPasswordShow = () =>{
     setPaswordShow(!paswordShow);
@@ -72,105 +93,72 @@ const Signup = (props) => {
     setRePaswordShow(!repaswordShow);
   }  
 
-  useEffect(()=>{ 
-    postItem();
-    getItem();
-    // axios.get(baseURL).then((res)=>{     
-    //   setPost(res.data)     
-    //   console.log(res.data)
-    // });
-    // dummyApi.post(baseURL,{
-    //   userId:11,
-    //   id:101,
-    //   title:'hello world',
-    //   body: `cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta 
-    //   in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut`
-    // }).then((res)=>{     
-    //   setPost(res.data)     
-    //   console.log(res.data)
-    // });
-    // validateEmail();
-    // validatePassword();
-    // validateRePassword();
-    // validationTerms();
-
+  useEffect(()=>{     
+   
     if(validSignup){
       message.success('Thanks!, Signup form is successfully registered ');
-    } else if(invalidSignup) {
-      message.error(`An account with email ${email} already exists`);
+    } else if(invalidSignup) {      
+      message.error(`An account with email ${email} already exists`,0.5);
     }
   },[validSignup, invalidSignup])
 
-  // const validateEmail = ()=>{
-  //   if(!validEmail.test(email)){
-  //     message.error('Your Email is Invalid')
-  //   }else{
-  //    message.success('Your Email is valid')
-  //   }
-  // }
-  // const validatePassword = ()=>{
-  //   if (!validPassword.test(password)) {      
-  //     message.error('Your password is Invalid')
-  //  }else{
-  //   message.success('Your password is valid')
-  //  }
-  // }
-  // const validateRePassword = ()=>{
-  //   if(password !== repassword){
-  //     message.error('Please check the  Conform Password')
-  //   }else{
-  //     message.success('Your conform password is valid')
-  //   }
-  // }
-  //  const validationTerms = ()=>{
-  //   if(termscondition === false){
-  //     message.error("please accept the terms and condition")
-  //   }else{
-  //     message.success("verify the terms and condition")      
-  //   }
-  // }
+    // const validateEmail = ()=>{
+    //   if(!validEmail.test(email) || email === " "){     
+    //     setEmailErr('Your Email is Invalid');
+    //   }else{
+    //     setEmailErr(' ');
+    //   }  
+    // }
+    // const validatePassword = () =>{
+    //   if (password === " ") {
+    //     setPasswordErr('Your password is Invalid')
+    //   }else{
+    //     setPasswordErr(' ');
+    //   } 
+    // }
+    // const validateRePassword = () =>{
+    //   if(password !== repassword  && repassword === " "){
+    //     setRePasswordErr('Your repassword is Invalid')
+    //   }else{
+    //     setRePasswordErr(' ');
+    //   } 
+    // }
+    // const validateTermsCondition = () =>{
+    //   if(termscondition === false){      
+    //     setTermconditionErr("please accept the terms and condition")      
+    //   }else{
+    //     setTermconditionErr(' ');
+    //   } 
+    // }    
 
-  const onSubmit = (e) =>{
-    e.preventDefault(); 
-
-    // validateEmail();
-    // validatePassword();
-    // validateRePassword();
-    // validationTerms();
+  const onSubmit = () =>{    
+    // e.preventDefault(); 
+      
+    // if(!isSubmit){
+    //   validateEmail()
+    //   validatePassword()
+    //   validateRePassword()
+    //   validateTermsCondition()
     
-    if (!email || !password || !repassword ) {       
-      // message.error('Please fill all the fields')        
-    }   
-    else if (termscondition === false) {      
-      // message.error('Please accept the Terms & Conditions and Privacy Policy')
-    } 
-    else {
-      const signupDetailsuser = {
-        email,        
-        password,
-        repassword,
-        termscondition      
-      };     
-      dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});
-    }
-    console.log(email,password,repassword,termscondition);
- 
-    history.push({pathname:'/'});
+    //   if (!email || !password || !repassword ) {           
+    //     // message.error('Please fill all the fields');
+    //     console.log('Please fill all the fields')       
+    //   }   
+    //   else {
+    //     const signupDetailsuser = {
+    //       email,        
+    //       password,
+    //       repassword,
+    //       termscondition      
+    //     };     
+    //     dispatch({ type: 'SIGNUP_REQUEST', signup: signupDetailsuser});
+    //   }
+    //   console.log(email,password,repassword,termscondition);
+      history.push({pathname:'/'});
+    // }    
   }  
-  // function createPost() {
-  //   axios
-  //     .post(baseURL, {
-  //       title: "Hello World!",
-  //       body: "This is a new post."
-  //     })
-  //     .then((response) => {
-  //       setPost(response.data);
-  //     });
-  // }
 
-  // if (!post) return "No post!"
-  return (
-   
+  return (   
     <div className="tl-bdy sign-tl-bdy">
       <div className="bdy-in">
           <Row>
@@ -183,25 +171,31 @@ const Signup = (props) => {
                 <h2 className="f1-19 mb-3 text-center signup-header">
                   Create account and get started
                 </h2>
-                <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
+                <Form.Group className="mb-3 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
                     className=' inputField'
                     type="email" 
                     placeholder="Enter e-mail"
+                    required
                     value={email}
                     onChange={onEmail}
                     />
                   <EmailIcon />
                 </Form.Group>   
-                {/* {emailErr && <p style={{color:'red',fontSize:'15px',textAlign:'center'}}>Your Mail id is Invalid</p>}           */}
-                <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
+                {emailErr  ?
+                (<p style={{fontSize:'16px',color:'red'}} className="mb-2"> 
+                 Invalid Email
+                </p>
+                ):''}              
+                <Form.Group className="mb-3 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
                     className="inputField"  
                     type={paswordShow ? 'password' : 'text'} 
                     placeholder="Password"
                     value={password}
+                    required
                     onChange={onPassword}
-                    minLength="8"
+                    // minLength="8"
                     />
                   <PasswordIcon />
                   <Button 
@@ -210,18 +204,18 @@ const Signup = (props) => {
                   >
                     { paswordShow ? <EyeIconHid /> : <EyeIcon />}
                   </Button>                  
-                </Form.Group>
-                
-                {/* {pwdError && <p style={{color:'red',fontSize:'15px',textAlign:'center'}}>Your password is invalid</p> */}
-      
-                <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
+                </Form.Group>                
+                {passwordErr? 
+                (<p style={{fontSize:'16px',color:'red'}} className="mb-3" > Please enter your Password </p>):''}   
+                <Form.Group className="mb-3 inputGroup" controlId="formBasicEmail">
                   <Form.Control 
                     className="inputField" 
                     type={repaswordShow ? 'password' : 'text'} 
                     placeholder="Re-Enter Password"
                     value={repassword}
+                    required
                     onChange={onRePassword}
-                    minLength="8"
+                    // minLength="8"
                   />
                   <PasswordIcon />
                   <Button 
@@ -231,51 +225,34 @@ const Signup = (props) => {
                     { repaswordShow ? <EyeIconHid /> : <EyeIcon />}
                   </Button>
                 </Form.Group>
-                {/* {pwdError && <p style={{color:'red',fontSize:'15px',textAlign:'center'}}>Your password is invalid</p>} */}
-                <Form.Group className="mb-4" style={{height: '25px'}} controlId="formBasicCheckbox">
+                {repasswordErr  ? 
+                (<p style={{fontSize:'16px',color:'red'}} className="mb-3"> Password missmatch </p>):''}   
+                <Form.Group className="mb-3" style={{height: '25px'}} controlId="formBasicCheckbox">
                   <Form.Check 
                     className="float-start me-2" 
                     type="checkbox"
+                    required
                     checked={termscondition}
-                    onClick={() => 
-                      setTermsCondition(!termscondition)                       
-                    }
+                    onClick={onTermscondition}
                   />
                   <Form.Label className="terms-cond-text">
                     I agree Skilltally’s <Link>Privacy Policy</Link> 	&#38; <Link>Terms of Services</Link>  
                   </Form.Label>
                 </Form.Group>
+                {termconditionErr ? 
+                (<p style={{fontSize:'16px',color:'red'}} className="mb-2"> Accept terms 	&#38; conditions </p>):''}   
                   <Button 
-                    className="submit-btn mt-3"
+                    className="submit-btn mt-3 mb-3"
                     variant="primary" 
                     type="submit" 
+                    disabled={emailErr == false && passwordErr == false && repasswordErr == false && termconditionErr == false ? false : true}
                     onClick={onSubmit}
                   >
-                      Create Account
+                    Create Account
                   </Button>
               </Form>
             </Col>
-          </Row>
-          {posts.map((items)=>{
-            return(
-              <div>                
-                <p key={items}>
-                  {items.id}
-                </p>
-                <p>{items.userId}</p>
-                <p>{items.title}</p>  
-                <p>{items.body}</p>                                                              
-              </div>
-            )
-          })}
-          <div>                  
-            <p>
-              {post.id}
-            </p>
-            <p>{post.userId}</p>
-            <p>{post.title}</p>  
-            <p>{post.body}</p>                                                              
-          </div>          
+          </Row>  
         </div>
       </div>       
   );
