@@ -8,7 +8,7 @@ import Certification from '../../component/TestTab/Certification'
 
 const TestDetailScreen = () =>{
     return(
-        <div className="py-md-4 mt-5 mt-md-0 bill-rit m-auto">
+        <div className="py-md-4 mt-5 mt-md-0 pt-sm-3 pt-3 pt-md-0 bill-rit m-auto">
             <Row className="mb-4 mt-4">
                 <Col xs={6} md={6} lg={8} className="ps-0">   
                     <Form.Group  className="w-100 search-box test-search-box">
@@ -26,12 +26,12 @@ const TestDetailScreen = () =>{
                     </Form.Select>
                 </Col>
             </Row> 
-            <div className="m-auto rit-tst mt-5 ms-1">
+            <div className="m-auto rit-tst mt-0 mt-sm-5  ms-1">
                 <Col sm={6}> 
                     <h5 className="report-h5 mb-2">Tests</h5>  
                 </Col> 
                 <Row>
-                    <Col sm={6} md={6} lg={4}  className="p-0 mt-3  test-select">
+                    <Col sm={12} md={12} lg={4}  className="p-0 mt-3  test-select text-start">
                         <Form.Select className="select-form" size="lg" >
                             <option>Select Rol/Book-Qs</option>
                             <option>Large select</option>
@@ -39,7 +39,7 @@ const TestDetailScreen = () =>{
                         </Form.Select>
                     </Col>
                 </Row>
-                <Col xs={10} sm={6} md={10} lg  className="p-0 border mt-4">
+                <Col xs={12} sm={12} md={12} lg  className="p-0 border mt-4 text-center">
                     <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-2 test-tab">
                         <Tab eventKey="home" title="Baseline" className="test-name">
                             <Baseline />

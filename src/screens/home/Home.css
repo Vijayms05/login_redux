@@ -242,7 +242,7 @@ body {
   background: none;
   border: 0;
   height: 43px;
-  padding-left: 42px !important;
+  padding-left: 52px !important;
 }
 .search-box .search-input::placeholder{
   font-size: 16px;
@@ -895,8 +895,7 @@ body {
   color: #000 !important;
 }
 .pro-rit {
-  height: 100vh;
-  overflow-y: scroll;
+  overflow-y: inherit;
 }
 .fill-qust textarea {
   border-radius: 5px;
@@ -913,7 +912,8 @@ body {
   background-color: #e8f3ff;
   padding: 20px 19px;
   border-radius: 9px;
-  display: flex;
+  width: 100%;
+  display: block;
   align-items: center;
   margin-bottom: 15px;
   justify-content: space-between;
@@ -1007,7 +1007,7 @@ body {
   border-radius: 12px;
 }
 .horizontal-card{  
-  width: 95%; 
+  width: 100%; 
   background: #FFFFFF;
   box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
   border-radius: 25.3668px;
@@ -1015,6 +1015,7 @@ body {
 }
 .horizontal-card:hover{
   border-radius: 15px;
+  box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
   border:2px solid dodgerblue;
 }
 

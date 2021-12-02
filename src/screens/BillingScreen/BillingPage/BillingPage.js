@@ -26,7 +26,7 @@ const BillingPage = (props) =>{
                 </Col>
             </Row> 
             <div className="mt-5">                
-                <h5 className="report-h5 mb-4 mt-3">Billings</h5>  
+                <h5 className="report-h5 mb-4 mt-3 pt-3 pt-sm-3 pt-md-0 pt-lg-0">Billings</h5>  
                 <div className="row-table">
                     <Table  className="mt-2 table-name table table-bordered">
                         <thead>

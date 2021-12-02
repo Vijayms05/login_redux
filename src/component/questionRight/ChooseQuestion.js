@@ -96,7 +96,7 @@ const ChooseQuestion =(props)=>{
                     <CircleLeft />
                     Preview
                 </Link>                
-                <div className="d-flex">
+                <div className="d-flex ms-2 ms-sm-0">
                 <Link to="/videorecord" className="nxt-btn">
                         Next
                         <CircleRight />

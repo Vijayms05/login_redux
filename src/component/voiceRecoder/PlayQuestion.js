@@ -28,7 +28,7 @@ const PlayQuestion = () =>{
                         Preview
                     </Link>                
                     <div className="d-flex">
-                        <Link to="/ques-ans-play" className="nxt-btn">
+                        <Link to="/ques-ans-play" className="nxt-btn ms-2 ms-sm-0">
                             Next
                             <CircleRight />
                         </Link>

@@ -114,11 +114,11 @@ const Login = (props) => {
     <>
       <div className="tl-bdy sign-tl-bdy">
         <div className="bdy-in">
-          <Row>
-            <Col  sm={6} md={6}  xl={7}   className="text-center m-auto">
+          <Row className="justify-content-sm-center">
+            <Col  sm={8} md={6}  xl={7}   className="text-center m-auto pt-sm-3">
               <SiginImage />
             </Col>
-            <Col  sm={6} md={6} xl={5} className="p-2 mt-2 login-wrapper">
+            <Col  sm={8} md={6} xl={5} className="p-2 mt-2 login-wrapper">
               <Logo  />
               <Form className="sign-form p-4">
                 <h2 className="f1-19 m-0 text-center login-header">
@@ -199,10 +199,12 @@ const Login = (props) => {
                     <Link to="/resetpassword">Forget Password?</Link> 
                   </Form.Label>
                 </Form.Group>
+                <Col >
                   <Button  className="submit-btn" variant="primary" type="submit" 
                     onClick={onLogin}>
                       Log in
-                  </Button>                                
+                  </Button>  
+                </Col>                              
               </Form>
               <p  
                 className="login-p mt-2 mb-3 mt-4 text-center" 

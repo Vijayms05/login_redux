@@ -47,7 +47,7 @@ const Onboardingstudent = (props) =>{
             <h3 className="onboarding-heading mt-5">Create account as a</h3>
             <p className="onboarding-p mt-1">We will personalise this platform accordingly</p>                 
             <Row className="d-sm-flex flex-wrap-inherit ">
-              <Col>
+              <Col >
                 <Card onClick={e =>setStudent("student")} className="top-stud-proof mb-2">{/*className="top-stud-proof"*/}
                   <Card.Body className="stud-prof auto">{/*className="stud-prof" */}
                     <FrameLogo />

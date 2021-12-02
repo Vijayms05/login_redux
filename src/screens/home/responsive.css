@@ -1,51 +1,51 @@
-@media (min-width: 375px) and (max-width: 576px) { 
+@media (min-width: 375px) and (max-width: 576px) {
   .lftsdbr {
     top: 50px;
     height: 95vh !important;
-    width:  258px !important;
-    padding: 15px 24px ;
+    width: 258px !important;
+    padding: 15px 24px;
   }
-  .hori-image{
+  .hori-image {
     display: none;
   }
-  .hori-content{
+  .hori-content {
     display: none;
   }
-  .horizontal-card{  
-    width: 100%; 
-    background: #FFFFFF;
+  .horizontal-card {
+    width: 100%;
+    background: #ffffff;
     box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
     border-radius: 25.3668px;
     height: auto;
   }
-  .horizontal-card:hover{
+  .horizontal-card:hover {
     border-radius: 15px;
-    border:2px solid dodgerblue;
+    border: 2px solid dodgerblue;
   }
-  .skill-profile{
+  .skill-profile {
     /* width: 478px; */
     height: 84px;
     left: 18px;
     top: 160px;
-    font-family: 'f1';
+    font-family: "f1";
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
-    line-height: 48px;    
+    line-height: 48px;
     color: #003866;
   }
-  .sub-progress{
+  .sub-progress {
     display: none !important;
   }
-  .search-box{
+  .search-box {
     width: 384px !important;
     height: 60px !important;
-    border: 1px solid #8D9591;
+    border: 1px solid #8d9591;
     box-sizing: border-box;
     border-radius: 16px;
-    margin:10px;
+    margin: 10px;
   }
- 
+
   .searchrole img {
     width: 30px;
     left: 8.25%;
@@ -53,118 +53,120 @@
     top: 8.25%;
     bottom: 8.43%;
   }
-  .search-input{
-    font-family: 'f3';
+  .search-input {
+    font-family: "f3";
     font-style: normal;
     font-weight: 500;
-    font-size: 40px !important;    
-    color: #ADB3AF;
-
+    font-size: 40px !important;
+    color: #adb3af;
   }
-  .sub-filter{
+  .sub-filter {
     display: none !important;
   }
-  .sub-class{
+  .sub-class {
     width: 193px;
     height: 72px;
   }
-  .billing-details-card{
+  .billing-details-card {
     width: 385px !important;
     height: 151px;
     text-align: center;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     font-size: large;
   }
-  .billing-details-text{
+  .billing-details-text {
     width: 193px;
-    height: 72px;   
-    font-family: 'f1';
+    height: 72px;
+    font-family: "f1";
     font-style: normal;
     font-weight: bold;
     font-size: 48px !important;
     line-height: 72px;
-    color: #298EE0;
+    color: #298ee0;
   }
-  .billing-details-buy{
+  .billing-details-buy {
     width: 420px;
   }
-  .search-box-right{
+  .search-box-right {
     display: none !important;
   }
-  .sub-header{
-    font-family: 'f1';
+  .sub-header {
+    font-family: "f1";
     font-style: normal;
     font-weight: bold;
     font-size: 35px !important;
   }
-  .role-tit{
-    font-family: 'f3';
+  .role-tit {
+    font-family: "f3";
     font-style: normal;
     font-weight: bold;
     font-size: 24px !important;
   }
-  .searchrole{
+  .searchrole {
     left: 4.25%;
     right: 4.37%;
     top: 8.25%;
-    width:25px;
-    width:25px;
-    bottom:4.43%;
+    width: 25px;
+    width: 25px;
+    bottom: 4.43%;
   }
-  .searchrole .search-input{
+  .searchrole .search-input {
     font-size: 30px;
     padding-left: 50px !important;
-   
   }
-  .submit-btn{
-    width: 336px;
-    height: 62px;
+  .search-box {
+    width: 100% !important;
+  }
+
+  .submit-btn {
+    width: 300px;
+    height: 52px;
     border-radius: 12px !important;
-    font-family: 'f3';
+    font-family: "f3";
     font-style: normal;
     font-weight: 600;
     font-size: 20px !important;
   }
-  .reset-password{
-    font-family: 'f3';
+  .reset-password {
+    font-family: "f3";
     font-style: normal;
     font-weight: 500 !important;
     font-size: 16px !important;
   }
-  .signup-header{   
-    font-family: 'f1';
+  .signup-header {
+    font-family: "f1";
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
     line-height: 48px;
-    color: #0B171B;
+    color: #0b171b;
   }
-  .terms-cond-text{
-    font-family: 'f3';
+  .terms-cond-text {
+    font-family: "f3";
     font-style: normal;
     font-weight: 500;
     font-size: 20px !important;
     line-height: 110%;
   }
-  .login-p{
-    font-family: 'f3';
+  .login-p {
+    font-family: "f3";
     font-style: normal;
     font-weight: 500;
     font-size: 16px !important;
   }
-  .forget-p{
-    font-family: 'f3';
+  .forget-p {
+    font-family: "f3";
     font-style: normal;
     font-weight: 500 !important;
-    font-size: 16px !important;    
+    font-size: 16px !important;
   }
-  .onboard-btn{
+  .onboard-btn {
     width: 158px !important;
     height: 70px !important;
   }
-  .top-stud-proof{
+  .top-stud-proof {
     width: 220px !important;
     height: 220px !important;
   }
@@ -175,48 +177,48 @@
     margin: 0 !important;
     background: none !important;
   }
-  .test-search-box{
+  .test-search-box {
     display: none;
   }
-  .billing-search-box{
+  .billing-search-box {
     display: none;
   }
-  .test-select{
+  .test-select {
     width: 200px;
   }
-  .report-h5{
-    margin:35px !important;
+  .report-h5 {
+    margin: 15px 35px !important;
   }
-  .onboarding-title{
-    font-family: 'f1';
+  .onboarding-title {
+    font-family: "f1";
     font-style: normal;
     font-weight: bold;
     font-size: 26px !important;
-    color:#0B171B;
+    color: #0b171b;
   }
-  .login-sub-header{
-    font-family: 'f3';
+  .login-sub-header {
+    font-family: "f3";
     font-style: normal;
     font-weight: 500;
     font-size: 16px !important;
     letter-spacing: -0.02em;
     color: #638995;
   }
-  .login-header{
-    font-family: 'f1';
+  .login-header {
+    font-family: "f1";
     font-style: normal;
     font-weight: bold;
     font-size: 30px !important;
   }
-  
-  .inputField{
-    font-family: 'f3';
+
+  .inputField {
+    font-family: "f3";
     font-style: normal;
     font-weight: 500 !important;
     font-size: 17px !important;
   }
-  .forget-header{
-    font-family: 'f1';
+  .forget-header {
+    font-family: "f1";
     font-style: normal;
     font-weight: bold;
     font-size: 30px !important;
@@ -251,25 +253,23 @@
   .rec-box .rec-ply-icon {
     margin-right: 7px !important;
   }
-  
- 
-
 }
-@media (max-width: 576px) { 
-  .sign-form, .terms-cond-text{
-    width:350px !important;
+@media (max-width: 576px) {
+  .sign-form,
+  .terms-cond-text {
+    width: 350px !important;
   }
-  .profile-cardbutton{
+  .profile-cardbutton {
     width: 174px;
     height: 42px;
-    background: #298EE0;
+    background: #298ee0;
     border-radius: 12px;
   }
-  .profile-cardbutton-change{
+  .profile-cardbutton-change {
     width: 174px;
     height: 42px;
-    background: #298EE0;
-    border-radius: 12px;    
+    background: #298ee0;
+    border-radius: 12px;
   }
 }
 
@@ -303,14 +303,14 @@
   .lftqst .logo-tag {
     display: none !important;
   }
-  .hori-image{
+  .hori-image {
     display: none;
   }
   .lftsdbr {
     top: 50px;
     position: fixed;
     height: 95vh !important;
-    width:  288px !important;
+    width: 288px !important;
   }
   .lftsdbr .logo {
     display: none !important;
@@ -378,7 +378,8 @@
     overflow-x: scroll;
   }
   .table-box {
-    width: 980px;
+    width: 100% !important;
+    overflow-x: scroll !important;
   }
   .tl-rt-qst {
     margin-top: 50px;
@@ -391,23 +392,22 @@
   .rec-aud-tag {
     width: 92%;
   }
- 
 }
-@media (min-width:768px)and(max-width: 992px) {
-  .hori-image{
+@media (min-width: 768px) and(max-width: 992px) {
+  .hori-image {
     display: none;
   }
-  .profile-cardbutton{
+  .profile-cardbutton {
     width: 123px;
     height: 42px;
-    background: #298EE0;
+    background: #298ee0;
     border-radius: 12px;
   }
-  .profile-cardbutton-change{
+  .profile-cardbutton-change {
     width: 174px;
     height: 42px;
-    background: #298EE0;
-    border-radius: 12px;    
+    background: #298ee0;
+    border-radius: 12px;
   }
 }
 @media (max-width: 992px) {
@@ -418,7 +418,7 @@
   .rec-box {
     padding: 8px 0 !important;
   }
-  .hori-image{
+  .hori-image {
     display: none;
   }
 }
@@ -475,7 +475,8 @@
     overflow-x: scroll;
   }
   .table-box {
-    width: 980px;
+    width: 100% !important;
+    overflow-x: scroll !important;
   }
   .cls-fre h2 {
     font-size: 15px !important;
@@ -493,7 +494,7 @@
     margin: 0 auto;
     padding: 15px !important;
   }
-  .flex-wrap-inherit{
+  .flex-wrap-inherit {
     flex-wrap: inherit !important ;
   }
   .tl-skl-bldg {
@@ -520,7 +521,8 @@
     overflow-x: scroll;
   }
   .table-box {
-    width: 980px;
+    width: 100% !important;
+    /* overflow-x: scroll !important; */
   }
   .testIntro {
     display: grid !important;
@@ -586,6 +588,45 @@
   }
   .textrec {
     padding: 0 6rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .stud-prof .form-check-input {
+    border-radius: 9px;
+    width: 220px !important;
+    height: 220px !important;
+    margin: 0 !important;
+    background: none !important;
+  }
+  .search-box .search-input {
+    background: none;
+    border: 0;
+    height: 43px;
+    padding-left: 62px !important;
+  }
+  .report-h5 {
+    padding-top: 1.5rem !important;
+    margin: 25px 15px !important;
+  }
+}
+
+@media (max-width: 374px) {
+  .search-box .search-input {
+    background: none;
+    border: 0;
+    height: 43px;
+    padding-left: 42px !important;
+  }
+  .report-h5 {
+    padding-top: 0rem !important;
+    margin: 15px 15px !important;
+  }
+  .profile-upload {
+    width: 100% !important;
+  }
+  .prog-bar-subs .progress {
+    width: 200px;
   }
 }
 

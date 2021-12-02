@@ -63,9 +63,9 @@ const data = [
 function BaselineReport() {
     return (
         <div className="py-md-4 mt-5 mt-md-0 bill-rit">
-            <Col sm={6} md={6}  xl={7} className="baselinereport">              
-                <Row>
-                    <Col xs={12} sm={6} md={6}  xl={7}>   
+            <Col xs={12} sm={12} md={12} lg={12}  xl={12} className="baselinereport">              
+                <Row className="mt-5 mt-md-2 pt-5 pt-md-0">
+                    <Col xs={12} sm={6} md={6}  xl={8} className="my-2">   
                         <Form.Group  className="w-70 search-box">
                             <Button className="searchrole">
                                 <SearchIcon />
@@ -73,16 +73,16 @@ function BaselineReport() {
                             <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                         </Form.Group>                
                     </Col>
-                    <Col xs={12} sm={6} md={6}  xl={7} >
-                        <Form.Select className="select-form" size="lg" style={{width:'250px'}} >
+                    <Col xs={12} sm={6} md={6}  xl={4}  className="my-2">
+                        <Form.Select className="select-form" size="lg" >
                             <option>Filters</option>
                             <option>Large select</option>
                             <option>Large select</option>
                         </Form.Select>
                     </Col>  
                 </Row>                
-                <Row >{/*className="d-lg-flex" */}
-                    <Col sm={6} md={8} lg={8}>{/*className="p-md-0 in-bs-ln" */}
+                <Row className="justify-content-md-center justify-content-sm-center">{/*className="d-lg-flex" */}
+                    <Col sm={12} md={10} lg={8}>{/*className="p-md-0 in-bs-ln" */}
                         <Link className="back-a mt-4" to="/home"><LeftArrow /> {""} Back to Results </Link>
                         <h4 className="f1-19 mt-0 mb-3 mt-3" style={{color:'#003866'}}>Baseline Results</h4>
                         <div className="tl-br-cht mt-3 mb-2">
@@ -103,37 +103,37 @@ function BaselineReport() {
                         <div className="text-start mb-3 mt-3">
                             <h4 className="f1-17 mb-2" style={{color:'#003866'}}>Subject wise Score</h4>
                             <Row>                                
-                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                <Col className="flex-sb p-0" xs={12} md={6} style={{color:'#003866'}}>
                                     <Col className="p-0 f1-16">Subject 1</Col>
                                     <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                 </Col>
-                                <Col className="flex-sb" xs={6} md={4} style={{color:'#003866'}}>
+                                <Col className="flex-sb" xs={12} md={6} style={{color:'#003866'}}>
                                     <Col className="p-0 f1-16">Subject 1</Col>
                                     <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                 </Col>
-                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                <Col className="flex-sb p-0" xs={12} md={6} style={{color:'#003866'}}>
                                     <Col className="p-0 f1-16">Subject 1</Col>
                                     <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                 </Col>
                             </Row>
                             <Row>                                
-                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                <Col className="flex-sb p-0" xs={12} md={6} style={{color:'#003866'}}>
                                     <Col className="p-0 f1-16">Subject 1</Col>
                                     <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                 </Col>
-                                <Col className="flex-sb" xs={6} md={4} style={{color:'#003866'}}>
+                                <Col className="flex-sb" xs={12} md={6} style={{color:'#003866'}}>
                                     <Col className="p-0 f1-16">Subject 1</Col>
                                     <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                 </Col>
-                                <Col className="flex-sb p-0" xs={6} md={4} style={{color:'#003866'}}>
+                                <Col className="flex-sb p-0" xs={12} md={6} style={{color:'#003866'}}>
                                     <Col className="p-0 f1-16">Subject 1</Col>
                                     <Col  className="p-0 f1-16">: 80/100</Col>                                   
                                 </Col>
                             </Row>
                         </div>
                     </Col>
-                    <Col sm={6} md={4} lg={4} className='mt-4 ' >{/*className="mt-2 skill-smry" */}
-                        <Card className=" mb-3 mt-2 p-1 base-card-report text-center" style={{ width: '285px' }} >
+                    <Col sm={10} md={10} lg={4} className='mt-4 ' >{/*className="mt-2 skill-smry" */}
+                        <Card className=" mb-3 mt-2 p-1 base-card-report text-center" >
                             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                             <Card.Body >{/*className="skil-sum-tit mb-2 mt-3" */}
                                 <Card.Title className="skil-sum-tit mb-3 mt-2"
