@@ -81,7 +81,7 @@ const  CertificationReport = (props) => {
                     </Col>  
                 </Row>                
                 <Row className="justify-content-md-center justify-content-sm-center">{/*className="d-lg-flex" */}
-                    <Col lg={8} md={8} sm={12} xs={12}>{/*className="p-md-0 in-bs-ln" */}
+                    <Col xs={12} sm={12} md={12} lg={10} xl={8}>{/*className="p-md-0 in-bs-ln" */}
                         {/* <Link className="back-a mt-4" to="/home"><LeftArrow /> {""} Back to Results </Link> */}
                         <h4 className="f1-19 mt-0 mb-3 mt-3" style={{color:'#003866'}}>Certification Results</h4>
                         <div className="tl-br-cht mt-3 mb-2">
@@ -98,9 +98,9 @@ const  CertificationReport = (props) => {
                                 </BarChart> 
                             </ResponsiveContainer>
                         </div> 
-                        <h4 className="f1-16 text-center">Subject wise Score</h4>
-                        <div className="text-start mb-3 mt-3">
-                            <h4 className="f1-17 mb-2" style={{color:'#003866'}}>Subject wise Score</h4>
+                        <h4 className="f1-16 text-center mb-3">Subject wise Score</h4>
+                        <div className="text-start mb-3 mt-5">
+                            <h4 className="f1-17 my-3" style={{color:'#003866'}}>Subject wise Score</h4>
                             <Row className="justify-content-center justify-content-md-start">                                
                                 <Col className="flex-sb p-0" xs={12} md={6} style={{color:'#003866'}}>
                                     <Col className="p-0 f1-16">Subject 1</Col>
@@ -131,11 +131,11 @@ const  CertificationReport = (props) => {
                             </Row>
                         </div>
                     </Col>
-                    <Col lg={4} md={10} sm={12} xs={12} >{/*className="mt-2 skill-smry" */}
+                    <Col xs={12} sm={10} md={10} lg={6} xl={4} >{/*className="mt-2 skill-smry" */}
                         <Card className="mb-3 mt-2  base-card-report text-center">
                             {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                             <Card.Body>{/*className="skil-sum-tit mb-2 mt-3" */}
-                                <Card.Title className="skil-sum-tit mb-2 mt-3"
+                                <Card.Title className="skil-sum-tit my-4"
                                 >Result Summary</Card.Title>
                                 {/* <h5 className="skil-sum-tit mb-2 mt-3">Result Summary</h5>  */}
                                 {/* <h4 className="skil-sum-baslin">Baseline</h4>  */}

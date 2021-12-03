@@ -23,7 +23,7 @@ const BillingDetails = (props) =>{
     const [billingFilter, setFilter] = useState('')
     const [days, setDays] = useState('')
     return(
-        <div className="py-md-4 bill-rit ms-2">
+        <div className="py-md-2 px-2 bill-rit ms-2">
             <Row className="mb-4 mt-5 pt-5 pt-md-0">
                 <Col xs={12} md={6} lg={6} className="billing-search-box mb-3">   
                     <Form.Group  className="w-90 search-box">
@@ -49,9 +49,9 @@ const BillingDetails = (props) =>{
                 </Col>
             </Row> 
             <div className="m-auto">
-                <Row className="justify-content-center"> 
+                <Row className="justify-content-center justify-content-xl-start"> 
                     <h5 className="report-h5 mt-5">Billing</h5>  
-                    <Col sm={12} md={12} lg={10} className="mx-2 "  > 
+                    <Col sm={12} md={12} lg={10} xl={8} className="mx-2 mt-2"  > 
                         <HorizontalCardFree />
 
                         {/* <Card>

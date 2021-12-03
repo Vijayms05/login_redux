@@ -44,7 +44,7 @@ const Subscription = (props) =>{
     return(
         <Container fluid className="py-md-0 pt-sm-2 pt-2 pt-md-0 mt-5 mt-md-0">   
             <Row className="mt-4">
-                <Col xs={12}  sm={12} md={8}  className="mb-2 mt-2 text-center">   
+                <Col xs={12}  sm={12} md={6} lg={8}  className="mb-2 mt-2 text-center">   
                     <Form.Group  className="search-box text-center">
                         <Button className="searchrole">
                             <SearchIcon />
@@ -58,7 +58,7 @@ const Subscription = (props) =>{
                         />
                     </Form.Group>                
                 </Col>
-                <Col sm={6} md={3}   className="mb-2 mt-2 sub-filter" >
+                <Col sm={6} md={6} lg={3}   className="mb-2 mt-2 sub-filter" >
                     <Form.Select className="select-form" size="lg" >
                         <option>Filters</option>
                         <option>Large select</option>

@@ -57,7 +57,7 @@ const ReportPage = () =>{
                                             </Link>
                                         </td>
                                         <td className="rep-btn-ln">
-                                            <Link to="/basline" 
+                                            <Link to="/baseline" 
                                                 style={{backgroundColor:'#298EE0',color:'white',width: '110px',
                                                 height: '30px',borderRadius:'10px',textAlign:'center'}} 
                                                 className="btn" 
@@ -90,7 +90,7 @@ const ReportPage = () =>{
                                             </Link>
                                         </td>
                                         <td className="rep-btn-ln">
-                                            <Link to="/basline" 
+                                            <Link to="/baseline" 
                                                 style={{backgroundColor:'#298EE0',color:'white',width: '110px',
                                                 height: '30px',borderRadius:'10px',textAlign:'center'}} 
                                                 className="btn" 
