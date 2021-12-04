@@ -6,8 +6,8 @@ import {
     Button 
 } from "react-bootstrap";
 import { message } from 'antd';
-// import { useHistory } from 'react-router-dom';
-import { history } from '../../routes/Routes'
+import { useHistory } from 'react-router-dom';
+// import { history } from '../../routes/Routes'
 import {
     Learnprofessional,
     Logo
@@ -18,7 +18,7 @@ const Professional = (props) => {
    const [workRole, setWorkrole]= useState('')
    const [industry, setIndustry]= useState('')
 
-// const history = useHistory();   
+const history = useHistory();   
     useEffect(() => {
         // validateName();
         // validateWork();
@@ -40,7 +40,7 @@ const Professional = (props) => {
     // }
     const onProfessional = (e) =>{
         // e.preventDefault();
-        history.push({pathname:'/home'});
+        history.push('/home');
         console.log(inputName,workRole,industry)
     }
  

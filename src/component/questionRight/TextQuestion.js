@@ -10,7 +10,7 @@ import {CircleLeft, CircleRight} from '../../assets/images/index'
 const TextQuestion =()=>{
   return(    
         <Container>{/*className="textrec pt-3 d-grid"*/} 
-            <Row className="mt-4 ms-0 ms-md-3 ms-sm-0 ps-0 pe-0" >
+            <Row className="mt-4 pt-3 pt-md-0 ms-0 ms-md-3 ms-sm-0 ps-0 pe-0" >
                 <Col lg={10} md={10} sm={12} xs={12}>
                     <div className="test-record-ssc ms-0 ms-md-2 ms-sm-0">
                         <p>UDSC</p>

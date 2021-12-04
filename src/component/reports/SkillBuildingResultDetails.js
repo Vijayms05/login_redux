@@ -62,10 +62,10 @@ const data = [
 
 const SkillBuildingResultDetails = () => {
     return (
-        <div className="py-md-4 mt-5 mt-md-0 bill-rit">
+        <div className="py-md-3 mt-3 mt-md-0 bill-rit">
             <Col md={12} xs className="baselinereport">
-                <Row className="mt-5 mt-md-2 pt-5 pt-md-0">
-                    <Col xs={12} md={6} lg className="mt-0 mt-sm-3">
+                <Row className="mt-5 mt-md-0 pt-3 pt-md-0">
+                    <Col xs={12} md={6} lg className="my-2">
                     <Form.Group  className="w-70 search-box">
                             <Button className="searchrole">
                                 <SearchIcon />
@@ -73,7 +73,7 @@ const SkillBuildingResultDetails = () => {
                             <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                         </Form.Group> 
                     </Col>
-                    <Col xs={12} md={6} lg className="mt-3">
+                    <Col xs={12} md={6} lg className="my-2">
                         <Form.Select className="select-form" size="lg" >
                             <option>Filters</option>
                             <option>Large select</option>

@@ -61,9 +61,9 @@ const data = [
 
 const  CertificationReport = (props) => {
     return (
-        <div className="py-md-4 mt-5 mt-md-0 bill-rit">
+        <div className="py-md-3 mt-3 mt-md-0 bill-rit">
             <Col md={12} xs={12} className="baselinereport">              
-                <Row className="mt-5 mt-md-3 pt-5 pt-md-0">
+                <Row className="mt-5 mt-md-0 pt-3 pt-md-0">
                     <Col xs={12} sm={6} md={6} className="my-2">   
                         <Form.Group  className="w-70 search-box">
                             <Button className="searchrole">

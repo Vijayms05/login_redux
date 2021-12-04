@@ -90,6 +90,7 @@ const Onboardingstudent = (props) =>{
             </Row> 
             <Col>
               <Button   
+              type="button"
                 className="submit-btn onboard-btn mt-3 mb-2"
                 onClick={onBoard}
               >        

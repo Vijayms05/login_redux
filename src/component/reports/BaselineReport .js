@@ -62,11 +62,11 @@ const data = [
 
 function BaselineReport() {
     return (
-        <div className="py-md-4 mt-5 mt-md-0 bill-rit">
+        <div className="py-md-3 mt-3 mt-md-0 bill-rit">
             <Col xs={12} sm={12} md={12} lg={12}  xl={12} className="baselinereport">              
-                <Row className="mt-5 mt-md-2 pt-5 pt-md-0">
+                <Row className="mt-5 mt-md-0 pt-3 pt-md-0">
                     <Col xs={12} sm={6} md={6}  xl={8} className="my-2">   
-                        <Form.Group  className="w-70 search-box">
+                        <Form.Group  className="search-box">
                             <Button className="searchrole">
                                 <SearchIcon />
                             </Button>

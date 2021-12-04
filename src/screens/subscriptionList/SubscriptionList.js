@@ -26,7 +26,7 @@ const SubscriptionList = () =>{
     // const history= useHistory();
     return(
         <div className="py-md-4 bill-rit">            
-            <Row className="mb-4 mt-5 pt-5 pt-md-0 mt-md-0">
+            <Row className="mb-4 mt-5 pt-3 pt-md-0 mt-md-0">
                 <Col xs={12} sm={6} md={8} lg={6} xl={6} className="my-2">   
                     <Form.Group  className="w-100 search-box">
                         <Button className="searchrole">

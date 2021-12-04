@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 const TestIntro = () =>{
     return(
         <Container className="testIntro pt-3 ">{/*testIntro */}
-            <div className="m-auto mt-5 mt-lg-4">
-                <h3 className="heading-test text-center mb-5 mb-md-3">Test Instructions</h3>
+            <div className="m-auto mt-2 mt-lg-4">
+                <h3 className="heading-test text-center mb-2 mb-md-3">Test Instructions</h3>
                 <Row className=" mt-5 mt-lg-0">
                     <Col lg={6} md={6} sm={6} xs={6} className="text-sm-start">
                         <h5 className="head-tit">Test Name: Test1</h5>
@@ -22,7 +22,7 @@ const TestIntro = () =>{
                 </Row>
 
                 <Row className="justify-content-center">
-                    <Col lg={11} md={10} sm={12} xs={12} className="parag-test my-5 ">
+                    <Col lg={11} md={10} sm={12} xs={12} className="parag-test my-2 my-sm-4 ">
                         <p>Instrusctions <br/><br/>
                             Nam purus auctor et integer sed. Amet, quis aliquam turpis velit. Amet et, 
                             nec ut morbi sit id. Nulla nibh tortor, purus massa, id adipiscing non euismod
@@ -45,7 +45,7 @@ const TestIntro = () =>{
                     </Col>
                 </Row>
 
-                <Row >
+                <Row className="pb-4 pb-sm-0">
                     <Col className="text-sm-start">
                         <Button className="btn-ext">
                             Exit

@@ -193,7 +193,7 @@ const ProfilePage = (props) => {
         <div className="py-md-4 pro-rit mt-5 mt-md-0 mb-3 ps-md-4 shadow px-3 bg-white rounded">  
             {/* {isLoading && <Loader />} */}
             
-            <Col xs={12} sm={12} md={10} lg={12}>
+            <Col xs={12} sm={12} md={11} lg={12}>
                 <h3 className="mb-2 mt-5 mt-md-0 pt-5 pt-md-0 px-2 px-md-0 skill-profile" style={{color:'#003866',fontSize:'30px'}}>Profile</h3>
                 <Row className="mt-5 mt-md-2 mb-3">
                     <Col xs={12} sm={12} md={10} lg={4} className='px-2 px-md-0'>
@@ -206,10 +206,10 @@ const ProfilePage = (props) => {
                 <Col xs={12} sm={12} md={12} lg={12} className="px-2 px-md-0">              
                     <Card.Body className="horizontal-card mb-4 text-center">
                         <Row>
-                            <Col xs={12} sm={6} md={3}  className="mt-2 mb-2">
+                            <Col xs={12} sm={6} md={6} lg={3}  className="mt-2 mb-2">
                                 <AvatorProfile />
                             </Col>
-                            <Col   xs={12} sm={6} md={3}  className="my-auto mb-2 ps-4 ps-md-4 text-center text-md-start">
+                            <Col   xs={12} sm={6} md={6} lg={3}  className="my-auto mb-2 ps-4 ps-md-4 text-center text-md-start">
                                 <label className="title  " 
                                 style={{color:'#192A3E',fontWeight:'bold',fontSize:'18px'}}>
                                     Hayat Tamboli
@@ -217,14 +217,14 @@ const ProfilePage = (props) => {
                                 &nbsp;
                                 <small style={{color:'#90A0B7'}}>hayat.tamboli@gmail.com</small>
                             </Col>
-                            <Col   xs={12} sm={6} md={3}  className=" mb-2 mt-4 ">
+                            <Col   xs={12} sm={6} md={6} lg={3}  className=" mb-2 mt-4 ">
                                 <button className="profile-cardbutton btn" 
                                 style={{color:'#FFFFFF',borderRadius:'10px',width:'170px !important'}} 
                                 onClick={handleShow}>
                                     Edit Avatar
                                 </button>
                             </Col>
-                            <Col   xs={12} sm={6} md={3} className=" mb-2 mt-4 ">
+                            <Col   xs={12} sm={6} md={6} lg={3} className=" mb-2 mt-4 ">
                                 <button className="profile-cardbutton btn"
                                     style={{color:'#FFFFFF',borderRadius:'10px',
                                     width:'170px !important',

@@ -24,8 +24,8 @@ const BillingDetails = (props) =>{
     const [days, setDays] = useState('')
     return(
         <div className="py-md-2 px-2 bill-rit ms-2">
-            <Row className="mb-4 mt-5 pt-5 pt-md-0">
-                <Col xs={12} md={6} lg={6} className="billing-search-box mb-3">   
+            <Row className="mb-4 mt-5 pt-5 mt-md-4 pt-md-0">
+                <Col xs={12} md={6} lg={6} className="billing-search-box mb-2">   
                     <Form.Group  className="w-90 search-box">
                         <Button className="searchrole">
                             <SearchIcon />
@@ -37,7 +37,7 @@ const BillingDetails = (props) =>{
                             className="search-input rounded-pill" />
                     </Form.Group>                
                 </Col>
-                <Col xs={12} md={6} lg={6}  className="billing-search-box mb-3">
+                <Col xs={12} md={6} lg={6}  className="billing-search-box mb-2">
                     <Form.Select 
                         className="select-form " size="md" 
                         onChange={e => setFilter(e.target.value)}
@@ -50,7 +50,7 @@ const BillingDetails = (props) =>{
             </Row> 
             <div className="m-auto">
                 <Row className="justify-content-center justify-content-xl-start"> 
-                    <h5 className="report-h5 mt-5">Billing</h5>  
+                    <h5 className="report-h5 mt-2 mt-md-0 my-2 my-md-3">Billing</h5>  
                     <Col sm={12} md={12} lg={10} xl={8} className="mx-2 mt-2"  > 
                         <HorizontalCardFree />
 

@@ -7,10 +7,10 @@ import { SearchIcon } from '../../assets/images'
 
 const SkillBuildingReport = () =>{
     return(
-        <div className="py-md-4 mt-5 mt-md-0 bill-rit">
-            <Row className="mt-5 mt-md-3 pt-5 pt-md-0">
+        <div className="py-md-2 mt-3 mt-md-0 bill-rit">
+            <Row className="mt-3 mt-md-3 pt-3 pt-md-0">
                 <Col xs={12} md={6} lg={8} className="mb-3">   
-                    <Form.Group  className="w-70 search-box">
+                    <Form.Group  className="search-box">
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>

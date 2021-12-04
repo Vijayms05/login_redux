@@ -43,7 +43,7 @@ const Subscription = (props) =>{
 
     return(
         <Container fluid className="py-md-0 pt-sm-2 pt-2 pt-md-0 mt-5 mt-md-0">   
-            <Row className="mt-4">
+            <Row className="mt-2">
                 <Col xs={12}  sm={12} md={6} lg={8}  className="mb-2 mt-2 text-center">   
                     <Form.Group  className="search-box text-center">
                         <Button className="searchrole">
