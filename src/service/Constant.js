@@ -5,6 +5,11 @@ export const URL = {
     LOGIN: 'user/login',
     VERIFY_EMAIL: 'verify/email/', // slug_email has to pass in url
     REGISTER: 'register/user',
+    STANDARDS: 'standards',
+    STANDARD_STREAMS: 'standard/streams/', //standard_id has to pass in url
+    STREAMS: 'streams',
+    STREAM_BRANCHES: 'stream/branches/', //stream_id has to pass in url
+    INDUSTRIES: 'industries',
 }
 
 

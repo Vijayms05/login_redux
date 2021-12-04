@@ -15,63 +15,221 @@ import {
     Logo
 } from '../../assets/images/index';
 import { validText } from '../../service/Constant';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import Schoolstudent from './Schoolstudent';
 // import Collegegroup from './Collegegroup';
-
+import RegisterService from '../../service/RegisterService';
+import { useHistory } from 'react-router-dom';
+import { set_Profile } from '../../redux/action';
 
 const Studentgroup = (props) => {
     // const { validateName } = props;
+    const dispatch = useDispatch();
     const email = useSelector(state => state.loginReducer);
-    console.log(email);
     const role = useSelector(state => state.roleReducer);
-    console.log(role);
-    const [inputName, setInputname] = useState('')
     const [student, setStudent] = useState(false)
 
-    const [branch, setBranch] = useState('')
-    const [collegeName, setCollegeName] = useState('')
-    const [noofuniversity, setNoofuniversity] = useState('')
-    const [collegeYear, setCollegeYear] = useState(' ')
-    const [stream, setStream] = useState('')
+    const history = useHistory();
 
-    const [schoolName, setSchoolName] = useState('')
     const [streamSchool, setStreamSchool] = useState('')
-    const [standard, setStandard] = useState('')
 
+    const [inputName, setInputname] = useState('');
+    const [inputNameErr, setInputnameErr] = useState(null);
+    const [type, setType] = useState('');
+    const [stream, setStream] = useState('');
+    const [streamList, setStreamList] = useState([]);
+    const [standard, setStandard] = useState('');
+    const [standardList, setStandardList] = useState([]);
+    const [branch, setBranch] = useState('');
+    const [branchList, setBranchList] = useState([]);
+    const [schoolName, setSchoolName] = useState('')
+    const [schoolNameErr, setSchoolNameErr] = useState(null);
+    const [collegeName, setCollegeName] = useState('');
+    const [universityName, setUniversityName] = useState('');
+    const [collegeYear, setCollegeYear] = useState('');
+    const [collegeNameErr, setCollegeNameErr] = useState(null);
+    const [universityNameErr, setUniversityNameErr] = useState(null);
+    const [collegeYearErr, setCollegeYearErr] = useState(null);
+
+    const changeType = (type) => {
+        setType(type);
+        if (type == 1) {
+            RegisterService.getStandards().then(result => {
+                var response = result.data;
+                console.log(response);
+                if (response.status == 'success') {
+                    setStandardList(response.standards);
+                    setStreamList([]);
+                    setStream('');
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        } else if (type == 2) {
+            RegisterService.getStreams().then(result => {
+                var response = result.data;
+                console.log(response);
+                if (response.status == 'success') {
+                    setStreamList(response.streams);
+                    setStandardList([]);
+                    setStandard('');
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+    }
+    const changeStandard = (e) => {
+        setStandard(e.target.value);
+        if (e.target.value != null && e.target.value != '') {
+            RegisterService.getStandardsStreams(e.target.value).then(result => {
+                var response = result.data;
+                console.log(response);
+                if (response.status == 'success') {
+                    setStreamList(response.streams);
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+    }
+    const changeStream = (e) => {
+        setStream(e.target.value);
+        if (e.target.value != null && e.target.value != '') {
+            RegisterService.getStreamsBranches(e.target.value).then(result => {
+                var response = result.data;
+                console.log(response);
+                if (response.status == 'success') {
+                    setBranchList(response.branch);
+                }
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+    }
     // const history= useHistory();
-    useEffect(() => {
-        validateName();
-        validateCollege();
-    }, [])
-    const validateName = () => {
-        if (!validText.test(inputName)) {
-            message.error('Your Name is Invalid')
-        } else {
-            message.success('Your Name is Valid')
-        }
-    }
-    const validateCollege = () => {
-        if (!validText.test(collegeName)) {
-            message.error('Your Name is Invalid')
-        } else {
-            message.success('Your Name is Valid')
-        }
-    }
+    // useEffect(() => {
+    //     validateName();
+    //     validateCollege();
+    // }, [])
+    // const validateName = () => {
+    //     if (!validText.test(inputName)) {
+    //         message.error('Your Name is Invalid')
+    //     } else {
+    //         message.success('Your Name is Valid')
+    //     }
+    // }
+    // const validateCollege = () => {
+    //     if (!validText.test(collegeName)) {
+    //         message.error('Your Name is Invalid')
+    //     } else {
+    //         message.success('Your Name is Valid')
+    //     }
+    // }
     const onName = (e) => {
         setInputname(e.target.value);
+        if (e.target.value != '' && validText.test(e.target.value)) {
+            setInputnameErr(false);
+        } else {
+            setInputnameErr(true);
+        }
+    }
+    const changeSchoolName = (e) => {
+        if (type == 1) {
+            setSchoolName(e.target.value);
+            if (e.target.value != '') {
+                setSchoolNameErr(false);
+            } else {
+                setSchoolNameErr(true);
+            }
+        } else if (type == 2) {
+            setCollegeName(e.target.value);
+            if (e.target.value != '') {
+                setCollegeNameErr(false);
+            } else {
+                setCollegeNameErr(true);
+            }
+        }
+    }
+    const changeUniversityName = (e) => {
+        setUniversityName(e.target.value);
+        if (e.target.value != '') {
+            setUniversityNameErr(false);
+        } else {
+            setUniversityNameErr(true);
+        }
     }
 
-    const toggleClick = (e) => {
-        e.preventDefault();
-
-        console.log(inputName)
-        if (inputName === " ") {
-            // message.error('Please Select the School or Professional')
+    const changeCollegeYear = (e) => {
+        setCollegeYear(e.target.value);
+        if (e.target.value != '' && e.target.value < 5) {
+            setCollegeYearErr(false);
         } else {
-            // message.success('Student is Successfully verified ')
+            setCollegeYearErr(true);
         }
-        history.push({ pathname: '/home' })
+    }
+    const toggleClick = () => {
+        var payload = {};
+        if (type == 1) {
+            if (schoolNameErr == false && standard != '' && stream != '') {
+                payload = {
+                    email: email,
+                    role: role,
+                    type: type,
+                    name: inputName,
+                    school_name: schoolName,
+                    stream: stream,
+                    standard: standard,
+                };
+                RegisterService.register(payload).then(result => {
+                    var response = result.data;
+                    console.log(response);
+                    if (response.status == 'success') {
+                        dispatch(set_Profile(response));
+                        history.push('/home')
+                    }
+                }).catch(err => {
+                    console.log(err);
+                });
+            } else {
+                alert("Please fill all the fileds");
+            }
+        } else if (type == 2) {
+            if (collegeNameErr == false && universityNameErr == false && stream != '' && branch != '' && collegeYearErr == false) {
+                payload = {
+                    email: email,
+                    role: role,
+                    type: type,
+                    name: inputName,
+                    college_name: collegeName,
+                    university_name: universityName,
+                    stream: stream,
+                    branch: branch,
+                    year: collegeYear,
+                };
+                RegisterService.register(payload).then(result => {
+                    var response = result.data;
+                    console.log(response);
+                    if (response.status == 'success') {
+                        dispatch(set_Profile(response));
+                        history.push('/home')
+                    }
+                }).catch(err => {
+                    console.log(err);
+                });
+            } else {
+                alert("Please fill all the fileds");
+            }
+        }
+
+        // e.preventDefault();
+        // console.log(inputName)
+        // if (inputName === " ") {
+        //     // message.error('Please Select the School or Professional')
+        // } else {
+        //     // message.success('Student is Successfully verified ')
+        // }
+        // history.push({ pathname: '/home' })
     }
     return (
         <div className="tl-bdy sign-tl-bdy">
@@ -94,11 +252,17 @@ const Studentgroup = (props) => {
                                 <Form.Control
                                     className="student-inputField"
                                     type="text"
-                                    placeholder="Enter your Name"
+                                    placeholder="Enter your Name *"
                                     value={inputName}
                                     onChange={onName}
                                 />
+                                {inputNameErr ?
+                                    (<p style={{ fontSize: '16px', color: 'red' }} className="mt-2">
+                                        Please enter valid Name *
+                                    </p>
+                                    ) : ''}
                             </Form.Group>
+
                             <p style={{ color: '#4C5857', fontSize: '17px' }}>
                                 Are you school student or college student?
                             </p>
@@ -108,9 +272,9 @@ const Studentgroup = (props) => {
                                         <Form.Check
                                             type="checkbox"
                                             label="School"
-                                            value="school"
-                                            checked={student === "school" ? true : false}
-                                            onClick={e => setStudent("school")} />
+                                            value={1}
+                                            checked={type == 1 ? true : false}
+                                            onClick={e => changeType(1)} />
                                     </Form.Group>
                                 </Col>
                                 <Col className="mt-3" >
@@ -120,15 +284,15 @@ const Studentgroup = (props) => {
                                             label="College/Intermediate  
                                             (plus one/ plus two)"
                                             style={{ width: '160px', height: '60px' }}
-                                            value="college"
-                                            checked={student === "college" ? true : false}
-                                            onClick={e => setStudent("college")}
+                                            value={2}
+                                            checked={type == 2 ? true : false}
+                                            onClick={e => changeType(2)}
                                         />
                                     </Form.Group>
                                 </Col>
                             </Row>
                             <Col className="mt-1">
-                                {student === 'school' ?
+                                {type == 1 ?
                                     (
                                         <Form >
                                             <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
@@ -137,44 +301,77 @@ const Studentgroup = (props) => {
                                                     type="text"
                                                     placeholder="Name of School"
                                                     value={schoolName}
-                                                    onChange={e => setSchoolName(e.target.value)}
+                                                    onChange={changeSchoolName}
                                                 />
+                                                {schoolNameErr ?
+                                                    (<p style={{ fontSize: '16px', color: 'red' }} className="mt-2">
+                                                        Please enter School Name *
+                                                    </p>
+                                                    ) : ''}
                                             </Form.Group>
+
+                                            <select
+                                                className="form-select mb-3 schoolstudent-select"
+                                                defaultValue={standard}
+                                                onChange={changeStandard}
+                                                aria-label="Default select example"
+                                            >
+                                                <option value={''}> -- Select Standard --</option>
+                                                {standardList.length > 0 &&
+                                                    standardList.map((item, index) => {
+                                                        return (
+                                                            <option key={index} value={item.name}>{item.name}</option>
+                                                        )
+                                                    })
+                                                }
+                                            </select>
                                             <select className="form-select mb-3 schoolstudent-select"
                                                 defaultValue={stream}
                                                 onChange={e => setStream(e.target.value)}
                                                 aria-label="Default select example">
-                                                <option selected value="1">-- Select Stream --</option>
-                                                <option value="2">One</option>
-                                                <option value="3">Two</option>
-                                                <option value="4">Three</option>
-                                            </select>
-                                            <select
-                                                className="form-select mb-3 schoolstudent-select"
-                                                defaultValue={standard}
-                                                onChange={e => setStandard(e.target.value)}
-                                                aria-label="Default select example"
-                                            >
-                                                <option selected value="1"> -- Select Standard --</option>
-                                                <option value="2">One</option>
-                                                <option value="3">Two</option>
-                                                <option value="4">Three</option>
+                                                <option value={''}>-- Select Stream --</option>
+                                                {streamList.length > 0 &&
+                                                    streamList.map((item, index) => {
+                                                        return (
+                                                            <option key={index} value={item.name}>{item.name}</option>
+                                                        )
+                                                    })
+                                                }
                                             </select>
                                         </Form>
                                     ) :
-                                    student === 'college' ?
+                                    type == 2 ?
                                         (
                                             <Form>
                                                 <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
                                                     <Form.Control
                                                         className="student-inputField"
                                                         type="text"
-                                                        placeholder="Name of College"
+                                                        placeholder="Name of College *"
                                                         value={collegeName}
-                                                        onChange={e => setCollegeName(e.target.value)}
+                                                        onChange={changeSchoolName}
                                                     />
+                                                    {collegeNameErr ?
+                                                        (<p style={{ fontSize: '16px', color: 'red' }} className="mt-2">
+                                                            Please enter College Name *
+                                                        </p>
+                                                        ) : ''}
                                                 </Form.Group>
-                                                <select className="form-select mb-3 schoolstudent-select"
+                                                <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                                                    <Form.Control
+                                                        className="student-inputField"
+                                                        type="text"
+                                                        placeholder="Name of University *"
+                                                        value={universityName}
+                                                        onChange={changeUniversityName}
+                                                    />
+                                                    {universityNameErr ?
+                                                        (<p style={{ fontSize: '16px', color: 'red' }} className="mt-2">
+                                                            Please enter University Name *
+                                                        </p>
+                                                        ) : ''}
+                                                </Form.Group>
+                                                {/* <select className="form-select mb-3 schoolstudent-select"
                                                     aria-label="Default select example"
                                                     defaultValue={noofuniversity}
                                                     onChange={e => setNoofuniversity(e.target.value)}>
@@ -182,26 +379,34 @@ const Studentgroup = (props) => {
                                                     <option value="2">One</option>
                                                     <option value="3">Two</option>
                                                     <option value="4">Three</option>
-                                                </select>
+                                                </select> */}
                                                 <select className="form-select mb-3 schoolstudent-select"
                                                     aria-label="Default select example"
                                                     defaultValue={stream}
-                                                    onChange={e => setStream(e.target.value)}>
-                                                    <option selected value="1"> Select Stream </option>
-                                                    <option value="2">One</option>
-                                                    <option value="3">Two</option>
-                                                    <option value="4">Three</option>
+                                                    onChange={changeStream}>
+                                                    <option value={''}> Select Stream </option>
+                                                    {streamList.length > 0 &&
+                                                        streamList.map((item, index) => {
+                                                            return (
+                                                                <option key={index} value={item.name}>{item.name}</option>
+                                                            )
+                                                        })
+                                                    }
                                                 </select>
                                                 <select className="form-select mb-3 schoolstudent-select"
                                                     aria-label="Default select example"
                                                     defaultValue={branch}
                                                     onChange={e => setBranch(e.target.value)}>
-                                                    <option selected value="1"> Select Branch </option>
-                                                    <option value="2">One</option>
-                                                    <option value="3">Two</option>
-                                                    <option value="4">Three</option>
+                                                    <option value={''}> Select Branch </option>
+                                                    {branchList.length > 0 &&
+                                                        branchList.map((item, index) => {
+                                                            return (
+                                                                <option key={index} value={item.name}>{item.name}</option>
+                                                            )
+                                                        })
+                                                    }
                                                 </select>
-                                                <select className="form-select mb-3 schoolstudent-select"
+                                                {/* <select className="form-select mb-3 schoolstudent-select"
                                                     aria-label="Default select example"
                                                     defaultValue={collegeYear}
                                                     onChange={e => setCollegeYear(e.target.value)}>
@@ -209,10 +414,23 @@ const Studentgroup = (props) => {
                                                     <option value="2">One</option>
                                                     <option value="3">Two</option>
                                                     <option value="4">Three</option>
-                                                </select>
+                                                </select> */}
+                                                <Form.Group className="mb-4 login-inputGroup" controlId="formBasicEmail">
+                                                    <Form.Control
+                                                        className="student-inputField"
+                                                        type="text"
+                                                        placeholder="Year of College"
+                                                        value={collegeYear}
+                                                        onChange={changeCollegeYear}
+                                                    />
+                                                    {collegeYearErr ?
+                                                        (<p style={{ fontSize: '16px', color: 'red' }} className="mt-2">
+                                                            {collegeYear ? 'Year should be less than 5' : 'Please enter University Name *'
+                                                            }
+                                                        </p>
+                                                        ) : ''}
+                                                </Form.Group>
                                             </Form>
-
-
                                         )
                                         : null
                                 }
@@ -220,9 +438,10 @@ const Studentgroup = (props) => {
 
                             </Col>
                             <Button
+                                disabled={inputNameErr == false && type != '' ? false : true}
                                 className="submit-btn"
                                 variant="primary"
-                                type="submit"
+                                // type="submit"
                                 onClick={toggleClick}
                             >
                                 Continue

@@ -12,45 +12,89 @@ import {
     Logo
 } from '../../assets/images/index';
 import { validText } from '../../service/Constant';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import RegisterService from '../../service/RegisterService';
+import { set_Profile } from '../../redux/action';
 const Professional = (props) => {
+    const dispatch = useDispatch();
     const email = useSelector(state => state.loginReducer);
-    console.log(email);
     const role = useSelector(state => state.roleReducer);
-    console.log(role);
-    const [inputName, setInputname] = useState('')
-    const [workRole, setWorkrole] = useState('')
-    const [industry, setIndustry] = useState('')
+    const [inputName, setInputname] = useState('');
+    const [workRole, setWorkrole] = useState('');
+    const [inputNameErr, setInputnameErr] = useState(null);
+    const [workRoleErr, setWorkroleErr] = useState(null);
+    const [industry, setIndustry] = useState('');
+    const [industryList, setIndustryList] = useState([]);
 
     const history = useHistory();
     useEffect(() => {
-        validateName();
-        validateWork();
+        RegisterService.getIndustries().then(result => {
+            var response = result.data;
+            console.log(response);
+            if (response.status == 'success') {
+                setIndustryList(response);
+            }
+        }).catch(err => {
+            console.log(err);
+        });
     }, [])
 
-    const validateName = () => {
-        if (!validText.test(inputName)) {
-            message.error('Your Name is Invalid')
+    // const validateName = () => {
+    //     if (!validText.test(inputName)) {
+    //         message.error('Your Name is Invalid')
+    //     } else {
+    //         message.success('Your Name is Valid')
+    //     }
+    // }
+
+    // const validateWork = () => {
+    //     if (!validText.test(workRole)) {
+    //         message.error('Your Name is Invalid')
+    //     } else {
+    //         message.success('Your Name is Valid')
+    //     }
+    // }
+
+    const onProfessional = () => {
+        var payload = {
+            email: email,
+            role: role,
+            name: inputName,
+            type: 3,
+            industry: industry,
+            work_role: workRole,
+        }
+        RegisterService.register(payload).then(result => {
+            var response = result.data;
+            console.log(response);
+            if (response.status == 'success') {
+                dispatch(set_Profile(response));
+                history.push('/home')
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+        // e.preventDefault();
+        // history.push({ pathname: '/home' });
+        // console.log(inputName, workRole, industry)
+    }
+
+    const changeInputName = (e) => {
+        setInputname(e.target.value);
+        if (e.target.value != '' && validText.test(e.target.value)) {
+            setInputnameErr(false);
         } else {
-            message.success('Your Name is Valid')
+            setInputnameErr(true);
         }
     }
-
-    const validateWork = () => {
-        if (!validText.test(workRole)) {
-            message.error('Your Name is Invalid')
+    const changeWorkRole = (e) => {
+        setWorkrole(e.target.value);
+        if (e.target.value != '' && validText.test(e.target.value)) {
+            setWorkroleErr(false);
         } else {
-            message.success('Your Name is Valid')
+            setWorkroleErr(true);
         }
     }
-
-    const onProfessional = (e) => {
-        e.preventDefault();
-
-        history.push({ pathname: '/home' });
-        console.log(inputName, workRole, industry)
-    }
-
     return (
         <div className="tl-bdy sign-tl-bdy">
             <div className="bdy-in">
@@ -68,28 +112,43 @@ const Professional = (props) => {
                                     placeholder="Enter your name"
                                     className="px-3 professional-formcontrol"
                                     value={inputName}
-                                    onChange={e => setInputname(e.target.value)}
+                                    onChange={changeInputName}
                                 />
+                                {inputNameErr ?
+                                    (<p style={{ fontSize: '16px', color: 'red' }} className="mt-2">
+                                        Please enter valid Name *
+                                    </p>
+                                    ) : ''}
                             </Form.Group>
                             <select className="form-select mb-3 textselectoption"
                                 aria-label="Default select example"
                                 defaultValue={industry}
                                 onChange={e => setIndustry(e.target.value)}
                             >
-                                <option selected>Select Industry</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option selected value={''}>Select Industry</option>
+                                {industryList.length > 0 &&
+                                    industryList.map((item, index) => {
+                                        return (
+                                            <option key={index} value={item.name}>{item.name}</option>
+                                        )
+                                    })
+                                }
                             </select>
                             <Form.Group className="mb-3 professional-formgroup">
                                 <Form.Control
                                     placeholder="Work role"
                                     className="px-3 professional-formcontrol"
                                     value={workRole}
-                                    onChange={e => setWorkrole(e.target.value)}
+                                    onChange={changeWorkRole}
                                 />
+                                {workRoleErr ?
+                                    (<p style={{ fontSize: '16px', color: 'red' }} className="mt-2">
+                                        Please enter valid Work role *
+                                    </p>
+                                    ) : ''}
                             </Form.Group>
                             <Button
+                                disabled={inputNameErr == false && industry != '' && workRoleErr == false ? false : true}
                                 className="mb-3 submit-btn"
                                 onClick={onProfessional}
                             >

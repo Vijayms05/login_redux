@@ -9,7 +9,7 @@ import forgetpasswordReducer from './Forgetpassword'
 import sidebarReducer from './Sidebar';
 import loginReducer from './loginReducer';
 import roleReducer from './roleReducer';
-
+import ProfileReducer from './ProfileReducer';
 const rootReducer = combineReducers({
     signupState,
     loginState,
@@ -20,5 +20,6 @@ const rootReducer = combineReducers({
     profileState,
     loginReducer,
     roleReducer,
+    ProfileReducer,
 })
 export default rootReducer;
