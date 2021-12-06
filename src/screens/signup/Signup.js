@@ -62,6 +62,13 @@ const Signup = (props) => {
     setPassword(e.target.value);
     if (e.target.value != '') {
       setPasswordErr(false);
+      if (repassword != '') {
+        if (e.target.value == repassword) {
+          setRePasswordErr(false);
+        } else {
+          setRePasswordErr(true);
+        }
+      }
     } else {
       setPasswordErr(true);
     }
@@ -138,11 +145,29 @@ const Signup = (props) => {
       password_confirmation: repassword,
     }
     SignupService.signUp(payload).then(result => {
-
       console.log(result);
-    }).catch(err => {
-      console.log(err);
-    })
+      var response = result.data;
+      if (response.status == 'success') {
+        alert(response.message);
+        setEmail('');
+        setPassword('');
+        setRepassword('');
+      }
+    }).catch(function (error) {
+      if (error.response) {
+        // Request made and server responded
+        alert(error.response.data?.message);
+        console.log(error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        alert(error.request)
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        alert(error.message)
+        console.log(error.message);
+      }
+    });
     // let response = await api.signUp(payload);
     // console.log(response);
     // if (response?.status == 'success') {
@@ -242,7 +267,7 @@ const Signup = (props) => {
                 </Button>
               </Form.Group>
               {repasswordErr ?
-                (<p style={{ fontSize: '16px', color: 'red' }} className="mb-3"> Password missmatch </p>) : ''}
+                (<p style={{ fontSize: '16px', color: 'red' }} className="mb-3"> {repassword ? 'Password missmatch' : 'Please enter your Re-Enter Password'}</p>) : ''}
               <Form.Group className="mb-3" style={{ height: '25px' }} controlId="formBasicCheckbox">
                 <Form.Check
                   className="float-start me-2"

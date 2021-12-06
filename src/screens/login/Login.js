@@ -21,6 +21,7 @@ import axios from 'axios';
 import { set_Email } from '../../redux/action/index';
 import { api } from '../../service/index';
 import LoginService from '../../service/LoginService'
+import ForgotPasswordService from '../../service/ForgotPasswordService';
 const Login = (props) => {
   const history = useHistory();
   const [user, setUser] = useState(0);
@@ -57,8 +58,21 @@ const Login = (props) => {
           setVerifyEmail(false);
         }
 
-      }).catch(err => {
-        console.log(err);
+      }).catch(function (error) {
+        if (error.response) {
+          // Request made and server responded
+          alert(error.response.data?.message);
+          console.log(error.response.data);
+        } else if (error.request) {
+          // The request was made but no response was received
+          alert(error.request)
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          alert(error.message)
+          console.log(error.message);
+        }
+
       });
     }
     // if (validLogin) {
@@ -101,17 +115,17 @@ const Login = (props) => {
     var payload = {
       email: email,
       password: password,
-      type: 0,
+      type: user,
     };
     LoginService.login(payload).then(result => {
       console.log(result);
       var response = result.data;
       if (response?.status == 'success') {
         if (response?.email_verified == 1 && response?.register_status == 1) {
-          dispatch(set_Email(email));
+          dispatch(set_Email({ email: email, type: user }));
           history.push('/home');
         } else if (response?.email_verified == 1 && response?.register_status == 0) {
-          dispatch(set_Email(email));
+          dispatch(set_Email({ email: email, type: user }));
           history.push('/onboard');
         } else if (response?.email_verified == 0 && response?.register_status == 0) {
           alert(response?.message);
@@ -121,10 +135,50 @@ const Login = (props) => {
       } else if (response.status == 'error') {
         alert(response?.message);
       }
-    }).catch(err => {
-      console.log(err);
+    }).catch(function (error) {
+      if (error.response) {
+        // Request made and server responded
+        alert(error.response.data?.message);
+        console.log(error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        alert(error.request)
+        console.log(error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        alert(error.message)
+        console.log(error.message);
+      }
+
     });
   };
+  const forgotPasswordRequest = () => {
+    if (email != '' && emailErr == false) {
+      ForgotPasswordService.request(email, user).then(result => {
+        console.log(result);
+        var response = result.data;
+        if (response?.status == 'success') {
+          alert(response.message);
+        }
+      }).catch(function (error) {
+        if (error.response) {
+          // Request made and server responded
+          alert(error.response.data?.message);
+          console.log(error.response.data);
+        } else if (error.request) {
+          // The request was made but no response was received
+          alert(error.request)
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          alert(error.message)
+          console.log(error.message);
+        }
+      });
+    } else {
+      alert("Enter your email and type")
+    }
+  }
   return (
     <>
       {(verifyEmail == '' && slugMail == '') || (verifyEmail && slugMail) ?
@@ -208,8 +262,9 @@ const Login = (props) => {
                     </p>
                     ) : ''}
                   <Form.Group className="mb-4" style={{ height: '25px' }} controlId="formBasicCheckbox">
-                    <Form.Label className="reset-password">
-                      <Link to="/resetpassword">Forget Password?</Link>
+                    <Form.Label onClick={forgotPasswordRequest} className="reset-password">
+                      {/* Forget Password? */}
+                      <Link to="">Forget Password?</Link>
                     </Form.Label>
                   </Form.Group>
                   <Button className="submit-btn" variant="primary"

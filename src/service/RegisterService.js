@@ -2,6 +2,7 @@ import { URL } from './Constant';
 import httpClient from './httpClient';
 
 const register = (payload) => {
+    console.log(payload);
     return httpClient.post(URL.REGISTER, payload);
 };
 const getStreams = () => {
@@ -19,6 +20,9 @@ const getStandardsStreams = (standard_id) => {
 const getIndustries = () => {
     return httpClient.get(URL.INDUSTRIES);
 };
+const getIndustriesWorkRoles = (industry_id) => {
+    return httpClient.get(URL.INDUSTRY_WORK_ROLES + industry_id);
+};
 const RegisterService = {
     register,
     getStreams,
@@ -26,5 +30,6 @@ const RegisterService = {
     getStandards,
     getStandardsStreams,
     getIndustries,
+    getIndustriesWorkRoles,
 }
 export default RegisterService;

@@ -14,20 +14,17 @@ const LoginService = {
     verifyEmail
 }
 export default LoginService;
-const getEmployees = () => {
-    return httpClient.get('http://localhost:8080/api/v1/employees');
-}
+// const getEmployees = () => {
+//     return httpClient.get('http://localhost:8080/api/v1/employees');
+// }
+// const getEmployeeById = (employeeId) => {
+//     return httpClient.get(BASE_URL + '/' + employeeId);
+// }
 
+// const updateEmployee = (employee, employeeId) => {
+//     return httpClient.put(BASE_URL + '/' + employeeId, employee);
+// }
 
-
-const getEmployeeById = (employeeId) => {
-    return httpClient.get(BASE_URL + '/' + employeeId);
-}
-
-const updateEmployee = (employee, employeeId) => {
-    return httpClient.put(BASE_URL + '/' + employeeId, employee);
-}
-
-const deleteEmployee = (employeeId) => {
-    return httpClient.delete(BASE_URL + '/' + employeeId);
-}
+// const deleteEmployee = (employeeId) => {
+//     return httpClient.delete(BASE_URL + '/' + employeeId);
+// }

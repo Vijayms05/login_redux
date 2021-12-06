@@ -25,8 +25,7 @@ import { set_Profile } from '../../redux/action';
 const Studentgroup = (props) => {
     // const { validateName } = props;
     const dispatch = useDispatch();
-    const email = useSelector(state => state.loginReducer);
-    const role = useSelector(state => state.roleReducer);
+    const email = useSelector(state => state.loginReducer.email);
     const [student, setStudent] = useState(false)
 
     const history = useHistory();
@@ -62,8 +61,21 @@ const Studentgroup = (props) => {
                     setStreamList([]);
                     setStream('');
                 }
-            }).catch(err => {
-                console.log(err);
+            }).catch(function (error) {
+                if (error.response) {
+                    // Request made and server responded
+                    alert(error.response.data?.message);
+                    console.log(error.response.data);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    alert(error.request)
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    alert(error.message)
+                    console.log(error.message);
+                }
+
             });
         } else if (type == 2) {
             RegisterService.getStreams().then(result => {
@@ -74,8 +86,21 @@ const Studentgroup = (props) => {
                     setStandardList([]);
                     setStandard('');
                 }
-            }).catch(err => {
-                console.log(err);
+            }).catch(function (error) {
+                if (error.response) {
+                    // Request made and server responded
+                    alert(error.response.data?.message);
+                    console.log(error.response.data);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    alert(error.request)
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    alert(error.message)
+                    console.log(error.message);
+                }
+
             });
         }
     }
@@ -83,13 +108,26 @@ const Studentgroup = (props) => {
         setStandard(e.target.value);
         if (e.target.value != null && e.target.value != '') {
             RegisterService.getStandardsStreams(e.target.value).then(result => {
+                console.log(result);
                 var response = result.data;
-                console.log(response);
                 if (response.status == 'success') {
                     setStreamList(response.streams);
                 }
-            }).catch(err => {
-                console.log(err);
+            }).catch(function (error) {
+                if (error.response) {
+                    // Request made and server responded
+                    alert(error.response.data?.message);
+                    console.log(error.response.data);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    alert(error.request)
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    alert(error.message)
+                    console.log(error.message);
+                }
+
             });
         }
     }
@@ -97,13 +135,26 @@ const Studentgroup = (props) => {
         setStream(e.target.value);
         if (e.target.value != null && e.target.value != '') {
             RegisterService.getStreamsBranches(e.target.value).then(result => {
+                console.log(result);
                 var response = result.data;
-                console.log(response);
                 if (response.status == 'success') {
-                    setBranchList(response.branch);
+                    setBranchList(response.branches);
                 }
-            }).catch(err => {
-                console.log(err);
+            }).catch(function (error) {
+                if (error.response) {
+                    // Request made and server responded
+                    alert(error.response.data?.message);
+                    console.log(error.response.data);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    alert(error.request)
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    alert(error.message)
+                    console.log(error.message);
+                }
+
             });
         }
     }
@@ -172,50 +223,84 @@ const Studentgroup = (props) => {
         var payload = {};
         if (type == 1) {
             if (schoolNameErr == false && standard != '' && stream != '') {
+                var standard_name = standardList.filter(function (item) {
+                    return item.id == standard
+                });
                 payload = {
-                    email: email,
-                    role: role,
-                    type: type,
+                    email: email.email,
+                    role: type,
+                    type: email.type,
                     name: inputName,
                     school_name: schoolName,
                     stream: stream,
-                    standard: standard,
+                    standard: standard_name[0].name,
                 };
                 RegisterService.register(payload).then(result => {
+                    console.log(result);
                     var response = result.data;
-                    console.log(response);
                     if (response.status == 'success') {
-                        dispatch(set_Profile(response));
+                        alert(response.message);
+                        // dispatch(set_Profile(response));
                         history.push('/home')
                     }
-                }).catch(err => {
-                    console.log(err);
+                }).catch(function (error) {
+                    if (error.response) {
+                        // Request made and server responded
+                        alert(error.response.data?.message);
+                        console.log(error.response.data);
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        alert(error.request)
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        alert(error.message)
+                        console.log(error.message);
+                    }
+
                 });
             } else {
                 alert("Please fill all the fileds");
             }
         } else if (type == 2) {
             if (collegeNameErr == false && universityNameErr == false && stream != '' && branch != '' && collegeYearErr == false) {
+                var stream_name = streamList.filter(function (item) {
+                    return item.id == stream
+                });
                 payload = {
-                    email: email,
-                    role: role,
-                    type: type,
+                    email: email.email,
+                    role: type,
+                    type: email.type,
                     name: inputName,
                     college_name: collegeName,
                     university_name: universityName,
-                    stream: stream,
+                    stream: stream_name[0].name,
                     branch: branch,
                     year: collegeYear,
                 };
                 RegisterService.register(payload).then(result => {
+                    console.log(result);
                     var response = result.data;
-                    console.log(response);
                     if (response.status == 'success') {
-                        dispatch(set_Profile(response));
+                        alert(response.message);
+                        // dispatch(set_Profile(response));
                         history.push('/home')
                     }
-                }).catch(err => {
-                    console.log(err);
+                }).catch(function (error) {
+                    if (error.response) {
+                        // Request made and server responded
+                        alert(error.response.data?.message);
+                        console.log(error.response.data);
+                    } else if (error.request) {
+                        // The request was made but no response was received
+                        alert(error.request)
+                        console.log(error.request);
+                    } else {
+                        // Something happened in setting up the request that triggered an Error
+                        alert(error.message)
+                        console.log(error.message);
+                    }
+
                 });
             } else {
                 alert("Please fill all the fileds");
@@ -320,7 +405,8 @@ const Studentgroup = (props) => {
                                                 {standardList.length > 0 &&
                                                     standardList.map((item, index) => {
                                                         return (
-                                                            <option key={index} value={item.name}>{item.name}</option>
+                                                            <option key={index}
+                                                                value={item.id}>{item.name}</option>
                                                         )
                                                     })
                                                 }
@@ -388,7 +474,7 @@ const Studentgroup = (props) => {
                                                     {streamList.length > 0 &&
                                                         streamList.map((item, index) => {
                                                             return (
-                                                                <option key={index} value={item.name}>{item.name}</option>
+                                                                <option key={index} value={item.id}>{item.name}</option>
                                                             )
                                                         })
                                                     }

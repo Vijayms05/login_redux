@@ -7,10 +7,6 @@ import {
 } from "react-bootstrap";
 import { message } from 'antd';
 import { useHistory } from 'react-router-dom';
-<<<<<<< HEAD
-=======
-// import { history } from '../../routes/Routes'
->>>>>>> b71f0f5ff1578233ec78b0fd7fc78e355d1268ea
 import {
     Learnprofessional,
     Logo
@@ -21,29 +17,38 @@ import RegisterService from '../../service/RegisterService';
 import { set_Profile } from '../../redux/action';
 const Professional = (props) => {
     const dispatch = useDispatch();
-    const email = useSelector(state => state.loginReducer);
-    const role = useSelector(state => state.roleReducer);
+    const email = useSelector(state => state.loginReducer.email);
+    console.log(email);
     const [inputName, setInputname] = useState('');
     const [workRole, setWorkrole] = useState('');
     const [inputNameErr, setInputnameErr] = useState(null);
     const [workRoleErr, setWorkroleErr] = useState(null);
     const [industry, setIndustry] = useState('');
     const [industryList, setIndustryList] = useState([]);
-
-<<<<<<< HEAD
+    const [workRoleList, setWorkRoleList] = useState([]);
     const history = useHistory();
-=======
-const history = useHistory();
->>>>>>> b71f0f5ff1578233ec78b0fd7fc78e355d1268ea
     useEffect(() => {
         RegisterService.getIndustries().then(result => {
             var response = result.data;
             console.log(response);
             if (response.status == 'success') {
-                setIndustryList(response);
+                setIndustryList(response.industries);
             }
-        }).catch(err => {
-            console.log(err);
+        }).catch(function (error) {
+            if (error.response) {
+                // Request made and server responded
+                alert(error.response.data?.message);
+                console.log(error.response.data);
+            } else if (error.request) {
+                // The request was made but no response was received
+                alert(error.request)
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                alert(error.message)
+                console.log(error.message);
+            }
+
         });
     }, [])
 
@@ -65,10 +70,10 @@ const history = useHistory();
 
     const onProfessional = () => {
         var payload = {
-            email: email,
-            role: role,
+            email: email.email,
+            role: 3,
             name: inputName,
-            type: 3,
+            type: email.type,
             industry: industry,
             work_role: workRole,
         }
@@ -76,11 +81,25 @@ const history = useHistory();
             var response = result.data;
             console.log(response);
             if (response.status == 'success') {
-                dispatch(set_Profile(response));
+                alert(response.message);
+                // dispatch(set_Profile(response));
                 history.push('/home')
             }
-        }).catch(err => {
-            console.log(err);
+        }).catch(function (error) {
+            if (error.response) {
+                // Request made and server responded
+                alert(error.response.data?.message);
+                console.log(error.response.data);
+            } else if (error.request) {
+                // The request was made but no response was received
+                alert(error.request)
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                alert(error.message)
+                console.log(error.message);
+            }
+
         });
         // e.preventDefault();
         // history.push({ pathname: '/home' });
@@ -101,6 +120,33 @@ const history = useHistory();
             setWorkroleErr(false);
         } else {
             setWorkroleErr(true);
+        }
+    }
+    const changeIndustry = (e) => {
+        setIndustry(e.target.value);
+        if (e.target.value != null && e.target.value != '') {
+            RegisterService.getIndustriesWorkRoles(e.target.value).then(result => {
+                console.log(result);
+                var response = result.data;
+                if (response.status == 'success') {
+                    setWorkRoleList(response.work_roles);
+                }
+            }).catch(function (error) {
+                if (error.response) {
+                    // Request made and server responded
+                    alert(error.response.data?.message);
+                    console.log(error.response.data);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    alert(error.request)
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    alert(error.message)
+                    console.log(error.message);
+                }
+
+            });
         }
     }
     return (
@@ -131,9 +177,24 @@ const history = useHistory();
                             <select className="form-select mb-3 textselectoption"
                                 aria-label="Default select example"
                                 defaultValue={industry}
-                                onChange={e => setIndustry(e.target.value)}
+                                onChange={changeIndustry}
                             >
                                 <option selected value={''}>Select Industry</option>
+                                {industryList.length > 0 &&
+                                    industryList.map((item, index) => {
+                                        return (
+                                            <option key={index} value={item.id}>{item.name}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+
+                            <select className="form-select mb-3 textselectoption"
+                                aria-label="Default select example"
+                                defaultValue={workRole}
+                                onChange={e => setWorkrole(e.target.value)}
+                            >
+                                <option selected value={''}>Select Work role</option>
                                 {industryList.length > 0 &&
                                     industryList.map((item, index) => {
                                         return (
@@ -142,7 +203,7 @@ const history = useHistory();
                                     })
                                 }
                             </select>
-                            <Form.Group className="mb-3 professional-formgroup">
+                            {/* <Form.Group className="mb-3 professional-formgroup">
                                 <Form.Control
                                     placeholder="Work role"
                                     className="px-3 professional-formcontrol"
@@ -154,9 +215,9 @@ const history = useHistory();
                                         Please enter valid Work role *
                                     </p>
                                     ) : ''}
-                            </Form.Group>
+                            </Form.Group> */}
                             <Button
-                                disabled={inputNameErr == false && industry != '' && workRoleErr == false ? false : true}
+                                disabled={inputNameErr == false && industry != '' && workRole != '' ? false : true}
                                 className="mb-3 submit-btn"
                                 onClick={onProfessional}
                             >

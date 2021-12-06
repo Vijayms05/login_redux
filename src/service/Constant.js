@@ -10,6 +10,10 @@ export const URL = {
     STREAMS: 'streams',
     STREAM_BRANCHES: 'stream/branches/', //stream_id has to pass in url
     INDUSTRIES: 'industries',
+    INDUSTRY_WORK_ROLES: 'industry/work-roles/', //industry_id has to pass in url
+    FORGOT_PASSWORD_REQUEST: 'forgot-password/', //email, type has tp pass in url
+    FORGOT_PASSSWORD_CHANGE: 'forgot-change-password',
+
 }
 
 

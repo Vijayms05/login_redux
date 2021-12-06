@@ -33,15 +33,14 @@ const Onboardingstudent = (props) => {
   const onBoard = (e) => {
     // e.preventDefault();  
     if (role == 'student') {
-      dispatch(set_Role(role));
+      // dispatch(set_Role(role));
       history.push('/student');
       // message.success('Welcome to Student Page', 5)
     } else if (role === 'professional') {
-      dispatch(set_Role(role));
+      // dispatch(set_Role(role));
       history.push('/professional');
       // message.success('Welcome to Professional Page', 5)
     }
-    console.log(role)
   }
   return (
     <div className="student-prof text-center">
