@@ -10,14 +10,14 @@ const TestRecord = () =>{
     return(
         <Container className="mt-4 ms-3" >{/*className="textrec pt-3 d-grid"*/}
             <div className="m-auto">            
-                <div className="test-record-ssc ms-2">
+                <div className="test-record-ssc ms-2 pt-4 pt-md-0">
                     <p>SSC</p>
                 </div>
                 <h3 className="heading-test mb-0 ms-3">
                     Read aloud the paragraph 
                 </h3>
                 
-                <Col className="parag-test mb-5">
+                <Col className="parag-test mb-5" md={10} sm={12}>
                     <p style={{color:'#3F616D', fontSize:'18px'}}> 
                         Nam purus auctor et integer sed. Amet, quis aliquam turpis velit. 
                         Amet et, nec ut morbi sit id. Nulla nibh tortor, purus massa, id 
@@ -37,7 +37,7 @@ const TestRecord = () =>{
                         et id nullam. Nisl odio lectus molestie tellus.
                     </p>
                 </Col>
-                <Col className="rec-box" sm={10}>
+                <Col className="rec-box" md={10} sm={12}>
                     <div className="rec-pas-btn-aud">
                         <div className="rec-ply-icon">
                             <Button onClick={(startRecording)}  disabled={isRecording}>                

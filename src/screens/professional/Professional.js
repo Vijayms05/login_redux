@@ -7,6 +7,10 @@ import {
 } from "react-bootstrap";
 import { message } from 'antd';
 import { useHistory } from 'react-router-dom';
+<<<<<<< HEAD
+=======
+// import { history } from '../../routes/Routes'
+>>>>>>> b71f0f5ff1578233ec78b0fd7fc78e355d1268ea
 import {
     Learnprofessional,
     Logo
@@ -26,7 +30,11 @@ const Professional = (props) => {
     const [industry, setIndustry] = useState('');
     const [industryList, setIndustryList] = useState([]);
 
+<<<<<<< HEAD
     const history = useHistory();
+=======
+const history = useHistory();
+>>>>>>> b71f0f5ff1578233ec78b0fd7fc78e355d1268ea
     useEffect(() => {
         RegisterService.getIndustries().then(result => {
             var response = result.data;

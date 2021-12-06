@@ -34,7 +34,7 @@ const QuesAnsRec =(props)=>{
     };
   return(  
     <div className="tl-rt-qst d-grid m-auto">
-        <div className="in-rt-qst ms-3"> 
+        <div className="in-rt-qst ms-0 ms-md-3"> 
             <div className="test-record-ssc">
                 <p>SSC</p>
             </div>              
@@ -47,7 +47,7 @@ const QuesAnsRec =(props)=>{
             <p className="f3-15 text-green-light mt-3 mb-0">
                 Description : find out who is the prime minister of india
             </p>
-            <Col sm={10}>
+            <Col sm={10} xs={12}>
                 <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
                     <ToggleButton id="tbg-radio-1" value={1}>
                     <Col className="ply-box">
@@ -79,7 +79,7 @@ const QuesAnsRec =(props)=>{
                     </Link>
                 <p></p>
                 <div className="d-flex">
-                    <Link to="/fill-question" className="nxt-btn">
+                    <Link to="/fill-question" className="nxt-btn ms-2 ms-sm-0">
                         Next
                         <CircleRight />
                     </Link>

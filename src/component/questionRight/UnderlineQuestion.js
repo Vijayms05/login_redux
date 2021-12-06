@@ -9,7 +9,7 @@ import {CircleLeft, CircleRight} from '../../assets/images/index'
 
 const UnderlineQuestion =()=>{
   return(  
-        <Container className="mt-4 ms-3" >{/*className="textrec pt-3 d-grid"*/}                       
+        <Container className="mt-4 pt-3 pt-md-0 ms-3" >{/*className="textrec pt-3 d-grid"*/}                       
             <div className="test-record-ssc ms-2">
                 <p>FIB</p>
             </div>
@@ -17,7 +17,7 @@ const UnderlineQuestion =()=>{
                 Fill In The Blanks : 
             </h3>
             
-            <Col className="mt-5 ms-3" sm={10} >
+            <Col className="mt-5 ms-3" sm={10} xs={12} >
                 <div className="fill-qust">
                     <input placeholder="Ans1" /> is a <input placeholder="Ans2"  /> that gives the green colour ro leaves
                 </div>
@@ -28,11 +28,11 @@ const UnderlineQuestion =()=>{
                     Previous
                 </Link>
                 <div className="d-flex ">
-                    <Link to="/text-question" className="nxt-btn me-5">
+                    <Link to="/text-question" className="nxt-btn  ms-2 ms-sm-0">
                         Next
                         <CircleRight />
                     </Link>
-                    <Button className="skp-btn me-5">
+                    <Button className="skp-btn ">
                         Skip
                     </Button>
                 </div>                

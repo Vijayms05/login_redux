@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 
 const BillingPage = (props) =>{
     return(
-        <div className="py-md-4 bill-rit">
-            <Row className="mb-4 mt-4">
-                <Col xs={6} md={6} lg={8} className="ps-0 billing-search-box">   
+        <div className="py-md-2 mt-5 mt-md-0 bill-rit">
+            <Row className="mb-2 mt-5 mt-md-3 pt-5 pt-md-0">
+                <Col xs={12} md={6} lg={8} className="billing-search-box my-2">   
                     <Form.Group  className="w-100 search-box">
                         <Button className="searchrole">
                             <SearchIcon />
@@ -17,7 +17,7 @@ const BillingPage = (props) =>{
                         className="search-input" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg={4}  className="pe-0 billing-search-box">
+                <Col xs={12} md={6} lg={4}  className="billing-search-box my-2">
                     <Form.Select className="select-form" size="lg" >
                         <option>Large select</option>
                         <option>Large select</option>
@@ -25,8 +25,8 @@ const BillingPage = (props) =>{
                     </Form.Select>
                 </Col>
             </Row> 
-            <div className="mt-5">                
-                <h5 className="report-h5 mb-4 mt-3">Billings</h5>  
+            <div className="my-3">                
+                <h5 className="report-h5 mb-2 mb-sm-3 mt-2 mt-md-3 pt-2 pt-sm-3 pt-md-0 pt-lg-0">Billings</h5>  
                 <div className="row-table">
                     <Table  className="mt-2 table-name table table-bordered">
                         <thead>

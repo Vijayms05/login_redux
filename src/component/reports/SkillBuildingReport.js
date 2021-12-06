@@ -7,18 +7,18 @@ import { SearchIcon } from '../../assets/images'
 
 const SkillBuildingReport = () =>{
     return(
-        <div className="py-md-4 mt-5 mt-md-0 bill-rit">
-            <Row>
-                <Col xs={6} md={6} lg={8}>   
-                    <Form.Group  className="w-70 search-box">
+        <div className="py-md-2 mt-3 mt-md-0 bill-rit">
+            <Row className="mt-3 mt-md-3 pt-3 pt-md-0">
+                <Col xs={12} md={6} lg={8} className="mb-3">   
+                    <Form.Group  className="search-box">
                         <Button className="searchrole">
                             <SearchIcon />
                         </Button>
                         <Form.Control type="text"  placeholder="Search My Subscriptions" size="md" className="search-input" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg={4}>
-                    <Form.Select className="select-form" size="lg" style={{width:'250px'}} >
+                <Col xs={12} md={6} lg={4} className="mb-3">
+                    <Form.Select className="select-form" size="lg" >
                         <option>Filters</option>
                         <option>Large select</option>
                         <option>Large select</option>
@@ -26,7 +26,7 @@ const SkillBuildingReport = () =>{
                 </Col>  
             </Row> 
         
-            <p className="f1-17 mt-4 p-0 mb-0 dark-blue" >Search Building Reports</p>
+            <p className="f1-17 p-0 dark-blue my-4" >Search Building Reports</p>
             <div className="tit-cert-box skl-rpt-bx-tb">
                 <Table>
                     <thead>

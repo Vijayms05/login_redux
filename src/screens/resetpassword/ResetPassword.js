@@ -65,12 +65,17 @@ const ResetPassword = (props) => {
               <Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
                 <Form.Control
                   className="inputField"
-                  type="email"
-                  placeholder="E-mail"
-                  value={email}
-                  onChange={onEmail}
+                  type="text"
+                  placeholder="Password"
                 />
-                <EmailIcon />
+                <PasswordIcon />
+              </Form.Group><Form.Group className="mb-4 inputGroup" controlId="formBasicEmail">
+                <Form.Control
+                  className="inputField"
+                  type="text"
+                  placeholder="Confirm Password"
+                />
+                <PasswordIcon />
               </Form.Group>
               <Button
                 className="submit-btn"

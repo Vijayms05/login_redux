@@ -52,7 +52,7 @@ const VoiceRecoder = () => {
                         Preview
                     </Link>                
                     <div className="d-flex">
-                        <Link to="/play-question" className="nxt-btn">
+                        <Link to="/play-question" className="nxt-btn ms-2 ms-sm-0">
                             Next
                             <CircleRight />
                         </Link>

@@ -10,7 +10,6 @@
   }
 }
 
-
 @media (max-width: 991px) {
   .terms-cond-text {
     font-size: 13px !important;
@@ -48,5 +47,63 @@
 @media (min-width: 1570px) {
   .terms-cond-text {
     width: 320px !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .card-body {
+    flex: 1 1 auto;
+    padding: 0.5rem 0.5rem !important;
+  }
+  .prog-bar-subscrip .progress {
+    width: 170px !important;
+  }
+}
+
+@media (max-width: 1210px) {
+  .prog-bar-subscrip .progress {
+    width: 165px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem !important;
+  }
+  .prog-bar-subscrip .progress {
+    width: 175px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .stud-prof .form-check-input {
+    border-radius: 9px;
+    width: 220px !important;
+    height: 220px !important;
+    margin: 0 !important;
+    background: none !important;
+  }
+  .search-box .search-input {
+    background: none;
+    border: 0;
+    height: 43px;
+    padding-left: 62px !important;
+  }
+}
+
+@media (max-width: 374px) {
+  .stud-prof .form-check-input {
+    border-radius: 9px;
+    width: 200px !important;
+    height: 200px !important;
+    margin: 0 !important;
+    background: none !important;
+  }
+  .search-box .search-input {
+    background: none;
+    border: 0;
+    height: 43px;
+    padding-left: 42px !important;
   }
 }
