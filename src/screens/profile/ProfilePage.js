@@ -12,6 +12,11 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import upload from '../../assets/images/upload.png'
+import image_Cover from '../../assets/images/Image_Cover.png'
+import newborn_baby from '../../assets/images/newborn_baby.png'
+import marguerite from '../../assets/images/marguerite.png'
+import nature from '../../assets/images/nature.png'
+import avatarprofile from '../../assets/images/avatarprofile.png';
 
 import {
     AvatorProfile,
@@ -22,6 +27,7 @@ import {
     EyeIcon
 } from '../../assets/images/index';
 import { MobileRegex } from '../../service/Constant';
+
 
 import modalImage from '../../assets/images/modalImage.png'
 import { IndeterminateCheckBoxOutlined } from '@material-ui/icons';
@@ -53,6 +59,7 @@ const ProfilePage = (props) => {
     const [learn, setLearn] = useState('')
     const [institution, setInstitution] = useState('')
     const [desireProfile, setDesireProfile] = useState('')
+    const [file,setFile]=useState('')
 
     const [password, setPassword] = useState('')
     const [repassword, setRepassword] = useState('')
@@ -137,14 +144,13 @@ const ProfilePage = (props) => {
         setDateofbirth(e.target.value);
     }
     // const onUpload = (e) => {       
-    //     let file = e.target.files[0];
-    //     setUploadIdName(file.name)
-    //     const reader = new FileReader();
-    //     reader.onload = () => {
-    //       setUploadIdName(file.name)
-    //       setUploadId(reader.result);
-    //     };
-    //     reader.readAsDataURL(file);
+    //     let reader = new FileReader();
+    //      let   file = e.target.files[0];
+
+    //         reader.onloadend = () => {
+    //          setFile(file)
+    //         }
+    //         reader.readAsDataURL(file);
     //     console.log(reader)
     //   }
     const onState = e => {
@@ -555,15 +561,14 @@ const ProfilePage = (props) => {
                         <Modal.Body>
                             <Modal.Title className="text-center mt-3 mb-3" style={{ color: '#0B171B' }}>Edit Avatar</Modal.Title>
                             <Row >
-                                {avatarList.length > 0 &&
+                                {/* {avatarList.length > 0 &&
                                     avatarList.map((item, index) => {
                                         return (
-                                            <Col className="mb-2">
-                                                <img src={item.image} alt="image" />
+                                            <Col className="mb-2" xs={3} >
+                                                <img src={item.image} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
                                             </Col>
                                         )
-                                    }
-                                    )
+                                    })
                                     // <Col className="mb-2">
                                     //     <img src={modalImage} alt="image" />
                                     // </Col>
@@ -573,18 +578,40 @@ const ProfilePage = (props) => {
                                     // <Col className="mb-2">
                                     //     <img src={modalImage} alt="image" />
                                     // </Col>
-                                    // <Col className="mb-2">
-                                    //     <img src={modalImage} alt="image" />
+                                    // <Col className="mb-2"  >
+                                    //     <img src={modalImage} alt="image" style={{width:'70px',height:'70px'}} />
                                     // </Col>
-                                    // <Col className="mb-2">
-                                    //     <img src={modalImage} alt="image" />
+                                    // <Col className="mb-2" >
+                                    //     <img src={avatarprofile} alt="image" style={{width:'70px',height:'70px'}} />
                                     // </Col>
-                                }
+                                } */}
+                                
+                                <Col className="mb-2" xs={3}>
+                                    <img src={image_Cover} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
+                                </Col>
+                                <Col className="mb-2" xs={3}>
+                                    <img src={newborn_baby} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
+                                </Col>
+                                 <Col className="mb-2" xs={3}>
+                                    <img src={avatarprofile} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
+                                </Col>
+                                <Col className="mb-2" xs={3}>
+                                    <img src={modalImage} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
+                                </Col>
+                                <Col className="mb-2" xs={3}>
+                                    <img src={marguerite} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
+                                </Col>
+                                <Col className="mb-2 " xs={3}>
+                                    <img src={nature} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
+                                </Col>
+                                <Col className="mb-2 " xs={3}>
+                                    <img src={nature} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
+                                </Col>
                             </Row>
-
                             <div className="text-center">
                                 <button style={{ backgroundColor: '#4DD188', color: 'white', borderRadius: '13px', width: '110px' }}
-                                    className="btn mt-3 mb-3" onClick={handleClose}>
+                                    className="btn mt-3 mb-3" onClick={handleClose}
+                                >
                                     Change
                                 </button>
                             </div>

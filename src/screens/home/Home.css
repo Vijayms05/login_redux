@@ -1372,6 +1372,11 @@ audio::-webkit-media-controls-panel {
   padding-left: 35px !important;
   font-size: 18px;
 }
+
+.avatar-image:hover{
+ border: 3px solid dodgerblue;
+ border-radius: 50%;
+}
 .inputField-mobile-no {
   font-family: "f3";
   width: 100%;
