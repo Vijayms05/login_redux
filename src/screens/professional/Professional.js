@@ -15,6 +15,8 @@ import { validText } from '../../service/Constant';
 import { useDispatch, useSelector } from 'react-redux';
 import RegisterService from '../../service/RegisterService';
 import { set_Profile } from '../../redux/action';
+import axios from 'axios';
+import httpClient from '../../service/httpClient';
 const Professional = (props) => {
     const dispatch = useDispatch();
     const email = useSelector(state => state.loginReducer.email);
@@ -82,6 +84,7 @@ const Professional = (props) => {
             console.log(response);
             if (response.status == 'success') {
                 alert(response.message);
+                httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
                 // dispatch(set_Profile(response));
                 history.push('/home')
             }

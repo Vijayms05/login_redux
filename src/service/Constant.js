@@ -1,18 +1,23 @@
-export const BASE_URL = ' http://ninos.crm.script.skilltally.com/public/index.php/api/';
+export const BASE_URL =
+    'http://192.168.1.11/skilltally-script/public/index.php/';
+// 'http://ninos.crm.script.skilltally.com/public/index.php/api/';
 
 export const URL = {
-    SIGN_UP: 'user/signup',
-    LOGIN: 'user/login',
-    VERIFY_EMAIL: 'verify/email/', // slug_email has to pass in url
-    REGISTER: 'register/user',
-    STANDARDS: 'standards',
-    STANDARD_STREAMS: 'standard/streams/', //standard_id has to pass in url
-    STREAMS: 'streams',
-    STREAM_BRANCHES: 'stream/branches/', //stream_id has to pass in url
+    SIGN_UP: 'api/user/signup',
+    LOGIN: 'api/user/login',
+    VERIFY_EMAIL: 'api/verify/email/', // slug_email has to pass in url
+    REGISTER: 'api/register/user',
+    STANDARDS: 'api/standards',
+    STANDARD_STREAMS: 'api/standard/streams/', //standard_id has to pass in url
+    STREAMS: 'api/streams',
+    STREAM_BRANCHES: 'api/stream/branches/', //stream_id has to pass in url
     INDUSTRIES: 'industries',
-    INDUSTRY_WORK_ROLES: 'industry/work-roles/', //industry_id has to pass in url
-    FORGOT_PASSWORD_REQUEST: 'forgot-password/', //email, type has tp pass in url
-    FORGOT_PASSSWORD_CHANGE: 'forgot-change-password',
+    INDUSTRY_WORK_ROLES: 'api/industry/work-roles/', //industry_id has to pass in url
+    FORGOT_PASSWORD_REQUEST: 'api/forgot-password/', //email, type has tp pass in url
+    FORGOT_PASSSWORD_CHANGE: 'api/forgot-change-password',
+    PROFILE: 'api/profiles',
+    CHANGE_PASSWORD: 'api/password/update',
+    GET_AVATAR: 'crmapi/avatar'
 
 }
 

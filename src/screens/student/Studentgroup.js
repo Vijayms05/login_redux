@@ -21,7 +21,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import RegisterService from '../../service/RegisterService';
 import { useHistory } from 'react-router-dom';
 import { set_Profile } from '../../redux/action';
-
+import httpClient from '../../service/httpClient';
 const Studentgroup = (props) => {
     // const { validateName } = props;
     const dispatch = useDispatch();
@@ -240,6 +240,7 @@ const Studentgroup = (props) => {
                     var response = result.data;
                     if (response.status == 'success') {
                         alert(response.message);
+                        httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
                         // dispatch(set_Profile(response));
                         history.push('/home')
                     }
@@ -283,6 +284,7 @@ const Studentgroup = (props) => {
                     var response = result.data;
                     if (response.status == 'success') {
                         alert(response.message);
+                        httpClient.defaults.headers.common['Authorization'] = response?.token;
                         // dispatch(set_Profile(response));
                         history.push('/home')
                     }

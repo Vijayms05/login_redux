@@ -36,6 +36,7 @@ const FileUpload = () => {
                 request.httpRequest.headers.Host = `${config.digitalOceanSpaces}`;
                 request.httpRequest.headers['Content-Length'] = blob.size;
                 request.httpRequest.headers['Content-Type'] = blob.type;
+                request.httpRequest.headers['Accept'] = 'application/json';
                 request.httpRequest.headers['x-amz-acl'] = 'public-read';
             })
             .send((err) => {

@@ -18,10 +18,11 @@ import { validEmail, validPassword } from '../../service/Constant';
 import { message } from 'antd';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import { set_Email } from '../../redux/action/index';
+import { set_Email, set_Profile } from '../../redux/action/index';
 import { api } from '../../service/index';
 import LoginService from '../../service/LoginService'
 import ForgotPasswordService from '../../service/ForgotPasswordService';
+import httpClient from '../../service/httpClient';
 const Login = (props) => {
   const history = useHistory();
   const [user, setUser] = useState(0);
@@ -123,6 +124,8 @@ const Login = (props) => {
       if (response?.status == 'success') {
         if (response?.email_verified == 1 && response?.register_status == 1) {
           dispatch(set_Email({ email: email, type: user }));
+          httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
+          dispatch(set_Profile(response?.user));
           history.push('/home');
         } else if (response?.email_verified == 1 && response?.register_status == 0) {
           dispatch(set_Email({ email: email, type: user }));
