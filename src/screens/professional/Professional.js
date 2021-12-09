@@ -14,7 +14,7 @@ import {
 import { validText } from '../../service/Constant';
 import { useDispatch, useSelector } from 'react-redux';
 import RegisterService from '../../service/RegisterService';
-import { set_Profile } from '../../redux/action';
+import { set_Profile, set_Token, set_User } from '../../redux/action';
 import axios from 'axios';
 import httpClient from '../../service/httpClient';
 const Professional = (props) => {
@@ -71,12 +71,15 @@ const Professional = (props) => {
     // }
 
     const onProfessional = () => {
+        var industry_name = industryList.filter(function (item) {
+            return item.id == industry
+        });
         var payload = {
             email: email.email,
             role: 3,
             name: inputName,
             type: email.type,
-            industry: industry,
+            industry: industry_name[0].name,
             work_role: workRole,
         }
         RegisterService.register(payload).then(result => {
@@ -85,7 +88,8 @@ const Professional = (props) => {
             if (response.status == 'success') {
                 alert(response.message);
                 httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
-                // dispatch(set_Profile(response));
+                dispatch(set_Token(response?.token));
+                dispatch(set_User(response?.user));
                 history.push('/home')
             }
         }).catch(function (error) {

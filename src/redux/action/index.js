@@ -1,4 +1,4 @@
-import { EMAIL, ROLE, PROFILE } from './actionType';
+import { EMAIL, ROLE, PROFILE, TOKEN, USER } from './actionType';
 export const set_Email = (data) => {
     return {
         type: EMAIL,
@@ -18,3 +18,17 @@ export const set_Profile = (data) => {
         data: data,
     }
 };
+
+export const set_Token = (data) => {
+    return {
+        type: TOKEN,
+        data: data,
+    }
+}
+
+export const set_User = (data) => {
+    return {
+        type: USER,
+        data: data,
+    }
+}

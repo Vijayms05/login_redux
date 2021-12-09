@@ -26,20 +26,30 @@ import { MobileRegex } from '../../service/Constant';
 import modalImage from '../../assets/images/modalImage.png'
 import { IndeterminateCheckBoxOutlined } from '@material-ui/icons';
 import HomeService from '../../service/HomeService';
+import { useSelector } from 'react-redux';
+import { constants } from '../../service';
 
 let fileList = [];
 
 const ProfilePage = (props) => {
+    const profile = useSelector(state => state.ProfileReducer.profile)
+    console.log(profile);
+    const user = useSelector(state => state.UserReducer.user);
+    console.log(user);
     const [uploadId, setUploadId] = useState('');
     const [uploadIdName, setUploadIdName] = useState('');
     const [show, setShow] = useState(false);
     const [isShow, setIsShow] = useState(false);
 
     const [mobileNo, setMobileNo] = useState('');
-    const [dateofbirth, setDateofbirth] = useState('')
+    const [mobileNoErr, setMobileNoErr] = useState(null);
+    const [dateofbirth, setDateofbirth] = useState('');
+    const [dateofbirthErr, setDateofbirthErr] = useState(null);
     const [state, setState] = useState([]);
-    const [gender, setGender] = useState([]);
-    const [marital, setMarital] = useState([])
+    const [gender, setGender] = useState('');
+    const [genderErr, setGenderErr] = useState(null);
+    const [marital, setMarital] = useState();
+    const [maritalErr, setMaritalErr] = useState(null);
     const [country, setCountry] = useState([])
     const [address, setAddress] = useState('')
     const [addressOne, setAddressOne] = useState('')
@@ -127,14 +137,24 @@ const ProfilePage = (props) => {
     const now = 80;
 
     const onMobile = (e) => {
-        // console.log(MobileRegex.match(e.target.value));
         setMobileNo(e.target.value);
-        // if(e.target.value.match(MobileRegex)){
-        //     setMobileNo(e.target.value)
-        // }        
+        if (e.target.value != '' && constants.validMobilNo(e.target.value)) {
+            if (e.target.value.length < 10) {
+                setMobileNoErr(true);
+            } else {
+                setMobileNoErr(false);
+            }
+        } else {
+            setMobileNoErr(true);
+        }
     }
     const onDateofBirth = e => {
         setDateofbirth(e.target.value);
+        if (e.target.value != '') {
+            setDateofbirthErr(false);
+        } else {
+            setDateofbirthErr(true);
+        }
     }
     // const onUpload = (e) => {       
     //     let file = e.target.files[0];
@@ -151,10 +171,20 @@ const ProfilePage = (props) => {
         setState(e.target.value)
     }
     const onGender = e => {
-        setGender(e.target.value)
+        setGender(e.target.value);
+        if (e.target.value != '') {
+            setGenderErr(false);
+        } else {
+            setGenderErr(true);
+        }
     }
     const onMarital = e => {
-        setMarital(e.target.value)
+        setMarital(e.target.value);
+        if (e.target.value != '') {
+            setMaritalErr(false);
+        } else {
+            setMaritalErr(true);
+        }
     }
     const onCountry = e => {
         setCountry(e.target.value)
@@ -196,24 +226,23 @@ const ProfilePage = (props) => {
         setLearn(e.target.value)
     }
 
-    const onSave = (e) => {
-        e.preventDefault();
-        onMobile('');
-        onDateofBirth('');
-        onGender([]);
-        onMarital([]);
-        onCountry([]);
-        onState([]);
-        onDistrict([]);
-        onPincode([]);
-        onEduStream([])
-        onHigherEduStream([]);
-        onWorkExp('');
-        onIndustry('');
-        onInstitution('');
-        onRole('');
-        onDesireProfile('');
-        onLearnChange('');
+    const onSave = () => {
+        // onMobile('');
+        // onDateofBirth('');
+        // onGender([]);
+        // onMarital([]);
+        // onCountry([]);
+        // onState([]);
+        // onDistrict([]);
+        // onPincode([]);
+        // onEduStream([])
+        // onHigherEduStream([]);
+        // onWorkExp('');
+        // onIndustry('');
+        // onInstitution('');
+        // onRole('');
+        // onDesireProfile('');
+        // onLearnChange('');
     }
     //modal
     // const togglePassword =() =>{ 
@@ -282,10 +311,10 @@ const ProfilePage = (props) => {
                 <h3 className="mb-2 mt-5 mt-md-0 pt-5 pt-md-0 px-2 px-md-0 skill-profile" style={{ color: '#003866', fontSize: '30px' }}>Profile</h3>
                 <Row className="mt-5 mt-md-2 mb-3">
                     <Col xs={12} sm={12} md={10} lg={4} className='px-2 px-md-0'>
-                        <ProgressBar now={60} className="mb-3" />
+                        <ProgressBar now={profile.profile_filled} className="mb-3" />
                     </Col>
                     <Col sm={8}>
-                        <label>60% Complete</label>
+                        <label>{profile.profile_filled} % Complete</label>
                     </Col>
                 </Row>
                 <Col xs={12} sm={12} md={12} lg={12} className="px-2 px-md-0">
@@ -297,10 +326,10 @@ const ProfilePage = (props) => {
                             <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-4 ps-md-4 text-center text-md-start">
                                 <label className="title  "
                                     style={{ color: '#192A3E', fontWeight: 'bold', fontSize: '18px' }}>
-                                    Hayat Tamboli
+                                    {user.name}
                                 </label>
                                 &nbsp;
-                                <small style={{ color: '#90A0B7' }}>hayat.tamboli@gmail.com</small>
+                                <small style={{ color: '#90A0B7' }}>{user.email}</small>
                             </Col>
                             <Col xs={12} sm={6} md={6} lg={3} className=" mb-2 mt-4 ">
                                 <button className="profile-cardbutton btn"
@@ -348,7 +377,7 @@ const ProfilePage = (props) => {
                                 <label className="mobile-no mb-1" >Gender</label>
                                 <select className="form-select mb-3 "
                                     aria-label="Default select example" onChange={onGender}>
-                                    <option selected>-- Select Gender --</option>
+                                    <option selected value="">-- Select Gender --</option>
                                     <option value="1">Male</option>
                                     <option value="2">Female</option>
                                     <option value="3">Others</option>
@@ -359,22 +388,23 @@ const ProfilePage = (props) => {
                                 <label className="mobile-no mb-1" >Marital Status</label>
                                 <select className="form-select mb-3 "
                                     aria-label="Default select example" onChange={onMarital}>
-                                    <option selected>-- Select Marital Status --</option>
+                                    <option selected value="">-- Select Marital Status --</option>
                                     <option value="1">Married</option>
                                     <option value="2">UnMarried</option>
-                                    <option value="3">Single</option>
+                                    {/* <option value="3">Single</option> */}
                                 </select>
                             </Form.Group>
                             <h5 className="f1-16-header">Address</h5>
                             <Form.Group className="mb-3 profile-formgroup">
                                 <label className="mobile-no mb-1" >Country</label>
-                                <select className="form-select mb-3 "
+                                <Form.Control placeholder="Placeholder" onChange={onWorkExp} value={workExp} />
+                                {/* <select className="form-select mb-3 "
                                     aria-label="Default select example" onChange={onCountry}>
                                     <option selected>-- Select Country --</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>
+                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3 profile-formgroup">
                                 <label className="mobile-no mb-1" >Address</label>
@@ -383,54 +413,59 @@ const ProfilePage = (props) => {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-1" >State</label>
-                                <select className="form-select mb-3 "
+                                <Form.Control placeholder="Placeholder" onChange={onWorkExp} value={workExp} />
+                                {/* <select className="form-select mb-3 "
                                     aria-label="Default select example" onChange={onState}>
                                     <option selected>-- Select State --</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>
+                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-1">District</label>
-                                <select className="form-select mb-3 "
+                                <Form.Control placeholder="Placeholder" onChange={onWorkExp} value={workExp} />
+                                {/* <select className="form-select mb-3 "
                                     aria-label="Default select example" onChange={onDistrict}>
                                     <option selected>-- Select District -- </option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>
+                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-2">Pin Code</label>
-                                <select className="form-select mb-3 "
+                                <Form.Control placeholder="Placeholder" onChange={onWorkExp} value={workExp} />
+                                {/* <select className="form-select mb-3 "
                                     aria-label="Default select example" onChange={onPincode}>
                                     <option selected>-- Select Pin Code -- </option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>
+                                </select> */}
                             </Form.Group>
                             <h5 className="f1-16-header">Educational And Work Details</h5>
                             <Form.Group className="mb-3 ">
                                 <label className="mobile-no mb-2" >Educational Stream</label>
-                                <select className="form-select mb-3 "
+                                <Form.Control placeholder="Placeholder" onChange={onWorkExp} value={workExp} />
+                                {/* <select className="form-select mb-3 "
                                     aria-label="Default select example" onChange={onEduStream}>
                                     <option selected>-- Select Educational Stream -- </option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>
+                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3 ">
                                 <label className="mobile-no mb-2" >Highest Educational Qualification</label>
-                                <select className="form-select mb-3  "
+                                <Form.Control placeholder="Placeholder" onChange={onWorkExp} value={workExp} />
+                                {/* <select className="form-select mb-3  "
                                     aria-label="Default select example" onChange={onHigherEduStream}>
                                     <option selected>-- Select Educational Qualification -- </option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
-                                </select>
+                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-2" >Work Experience</label>
