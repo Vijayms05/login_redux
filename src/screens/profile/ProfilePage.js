@@ -36,45 +36,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { constants } from '../../service';
 import { set_Profile } from '../../redux/action';
 
-let fileList = [];
-
-var avatarImage = [
-    {
-        id:1,
-        image: image_Cover,
-        imageName:"Image Cover"
-    },
-    {
-        id:2,
-        image: newborn_baby,
-        imageName:"New Born Baby"
-    },
-    {
-        id:3,
-        image: marguerite,
-        imageName:"Marguerite"
-    },
-    {
-        id:4,
-        image: nature,
-        imageName:"Nature"
-    },
-    {
-        id:5,
-        image:avatarprofile,
-        imageName:"Avatar Profile"
-    }
-];
-
 const ProfilePage = (props) => {
-    const [avatarPicture,setAvatarPicture]=useState("Image Cover")
+    const [avatarPicture, setAvatarPicture] = useState('');
     const dispatch = useDispatch();
     const profile = useSelector(state => state.ProfileReducer.profile)
-    console.log(profile);
     const user = useSelector(state => state.UserReducer.user);
-    console.log(user);
-    const [uploadId, setUploadId] = useState('');
-    const [uploadIdName, setUploadIdName] = useState('');
     const [show, setShow] = useState(false);
     const [isShow, setIsShow] = useState(false);
 
@@ -110,7 +76,7 @@ const ProfilePage = (props) => {
     const [repaswordShow, setRePaswordShow] = useState(true);
     const [avatarList, setAvatarList] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
-
+    const [resumeDownload, setResumeDownload] = useState(profile?.profile?.resume ? profile.profile.resume : '');
     const handleFileInput = (e) => {
         console.log(e.target.files[0]);
         if (e.target.files[0].size < 1048576) {
@@ -123,6 +89,7 @@ const ProfilePage = (props) => {
     useEffect(() => {
         HomeService.getAvatar().then(result => {
             var response = result.data;
+            console.log(response);
             if (response.status == 'success') {
                 setAvatarList(response.avatar_data);
             }
@@ -234,16 +201,6 @@ const ProfilePage = (props) => {
             setDateofbirthErr(true);
         }
     }
-    // const onUpload = (e) => {       
-    //     let reader = new FileReader();
-    //      let   file = e.target.files[0];
-
-    //         reader.onloadend = () => {
-    //          setFile(file)
-    //         }
-    //         reader.readAsDataURL(file);
-    //     console.log(reader)
-    //   }
     const onState = e => {
         setState(e.target.value)
     }
@@ -329,7 +286,9 @@ const ProfilePage = (props) => {
             form_data.append('work_role', role);
             form_data.append('desired_jobs', desireProfile);
             form_data.append('learning_needs', learn);
-            form_data.append('resume', selectedFile);
+            if (selectedFile) {
+                form_data.append('resume', selectedFile);
+            }
             HomeService.profileUpdate(form_data).then(result => {
                 console.log(result);
                 var response = result.data;
@@ -360,24 +319,42 @@ const ProfilePage = (props) => {
             alert("Please enter all Required files");
         }
     }
-    //modal
-    // const togglePassword =() =>{ 
-    //     setPasswordShown(!passwordShown)
-    // }
-    // const toggleConformPassword =() =>{
-    //     setConformpasswordShown(!conformpasswordShown)
-    // } 
-    // const clickPasswordShow = () =>{
-    //     setPaswordShow(!paswordShow);
-    // }
-    // const clickConfromPasswordShow = () =>{
-    //     setConformPassword(!conformpasswordShown);
-    // }
     const handleClose = () => setIsShow(false);
     const handleShow = () => setIsShow(true);
-    const handleShowPassword = () => setShow(true)
+    const handleShowPassword = () => setShow(true);
 
-
+    const handleChange = () => {
+        var payload = {
+            avatar_id: avatarPicture
+        };
+        HomeService.avatarUpdate(payload).then(result => {
+            console.log(result);
+            var response = result.data;
+            if (response.status == 'success') {
+                alert(response.profile);
+                setIsShow(false);
+                getProfile();
+            }
+        }).catch(function (error) {
+            if (error.response) {
+                // Request made and server responded
+                if (error.response.data?.message) {
+                    alert(error.response.data?.message);
+                } else {
+                    alert(error.response.data);
+                }
+                console.log(error.response.data);
+            } else if (error.request) {
+                // The request was made but no response was received
+                alert(error.request)
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                alert(error.message)
+                console.log(error.message);
+            }
+        });
+    }
     const handleClosePassword = () => {
         var payload = {
             password: password,
@@ -437,7 +414,12 @@ const ProfilePage = (props) => {
                     <Card.Body className="horizontal-card mb-4 text-center">
                         <Row>
                             <Col xs={12} sm={6} md={6} lg={3} className="mt-2 mb-2">
-                                <AvatorProfile />
+                                {profile?.profile_picture ? <img
+                                    src={profile.profile_picture}
+                                    alt="Avatar"
+                                    // className="avatar-image"
+                                    style={{ width: '80px', height: '80px', borderRadius: '50%' }}
+                                /> : <AvatorProfile />}
                             </Col>
                             <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-4 ps-md-4 text-start text-sm-center">
                                 <label 
@@ -545,13 +527,6 @@ const ProfilePage = (props) => {
                             <Form.Group className="mb-3 profile-formgroup">
                                 <label className="mobile-no mb-1" >Country</label>
                                 <Form.Control placeholder="Country" onChange={onCountry} value={country} />
-                                {/* <select className="form-select mb-3 "
-                                    aria-label="Default select example" onChange={onCountry}>
-                                    <option selected>-- Select Country --</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3 profile-formgroup">
                                 <label className="mobile-no mb-1" >Address</label>
@@ -561,71 +536,34 @@ const ProfilePage = (props) => {
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-1" >State</label>
                                 <Form.Control placeholder="State" onChange={onState} value={state} />
-                                {/* <select className="form-select mb-3 "
-                                    aria-label="Default select example" onChange={onState}>
-                                    <option selected>-- Select State --</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-1">District</label>
                                 <Form.Control placeholder="District" onChange={onDistrict} value={district} />
-                                {/* <select className="form-select mb-3 "
-                                    aria-label="Default select example" onChange={onDistrict}>
-                                    <option selected>-- Select District -- </option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select> */}
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-2">Pin Code</label>
                                 <Form.Control placeholder="Pin Code" onChange={onPincode} value={pincode} />
-                                {/* <select className="form-select mb-3 "
-                                    aria-label="Default select example" onChange={onPincode}>
-                                    <option selected>-- Select Pin Code -- </option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select> */}
                             </Form.Group>
                             <h5 className="f1-16-header">Educational And Work Details</h5>
                             <Form.Group className="mb-3 ">
                                 <label className="mobile-no mb-2" >Educational Stream *</label>
                                 <Form.Control placeholder="Educational Stream" onChange={onEduStream} value={eduStream} />
-                                {/* <select className="form-select mb-3 "
-                                    aria-label="Default select example" onChange={onEduStream}>
-                                    <option selected>-- Select Educational Stream -- </option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select> */}
                                 {eduStreamErr ?
                                     (<p style={{ fontSize: '16px', color: 'red' }} className="mb-2">
                                         Please enter Educational Stream
                                     </p>
                                     ) : ''}
                             </Form.Group>
-
                             <Form.Group className="mb-3 ">
                                 <label className="mobile-no mb-2" >Highest Educational Qualification *</label>
                                 <Form.Control placeholder="Highest Educational Qualification" onChange={onHigherEduStream} value={higherEduStream} />
-                                {/* <select className="form-select mb-3  "
-                                    aria-label="Default select example" onChange={onHigherEduStream}>
-                                    <option selected>-- Select Educational Qualification -- </option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select> */}
                                 {higherEduStreamErr ?
                                     (<p style={{ fontSize: '16px', color: 'red' }} className="mb-2">
                                         Please enter Highest Educational Qualification
                                     </p>
                                     ) : ''}
                             </Form.Group>
-
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-2" >Work Experience</label>
                                 <Form.Control placeholder="Work Experience" onChange={onWorkExp} value={workExp} />
@@ -644,6 +582,7 @@ const ProfilePage = (props) => {
                             </Form.Group>
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-2" >Resume </label>
+                                {resumeDownload && <a className="m-2" href={resumeDownload} download>Click to download</a>}
                                 <div className="profile-upload" >
                                     <div class="image-upload mt-4 text-center">
                                         <label for="file-input">
@@ -654,19 +593,9 @@ const ProfilePage = (props) => {
                                             {selectedFile ? selectedFile.name : 'Click here to add a document'}
                                         </div>
                                     </div>
-
-                                    {/* <div className="mt-4 text-center">
-                                        <input type="file" hidden />
-                                        <UploadIcon  onClick={onUpload}/>  
-                                        <span className='ms-2' >{uploadIdName ? uploadIdName : 'No file selected'} </span>                             
-                                    </div> */}
                                 </div>
-                                {/* <Form.Control type="file" placeholder="Placeholder">
-                                    </Form.Control>                     */}
                                 <label className="mobile-no mb-2" style={{ color: 'red' }}>{"(Only PDF allowed, size < 1 MB)"} </label>
                             </Form.Group>
-
-
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-2" >Desired Job Profile</label>
                                 <Form.Control placeholder="Desired Job Profile" value={desireProfile} onChange={onDesireProfile} />
@@ -687,17 +616,17 @@ const ProfilePage = (props) => {
             </Col>
             {show === true ?
                 (
-                    <Modal 
-                        show={show}   
-                        onHide={()=>setShow(false)}     
-                        aria-labelledby="contained-modal-title-vcenter"                                                                              
-                    >    
-                        <Modal.Header  closeButton>{/*style={{   color: 'rgb(11, 23, 27)',marginLeft: 'auto', color: '#0B171B' }}*/}
-                            <Modal.Title  className="profile-modal-header mt-1 mb-1 f1-16 " >
+                    <Modal
+                        show={show}
+                        onHide={() => setShow(false)}
+                        aria-labelledby="contained-modal-title-vcenter"
+                    >
+                        <Modal.Header closeButton>
+                            <Modal.Title className="profile-modal-header mt-1 mb-1 f1-16 " >
                                 Change Password
-                            </Modal.Title>  
-                        </Modal.Header>  
-                        <Modal.Body>                                       
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
                             <Form.Group className="mb-4 profile-formgroup" controlId="formBasicEmail">
                                 <Form.Label>Enter Password</Form.Label>
                                 <Form.Control
@@ -751,37 +680,38 @@ const ProfilePage = (props) => {
             }
             {isShow === true ?
                 <>
-                    <Modal 
-                        show={isShow}  
-                        onHide={()=>setIsShow(false)} 
+                    <Modal
+                        show={isShow}
+                        onHide={() => setIsShow(false)}
                         aria-labelledby="contained-modal-title-vcenter"
-                         
+
                     >
                         <Modal.Header closeButton>
                             <Modal.Title className="profile-modal-header mt-1 mb-1 f1-16" >Edit Avatar</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body >                            
+                        <Modal.Body >
                             <Row >
-                                {
-                                    avatarImage.map((item, index)=>(
-                                        <Col 
-                                            className="mb-2" xs={3} 
-                                            onClick={()=>setAvatarPicture(item.imageName)} 
-                                        >  
-                                            <img 
-                                                src={item.image} 
-                                                alt={item.imageName} 
-                                                key={index.image} 
-                                                className={item.imageName==avatarPicture? "avatar-image":""} 
-                                                style={{width:'80px',height:'80px',borderRadius:'50%'}} 
+                                {avatarList.length > 0 &&
+                                    avatarList.map((item, index) => (
+                                        <Col
+                                            className="mb-2" xs={3}
+                                            onClick={() => setAvatarPicture(item.id)}
+                                        >
+                                            <img
+                                                src={item.image}
+                                                alt={item.image}
+                                                key={index}
+                                                className={item.id == avatarPicture ? "avatar-image" : ""}
+                                                style={{ width: '80px', height: '80px', borderRadius: '50%' }}
                                             />
                                         </Col>
                                     ))
-                                }                                
+                                }
                             </Row>
                             <div className="text-center">
                                 <button style={{ backgroundColor: '#4DD188', color: 'white', borderRadius: '13px', width: '110px' }}
-                                    className="btn mt-3 mb-3" onClick={handleClose}
+                                    disabled={avatarPicture ? false : true}
+                                    className="btn mt-3 mb-3" onClick={handleChange}
                                 >
                                     Change
                                 </button>

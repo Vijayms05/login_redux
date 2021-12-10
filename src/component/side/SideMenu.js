@@ -9,6 +9,8 @@ import FileUpload from '../FileUpload/FileUpload';
 const SideMenu = () => {
     const profile = useSelector(state => state.ProfileReducer.profile)
     console.log(profile);
+    const user = useSelector(state => state.UserReducer.user);
+    console.log(user);
     const [qusBar, setQusBar] = useState(true)
 
     const clickqusBar = () => {
@@ -37,7 +39,7 @@ const SideMenu = () => {
                             Welcome back,
                         </h4>
                         <h5>
-                            Sierra Ferguson
+                            {user.name}
                         </h5>
                         <p>Your plan: Free</p>
                     </div>
@@ -73,9 +75,9 @@ const SideMenu = () => {
                                         <ProfileHome />
                                         Profile
                                     </Link>
-                                    <Link className="linka" to="/file-upload">
+                                    {/* <Link className="linka" to="/file-upload">
                                         File Upload
-                                    </Link>
+                                    </Link> */}
                                 </Nav>
                             </Navbar.Collapse>
                         </Navbar>

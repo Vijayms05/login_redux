@@ -17,7 +17,8 @@ export const URL = {
     FORGOT_PASSSWORD_CHANGE: 'api/forgot-change-password',
     PROFILE: 'api/profiles',
     CHANGE_PASSWORD: 'api/password/update',
-    GET_AVATAR: 'crmapi/avatar'
+    GET_AVATAR: 'crmapi/avatar',
+    AVATAR_UPDATE: 'api/avatar/update',
 
 }
 

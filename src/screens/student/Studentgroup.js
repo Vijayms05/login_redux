@@ -285,7 +285,7 @@ const Studentgroup = (props) => {
                     var response = result.data;
                     if (response.status == 'success') {
                         alert(response.message);
-                        httpClient.defaults.headers.common['Authorization'] = response?.token;
+                        httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
                         dispatch(set_User(response?.user));
                         history.push('/home')
                     }
