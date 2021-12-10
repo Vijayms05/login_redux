@@ -35,7 +35,36 @@ import HomeService from '../../service/HomeService';
 
 let fileList = [];
 
+var avatarImage = [
+    {
+        id:1,
+        image: image_Cover,
+        imageName:"Image Cover"
+    },
+    {
+        id:2,
+        image: newborn_baby,
+        imageName:"New Born Baby"
+    },
+    {
+        id:3,
+        image: marguerite,
+        imageName:"Marguerite"
+    },
+    {
+        id:4,
+        image: nature,
+        imageName:"Nature"
+    },
+    {
+        id:5,
+        image:avatarprofile,
+        imageName:"Avatar Profile"
+    }
+];
+
 const ProfilePage = (props) => {
+    const [avatarPicture,setAvatarPicture]=useState("Image Cover")
     const [uploadId, setUploadId] = useState('');
     const [uploadIdName, setUploadIdName] = useState('');
     const [show, setShow] = useState(false);
@@ -68,6 +97,7 @@ const ProfilePage = (props) => {
     const [paswordShow, setPaswordShow] = useState(true)
     const [repaswordShow, setRePaswordShow] = useState(true)
     const [avatarList, setAvatarList] = useState([]);
+
     useEffect(() => {
         HomeService.getAvatar().then(result => {
             var response = result.data;
@@ -238,6 +268,7 @@ const ProfilePage = (props) => {
     const handleShow = () => setIsShow(true);
     const handleShowPassword = () => setShow(true)
 
+
     const handleClosePassword = () => {
         var payload = {
             password: password,
@@ -279,7 +310,6 @@ const ProfilePage = (props) => {
         onPassword('');
         onRePassword('');
     }
-
     return (
         <div className="py-md-4 pro-rit mt-5 mt-md-0 mb-3 ps-md-4 shadow px-3 bg-white rounded">
             {/* {isLoading && <Loader />} */}
@@ -359,7 +389,6 @@ const ProfilePage = (props) => {
                                     <option value="2">Female</option>
                                     <option value="3">Others</option>
                                 </select>
-
                             </Form.Group>
                             <Form.Group className="mb-3 profile-formgroup">
                                 <label className="mobile-no mb-1" >Marital Status</label>
@@ -471,13 +500,10 @@ const ProfilePage = (props) => {
                                         <UploadIcon  onClick={onUpload}/>  
                                         <span className='ms-2' >{uploadIdName ? uploadIdName : 'No file selected'} </span>                             
                                     </div> */}
-
-
                                 </div>
                                 {/* <Form.Control type="file" placeholder="Placeholder">
                                     </Form.Control>                     */}
                             </Form.Group>
-
                             <Form.Group className="mb-3">
                                 <label className="mobile-no mb-2" >Desired Job Profile</label>
                                 <Form.Control placeholder="Placeholder" value={desireProfile} onChange={onDesireProfile} />
@@ -498,11 +524,17 @@ const ProfilePage = (props) => {
             </Col>
             {show === true ?
                 (
-                    <Modal
-                        aria-labelledby="contained-modal-title-vcenter"
-                        show={show} >
-                        <Modal.Body >
-                            <Modal.Title className="text-center mt-3 mb-3 f1-16" style={{ color: '#0B171B' }}>Change Password</Modal.Title>
+                    <Modal 
+                        show={show}   
+                        onHide={()=>setShow(false)}     
+                        aria-labelledby="contained-modal-title-vcenter"                                                                              
+                    >    
+                        <Modal.Header  closeButton>{/*style={{   color: 'rgb(11, 23, 27)',marginLeft: 'auto', color: '#0B171B' }}*/}
+                            <Modal.Title  className="profile-modal-header mt-1 mb-1 f1-16 " >
+                                Change Password
+                            </Modal.Title>  
+                        </Modal.Header>  
+                        <Modal.Body>                                       
                             <Form.Group className="mb-4 profile-formgroup" controlId="formBasicEmail">
                                 <Form.Label>Enter Password</Form.Label>
                                 <Form.Control
@@ -554,59 +586,35 @@ const ProfilePage = (props) => {
                     </Modal>
                 ) : null
             }
-
             {isShow === true ?
                 <>
-                    <Modal show={isShow}  >
-                        <Modal.Body>
-                            <Modal.Title className="text-center mt-3 mb-3" style={{ color: '#0B171B' }}>Edit Avatar</Modal.Title>
+                    <Modal 
+                        show={isShow}  
+                        onHide={()=>setIsShow(false)} 
+                        aria-labelledby="contained-modal-title-vcenter"
+                         
+                    >
+                        <Modal.Header closeButton>
+                            <Modal.Title className="profile-modal-header mt-1 mb-1 f1-16" >Edit Avatar</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body >                            
                             <Row >
-                                {/* {avatarList.length > 0 &&
-                                    avatarList.map((item, index) => {
-                                        return (
-                                            <Col className="mb-2" xs={3} >
-                                                <img src={item.image} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                            </Col>
-                                        )
-                                    })
-                                    // <Col className="mb-2">
-                                    //     <img src={modalImage} alt="image" />
-                                    // </Col>
-                                    // <Col className="mb-2">
-                                    //     <img src={modalImage} alt="image" />
-                                    // </Col>
-                                    // <Col className="mb-2">
-                                    //     <img src={modalImage} alt="image" />
-                                    // </Col>
-                                    // <Col className="mb-2"  >
-                                    //     <img src={modalImage} alt="image" style={{width:'70px',height:'70px'}} />
-                                    // </Col>
-                                    // <Col className="mb-2" >
-                                    //     <img src={avatarprofile} alt="image" style={{width:'70px',height:'70px'}} />
-                                    // </Col>
-                                } */}
-                                
-                                <Col className="mb-2" xs={3}>
-                                    <img src={image_Cover} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                </Col>
-                                <Col className="mb-2" xs={3}>
-                                    <img src={newborn_baby} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                </Col>
-                                 <Col className="mb-2" xs={3}>
-                                    <img src={avatarprofile} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                </Col>
-                                <Col className="mb-2" xs={3}>
-                                    <img src={modalImage} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                </Col>
-                                <Col className="mb-2" xs={3}>
-                                    <img src={marguerite} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                </Col>
-                                <Col className="mb-2 " xs={3}>
-                                    <img src={nature} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                </Col>
-                                <Col className="mb-2 " xs={3}>
-                                    <img src={nature} alt="image" className="avatar-image" style={{width:'80px',height:'80px',borderRadius:'50%'}} />
-                                </Col>
+                                {
+                                    avatarImage.map((item, index)=>(
+                                        <Col 
+                                            className="mb-2" xs={3} 
+                                            onClick={()=>setAvatarPicture(item.imageName)} 
+                                        >  
+                                            <img 
+                                                src={item.image} 
+                                                alt={item.imageName} 
+                                                key={index.image} 
+                                                className={item.imageName==avatarPicture? "avatar-image":""} 
+                                                style={{width:'80px',height:'80px',borderRadius:'50%'}} 
+                                            />
+                                        </Col>
+                                    ))
+                                }                                
                             </Row>
                             <div className="text-center">
                                 <button style={{ backgroundColor: '#4DD188', color: 'white', borderRadius: '13px', width: '110px' }}
@@ -620,7 +628,6 @@ const ProfilePage = (props) => {
 
                 </> : null
             }
-
         </div>
 
     )

@@ -1372,10 +1372,13 @@ audio::-webkit-media-controls-panel {
   padding-left: 35px !important;
   font-size: 18px;
 }
-
-.avatar-image:hover{
+.avatar-image{
  border: 3px solid dodgerblue;
  border-radius: 50%;
+}
+.profile-modal-header{
+  color: rgb(11, 23, 27);
+  margin-left: auto;
 }
 .inputField-mobile-no {
   font-family: "f3";
