@@ -1,5 +1,5 @@
 export const BASE_URL =
-    'http://192.168.1.11/skilltally-script/public/index.php/';
+    'http://192.168.1.20/skilltally-script/public/index.php/';
 // 'http://ninos.crm.script.skilltally.com/public/index.php/api/';
 
 export const URL = {
@@ -25,5 +25,5 @@ export const URL = {
 export const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 // export const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$');
 export const validPassword = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$');
-export const validMobilNo = new RegExp('^[7-9]{1}[0-9]{9}');
+export const validMobilNo = new RegExp('^[6-9]{1}[0-9]{9}');
 export const validText = new RegExp('^[a-zA-Z ]*$');

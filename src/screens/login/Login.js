@@ -18,7 +18,7 @@ import { validEmail, validPassword } from '../../service/Constant';
 import { message } from 'antd';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import { set_Email, set_Profile } from '../../redux/action/index';
+import { set_Email, set_Profile, set_Token, set_User } from '../../redux/action/index';
 import { api } from '../../service/index';
 import LoginService from '../../service/LoginService'
 import ForgotPasswordService from '../../service/ForgotPasswordService';
@@ -125,7 +125,8 @@ const Login = (props) => {
         if (response?.email_verified == 1 && response?.register_status == 1) {
           dispatch(set_Email({ email: email, type: user }));
           httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
-          dispatch(set_Profile(response?.user));
+          dispatch(set_Token(response?.token));
+          dispatch(set_User(response?.user));
           history.push('/home');
         } else if (response?.email_verified == 1 && response?.register_status == 0) {
           dispatch(set_Email({ email: email, type: user }));

@@ -1,11 +1,14 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
 import { Row, Col, Nav, Navbar, ProgressBar } from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Logo, ProfileHome, SettingsHome, BillingHome, ReportHome, TestHome, MenuHome } from '../../assets/images/index'
 import FileUpload from '../FileUpload/FileUpload';
 
 const SideMenu = () => {
+    const profile = useSelector(state => state.ProfileReducer.profile)
+    console.log(profile);
     const [qusBar, setQusBar] = useState(true)
 
     const clickqusBar = () => {

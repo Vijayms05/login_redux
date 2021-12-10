@@ -10,6 +10,9 @@ import sidebarReducer from './Sidebar';
 import loginReducer from './loginReducer';
 import roleReducer from './roleReducer';
 import ProfileReducer from './ProfileReducer';
+import TokenReducer from './TokenReducer';
+import UserReducer from './UserReducer';
+
 const rootReducer = combineReducers({
     signupState,
     loginState,
@@ -21,5 +24,7 @@ const rootReducer = combineReducers({
     loginReducer,
     roleReducer,
     ProfileReducer,
+    TokenReducer,
+    UserReducer,
 })
 export default rootReducer;
