@@ -137,7 +137,7 @@ body {
   z-index: 111;
   height: 100vh;
   border-right: 1px solid #f1f1f1;
-  transition: 0.4s all linear;
+  transition: 0.4s all linear;  
 }
 .lftMenu {
   width: 230px !important;
@@ -995,7 +995,7 @@ body {
   font-size: 13.5px !important;
   font-family: "f3";
   font-weight: bold;
-  background-color: #137ad3 !important; 
+  background-color: #298EE0 !important; 
   text-align: center;
 }
 
@@ -1007,7 +1007,7 @@ body {
   border-radius: 12px;
 }
 .horizontal-card{  
-  width: 95%; 
+  width: 93%; 
   background: #FFFFFF;
   box-shadow: 0px 79.2714px 79.2714px rgba(0, 0, 0, 0.1);
   border-radius: 25.3668px;

@@ -421,7 +421,7 @@ const ProfilePage = (props) => {
                                     style={{ width: '80px', height: '80px', borderRadius: '50%' }}
                                 /> : <AvatorProfile />}
                             </Col>
-                            <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-4 ps-md-4 text-start text-sm-center">
+                            <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-2 ps-md-2 text-center text-md-start">
                                 <label 
                                     className="title "
                                     style={{ 
