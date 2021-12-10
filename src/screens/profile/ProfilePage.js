@@ -35,6 +35,7 @@ import HomeService from '../../service/HomeService';
 import { useDispatch, useSelector } from 'react-redux';
 import { constants } from '../../service';
 import { set_Profile } from '../../redux/action';
+import validator from 'validator'
 
 const ProfilePage = (props) => {
     const [avatarPicture, setAvatarPicture] = useState('');
@@ -153,7 +154,14 @@ const ProfilePage = (props) => {
     const onPassword = (e) => {
         setPassword(e.target.value);
         if (e.target.value != '') {
-            setPasswordErr(false);
+            if (validator.isStrongPassword(e.target.value, {
+                minLength: 6, minLowercase: 1,
+                minUppercase: 1, minNumbers: 1, minSymbols: 1
+            })) {
+                setPasswordErr(false);
+            } else {
+                setPasswordErr(true);
+            }
             if (repassword != '') {
                 if (e.target.value == repassword) {
                     setRePasswordErr(false);
@@ -630,7 +638,7 @@ const ProfilePage = (props) => {
                                 </Button>
                             </Form.Group>
                             {passwordErr ?
-                                (<p style={{ fontSize: '16px', color: 'red' }} className="mb-3" > Please enter your Password </p>) : ''}
+                                (<p style={{ fontSize: '16px', color: 'red' }} className="mb-3" > {password.length > 0 ? 'Password should have at least one each Aa1@ and 6 digits ' : 'Please enter your Password'} </p>) : ''}
                             <Form.Group className="mb-2 profile-formgroup" controlId="formBasicEmail">
                                 <Form.Label>Conform Password</Form.Label>
                                 <Form.Control
