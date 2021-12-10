@@ -420,11 +420,11 @@ const ProfilePage = (props) => {
         onRePassword('');
     }
     return (
-        <div className="py-md-4 pro-rit mt-5 mt-md-0 mb-3 ps-md-4 shadow px-3 bg-white rounded">
+        <div className="py-md-4 pro-rit  mt-5 mt-md-0 mb-3 ps-md-4 shadow px-3 bg-white rounded" style={{width:'100%'}} >
             {/* {isLoading && <Loader />} */}
 
             <Col xs={12} sm={12} md={11} lg={12}>
-                <h3 className="mb-2 mt-5 mt-md-0 pt-5 pt-md-0 px-2 px-md-0 skill-profile" style={{ color: '#003866', fontSize: '30px' }}>Profile</h3>
+                <h3 className="mb-2 mt-5 mt-md-0 pt-5 pt-md-0 px-2 px-md-1 skill-profile" style={{ color: '#003866', fontSize: '30px' }}>Profile</h3>
                 <Row className="mt-5 mt-md-2 mb-3">
                     <Col xs={12} sm={12} md={10} lg={4} className='px-2 px-md-0'>
                         <ProgressBar now={profile.profile_filled} className="mb-3" />
@@ -439,28 +439,43 @@ const ProfilePage = (props) => {
                             <Col xs={12} sm={6} md={6} lg={3} className="mt-2 mb-2">
                                 <AvatorProfile />
                             </Col>
-                            <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-4 ps-md-4 text-center text-md-start">
-                                <label className="title  "
-                                    style={{ color: '#192A3E', fontWeight: 'bold', fontSize: '18px' }}>
+                            <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-4 ps-md-4 text-start text-sm-center">
+                                <label 
+                                    className="title "
+                                    style={{ 
+                                        color: '#192A3E', 
+                                        fontWeight: 'bold', 
+                                        fontSize: '18px' 
+                                    }}
+                                >
                                     {user.name}
                                 </label>
                                 &nbsp;
                                 <small style={{ color: '#90A0B7' }}>{user.email}</small>
                             </Col>
                             <Col xs={12} sm={6} md={6} lg={3} className=" mb-2 mt-4 ">
-                                <button className="profile-cardbutton btn"
-                                    style={{ color: '#FFFFFF', borderRadius: '10px', width: '170px !important' }}
-                                    onClick={handleShow}>
+                                <button 
+                                    className="profile-cardbutton btn"
+                                    style={{ 
+                                        color: '#FFFFFF', 
+                                        borderRadius: '10px', 
+                                        width: '170px !important' 
+                                    }}
+                                    onClick={handleShow}
+                                >
                                     Edit Avatar
                                 </button>
                             </Col>
                             <Col xs={12} sm={6} md={6} lg={3} className=" mb-2 mt-4 ">
-                                <button className="profile-cardbutton btn"
+                                <button 
+                                    className="profile-cardbutton btn"
                                     style={{
-                                        color: '#FFFFFF', borderRadius: '10px',
-                                        width: '170px !important',
-                                        background: '#298ee0'
-                                    }} onClick={handleShowPassword}>
+                                        color: '#FFFFFF', 
+                                        borderRadius: '10px',
+                                        width: '170px !important'
+                                    }} 
+                                    onClick={handleShowPassword}
+                                >
                                     Change Password
                                 </button>
                             </Col>
