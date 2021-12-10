@@ -12,9 +12,13 @@ const changePassword = (payload) => {
 const getAvatar = () => {
     return httpClient.get(URL.GET_AVATAR);
 }
+const profileUpdate = (payload) => {
+    return httpClient.post(URL.PROFILE, payload);
+}
 const HomeService = {
     profile,
     changePassword,
     getAvatar,
+    profileUpdate,
 }
 export default HomeService;

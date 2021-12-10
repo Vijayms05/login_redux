@@ -24,7 +24,12 @@ const HomeScreen = () => {
             }).catch(function (error) {
                 if (error.response) {
                     // Request made and server responded
-                    alert(error.response.data?.message);
+                    if (error.response.data?.message) {
+                        alert(error.response.data?.message);
+
+                    } else {
+                        alert(error.response.data);
+                    }
                     console.log(error.response.data);
                 } else if (error.request) {
                     // The request was made but no response was received
@@ -35,7 +40,6 @@ const HomeScreen = () => {
                     alert(error.message)
                     console.log(error.message);
                 }
-
             });
         }
     }, []);
