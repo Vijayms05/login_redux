@@ -25,6 +25,7 @@ import './style.css';
 import './responsive.css'
 import { constants } from '../../service';
 import SignupService from '../../service/SignupService';
+import validator from 'validator';
 const Signup = (props) => {
   // const [posts,setPosts]=useState([]);
   // const [post,setPost]=useState({id:'',userId:'',title:'',body:''});
@@ -61,7 +62,14 @@ const Signup = (props) => {
   const onPassword = (e) => {
     setPassword(e.target.value);
     if (e.target.value != '') {
-      setPasswordErr(false);
+      if (validator.isStrongPassword(e.target.value, {
+        minLength: 6, minLowercase: 1,
+        minUppercase: 1, minNumbers: 1, minSymbols: 1
+      })) {
+        setPasswordErr(false);
+      } else {
+        setPasswordErr(true);
+      }
       if (repassword != '') {
         if (e.target.value == repassword) {
           setRePasswordErr(false);
@@ -247,7 +255,7 @@ const Signup = (props) => {
                 </Button>
               </Form.Group>
               {passwordErr ?
-                (<p style={{ fontSize: '16px', color: 'red' }} className="mb-3" > Please enter your Password </p>) : ''}
+                (<p style={{ fontSize: '16px', color: 'red' }} className="mb-3" > {password.length > 0 ? 'Password should have at least one each Aa1@ and 6 digits ' : 'Please enter your Password'} </p>) : ''}
               <Form.Group className="mb-3 inputGroup" controlId="formBasicEmail">
                 <Form.Control
                   className="inputField"

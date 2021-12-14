@@ -46,7 +46,7 @@ import Audioplayer from '../component/dummyquestion/audioAndvideos/Audioplayer'
 // import Profile from '../component/sidebarpage1/profile/Profile';
 import ResultPage from '../screens/TestScreen/ResultPage';
 import FileUpload from '../component/FileUpload/FileUpload';
-
+import RoleBasedTestDetailScreen from '../screens/role_based_test/RoleBasedTestDetailScreen';
 // import DummyPost from '../dummy/DummyPost';
 
 export const history = createBrowserHistory();
@@ -70,6 +70,7 @@ const Routes = (props) => {
           <Route path="/collegstudent" component={Collegegroup} />
 
           <Route path="/subscription-list" component={SubscriptionDetailScreen} />
+          <Route path="/role-based-test" component={RoleBasedTestDetailScreen} />
           <Route path="/billings" component={BillingScreen} />
           <Route path="/billings-details" component={BillingDetailScreen} />
 
