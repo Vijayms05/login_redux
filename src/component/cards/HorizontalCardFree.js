@@ -19,14 +19,14 @@ const HorizontalCardFree = (props) =>{
             <Card>
                 <Card.Body className="billing-add w-100">
                     <Row>
-                        <Col  className="cls-fre sub-class text-center mt-3 mb-3" sm={4} xs={12} >
+                        <Col  className="cls-fre sub-class text-center mt-3 mb-3" md={4} sm={3} xs={12} >
                             <h2 style={{fontSize:'33px'}}>Class12</h2>
                         </Col>
-                        <Col  className="cls-fre hori-content" sm={5} xs={12} > {/*className="cls-fre"*/}
+                        <Col  className="cls-fre hori-content" md={4} sm={6} xs={12} > {/*className="cls-fre"*/}
                             <h4 >Your Current Plan</h4>      
                                 <Col style={{textAlign:'center',color:'#298EE0',
                                     fontFamily: 'f1',fontStyle: 'normal',fontWeight: 'bold',
-                                    fontSize: '65px',lineHeight: '100px'}}
+                                    fontSize: '55px',lineHeight: '100px'}}
                                 >Free</Col>
                                 {/* <Col  className="subscription-class-46 text-center">
                                     <h6 style={{fontSize:'52px',textAlign:'end',color:'#298EE0'}}>46</h6>   
@@ -39,7 +39,7 @@ const HorizontalCardFree = (props) =>{
                             {/* <Link to="/billings" className="anal-btn">Go to Billing</Link> */}
                             {/* <Link to="/billings-details" className="anal-btn">Go to Billing</Link> */}
                         </Col>
-                        <Col sm={3} xs={12} className="hori-image" > {/*className="d-none d-md-block" */}
+                        <Col md={4} sm={3} xs={12} className="hori-image" > {/*className="d-none d-md-block" */}
                             <Billingrit />
                             <ScaleIcon />
                             <NumbIcon />

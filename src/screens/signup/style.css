@@ -80,8 +80,8 @@
   display: grid;
 }
 .top-stud-proof {
-  width: 200px;
-  height: 200px;
+  width: 200px !important;
+  height: 200px !important;
   text-align: left;
 } 
 
@@ -89,16 +89,17 @@
   height: 95px;
   overflow: auto;
 }
+
 .stud-prof .form-check-input:checked[type="radio"] {
   background: none !important;
-}
-.stud-prof .form-check-input:checked {
-  background: none !important;
-}
-.stud-prof .form-check-input[type="radio"] {
-  border-radius: 9px !important;
   border: 3px solid rgb(116 171 253); 
 }
+
+.stud-prof .form-check-input[type="radio"] {
+  border-radius: 9px !important;
+  border: 0px solid rgb(116 171 253); 
+}
+
 .stud-prof .form-check-input {
   border-radius: 9px;
   width: 200px !important;
@@ -106,8 +107,14 @@
   margin: 0 !important;
   background: none !important;
 }
+
 .form-check-inp {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
 }

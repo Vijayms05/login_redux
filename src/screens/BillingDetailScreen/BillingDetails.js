@@ -23,9 +23,9 @@ const BillingDetails = (props) =>{
     const [billingFilter, setFilter] = useState('')
     const [days, setDays] = useState('')
     return(
-        <div className="py-md-4 bill-rit ms-2">
-            <Row className="mb-4 mt-4">
-                <Col xs={6} md={6} lg className="ps-0 billing-search-box">   
+        <div className="py-md-2 px-2 bill-rit ms-2">
+            <Row className="mb-4 mt-5 pt-5 mt-md-4 pt-md-0">
+                <Col xs={12} md={6} lg={6} className="billing-search-box mb-2">   
                     <Form.Group  className="w-90 search-box">
                         <Button className="searchrole">
                             <SearchIcon />
@@ -37,10 +37,9 @@ const BillingDetails = (props) =>{
                             className="search-input rounded-pill" />
                     </Form.Group>                
                 </Col>
-                <Col xs={6} md={6} lg  className="pe-0 billing-search-box">
+                <Col xs={12} md={6} lg={6}  className="billing-search-box mb-2">
                     <Form.Select 
                         className="select-form " size="md" 
-                        style={{width:'250px'}}
                         onChange={e => setFilter(e.target.value)}
                         >
                         <option selected> Select Filters </option>
@@ -50,39 +49,37 @@ const BillingDetails = (props) =>{
                 </Col>
             </Row> 
             <div className="m-auto">
-                <Row> 
-                    <h5 className="report-h5 mt-5">Billing</h5>  
-                </Row>
-                <Col sm={6} md={8} lg={8} className="ms-2 "  > 
-                    <HorizontalCardFree />
+                <Row className="justify-content-center justify-content-xl-start"> 
+                    <h5 className="report-h5 mt-2 mt-md-0 my-2 my-md-3">Billing</h5>  
+                    <Col sm={12} md={12} lg={10} xl={8} className="mx-2 mt-2"  > 
+                        <HorizontalCardFree />
 
-                    {/* <Card>
-                        <Card.Body className="billing-add billing-details-card">
-                            <Row>
-                                <Col className="cls-fre text-center mt-3 mb-3 billing-details-text" sm={4} >
+                        {/* <Card>
+                            <Card.Body className="billing-add billing-details-card">
+                                <Row>
+                                    <Col className="cls-fre text-center mt-3 mb-3 billing-details-text" sm={4} >
                                     <h2 style={{fontSize:'33px'}}>Class12</h2>
-                                </Col>
-                                <Col className="cls-fre text-center mt-4 billing-search-box " sm={5} > className="cls-fre"
+                                    </Col>
+                                    <Col className="cls-fre text-center mt-4 billing-search-box " sm={5} > className="cls-fre"
                                     <h4 style={{fontSize:'22px'}}>Your Current Plan</h4>                                   
                                     <h1 style={{fontSize:'65px'}}>Free</h1>
-                                </Col>
-                                <Col className="billing-search-box"> className="d-none d-md-block"
+                                    </Col>
+                                    <Col className="billing-search-box"> className="d-none d-md-block"
                                     <Billingrit />
                                     <ScaleIcon />
                                     <NumbIcon />
-                                </Col>
-                            </Row>                    
-                        </Card.Body>                
-                    </Card> */}
-                </Col>               
+                                    </Col>
+                                    </Row>                    
+                                    </Card.Body>                
+                                </Card> */}
+                    </Col>               
+                </Row>
                 <Row className="mt-5"> 
-                    <h5 className="report-h5">Upgrade Now</h5>  
-                </Row>       
-                <Row>
-                    <Col md={12} lg={6} className="p-0">
+                    <Col lg={6} md={12} sm={12} xs={12} className="p-0">
+                        <h5 className="report-h5 my-3">Upgrade Now</h5>  
                         <Row>
                             <h4 className="plan-h4 p-0 mt-4">Select Plan Validity</h4>
-                            <Col sm={6} md={6} lg  className="p-0">
+                            <Col xs={12} sm={6} md={6} lg={6}  className="p-0">
                                 <Form.Select 
                                     className="select-form w-50" size="md" 
                                     onChange={e => setDays(e.target.value)}>
@@ -104,8 +101,8 @@ const BillingDetails = (props) =>{
                             </ul>
                         </Row>    
                     </Col> 
-                    <Col md={12} lg={6} sm={6}  className="p-0 mb-3 billing-details-buy">                        
-                        <p className="f1-17 mb-1 mt-2 mb-3">Total</p> 
+                    <Col lg={6} md={12} sm={12} xs={12}  className="p-0 mb-3 billing-details-buy">
+                        <h5 className="report-h5 my-3">Total</h5>                          
                         <p className="f1-35 mb-0 dark-green-light" style={{lineHeight: '30px'}}>Rs 560</p> 
                         <div className="price-down"> 
                             <h5 className="">Price Breakdown</h5>  

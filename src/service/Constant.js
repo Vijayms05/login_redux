@@ -1,31 +1,30 @@
-import {dummyApi,dummyURL} from './api'
+export const BASE_URL =
+    'http://192.168.1.20/skilltally-script/public/index.php/';
+// 'http://ninos.crm.script.skilltally.com/public/index.php/api/';
 
-export const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$');
-export const validPassword = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$');
-export const validMobilNo = new RegExp('^[7-9]{1}[0-9]{9}');
-export const validText = new RegExp('^[a-zA-Z ]*$');
+export const URL = {
+    SIGN_UP: 'api/user/signup',
+    LOGIN: 'api/user/login',
+    VERIFY_EMAIL: 'api/verify/email/', // slug_email has to pass in url
+    REGISTER: 'api/register/user',
+    STANDARDS: 'api/standards',
+    STANDARD_STREAMS: 'api/standard/streams/', //standard_id has to pass in url
+    STREAMS: 'api/streams',
+    STREAM_BRANCHES: 'api/stream/branches/', //stream_id has to pass in url
+    INDUSTRIES: 'industries',
+    INDUSTRY_WORK_ROLES: 'api/industry/work-roles/', //industry_id has to pass in url
+    FORGOT_PASSWORD_REQUEST: 'api/forgot-password/', //email, type has tp pass in url
+    FORGOT_PASSSWORD_CHANGE: 'api/forgot-change-password',
+    PROFILE: 'api/profiles',
+    CHANGE_PASSWORD: 'api/password/update',
+    GET_AVATAR: 'crmapi/avatar',
+    AVATAR_UPDATE: 'api/avatar/update',
 
-export const postItem =()=>{
-    dummyApi.post(dummyURL,{
-        userId:11,
-        id:101,
-        title:'hello world',
-        body: `cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta 
-        in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut`
-    }).then((res) =>{
-        console.log(res.data)
-    }).catch( err => console.log(err))
-};
-
-export const getItem =()=>{
-    dummyApi.get(dummyURL)
-    .then(res =>{
-        console.log(res.data[0]);      
-        res.data.forEach(element => {
-            if(element.id <=5){
-                console.log(element);
-            }               
-            })
-         })   
-    .catch( err => console.log(err))  
 }
+
+
+export const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+// export const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$');
+export const validPassword = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$');
+export const validMobilNo = new RegExp('^[6-9]{1}[0-9]{9}');
+export const validText = new RegExp('^[a-zA-Z ]*$');
