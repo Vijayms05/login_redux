@@ -18,6 +18,7 @@ import '../../screens/home/Home.css'
 import '../../screens/home/responsive.css'
 import Button from '@restart/ui/esm/Button'
 import { Link, useHistory } from 'react-router-dom'
+import HomeService from '../../service/HomeService'
 
 const classes = [
     "Class 12",
@@ -28,16 +29,37 @@ const classes = [
 const Subscription = (props) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
+    const [courselist, setCourseList] = useState([]);
+    const [subscriptionList, setSubscriptionList] = useState([]);
+    const [subscription,setSubscription]=useState('')
+
+
     const history = useHistory();
     const handleChange = event => {
         setSearchTerm(event.target.value);
     };
-    useEffect(() => {
-        const results = classes.filter(classe =>
-            classe.toLowerCase().includes(searchTerm)
-        );
-        setSearchResults(results);
-    }, [searchTerm]);
+    // useEffect(() => {
+        
+
+    //     const results = classes.filter(classe =>
+    //         classe.toLowerCase().includes(searchTerm)
+    //     );
+    //     setSearchResults(results);
+    // }, [searchTerm]);
+    useEffect(()=>{
+        HomeService.courseList().then((res)=>{
+            const response =res.data;
+            console.log(response);
+            if (response?.status == 'success') {
+                setCourseList(response.course_list);
+                setSubscriptionList(response.my_courses)
+            }else if (response.status == 'error') {
+                alert(response?.message);
+            }           
+            // console.log(subscriptionList);
+            // console.log(courselist)
+        }).catch(error => console.log(error))        
+    },[])
 
     const now = 30
 
@@ -200,158 +222,70 @@ const Subscription = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    {/* <Link to="/subscription-list"> */}
-                    <Card onClick={() => history.push('/role-based-test')}>
-                        <Card.Body className="class-card">
-                            <Card.Title className="mb-3">
-                                Class 12
-                            </Card.Title>
-                            {/* <Card.Text className="sub-active mb-1 mt-2">
-                                Subscription : Active
-                            </Card.Text> */}
-                            <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3', color: '#0B171B' }}>
-                                Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                Morbi in orci risus. Donec pretium
-                            </Card.Text>
-                            <div>
-                                {/* <Card.Text className="text-start mb-0" style={{ fontSize: '13.5px', fontFamily: 'f3', color: '#0B171B' }}>In Progress</Card.Text>
-                                <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                    <ProgressBar now={now} />
-                                    <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p> 
-                                </div>*/}
-                            </div>
-                            {/* <div className="play-vid">
-                                <PlaybtnIcon />
-                            </div> */}
-                            <Row>
-                                <Col>
-                                    <Button className="anal-btn " style={{ border: '1px solid #45acff' }}
-                                    > Take Test</Button>
-                                </Col>
-                                <Col>
-                                    <Button className="anal-btn" style={{ border: '1px solid #45acff' }}
-                                    > Buy</Button>
-                                </Col>
-                            </Row>
-                        </Card.Body>
-                    </Card>
-                    {/* </Link>                         */}
-                </Col>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    <Link to="/role-based-test">
-                        <Card>
-                            <Card.Body>
-                                <Card.Title className="mb-3">
-                                    Class 11
-                                </Card.Title>
-                                {/* <Card.Text className="sub-active mb-1 mt-2"> 
-                                    Subscription : Active
-                                </Card.Text> */}
-                                <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3' }}>
-                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                    Morbi in orci risus. Donec pretium
-                                </Card.Text>
-                                <div>
-                                    {/* <Card.Text className="text-start mb-0">In Progress</Card.Text>
-                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                        <ProgressBar now={now} />
-                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                    </div> */}
-                                </div>
-                                {/* <div className="play-vid">
-                                    <PlaybtnIcon />
-                                </div> */}
-                                <Row>
-                                    <Col>
-                                        <Button className="anal-btn " style={{ border: '1px solid #45acff' }}
-                                        > Take Test</Button>
-                                    </Col>
-                                    <Col>
-                                        <Button className="anal-btn" style={{ border: '1px solid #45acff' }}
-                                        > Buy</Button>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                </Col>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    <Link to="/role-based-test">
-                        <Card style={{ background: '#EBEBEB' }}>
-                            <Card.Body>
-                                <Card.Title className="mb-3">
-                                    Class 10
-                                </Card.Title>
-                                {/* <Card.Text className="sub-active mb-1 mt-2"> 
-                                    Subscription : Active
-                                </Card.Text> */}
-                                <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3' }}>
-                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                    Morbi in orci risus. Donec pretium
-                                </Card.Text>
-                                <div>
-                                    {/* <Card.Text className="text-start mb-0">In Progress</Card.Text>
-                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                        <ProgressBar now={now} />
-                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                    </div> */}
-                                </div>
-                                {/* <div className="play-vid-not-vist">
-                                    <PlaybtnIcon />
-                                </div> */}
-                                <Row>
-                                    <Col>
-                                        <Button className="anal-btn " style={{ border: '1px solid #45acff' }}
-                                        > Take Test</Button>
-                                    </Col>
-                                    <Col>
-                                        <Button className="anal-btn" style={{ border: '1px solid #45acff' }}
-                                        > Buy</Button>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                </Col>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    <Link to="/role-based-test">
-                        <Card style={{ background: '#EBEBEB' }} className="home-card ">
-                            <Card.Body>
-                                <Card.Title className="mb-3">
-                                    Class 9
-                                </Card.Title>
-                                {/* <Card.Text className="sub-active mb-1 mt-2"> 
-                                    Subscription : Active
-                                </Card.Text> */}
-                                <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3' }}>
-                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                    Morbi in orci risus. Donec pretium
-                                </Card.Text>
-                                <div>
-                                    {/*  <Card.Text className="text-start mb-0">In Progress</Card.Text>
-                                   <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                        <ProgressBar now={now} />
-                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                    </div> */}
-                                </div>
-                                {/* <div className="play-vid-not-vist">
-                                    <PlaybtnIcon />
-                                </div> */}
-                                <Row>
-                                    <Col>
-                                        <Button className="anal-btn " style={{ border: '1px solid #45acff' }}
-                                        > Take Test</Button>
-                                    </Col>
-                                    <Col>
-                                        <Button className="anal-btn" style={{ border: '1px solid #45acff' }}
-                                        > Buy</Button>
-                                    </Col>
-                                </Row>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                </Col>
+                {
+                    courselist.map((test,index)=>{
+                        return(
+                            <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
+                                {/* <Link to="/role-based-test"> */}
+                                    <Card>
+                                        <Card.Body>
+                                            <Card.Title className="mb-3" key={index.name}>
+                                                {test.name}
+                                            </Card.Title>
+                                            {/* <Card.Text className="sub-active mb-1 mt-2"> 
+                                                Subscription : Active
+                                            </Card.Text> */}
+                                            <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3' }} >
+                                                {test.description}
+                                                {/* Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
+                                                Morbi in orci risus. Donec pretium */}
+                                            </Card.Text>
+                                            <div>
+                                                {/* <Card.Text className="text-start mb-0">In Progress</Card.Text>
+                                                <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
+                                                    <ProgressBar now={now} />
+                                                    <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
+                                                </div> */}
+                                            </div>
+                                            {/* <div className="play-vid">
+                                                <PlaybtnIcon />
+                                            </div> */}
+                                            <Row>
+                                            {test.base_line_test !==  0 ?
+                                                (
+                                                <Col>                                                
+                                                    <Button 
+                                                        className="anal-btn " 
+                                                        style={{ border: '1px solid #45acff' }}                                                       
+                                                        onClick={() =>{
+                                                            alert('Base Line Test')
+                                                        }}
+                                                    > 
+                                                       Base Line Test
+                                                    </Button>
+                                                </Col>
+                                                ):''}
+                                                <Col>
+                                                    <Button 
+                                                        className="anal-btn" 
+                                                        style={{ border: '1px solid #45acff' }}                                                        
+                                                        onClick={()=> {
+                                                            history.push({pathname:'/role-based-test', state: test.subscription_id})
+                                                            
+                                                        }
+                                                    }
+                                                    >
+                                                        Buy
+                                                    </Button>
+                                                </Col>
+                                            </Row>
+                                        </Card.Body>
+                                    </Card>
+                                {/* </Link> */}
+                            </Col>
+                        ) 
+                    })
+                }
             </Row >
             <Row>
                 <Col className="role-tit">

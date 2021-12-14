@@ -1,5 +1,5 @@
 export const BASE_URL =
-    'http://192.168.1.20/skilltally-script/public/index.php/';
+    'http://192.168.1.21/skilltally-script/public/index.php/';
 // 'http://ninos.crm.script.skilltally.com/public/index.php/api/';
 
 export const URL = {
@@ -19,7 +19,8 @@ export const URL = {
     CHANGE_PASSWORD: 'api/password/update',
     GET_AVATAR: 'crmapi/avatar',
     AVATAR_UPDATE: 'api/avatar/update',
-
+    COURSE_LIST: 'api/my-dashboard',
+    COURSE_DETAILS:'api/subscription-details',
 }
 
 

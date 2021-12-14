@@ -96,9 +96,10 @@ const Login = (props) => {
     setPassword(e.target.value);
     if (e.target.value != '') {
       if (e.target.value.length < 6) {
-        setPasswordErr(false);
-      } else {
         setPasswordErr(true);
+        
+      } else {
+        setPasswordErr(false);
       }
     } else {
       setPasswordErr(true);

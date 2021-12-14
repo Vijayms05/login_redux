@@ -912,7 +912,7 @@ body {
   background-color: #e8f3ff;
   padding: 20px 19px;
   border-radius: 9px;
-  width: 100%;
+  width: 100%;  
   display: block;
   align-items: center;
   margin-bottom: 15px;
@@ -1115,9 +1115,10 @@ body {
   margin-right: 8px;
 }
 .lft-skl-bldg {
-  height: 80vh;
+  /* height: 80vh; */
+  height:auto;
   padding: 5px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 .stud-form-rad {
   display: flex;
