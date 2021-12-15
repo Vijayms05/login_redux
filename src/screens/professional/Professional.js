@@ -20,7 +20,6 @@ import httpClient from '../../service/httpClient';
 const Professional = (props) => {
     const dispatch = useDispatch();
     const email = useSelector(state => state.loginReducer.email);
-    console.log(email);
     const [inputName, setInputname] = useState('');
     const [workRole, setWorkrole] = useState('');
     const [inputNameErr, setInputnameErr] = useState(null);
@@ -32,25 +31,25 @@ const Professional = (props) => {
     useEffect(() => {
         RegisterService.getIndustries().then(result => {
             var response = result.data;
-            console.log(response);
             if (response.status == 'success') {
                 setIndustryList(response.industries);
             }
         }).catch(function (error) {
             if (error.response) {
                 // Request made and server responded
-                alert(error.response.data?.message);
-                console.log(error.response.data);
+                if (error.response.data?.message) {
+                    alert(error.response.data?.message);
+
+                } else {
+                    alert(error.response.data);
+                }
             } else if (error.request) {
                 // The request was made but no response was received
-                alert(error.request)
-                console.log(error.request);
+                alert(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                alert(error.message)
-                console.log(error.message);
+                alert(error.message);
             }
-
         });
     }, [])
 
@@ -84,7 +83,6 @@ const Professional = (props) => {
         }
         RegisterService.register(payload).then(result => {
             var response = result.data;
-            console.log(response);
             if (response.status == 'success') {
                 alert(response.message);
                 httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
@@ -95,18 +93,19 @@ const Professional = (props) => {
         }).catch(function (error) {
             if (error.response) {
                 // Request made and server responded
-                alert(error.response.data?.message);
-                console.log(error.response.data);
+                if (error.response.data?.message) {
+                    alert(error.response.data?.message);
+
+                } else {
+                    alert(error.response.data);
+                }
             } else if (error.request) {
                 // The request was made but no response was received
-                alert(error.request)
-                console.log(error.request);
+                alert(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                alert(error.message)
-                console.log(error.message);
+                alert(error.message);
             }
-
         });
         // e.preventDefault();
         // history.push({ pathname: '/home' });
@@ -133,7 +132,6 @@ const Professional = (props) => {
         setIndustry(e.target.value);
         if (e.target.value != null && e.target.value != '') {
             RegisterService.getIndustriesWorkRoles(e.target.value).then(result => {
-                console.log(result);
                 var response = result.data;
                 if (response.status == 'success') {
                     setWorkRoleList(response.work_roles);
@@ -141,18 +139,19 @@ const Professional = (props) => {
             }).catch(function (error) {
                 if (error.response) {
                     // Request made and server responded
-                    alert(error.response.data?.message);
-                    console.log(error.response.data);
+                    if (error.response.data?.message) {
+                        alert(error.response.data?.message);
+
+                    } else {
+                        alert(error.response.data);
+                    }
                 } else if (error.request) {
                     // The request was made but no response was received
-                    alert(error.request)
-                    console.log(error.request);
+                    alert(error.request);
                 } else {
                     // Something happened in setting up the request that triggered an Error
-                    alert(error.message)
-                    console.log(error.message);
+                    alert(error.message);
                 }
-
             });
         }
     }

@@ -31,7 +31,7 @@ const Subscription = (props) => {
     const [searchResults, setSearchResults] = useState([]);
     const [courselist, setCourseList] = useState([]);
     const [subscriptionList, setSubscriptionList] = useState([]);
-    const [subscription,setSubscription]=useState('')
+    const [subscription, setSubscription] = useState('')
 
 
     const history = useHistory();
@@ -39,27 +39,42 @@ const Subscription = (props) => {
         setSearchTerm(event.target.value);
     };
     // useEffect(() => {
-        
+
 
     //     const results = classes.filter(classe =>
     //         classe.toLowerCase().includes(searchTerm)
     //     );
     //     setSearchResults(results);
     // }, [searchTerm]);
-    useEffect(()=>{
-        HomeService.courseList().then((res)=>{
-            const response =res.data;
-            console.log(response);
+    useEffect(() => {
+        HomeService.courseList().then((res) => {
+            const response = res.data;
             if (response?.status == 'success') {
                 setCourseList(response.course_list);
                 setSubscriptionList(response.my_courses)
-            }else if (response.status == 'error') {
+            } else if (response.status == 'error') {
                 alert(response?.message);
-            }           
+            }
             // console.log(subscriptionList);
             // console.log(courselist)
-        }).catch(error => console.log(error))        
-    },[])
+        }).catch(function (error) {
+            if (error.response) {
+                // Request made and server responded
+                if (error.response.data?.message) {
+                    alert(error.response.data?.message);
+
+                } else {
+                    alert(error.response.data);
+                }
+            } else if (error.request) {
+                // The request was made but no response was received
+                alert(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                alert(error.message);
+            }
+        });
+    }, [])
 
     const now = 30
 
@@ -223,67 +238,67 @@ const Subscription = (props) => {
             </Row>
             <Row>
                 {
-                    courselist.map((test,index)=>{
-                        return(
+                    courselist.map((test, index) => {
+                        return (
                             <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
                                 {/* <Link to="/role-based-test"> */}
-                                    <Card>
-                                        <Card.Body>
-                                            <Card.Title className="mb-3" key={index.name}>
-                                                {test.name}
-                                            </Card.Title>
-                                            {/* <Card.Text className="sub-active mb-1 mt-2"> 
+                                <Card>
+                                    <Card.Body>
+                                        <Card.Title className="mb-3" key={index.name}>
+                                            {test.name}
+                                        </Card.Title>
+                                        {/* <Card.Text className="sub-active mb-1 mt-2"> 
                                                 Subscription : Active
                                             </Card.Text> */}
-                                            <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3' }} >
-                                                {test.description}
-                                                {/* Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
+                                        <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3' }} >
+                                            {test.description}
+                                            {/* Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
                                                 Morbi in orci risus. Donec pretium */}
-                                            </Card.Text>
-                                            <div>
-                                                {/* <Card.Text className="text-start mb-0">In Progress</Card.Text>
+                                        </Card.Text>
+                                        <div>
+                                            {/* <Card.Text className="text-start mb-0">In Progress</Card.Text>
                                                 <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
                                                     <ProgressBar now={now} />
                                                     <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
                                                 </div> */}
-                                            </div>
-                                            {/* <div className="play-vid">
+                                        </div>
+                                        {/* <div className="play-vid">
                                                 <PlaybtnIcon />
                                             </div> */}
-                                            <Row>
-                                            {test.base_line_test !==  0 ?
+                                        <Row>
+                                            {test.base_line_test !== 0 ?
                                                 (
-                                                <Col>                                                
-                                                    <Button 
-                                                        className="anal-btn " 
-                                                        style={{ border: '1px solid #45acff' }}                                                       
-                                                        onClick={() =>{
-                                                            alert('Base Line Test')
-                                                        }}
-                                                    > 
-                                                       Base Line Test
-                                                    </Button>
-                                                </Col>
-                                                ):''}
-                                                <Col>
-                                                    <Button 
-                                                        className="anal-btn" 
-                                                        style={{ border: '1px solid #45acff' }}                                                        
-                                                        onClick={()=> {
-                                                            history.push({pathname:'/role-based-test', state: test.subscription_id})
-                                                            
-                                                        }
+                                                    <Col>
+                                                        <Button
+                                                            className="anal-btn "
+                                                            style={{ border: '1px solid #45acff' }}
+                                                            onClick={() => {
+                                                                alert('Base Line Test')
+                                                            }}
+                                                        >
+                                                            Base Line Test
+                                                        </Button>
+                                                    </Col>
+                                                ) : ''}
+                                            <Col>
+                                                <Button
+                                                    className="anal-btn"
+                                                    style={{ border: '1px solid #45acff' }}
+                                                    onClick={() => {
+                                                        history.push({ pathname: '/role-based-test', state: test.subscription_id })
+
                                                     }
-                                                    >
-                                                        Buy
-                                                    </Button>
-                                                </Col>
-                                            </Row>
-                                        </Card.Body>
-                                    </Card>
+                                                    }
+                                                >
+                                                    Buy
+                                                </Button>
+                                            </Col>
+                                        </Row>
+                                    </Card.Body>
+                                </Card>
                                 {/* </Link> */}
                             </Col>
-                        ) 
+                        )
                     })
                 }
             </Row >

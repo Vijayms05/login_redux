@@ -23,7 +23,6 @@ import { set_Role } from '../../redux/action'
 
 const Onboardingstudent = (props) => {
   const email = useSelector(state => state.loginReducer);
-  console.log(email);
   const dispatch = useDispatch();
 
   const [student, setStudent] = useState('');

@@ -55,7 +55,6 @@ const Studentgroup = (props) => {
         if (type == 1) {
             RegisterService.getStandards().then(result => {
                 var response = result.data;
-                console.log(response);
                 if (response.status == 'success') {
                     setStandardList(response.standards);
                     setStreamList([]);
@@ -64,23 +63,23 @@ const Studentgroup = (props) => {
             }).catch(function (error) {
                 if (error.response) {
                     // Request made and server responded
-                    alert(error.response.data?.message);
-                    console.log(error.response.data);
+                    if (error.response.data?.message) {
+                        alert(error.response.data?.message);
+
+                    } else {
+                        alert(error.response.data);
+                    }
                 } else if (error.request) {
                     // The request was made but no response was received
-                    alert(error.request)
-                    console.log(error.request);
+                    alert(error.request);
                 } else {
                     // Something happened in setting up the request that triggered an Error
-                    alert(error.message)
-                    console.log(error.message);
+                    alert(error.message);
                 }
-
             });
         } else if (type == 2) {
             RegisterService.getStreams().then(result => {
                 var response = result.data;
-                console.log(response);
                 if (response.status == 'success') {
                     setStreamList(response.streams);
                     setStandardList([]);
@@ -89,18 +88,19 @@ const Studentgroup = (props) => {
             }).catch(function (error) {
                 if (error.response) {
                     // Request made and server responded
-                    alert(error.response.data?.message);
-                    console.log(error.response.data);
+                    if (error.response.data?.message) {
+                        alert(error.response.data?.message);
+
+                    } else {
+                        alert(error.response.data);
+                    }
                 } else if (error.request) {
                     // The request was made but no response was received
-                    alert(error.request)
-                    console.log(error.request);
+                    alert(error.request);
                 } else {
                     // Something happened in setting up the request that triggered an Error
-                    alert(error.message)
-                    console.log(error.message);
+                    alert(error.message);
                 }
-
             });
         }
     }
@@ -108,7 +108,6 @@ const Studentgroup = (props) => {
         setStandard(e.target.value);
         if (e.target.value != null && e.target.value != '') {
             RegisterService.getStandardsStreams(e.target.value).then(result => {
-                console.log(result);
                 var response = result.data;
                 if (response.status == 'success') {
                     setStreamList(response.streams);
@@ -116,18 +115,19 @@ const Studentgroup = (props) => {
             }).catch(function (error) {
                 if (error.response) {
                     // Request made and server responded
-                    alert(error.response.data?.message);
-                    console.log(error.response.data);
+                    if (error.response.data?.message) {
+                        alert(error.response.data?.message);
+
+                    } else {
+                        alert(error.response.data);
+                    }
                 } else if (error.request) {
                     // The request was made but no response was received
-                    alert(error.request)
-                    console.log(error.request);
+                    alert(error.request);
                 } else {
                     // Something happened in setting up the request that triggered an Error
-                    alert(error.message)
-                    console.log(error.message);
+                    alert(error.message);
                 }
-
             });
         }
     }
@@ -135,7 +135,6 @@ const Studentgroup = (props) => {
         setStream(e.target.value);
         if (e.target.value != null && e.target.value != '') {
             RegisterService.getStreamsBranches(e.target.value).then(result => {
-                console.log(result);
                 var response = result.data;
                 if (response.status == 'success') {
                     setBranchList(response.branches);
@@ -143,18 +142,19 @@ const Studentgroup = (props) => {
             }).catch(function (error) {
                 if (error.response) {
                     // Request made and server responded
-                    alert(error.response.data?.message);
-                    console.log(error.response.data);
+                    if (error.response.data?.message) {
+                        alert(error.response.data?.message);
+
+                    } else {
+                        alert(error.response.data);
+                    }
                 } else if (error.request) {
                     // The request was made but no response was received
-                    alert(error.request)
-                    console.log(error.request);
+                    alert(error.request);
                 } else {
                     // Something happened in setting up the request that triggered an Error
-                    alert(error.message)
-                    console.log(error.message);
+                    alert(error.message);
                 }
-
             });
         }
     }
@@ -236,7 +236,6 @@ const Studentgroup = (props) => {
                     standard: standard_name[0].name,
                 };
                 RegisterService.register(payload).then(result => {
-                    console.log(result);
                     var response = result.data;
                     if (response.status == 'success') {
                         alert(response.message);
@@ -248,18 +247,19 @@ const Studentgroup = (props) => {
                 }).catch(function (error) {
                     if (error.response) {
                         // Request made and server responded
-                        alert(error.response.data?.message);
-                        console.log(error.response.data);
+                        if (error.response.data?.message) {
+                            alert(error.response.data?.message);
+
+                        } else {
+                            alert(error.response.data);
+                        }
                     } else if (error.request) {
                         // The request was made but no response was received
-                        alert(error.request)
-                        console.log(error.request);
+                        alert(error.request);
                     } else {
                         // Something happened in setting up the request that triggered an Error
-                        alert(error.message)
-                        console.log(error.message);
+                        alert(error.message);
                     }
-
                 });
             } else {
                 alert("Please fill all the fileds");
@@ -281,7 +281,6 @@ const Studentgroup = (props) => {
                     year: collegeYear,
                 };
                 RegisterService.register(payload).then(result => {
-                    console.log(result);
                     var response = result.data;
                     if (response.status == 'success') {
                         alert(response.message);
@@ -292,18 +291,19 @@ const Studentgroup = (props) => {
                 }).catch(function (error) {
                     if (error.response) {
                         // Request made and server responded
-                        alert(error.response.data?.message);
-                        console.log(error.response.data);
+                        if (error.response.data?.message) {
+                            alert(error.response.data?.message);
+
+                        } else {
+                            alert(error.response.data);
+                        }
                     } else if (error.request) {
                         // The request was made but no response was received
-                        alert(error.request)
-                        console.log(error.request);
+                        alert(error.request);
                     } else {
                         // Something happened in setting up the request that triggered an Error
-                        alert(error.message)
-                        console.log(error.message);
+                        alert(error.message);
                     }
-
                 });
             } else {
                 alert("Please fill all the fileds");

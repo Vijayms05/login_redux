@@ -8,9 +8,7 @@ import FileUpload from '../FileUpload/FileUpload';
 
 const SideMenu = () => {
     const profile = useSelector(state => state.ProfileReducer.profile)
-    console.log(profile);
     const user = useSelector(state => state.UserReducer.user);
-    console.log(user);
     const [qusBar, setQusBar] = useState(true)
 
     const clickqusBar = () => {
