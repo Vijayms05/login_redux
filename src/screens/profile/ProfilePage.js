@@ -79,7 +79,6 @@ const ProfilePage = (props) => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [resumeDownload, setResumeDownload] = useState(profile?.profile?.resume ? profile.profile.resume : '');
     const handleFileInput = (e) => {
-        console.log(e.target.files[0]);
         if (e.target.files[0].size < 1048576) {
             setSelectedFile(e.target.files[0]);
         } else {
@@ -90,7 +89,6 @@ const ProfilePage = (props) => {
     useEffect(() => {
         HomeService.getAvatar().then(result => {
             var response = result.data;
-            console.log(response);
             if (response.status == 'success') {
                 setAvatarList(response.avatar_data);
             }
@@ -102,15 +100,12 @@ const ProfilePage = (props) => {
                 } else {
                     alert(error.response.data);
                 }
-                console.log(error.response.data);
             } else if (error.request) {
                 // The request was made but no response was received
-                alert(error.request)
-                console.log(error.request);
+                alert(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                alert(error.message)
-                console.log(error.message);
+                alert(error.message);
             }
 
         });
@@ -118,7 +113,6 @@ const ProfilePage = (props) => {
 
     const getProfile = () => {
         HomeService.profile().then(result => {
-            console.log(result);
             var response = result.data;
             if (response.status == 'success') {
                 dispatch(set_Profile(response));
@@ -126,21 +120,18 @@ const ProfilePage = (props) => {
         }).catch(function (error) {
             if (error.response) {
                 // Request made and server responded
-                if (error.response.data?.message) {
-                    alert(error.response.data?.message);
+                if (error.response.data?.profile) {
+                    alert(error.response.data?.profile);
 
                 } else {
                     alert(error.response.data);
                 }
-                console.log(error.response.data);
             } else if (error.request) {
                 // The request was made but no response was received
-                alert(error.request)
-                console.log(error.request);
+                alert(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                alert(error.message)
-                console.log(error.message);
+                alert(error.message);
             }
         });
     }
@@ -201,7 +192,6 @@ const ProfilePage = (props) => {
         }
     }
     const onDateofBirth = e => {
-        console.log(e);
         setDateofbirth(e.target.value);
         if (e.target.value != "") {
             setDateofbirthErr(false);
@@ -298,7 +288,6 @@ const ProfilePage = (props) => {
                 form_data.append('resume', selectedFile);
             }
             HomeService.profileUpdate(form_data).then(result => {
-                console.log(result);
                 var response = result.data;
                 if (response.status == 'success') {
                     alert(response.profile);
@@ -312,15 +301,12 @@ const ProfilePage = (props) => {
                     } else {
                         alert(error.response.data);
                     }
-                    console.log(error.response.data);
                 } else if (error.request) {
                     // The request was made but no response was received
-                    alert(error.request)
-                    console.log(error.request);
+                    alert(error.request);
                 } else {
                     // Something happened in setting up the request that triggered an Error
-                    alert(error.message)
-                    console.log(error.message);
+                    alert(error.message);
                 }
             });
         } else {
@@ -336,7 +322,6 @@ const ProfilePage = (props) => {
             avatar_id: avatarPicture
         };
         HomeService.avatarUpdate(payload).then(result => {
-            console.log(result);
             var response = result.data;
             if (response.status == 'success') {
                 alert(response.profile);
@@ -351,15 +336,12 @@ const ProfilePage = (props) => {
                 } else {
                     alert(error.response.data);
                 }
-                console.log(error.response.data);
             } else if (error.request) {
                 // The request was made but no response was received
-                alert(error.request)
-                console.log(error.request);
+                alert(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                alert(error.message)
-                console.log(error.message);
+                alert(error.message);
             }
         });
     }
@@ -369,7 +351,6 @@ const ProfilePage = (props) => {
             password_confirmation: repassword,
         }
         HomeService.changePassword(payload).then(result => {
-            console.log(result);
             var response = result.data;
             if (response.status == 'success') {
                 alert(response.profile);
@@ -387,15 +368,12 @@ const ProfilePage = (props) => {
                 } else {
                     alert(error.response.data);
                 }
-                console.log(error.response.data);
             } else if (error.request) {
                 // The request was made but no response was received
-                alert(error.request)
-                console.log(error.request);
+                alert(error.request);
             } else {
                 // Something happened in setting up the request that triggered an Error
-                alert(error.message)
-                console.log(error.message);
+                alert(error.message);
             }
         });
     }
@@ -405,11 +383,11 @@ const ProfilePage = (props) => {
         onRePassword('');
     }
     return (
-        <div className="py-md-4 pro-rit mt-5 mt-md-0 mb-3 ps-md-4 shadow px-3 bg-white rounded">
+        <div className="py-md-4 pro-rit  mt-5 mt-md-0 mb-3 ps-md-4 shadow px-3 bg-white rounded" style={{ width: '100%' }} >
             {/* {isLoading && <Loader />} */}
 
             <Col xs={12} sm={12} md={11} lg={12}>
-                <h3 className="mb-2 mt-5 mt-md-0 pt-5 pt-md-0 px-2 px-md-0 skill-profile" style={{ color: '#003866', fontSize: '30px' }}>Profile</h3>
+                <h3 className="mb-2 mt-5 mt-md-0 pt-5 pt-md-0 px-2 px-md-1 skill-profile" style={{ color: '#003866', fontSize: '30px' }}>Profile</h3>
                 <Row className="mt-5 mt-md-2 mb-3">
                     <Col xs={12} sm={12} md={10} lg={4} className='px-2 px-md-0'>
                         <ProgressBar now={profile.profile_filled} className="mb-3" />
@@ -429,28 +407,43 @@ const ProfilePage = (props) => {
                                     style={{ width: '80px', height: '80px', borderRadius: '50%' }}
                                 /> : <AvatorProfile />}
                             </Col>
-                            <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-4 ps-md-4 text-center text-md-start">
-                                <label className="title  "
-                                    style={{ color: '#192A3E', fontWeight: 'bold', fontSize: '18px' }}>
+                            <Col xs={12} sm={6} md={6} lg={3} className="my-auto mb-2 ps-2 ps-md-2 text-center text-md-start">
+                                <label
+                                    className="title "
+                                    style={{
+                                        color: '#192A3E',
+                                        fontWeight: 'bold',
+                                        fontSize: '18px'
+                                    }}
+                                >
                                     {user.name}
                                 </label>
                                 &nbsp;
                                 <small style={{ color: '#90A0B7' }}>{user.email}</small>
                             </Col>
                             <Col xs={12} sm={6} md={6} lg={3} className=" mb-2 mt-4 ">
-                                <button className="profile-cardbutton btn"
-                                    style={{ color: '#FFFFFF', borderRadius: '10px', width: '170px !important' }}
-                                    onClick={handleShow}>
+                                <button
+                                    className="profile-cardbutton btn"
+                                    style={{
+                                        color: '#FFFFFF',
+                                        borderRadius: '10px',
+                                        width: '170px !important'
+                                    }}
+                                    onClick={handleShow}
+                                >
                                     Edit Avatar
                                 </button>
                             </Col>
                             <Col xs={12} sm={6} md={6} lg={3} className=" mb-2 mt-4 ">
-                                <button className="profile-cardbutton btn"
+                                <button
+                                    className="profile-cardbutton btn"
                                     style={{
-                                        color: '#FFFFFF', borderRadius: '10px',
-                                        width: '170px !important',
-                                        background: '#298ee0'
-                                    }} onClick={handleShowPassword}>
+                                        color: '#FFFFFF',
+                                        borderRadius: '10px',
+                                        width: '170px !important'
+                                    }}
+                                    onClick={handleShowPassword}
+                                >
                                     Change Password
                                 </button>
                             </Col>

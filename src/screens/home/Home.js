@@ -16,7 +16,6 @@ const HomeScreen = () => {
     useEffect(() => {
         if (token) {
             HomeService.profile().then(result => {
-                console.log(result);
                 var response = result.data;
                 if (response.status == 'success') {
                     dispatch(set_Profile(response));
@@ -30,15 +29,12 @@ const HomeScreen = () => {
                     } else {
                         alert(error.response.data);
                     }
-                    console.log(error.response.data);
                 } else if (error.request) {
                     // The request was made but no response was received
-                    alert(error.request)
-                    console.log(error.request);
+                    alert(error.request);
                 } else {
                     // Something happened in setting up the request that triggered an Error
-                    alert(error.message)
-                    console.log(error.message);
+                    alert(error.message);
                 }
             });
         }

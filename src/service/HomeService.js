@@ -18,11 +18,20 @@ const profileUpdate = (payload) => {
 const avatarUpdate = (avatar_id) => {
     return httpClient.post(URL.AVATAR_UPDATE, avatar_id);
 }
+const courseList = ()=>{
+    return httpClient.get(URL.COURSE_LIST);
+}
+const courseDetails = (payload) => {
+    return httpClient.post(URL.COURSE_DETAILS, payload);
+}
+
 const HomeService = {
     profile,
     changePassword,
     getAvatar,
     profileUpdate,
     avatarUpdate,
+    courseDetails,
+    courseList,
 }
 export default HomeService;

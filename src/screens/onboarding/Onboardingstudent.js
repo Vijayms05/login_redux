@@ -23,7 +23,6 @@ import { set_Role } from '../../redux/action'
 
 const Onboardingstudent = (props) => {
   const email = useSelector(state => state.loginReducer);
-  console.log(email);
   const dispatch = useDispatch();
 
   const [student, setStudent] = useState('');
@@ -36,7 +35,7 @@ const Onboardingstudent = (props) => {
       // dispatch(set_Role(role));
       history.push('/student');
       // message.success('Welcome to Student Page', 5)
-    } else if (role === 'professional') {
+    } else if (role == 'professional') {
       // dispatch(set_Role(role));
       history.push('/professional');
       // message.success('Welcome to Professional Page', 5)

@@ -45,7 +45,6 @@ const Login = (props) => {
   useEffect(() => {
     var temp = window.location.pathname.split('/');
     const uriParts = temp[temp.length - 1];
-    console.log(uriParts);
     if (uriParts) {
       LoginService.verifyEmail(uriParts).then(result => {
         var response = result.data;
@@ -62,18 +61,19 @@ const Login = (props) => {
       }).catch(function (error) {
         if (error.response) {
           // Request made and server responded
-          alert(error.response.data?.message);
-          console.log(error.response.data);
+          if (error.response.data?.message) {
+            alert(error.response.data?.message);
+
+          } else {
+            alert(error.response.data);
+          }
         } else if (error.request) {
           // The request was made but no response was received
-          alert(error.request)
-          console.log(error.request);
+          alert(error.request);
         } else {
           // Something happened in setting up the request that triggered an Error
-          alert(error.message)
-          console.log(error.message);
+          alert(error.message);
         }
-
       });
     }
     // if (validLogin) {
@@ -96,16 +96,16 @@ const Login = (props) => {
     setPassword(e.target.value);
     if (e.target.value != '') {
       if (e.target.value.length < 6) {
-        setPasswordErr(false);
-      } else {
         setPasswordErr(true);
+
+      } else {
+        setPasswordErr(false);
       }
     } else {
       setPasswordErr(true);
     }
   };
   const onUser = e => {
-    console.log(e)
     // if (e.target.checked == user) {
     //   setUserErr(false);
     // } else {
@@ -123,7 +123,6 @@ const Login = (props) => {
       type: user,
     };
     LoginService.login(payload).then(result => {
-      console.log(result);
       var response = result.data;
       if (response?.status == 'success') {
         if (response?.email_verified == 1 && response?.register_status == 1) {
@@ -146,24 +145,24 @@ const Login = (props) => {
     }).catch(function (error) {
       if (error.response) {
         // Request made and server responded
-        alert(error.response.data?.message);
-        console.log(error.response.data);
+        if (error.response.data?.message) {
+          alert(error.response.data?.message);
+
+        } else {
+          alert(error.response.data);
+        }
       } else if (error.request) {
         // The request was made but no response was received
-        alert(error.request)
-        console.log(error.request);
+        alert(error.request);
       } else {
         // Something happened in setting up the request that triggered an Error
-        alert(error.message)
-        console.log(error.message);
+        alert(error.message);
       }
-
     });
   };
   const forgotPasswordRequest = () => {
     if (email != '' && emailErr == false) {
       ForgotPasswordService.request(email, user).then(result => {
-        console.log(result);
         var response = result.data;
         if (response?.status == 'success') {
           alert(response.message);
@@ -171,16 +170,18 @@ const Login = (props) => {
       }).catch(function (error) {
         if (error.response) {
           // Request made and server responded
-          alert(error.response.data?.message);
-          console.log(error.response.data);
+          if (error.response.data?.message) {
+            alert(error.response.data?.message);
+
+          } else {
+            alert(error.response.data);
+          }
         } else if (error.request) {
           // The request was made but no response was received
-          alert(error.request)
-          console.log(error.request);
+          alert(error.request);
         } else {
           // Something happened in setting up the request that triggered an Error
-          alert(error.message)
-          console.log(error.message);
+          alert(error.message);
         }
       });
     } else {
@@ -238,7 +239,7 @@ const Login = (props) => {
                   </Form.Group>
                   {passwordErr ?
                     (<p style={{ fontSize: '16px', color: 'red' }} className="mb-2">
-                      Please enter your Password
+                      {password ? 'Password should have min 6 digits' : 'Please enter your Password'}
                     </p>
                     ) : ''}
                   <Row>
