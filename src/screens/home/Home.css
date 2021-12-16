@@ -379,6 +379,11 @@ body {
   font-family: "f3";
   color: #00d586 !important;
 }
+.sub-inactive {
+  font-size: 13px;
+  font-family: "f3";
+  color: #d50000 !important;
+}
 .progress {
   border-radius: 50px !important;
   height: 13px !important;

@@ -122,114 +122,37 @@ const Subscription = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    {/* <Link to="/subscription-list"> */}
-                    <Card onClick={() => history.push('/subscription-list')}>
-                        <Card.Body className="class-card">
-                            <Card.Title className="mb-3">
-                                Class 12
-                            </Card.Title>
-                            <Card.Text className="sub-active mb-1 mt-2">
-                                Subscription : Active
-                            </Card.Text>
-                            <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3', color: '#0B171B' }}>
-                                Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                Morbi in orci risus. Donec pretium
-                            </Card.Text>
-                            <Card.Text className="text-start mb-0" style={{ fontSize: '13.5px', fontFamily: 'f3', color: '#0B171B' }}>In Progress</Card.Text><div>
-                                <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                    <ProgressBar now={now} />
-                                    <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                </div>
-                            </div>
-                            <div className="play-vid">
-                                <PlaybtnIcon />
-                            </div>
-                        </Card.Body>
-                    </Card>
-                    {/* </Link>                         */}
-                </Col>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    <Link to="/subscription-list">
-                        <Card>
-                            <Card.Body>
-                                <Card.Title className="mb-3">
-                                    Class 11
-                                </Card.Title>
-                                {/* <Card.Text className="sub-active mb-1 mt-2"> 
-                                    Subscription : Active
-                                </Card.Text> */}
-                                <Card.Text className="mb-2 mt-5" style={{ fontSize: '13.5px', fontFamily: 'f3' }}>
-                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                    Morbi in orci risus. Donec pretium
-                                </Card.Text>
-                                <Card.Text className="text-start mb-0">In Progress</Card.Text><div>
-                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                        <ProgressBar now={now} />
-                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                    </div>
-                                </div>
-                                <div className="play-vid">
-                                    <PlaybtnIcon />
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                </Col>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    <Link to="/subscription-list">
-                        <Card style={{ background: '#EBEBEB' }}>
-                            <Card.Body>
-                                <Card.Title className="mb-3">
-                                    Class 10
-                                </Card.Title>
-                                {/* <Card.Text className="sub-active mb-1 mt-2"> 
-                                    Subscription : Active
-                                </Card.Text> */}
-                                <Card.Text className="mb-2 mt-5" style={{ fontSize: '13.5px', fontFamily: 'f3' }}>
-                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                    Morbi in orci risus. Donec pretium
-                                </Card.Text>
-                                <Card.Text className="text-start mb-0">In Progress</Card.Text><div>
-                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                        <ProgressBar now={now} />
-                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                    </div>
-                                </div>
-                                <div className="play-vid-not-vist">
-                                    <PlaybtnIcon />
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                </Col>
-                <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
-                    <Link to="/subscription-list">
-                        <Card style={{ background: '#EBEBEB' }} className="home-card ">
-                            <Card.Body>
-                                <Card.Title className="mb-3">
-                                    Class 9
-                                </Card.Title>
-                                {/* <Card.Text className="sub-active mb-1 mt-2"> 
-                                    Subscription : Active
-                                </Card.Text> */}
-                                <Card.Text className="mb-2 mt-5" style={{ fontSize: '13.5px', fontFamily: 'f3' }}>
-                                    Donec sed erat ut magna suscipit mattis. Aliquam erat volutpat.
-                                    Morbi in orci risus. Donec pretium
-                                </Card.Text>
-                                <Card.Text className="text-start mb-0">In Progress</Card.Text><div>
-                                    <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
-                                        <ProgressBar now={now} />
-                                        <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
-                                    </div>
-                                </div>
-                                <div className="play-vid-not-vist">
-                                    <PlaybtnIcon />
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    </Link>
-                </Col>
+                {subscriptionList.length > 0 &&
+                    subscriptionList.map((item, index) => {
+                        return (
+                            <Col xl={3} lg={4} md={6} sm={6} className="mb-3 sub-lst">
+                                <Card onClick={() => history.push({ pathname: '/subscription-list', state: item.user_subscription_id })}>
+                                    <Card.Body className="class-card">
+                                        <Card.Title className="mb-3">
+                                            {item.name}
+                                        </Card.Title>
+                                        <Card.Text className={item.status == 1 ? "sub-active mb-1 mt-2" : "sub-inactive mb-1 mt-2"}>
+                                            Subscription : {item.status == 1 ? 'Active' : 'Inactive'}
+                                        </Card.Text>
+                                        <Card.Text className="mb-2 mt-3" style={{ fontSize: '13.5px', fontFamily: 'f3', color: '#0B171B' }}>
+                                            {item.description}
+                                        </Card.Text>
+                                        <Card.Text className="text-start mb-0" style={{ fontSize: '13.5px', fontFamily: 'f3', color: '#0B171B' }}>In Progress</Card.Text><div>
+                                            <div className="prog-bar-subscrip d-inline-flex align-items-center justify-content-center">
+                                                <ProgressBar now={now} />
+                                                <p className="p-0 mb-0 ms-2 f3-13 text-black">{now}%</p>
+                                            </div>
+                                        </div>
+                                        <div className="play-vid">
+                                            <PlaybtnIcon />
+                                        </div>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    })
+
+                }
             </Row>
             <Row>
                 <Col className="role-tit">
