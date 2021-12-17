@@ -6,6 +6,7 @@ import HomeService from '../../service/HomeService';
 import { useDispatch, useSelector } from 'react-redux';
 import { set_Profile } from '../../redux/action';
 import httpClient from '../../service/httpClient';
+import { ErrorHandler } from '../../service/ErrorHandler'
 const HomeScreen = () => {
     const dispatch = useDispatch();
     const token = useSelector(state => state.TokenReducer.token)
@@ -21,22 +22,8 @@ const HomeScreen = () => {
                     dispatch(set_Profile(response));
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
-            });
+                ErrorHandler(error)
+            })
         }
     }, []);
     return (

@@ -23,6 +23,7 @@ import { api } from '../../service/index';
 import LoginService from '../../service/LoginService'
 import ForgotPasswordService from '../../service/ForgotPasswordService';
 import httpClient from '../../service/httpClient';
+import { ErrorHandler } from '../../service/ErrorHandler';
 const Login = (props) => {
   const history = useHistory();
   const [user, setUser] = useState(0);
@@ -59,21 +60,7 @@ const Login = (props) => {
         }
 
       }).catch(function (error) {
-        if (error.response) {
-          // Request made and server responded
-          if (error.response.data?.message) {
-            alert(error.response.data?.message);
-
-          } else {
-            alert(error.response.data);
-          }
-        } else if (error.request) {
-          // The request was made but no response was received
-          alert(error.request);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          alert(error.message);
-        }
+        ErrorHandler(error);
       });
     }
     // if (validLogin) {
@@ -143,21 +130,7 @@ const Login = (props) => {
         alert(response?.message);
       }
     }).catch(function (error) {
-      if (error.response) {
-        // Request made and server responded
-        if (error.response.data?.message) {
-          alert(error.response.data?.message);
-
-        } else {
-          alert(error.response.data);
-        }
-      } else if (error.request) {
-        // The request was made but no response was received
-        alert(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        alert(error.message);
-      }
+      ErrorHandler(error);
     });
   };
   const forgotPasswordRequest = () => {
@@ -168,21 +141,7 @@ const Login = (props) => {
           alert(response.message);
         }
       }).catch(function (error) {
-        if (error.response) {
-          // Request made and server responded
-          if (error.response.data?.message) {
-            alert(error.response.data?.message);
-
-          } else {
-            alert(error.response.data);
-          }
-        } else if (error.request) {
-          // The request was made but no response was received
-          alert(error.request);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          alert(error.message);
-        }
+        ErrorHandler(error);
       });
     } else {
       alert("Enter your email and type")

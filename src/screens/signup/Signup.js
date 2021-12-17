@@ -26,6 +26,7 @@ import './responsive.css'
 import { constants } from '../../service';
 import SignupService from '../../service/SignupService';
 import validator from 'validator';
+import { ErrorHandler } from '../../service/ErrorHandler';
 const Signup = (props) => {
   // const [posts,setPosts]=useState([]);
   // const [post,setPost]=useState({id:'',userId:'',title:'',body:''});
@@ -161,21 +162,7 @@ const Signup = (props) => {
         setRepassword('');
       }
     }).catch(function (error) {
-      if (error.response) {
-        // Request made and server responded
-        if (error.response.data?.message) {
-          alert(error.response.data?.message);
-
-        } else {
-          alert(error.response.data);
-        }
-      } else if (error.request) {
-        // The request was made but no response was received
-        alert(error.request);
-      } else {
-        // Something happened in setting up the request that triggered an Error
-        alert(error.message);
-      }
+      ErrorHandler(error);
     });
     // let response = await api.signUp(payload);
     // console.log(response);

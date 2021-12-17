@@ -6,6 +6,7 @@ import Baseline from '../../component/TestTab/Baseline'
 import SkillBuilding from '../../component/TestTab/SkillBuilding'
 import Certification from '../../component/TestTab/Certification'
 import TestService from '../../service/TestService'
+import { ErrorHandler } from '../../service/ErrorHandler'
 
 const TestDetailScreen = () => {
     const [subscriptionId, setSubscriptionId] = useState('');
@@ -14,52 +15,23 @@ const TestDetailScreen = () => {
     useEffect(() => {
         TestService.subscriptionDetails().then(result => {
             var response = result.data;
-            console.log(result);
             if (response.status == 'success') {
                 setSubscriptonList(response.user_subscriptions);
             }
         }).catch(function (error) {
-            if (error.response) {
-                // Request made and server responded
-                if (error.response.data?.message) {
-                    alert(error.response.data?.message);
-                } else {
-                    alert(error.response.data);
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                alert(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                alert(error.message);
-            }
+            ErrorHandler(error);
         });
     }, []);
     const changeSubscriptionId = (e) => {
-        console.log(e.target.value);
         setSubscriptionId(e.target.value);
         if (e.target.value != '') {
             TestService.subscriptionTest({ user_subscription_id: e.target.value }).then(result => {
                 var response = result.data;
-                console.log(result);
                 if (response.status == 'success') {
                     setTestDetails(response);
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
+                ErrorHandler(error);
             });
         } else {
             setTestDetails('');
@@ -105,13 +77,13 @@ const TestDetailScreen = () => {
                     <Col xs={12} sm={12} md={12} lg className="p-0 border mt-4 text-center">
                         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-2 test-tab">
                             <Tab eventKey="home" title="Baseline" className="test-name">
-                                <Baseline />
+                                <Baseline data={testDetails.user_baseline_test} />
                             </Tab>
                             <Tab eventKey="profile" title="Skill Building" className="test-name">
-                                <SkillBuilding />
+                                <SkillBuilding data={testDetails.skill_building_tests} />
                             </Tab>
                             <Tab eventKey="contact" title="Certification" className="test-name">
-                                <Certification />
+                                <Certification data={testDetails.user_subscription} />
                             </Tab>
                         </Tabs>
                     </Col>

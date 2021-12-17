@@ -17,6 +17,7 @@ import RegisterService from '../../service/RegisterService';
 import { set_Profile, set_Token, set_User } from '../../redux/action';
 import axios from 'axios';
 import httpClient from '../../service/httpClient';
+import { ErrorHandler } from '../../service/ErrorHandler';
 const Professional = (props) => {
     const dispatch = useDispatch();
     const email = useSelector(state => state.loginReducer.email);
@@ -35,21 +36,7 @@ const Professional = (props) => {
                 setIndustryList(response.industries);
             }
         }).catch(function (error) {
-            if (error.response) {
-                // Request made and server responded
-                if (error.response.data?.message) {
-                    alert(error.response.data?.message);
-
-                } else {
-                    alert(error.response.data);
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                alert(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                alert(error.message);
-            }
+            ErrorHandler(error);
         });
     }, [])
 
@@ -91,21 +78,7 @@ const Professional = (props) => {
                 history.push('/home')
             }
         }).catch(function (error) {
-            if (error.response) {
-                // Request made and server responded
-                if (error.response.data?.message) {
-                    alert(error.response.data?.message);
-
-                } else {
-                    alert(error.response.data);
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                alert(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                alert(error.message);
-            }
+            ErrorHandler(error);
         });
         // e.preventDefault();
         // history.push({ pathname: '/home' });
@@ -137,21 +110,7 @@ const Professional = (props) => {
                     setWorkRoleList(response.work_roles);
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
+                ErrorHandler(error);
             });
         }
     }

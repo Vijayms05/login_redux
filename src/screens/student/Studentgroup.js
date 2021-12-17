@@ -22,6 +22,7 @@ import RegisterService from '../../service/RegisterService';
 import { useHistory } from 'react-router-dom';
 import { set_Profile, set_Token, set_User } from '../../redux/action';
 import httpClient from '../../service/httpClient';
+import { ErrorHandler } from '../../service/ErrorHandler';
 const Studentgroup = (props) => {
     // const { validateName } = props;
     const dispatch = useDispatch();
@@ -61,21 +62,7 @@ const Studentgroup = (props) => {
                     setStream('');
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
+                ErrorHandler(error);
             });
         } else if (type == 2) {
             RegisterService.getStreams().then(result => {
@@ -86,21 +73,7 @@ const Studentgroup = (props) => {
                     setStandard('');
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
+                ErrorHandler(error);
             });
         }
     }
@@ -113,21 +86,7 @@ const Studentgroup = (props) => {
                     setStreamList(response.streams);
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
+                ErrorHandler(error);
             });
         }
     }
@@ -140,21 +99,7 @@ const Studentgroup = (props) => {
                     setBranchList(response.branches);
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
+                ErrorHandler(error);
             });
         }
     }
@@ -245,21 +190,7 @@ const Studentgroup = (props) => {
                         history.push('/home')
                     }
                 }).catch(function (error) {
-                    if (error.response) {
-                        // Request made and server responded
-                        if (error.response.data?.message) {
-                            alert(error.response.data?.message);
-
-                        } else {
-                            alert(error.response.data);
-                        }
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        alert(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        alert(error.message);
-                    }
+                    ErrorHandler(error);
                 });
             } else {
                 alert("Please fill all the fileds");
@@ -289,21 +220,7 @@ const Studentgroup = (props) => {
                         history.push('/home')
                     }
                 }).catch(function (error) {
-                    if (error.response) {
-                        // Request made and server responded
-                        if (error.response.data?.message) {
-                            alert(error.response.data?.message);
-
-                        } else {
-                            alert(error.response.data);
-                        }
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        alert(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        alert(error.message);
-                    }
+                    ErrorHandler(error);
                 });
             } else {
                 alert("Please fill all the fileds");

@@ -17,6 +17,7 @@ import {
 } from 'react-bootstrap';
 import ForgotPasswordService from '../../service/ForgotPasswordService';
 import validator from 'validator';
+import { ErrorHandler } from '../../service/ErrorHandler';
 
 const ResetPassword = (props) => {
   const [email, setEmail] = useState('')
@@ -66,21 +67,7 @@ const ResetPassword = (props) => {
         }
 
       }).catch(function (error) {
-        if (error.response) {
-          // Request made and server responded
-          if (error.response.data?.message) {
-            alert(error.response.data?.message);
-
-          } else {
-            alert(error.response.data);
-          }
-        } else if (error.request) {
-          // The request was made but no response was received
-          alert(error.request);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          alert(error.message);
-        }
+        ErrorHandler(error);
       });
     }
   }

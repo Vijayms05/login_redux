@@ -36,6 +36,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { constants } from '../../service';
 import { set_Profile } from '../../redux/action';
 import validator from 'validator'
+import { ErrorHandler } from '../../service/ErrorHandler';
 
 const ProfilePage = (props) => {
     const [avatarPicture, setAvatarPicture] = useState('');
@@ -93,21 +94,7 @@ const ProfilePage = (props) => {
                 setAvatarList(response.avatar_data);
             }
         }).catch(function (error) {
-            if (error.response) {
-                // Request made and server responded
-                if (error.response.data?.message) {
-                    alert(error.response.data?.message);
-                } else {
-                    alert(error.response.data);
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                alert(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                alert(error.message);
-            }
-
+            ErrorHandler(error);
         });
     }, []);
 
@@ -118,21 +105,7 @@ const ProfilePage = (props) => {
                 dispatch(set_Profile(response));
             }
         }).catch(function (error) {
-            if (error.response) {
-                // Request made and server responded
-                if (error.response.data?.profile) {
-                    alert(error.response.data?.profile);
-
-                } else {
-                    alert(error.response.data);
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                alert(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                alert(error.message);
-            }
+            ErrorHandler(error);
         });
     }
     const clickPasswordShow = () => {
@@ -294,20 +267,7 @@ const ProfilePage = (props) => {
                     getProfile();
                 }
             }).catch(function (error) {
-                if (error.response) {
-                    // Request made and server responded
-                    if (error.response.data?.message) {
-                        alert(error.response.data?.message);
-                    } else {
-                        alert(error.response.data);
-                    }
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    alert(error.request);
-                } else {
-                    // Something happened in setting up the request that triggered an Error
-                    alert(error.message);
-                }
+                ErrorHandler(error);
             });
         } else {
             alert("Please enter all Required files");
@@ -329,20 +289,7 @@ const ProfilePage = (props) => {
                 getProfile();
             }
         }).catch(function (error) {
-            if (error.response) {
-                // Request made and server responded
-                if (error.response.data?.message) {
-                    alert(error.response.data?.message);
-                } else {
-                    alert(error.response.data);
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                alert(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                alert(error.message);
-            }
+            ErrorHandler(error);
         });
     }
     const handleClosePassword = () => {
@@ -361,20 +308,7 @@ const ProfilePage = (props) => {
                 setRePasswordErr(null);
             }
         }).catch(function (error) {
-            if (error.response) {
-                // Request made and server responded
-                if (error.response.data?.message) {
-                    alert(error.response.data?.message);
-                } else {
-                    alert(error.response.data);
-                }
-            } else if (error.request) {
-                // The request was made but no response was received
-                alert(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                alert(error.message);
-            }
+            ErrorHandler(error);
         });
     }
     const onChangePassword = () => {
