@@ -1,12 +1,13 @@
 import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
-import { Row, Col, Nav, Navbar, ProgressBar } from 'react-bootstrap'
+import { Row, Col, Nav, Navbar, ProgressBar, Alert } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Logo, ProfileHome, SettingsHome, BillingHome, ReportHome, TestHome, MenuHome } from '../../assets/images/index'
 import FileUpload from '../FileUpload/FileUpload';
 
 const SideMenu = () => {
+    const history = useHistory();
     const profile = useSelector(state => state.ProfileReducer.profile)
     const user = useSelector(state => state.UserReducer.user);
     const [qusBar, setQusBar] = useState(true)
@@ -14,7 +15,14 @@ const SideMenu = () => {
     const clickqusBar = () => {
         setQusBar(!qusBar)
     }
-
+    const Logout = () => {
+        const result = window.confirm("Do you really want to Sign Out?");
+        console.log(result);
+        if (result) {
+            localStorage.clear();
+            window.location.href = '/';
+        }
+    }
     const now = 85
     return (
         <>
@@ -72,6 +80,9 @@ const SideMenu = () => {
                                     <Link className="linka" to="/profile">
                                         <ProfileHome />
                                         Profile
+                                    </Link>
+                                    <Link onClick={Logout} className="linka" to="/">
+                                        Logout
                                     </Link>
                                     {/* <Link className="linka" to="/file-upload">
                                         File Upload

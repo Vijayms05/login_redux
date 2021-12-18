@@ -23,7 +23,7 @@ import { useHistory } from 'react-router-dom';
 import { set_Profile, set_Token, set_User } from '../../redux/action';
 import httpClient from '../../service/httpClient';
 import { ErrorHandler } from '../../service/ErrorHandler';
-const Studentgroup = (props) => {
+const Studentgroup = ({ setToken }) => {
     // const { validateName } = props;
     const dispatch = useDispatch();
     const email = useSelector(state => state.loginReducer.email);
@@ -185,6 +185,7 @@ const Studentgroup = (props) => {
                     if (response.status == 'success') {
                         alert(response.message);
                         httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
+                        setToken(response?.token);
                         dispatch(set_Token(response?.token));
                         dispatch(set_User(response?.user));
                         history.push('/home')
@@ -216,6 +217,8 @@ const Studentgroup = (props) => {
                     if (response.status == 'success') {
                         alert(response.message);
                         httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
+                        setToken(response?.token);
+                        dispatch(set_Token(response?.token));
                         dispatch(set_User(response?.user));
                         history.push('/home')
                     }

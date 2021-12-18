@@ -7,7 +7,7 @@ import {
   PasswordIcon,
   EyeIcon, EyeIconHid
 } from '../../assets/images/index';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import {
   Row,
   Col,
@@ -24,7 +24,8 @@ import LoginService from '../../service/LoginService'
 import ForgotPasswordService from '../../service/ForgotPasswordService';
 import httpClient from '../../service/httpClient';
 import { ErrorHandler } from '../../service/ErrorHandler';
-const Login = (props) => {
+import PropTypes from 'prop-types';
+const Login = ({ setToken }) => {
   const history = useHistory();
   const [user, setUser] = useState(0);
   const [email, setEmail] = useState('');
@@ -115,6 +116,7 @@ const Login = (props) => {
         if (response?.email_verified == 1 && response?.register_status == 1) {
           dispatch(set_Email({ email: email, type: user }));
           httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';
+          setToken(response?.token);
           dispatch(set_Token(response?.token));
           dispatch(set_User(response?.user));
           history.push('/home');
@@ -232,7 +234,9 @@ const Login = (props) => {
                   <Form.Group className="mb-4" style={{ height: '25px' }} controlId="formBasicCheckbox">
                     <Form.Label onClick={forgotPasswordRequest} className="reset-password">
                       {/* Forget Password? */}
-                      <Link to="">Forget Password?</Link>
+                      <BrowserRouter>
+                        <Link to="">Forget Password?</Link>
+                      </BrowserRouter>
                     </Form.Label>
                   </Form.Group>
                   <Button className="submit-btn" variant="primary"
@@ -245,7 +249,9 @@ const Login = (props) => {
                   style={{ color: '#0B171B', fontSize: '15px' }}
                 >
                   Don't have an account? {' '}
-                  <Link to="/signup">Sign up</Link>
+                  <BrowserRouter>
+                    <Link to="/signup">Sign up</Link>
+                  </BrowserRouter>
                 </p>
               </Col>
             </Row>
@@ -254,5 +260,8 @@ const Login = (props) => {
         : null}
     </>
   );
+}
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired
 }
 export default Login;
