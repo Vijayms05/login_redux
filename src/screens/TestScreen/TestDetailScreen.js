@@ -77,13 +77,13 @@ const TestDetailScreen = () => {
                     <Col xs={12} sm={12} md={12} lg className="p-0 border mt-4 text-center">
                         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mt-2 test-tab">
                             <Tab eventKey="home" title="Baseline" className="test-name">
-                                <Baseline data={testDetails.user_baseline_test} />
+                                <Baseline data={testDetails.user_baseline_test} subscriptionId={subscriptionId} />
                             </Tab>
                             <Tab eventKey="profile" title="Skill Building" className="test-name">
-                                <SkillBuilding data={testDetails.skill_building_tests} />
+                                <SkillBuilding data={testDetails.skill_building_tests} subscriptionId={subscriptionId} />
                             </Tab>
                             <Tab eventKey="contact" title="Certification" className="test-name">
-                                <Certification data={testDetails.user_subscription} />
+                                <Certification data={testDetails.user_subscription} subscriptionId={subscriptionId} />
                             </Tab>
                         </Tabs>
                     </Col>

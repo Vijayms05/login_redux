@@ -3,13 +3,10 @@ export const ErrorHandler = (error) => {
         // Request made and server responded
         console.log(error.response);
         if (error.response.data?.message) {
-            if (error.response.data?.message == 'Unauthenticated') {
-                // const result = window.confirm(error.response.data?.message);
-                // if (result) {
+            if (error.response.data?.message == 'Unauthenticated.') {
                 alert(error.response.data.message);
                 localStorage.clear();
                 window.location.href = '/';
-                // }
             } else {
                 alert(error.response.data.message);
             }

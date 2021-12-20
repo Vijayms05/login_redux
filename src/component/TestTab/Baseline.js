@@ -8,7 +8,7 @@ const Baseline = (props) => {
     const history = useHistory();
     const onBaseline = () => {
         // history.push({pathname:'/testintro'});
-        history.push('/testintro');
+        history.push({ pathname: '/testintro', state: props.subscriptionId });
     }
     return (
         <Col sm={12} md={12}>

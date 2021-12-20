@@ -32,25 +32,16 @@ const SubscriptionList = (props) => {
     // const history= useHistory();
     const location = useLocation();
     useEffect(() => {
-        console.log(location.pathname); // result: '/secondpage'
-        console.log(location.state); // result: 'some_value'
-        // console.log(location.card_name);
-
         HomeService.courseDetails({ subscription_id: location.state }).then((res) => {
             const response = res.data;
-            console.log(response);
-            // setSubscriptionDetails(response.subs);
             if (response?.status == 'success') {
                 setSubscriptionDetails(response.subscription);
-
             } else if (response.status == 'error') {
                 alert(response?.message);
             }
-
         }).catch(function (error) {
             ErrorHandler(error);
         });
-
     }, [])
     return (
         <div className="py-md-4 bill-rit">

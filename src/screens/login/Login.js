@@ -15,18 +15,13 @@ import {
   Button
 } from 'react-bootstrap';
 import { validEmail, validPassword } from '../../service/Constant';
-import { message } from 'antd';
-import { useHistory } from "react-router-dom";
-import axios from 'axios';
 import { set_Email, set_Profile, set_Token, set_User } from '../../redux/action/index';
-import { api } from '../../service/index';
 import LoginService from '../../service/LoginService'
 import ForgotPasswordService from '../../service/ForgotPasswordService';
 import httpClient from '../../service/httpClient';
 import { ErrorHandler } from '../../service/ErrorHandler';
 import PropTypes from 'prop-types';
-const Login = ({ setToken }) => {
-  const history = useHistory();
+const Login = ({ setToken, history }) => {
   const [user, setUser] = useState(0);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,10 +34,6 @@ const Login = ({ setToken }) => {
   const [slugMail, setSlugMail] = useState('');
   const dispatch = useDispatch();
 
-  const validLogin = useSelector(state => state.loginState.login);
-  const invalidLogin = useSelector(state => state.loginState.error);
-
-  // const status = validLogin && invalidLogin;
 
   useEffect(() => {
     var temp = window.location.pathname.split('/');
@@ -64,14 +55,7 @@ const Login = ({ setToken }) => {
         ErrorHandler(error);
       });
     }
-    // if (validLogin) {
-    //   dispatch({ type: 'LOGOUT_SUCCESS' });
-    // } else if (invalidLogin) {
-    //   message.error('Please enter the valid credentials');
-    // }
   }, []);
-  // [validLogin, invalidLogin]);
-
   const onEmail = (e) => {
     setEmail(e.target.value);
     if (validEmail.test(e.target.value)) {
@@ -93,13 +77,7 @@ const Login = ({ setToken }) => {
       setPasswordErr(true);
     }
   };
-  const onUser = e => {
-    // if (e.target.checked == user) {
-    //   setUserErr(false);
-    // } else {
-    //   setUserErr(true)
-    // }
-  }
+
   const clickPasswordShow = () => {
     setShowPassword(!showPassword);
   }
@@ -113,6 +91,7 @@ const Login = ({ setToken }) => {
     LoginService.login(payload).then(result => {
       var response = result.data;
       if (response?.status == 'success') {
+        console.log(response);
         if (response?.email_verified == 1 && response?.register_status == 1) {
           dispatch(set_Email({ email: email, type: user }));
           httpClient.defaults.headers.common['Authorization'] = `Bearer ${response?.token}` || '';

@@ -56,9 +56,8 @@ export const history = createBrowserHistory();
 const Routes = (props) => {
   const { token, setToken } = useToken();
   // setToken('84|wta1foy4srDHiw5PMlxFzgaWKcRXEgRAxT6AZLlK');
-  console.log(token);
   if (!token) {
-    return <Login setToken={setToken} />
+    return <Login setToken={setToken} history={history} />
   } else {
     httpClient.defaults.headers.common['Authorization'] = `Bearer ${token}` || '';
   }

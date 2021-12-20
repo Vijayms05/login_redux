@@ -11,20 +11,16 @@ const HomeScreen = () => {
     const dispatch = useDispatch();
     const token = useSelector(state => state.TokenReducer.token)
     const user = useSelector(state => state.UserReducer.user);
-    if (token) {
-        httpClient.defaults.headers.common['Authorization'] = `Bearer ${token}` || '';
-    }
+
     useEffect(() => {
-        if (token) {
-            HomeService.profile().then(result => {
-                var response = result.data;
-                if (response.status == 'success') {
-                    dispatch(set_Profile(response));
-                }
-            }).catch(function (error) {
-                ErrorHandler(error)
-            })
-        }
+        HomeService.profile().then(result => {
+            var response = result.data;
+            if (response.status == 'success') {
+                dispatch(set_Profile(response));
+            }
+        }).catch(function (error) {
+            ErrorHandler(error)
+        })
     }, []);
     return (
         <div className="d-md-flex test-main">
