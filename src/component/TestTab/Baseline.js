@@ -12,7 +12,7 @@ const Baseline = (props) => {
     }
     return (
         <Col sm={12} md={12}>
-            {props.data == null ?
+            {props.data != null ?
                 <div>
                     {/* <h6>Test Name</h6> */}
                     <div className="in-box-tab py-1">
