@@ -33,10 +33,30 @@ const ChooseQuestion = (props) => {
         setClickAnswer(false);
     };
     let [audioURL, isRecording, startRecording, stopRecording,] = useRecorder();
-    var questionLength = props.questionLength;
-    var questionType = props.questionType;
+    var questionStatus = [];
+    const [questionLength, setQuestionLength] = useState(0);
+    const [questionType, setQuestionType] = useState('');
     const [accent, setAccent] = useState('NEUTRAL');
     const [textValue, setTextValue] = useState('');
+    useMemo(() => {
+        if (props.data) {
+            if (props.data?.comprehension_questions.length > 0) {
+                setQuestionType('comprehension_questions');
+                setQuestionLength(props.data.comprehension_questions.length);
+            } else if (props.data?.spoken_questions.length > 0) {
+                if (props.data?.udsc_questions) {
+                    setQuestionLength(props.data?.udsc_questions + props.data?.spoken_questions.length);
+                } else {
+                    setQuestionLength(props.data?.spoken_questions.length);
+                }
+                setQuestionType('spoken_questions');
+            }
+            for (var i = 0; i < questionLength; i++) {
+                questionStatus.push({ qno: i + 1, status: 0, answer: '' });
+            }
+            props.setQuestionStatus(questionStatus);
+        }
+    }, []);
 
     const handleNext = () => {
         setCurrentQuestion(currentQuestion + 1);
@@ -182,7 +202,7 @@ const ChooseQuestion = (props) => {
                                 <p>Description : {props.data.comprehension_questions[currentQuestion].comprehension_question.type == 1 ? props.data.comprehension_questions[currentQuestion].comprehension_question.passage : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 2 ? '2' : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 3 ? '3' : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 4 ? '4' : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 5 ? '5' : null}</p>
                             </div>
                             {/* <div> */}
-                            <ComprehensionQuestions data={props.data.comprehension_questions[currentQuestion]} currentQuestion={currentQuestion} />
+                            {/* <ComprehensionQuestions data={props.data.comprehension_questions[currentQuestion]} /> */}
                             {/* {questionOptions(props.data.comprehension_questions[currentQuestion])} */}
                             {/* {props.data.comprehension_questions[currentQuestion].option_type == 1 ?
                                     <div>

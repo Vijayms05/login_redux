@@ -1133,7 +1133,7 @@ body {
 
 .stud-form-rad input[type="radio"]:checked,
 [type="radio"]:not(:checked) {
-  position: absolute;
+  position: inherit;
 }
 .stud-form-rad input[type="radio"]:checked + label,
 .stud-form-rad input[type="radio"]:not(:checked) + label {

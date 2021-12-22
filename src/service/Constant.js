@@ -1,5 +1,5 @@
 export const BASE_URL =
-    'http://192.168.1.18/skilltally-script/public/index.php/';
+    'http://192.168.1.25/skilltally-script/public/index.php/';
 // 'http://ninos.crm.script.skilltally.com/public/index.php/api/';
 
 export const URL = {
