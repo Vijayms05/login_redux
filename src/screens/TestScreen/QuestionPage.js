@@ -18,9 +18,9 @@ const QuestionPage = () => {
             var response = result.data;
             if (response.status == 'success') {
                 let len = 0;
-                setQuestions(response);
                 if (response.comprehension_questions.length > 0) {
                     setQuestionType('comprehension_questions');
+                    setQuestions(response.comprehension_questions);
                     len = response.comprehension_questions.length;
                     // setQuestionLength(response.comprehension_questions.length);
                 } else if (response.spoken_questions.length > 0) {
@@ -31,10 +31,12 @@ const QuestionPage = () => {
                         len = response.spoken_questions.length;
                         // setQuestionLength(response.spoken_questions.length);
                     }
+                    setQuestions(response.spoken_questions);
                     setQuestionType('spoken_questions');
                 }
                 setQuestionLength(len);
                 for (var i = 0; i < len; i++) {
+                    // status 0-not visited, 1-answered, 2-not answered, 3-current question                   
                     question.push({ qno: i + 1, status: 0, answer: '' });
                 }
                 setQuestionStatus(question);
@@ -47,10 +49,12 @@ const QuestionPage = () => {
         <div className="d-md-flex test-main">
             {questions &&
                 <>
-                    <QuestionBar data={questions} questionStatus={questionStatus} currentQuestion={currentQuestion} />
+                    <QuestionBar data={questions} questionStatus={questionStatus} currentQuestion={currentQuestion} questionLength={questionLength} setCurrentQuestion={setCurrentQuestion} />
                     <ChooseQuestion data={questions} questionStatus={questionStatus} setQuestionStatus={setQuestionStatus} setCurrentQuestion={setCurrentQuestion}
+                        currentQuestion={currentQuestion}
                         questionType={questionType}
                         questionLength={questionLength}
+                        user_subscription_id={location.state}
                     />
                 </>
             }

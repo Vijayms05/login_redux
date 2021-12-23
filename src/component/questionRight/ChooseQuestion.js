@@ -9,7 +9,6 @@ import AudioPlayer from '../Player/AudioPlayer';
 import ComprehensionQuestions from './ComprehensionQuestions';
 
 const ChooseQuestion = (props) => {
-    console.log(props.data);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [myAnswer, setMyAnswer] = useState("");
     const [score, setScore] = useState(0);
@@ -17,6 +16,9 @@ const ChooseQuestion = (props) => {
     const [show, setShow] = useState(false);
     const [clickAnswer, setClickAnswer] = useState(false);
 
+    useEffect(() => {
+        setCurrentQuestion(props.currentQuestion);
+    }, [props])
     const checkAnswer = (variant) => {
         setMyAnswer(variant);
         setClickAnswer(true);
@@ -39,13 +41,22 @@ const ChooseQuestion = (props) => {
     const [textValue, setTextValue] = useState('');
 
     const handleNext = () => {
+        var temp = [...props.questionStatus]
+        temp[currentQuestion] = { qno: currentQuestion + 1, status: 1, answer: '' }
+        props.setQuestionStatus(temp);
         setCurrentQuestion(currentQuestion + 1);
+        props.setCurrentQuestion(currentQuestion + 1);
     }
     const handleSkip = () => {
+        var temp = [...props.questionStatus]
+        temp[currentQuestion] = { qno: currentQuestion + 1, status: 2, answer: '' }
+        props.setQuestionStatus(temp);
         setCurrentQuestion(currentQuestion + 1);
+        props.setCurrentQuestion(currentQuestion + 1);
     }
     const handlePrevious = () => {
         setCurrentQuestion(currentQuestion - 1);
+        props.setCurrentQuestion(currentQuestion - 1);
     }
     const handleFinish = () => {
         const result = window.confirm("Do you really want to Finish Test");
@@ -53,121 +64,7 @@ const ChooseQuestion = (props) => {
             window.location.href = '/';
         }
     }
-    const questionOptions = (question) => {
-        switch (question.option_type) {
-            case 1: return (
-                <div>
-                    {/* <ToggleButtonGroup className="qus-tl-box" type="radio" name="options"> */}
-                    {question.options.map((item, index) => {
-                        // <div>1
-                        questionOption(item, index)
-                        // </div>
-                    })
-                    }
-                    {/* </ToggleButtonGroup> */}
-                </div>
-            );
-            case 2: return (
-                <div>
-                    <ToggleButtonGroup className="qus-tl-box" type="checkbox" name="options">
-                        {question.options.map((item, index) => {
-                            <div>
-                                {questionOption(item, index)}
-                            </div>
-                        })
-                        }
-                    </ToggleButtonGroup>
-                </div>
-            );
-            case 3: return (
-                <div>
-                    <ToggleButtonGroup className="qus-tl-box" type="radio" name="options">
-                        {question.options.map((item, index) => {
-                            { questionOption(item, index) }
-                        })
-                        }
-                    </ToggleButtonGroup>
-                </div>
-            );
-            case 4: return (
-                <div>
-                    {answerType(question)}
-                </div>
-            );
-            default: return <h1>No match</h1>
-        }
-    }
-    const questionOption = (list, index) => {
-        switch (list.option_type) {
-            case 1: return (<h1> 1.1 </h1>)
-            // <div>1.1
-            //     <ToggleButton id="tbg-radio-1" value={index}>
-            //         <span className="chs-lft">{index + 1 + ". "}</span>
-            //         <span className="chs-ans">{list.option_text}</span>
-            //     </ToggleButton>
-            // </div>
-
-            case 2: return (
-                <h1>1.2 </h1>
-                // <div>1.2
-                //     <ToggleButton id="tbg-radio-1" value={index}>
-                //         <span className="chs-lft">{index + 1 + ". "}</span>
-                //         <span className="chs-ans">{list.option_text}</span>
-                //     </ToggleButton>
-                // </div>
-            );
-            case 3: return (
-                <h1>1.3 </h1>
-                // <div>1.3
-                //     <ToggleButton id="tbg-radio-1" value={index}>
-                //         <span className="chs-lft">{index + 1 + ". "}</span>
-                //         <span className="chs-ans"><AudioPlayer url={list.audio_file} /></span>
-                //     </ToggleButton>
-                // </div>
-            );
-            case 4: return (
-                <h1>1.4 </h1>
-                // <div>1.4
-                //     <ToggleButton id="tbg-radio-1" value={index}>
-                //         <span className="chs-lft">{index + 1 + ". "}</span>
-                //         <span className="chs-ans"><AudioPlayer url={list.url} /></span>
-                //     </ToggleButton>
-
-                // </div>
-            );
-            case 5: return (
-                <h1>1.5 </h1>
-            );
-            //     return (
-            //     <div>1.5
-            //         <ToggleButton id="tbg-radio-1" value={index}>
-            //             <span className="chs-lft">{index + 1 + ". "}</span>
-            //             <span className="chs-ans">
-            //                 <iframe width="560" height="315" src={list.url}
-            //                     title="YouTube video player" frameborder="0"
-            //                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            //                     allowfullscreen></iframe>
-            //             </span>
-            //         </ToggleButton>
-            //     </div>
-            // );
-            default: return <h1>No </h1>
-        }
-    }
-    const answerType = (question) => {
-        switch (question.answer_type) {
-            case 1: return (
-                <h1>1 </h1>
-            );
-            case 2: return (
-                <h1>2 </h1>
-            );
-            case 3: return (
-                <h1>3 </h1>
-            );
-            default: return <h1>No match match</h1>
-        }
-    }
+    console.log(props.data[currentQuestion])
     return (
         <div className="tl-rt-qst d-grid m-auto">
             {props.questionStatus.length > 0 && currentQuestion < questionLength &&
@@ -175,14 +72,14 @@ const ChooseQuestion = (props) => {
                     {questionType == 'comprehension_questions' ?
                         <div className="in-rt-qst">
                             <div className="qust-tit text-center">
-                                <h6>{currentQuestion + 1 + '. '}{props.data.comprehension_questions[currentQuestion].passage}
-                                    {props.data.comprehension_questions[currentQuestion].question_type == 1 ? props.data.comprehension_questions[currentQuestion].passage : props.data.comprehension_questions[currentQuestion].question_type == 2 ? '2' : props.data.comprehension_questions[currentQuestion].question_type == 3 ? '3' : props.data.comprehension_questions[currentQuestion].question_type == 4 ? '4' : props.data.comprehension_questions[currentQuestion].question_type == 5 ? '5' : null}
+                                <h6>{currentQuestion + 1 + '. '}{props.data[currentQuestion].passage}
+                                    {props.data[currentQuestion].question_type == 1 ? props.data[currentQuestion].passage : props.data[currentQuestion].question_type == 2 ? '2' : props.data[currentQuestion].question_type == 3 ? '3' : props.data[currentQuestion].question_type == 4 ? '4' : props.data[currentQuestion].question_type == 5 ? '5' : null}
                                 </h6>
                                 {/* <h6>Q1  Who is the prime minister of india ?   </h6> */}
-                                <p>Description : {props.data.comprehension_questions[currentQuestion].comprehension_question.type == 1 ? props.data.comprehension_questions[currentQuestion].comprehension_question.passage : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 2 ? '2' : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 3 ? '3' : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 4 ? '4' : props.data.comprehension_questions[currentQuestion].comprehension_question.type == 5 ? '5' : null}</p>
+                                <p>Description : {props.data[currentQuestion].comprehension_question.type == 1 ? props.data[currentQuestion].comprehension_question.passage : props.data[currentQuestion].comprehension_question.type == 2 ? '2' : props.data[currentQuestion].comprehension_question.type == 3 ? '3' : props.data[currentQuestion].comprehension_question.type == 4 ? '4' : props.data[currentQuestion].comprehension_question.type == 5 ? '5' : null}</p>
                             </div>
                             {/* <div> */}
-                            <ComprehensionQuestions data={props.data.comprehension_questions[currentQuestion]} currentQuestion={currentQuestion} />
+                            <ComprehensionQuestions data={props.data[currentQuestion]} currentQuestion={currentQuestion} />
                             {/* {questionOptions(props.data.comprehension_questions[currentQuestion])} */}
                             {/* {props.data.comprehension_questions[currentQuestion].option_type == 1 ?
                                     <div>
@@ -267,11 +164,11 @@ const ChooseQuestion = (props) => {
                         </div>
                         :
                         <div className="in-rt-qst">
-                            {currentQuestion < props.data?.spoken_questions.length ?
+                            {currentQuestion < props.data?.length ?
                                 (
                                     <>
                                         <div className="qust-tit text-center">
-                                            <h6>{currentQuestion + 1 + '.'}{props.data.spoken_questions[currentQuestion].passage}</h6>
+                                            <h6>{currentQuestion + 1 + '.'}{props.data[currentQuestion].passage}</h6>
                                             {/* <h6>Q1  Who is the prime minister of india ?   </h6>
                                 <p>Description : find out who is the prime minister of india</p> */}
                                         </div>
@@ -291,12 +188,12 @@ const ChooseQuestion = (props) => {
                                 </ToggleButton>
                             </ToggleButtonGroup> */}
                                         <div>
-                                            <select value={props.data.spoken_questions[currentQuestion].accent ? props.data.spoken_questions[currentQuestion].accent : accent} onChange={(e) => { setAccent(e.target.value) }} className="select-form" size="lg" >
-                                                <option disabled={props.data.spoken_questions[currentQuestion].accent ? true : false} value="NEUTRAL">Neutral</option>
-                                                <option disabled={props.data.spoken_questions[currentQuestion].accent ? true : false} value="US">US</option>
-                                                <option disabled={props.data.spoken_questions[currentQuestion].accent ? true : false} value="UK">UK</option>
-                                                <option disabled={props.data.spoken_questions[currentQuestion].accent ? true : false} value="AUS">AUS</option>
-                                                <option disabled={props.data.spoken_questions[currentQuestion].accent ? true : false} value="IND">Indian</option>
+                                            <select value={props.data[currentQuestion].accent ? props.data[currentQuestion].accent : accent} onChange={(e) => { setAccent(e.target.value) }} className="select-form" size="lg" >
+                                                <option disabled={props.data[currentQuestion].accent ? true : false} value="NEUTRAL">Neutral</option>
+                                                <option disabled={props.data[currentQuestion].accent ? true : false} value="US">US</option>
+                                                <option disabled={props.data[currentQuestion].accent ? true : false} value="UK">UK</option>
+                                                <option disabled={props.data[currentQuestion].accent ? true : false} value="AUS">AUS</option>
+                                                <option disabled={props.data[currentQuestion].accent ? true : false} value="IND">Indian</option>
                                             </select>
                                         </div>
                                         <Col className="rec-box">

@@ -1,5 +1,5 @@
 export const BASE_URL =
-    'http://192.168.1.25/skilltally-script/public/index.php/';
+    'http://192.168.1.2/skilltally-script/public/index.php/';
 // 'http://ninos.crm.script.skilltally.com/public/index.php/api/';
 
 export const URL = {
@@ -24,6 +24,7 @@ export const URL = {
     SUBSCRIPTION_DETAILS: 'api/user-subscription-details',
     SUBSCRIPTION_TEST: 'api/user-subscription-test',
     GET_BASELINE_TEST: 'api/user-baseline-test',
+    BASELINE_ANSWER: 'api/user-baseline-test-answer/add',
 }
 
 export const TOKEN = 'TOKEN';

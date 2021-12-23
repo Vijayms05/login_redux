@@ -11,9 +11,13 @@ const subscriptionTest = (payload) => {
 const baselineTest = (payload) => {
     return httpClient.post(URL.GET_BASELINE_TEST, payload);
 };
+const baselineTestAnswer = (payload) => {
+    return httpClient.post(URL.BASELINE_ANSWER, payload);
+};
 const TestService = {
     subscriptionDetails,
     subscriptionTest,
     baselineTest,
+    baselineTestAnswer,
 }
 export default TestService;
