@@ -39,14 +39,7 @@ const Subscription = (props) => {
     const handleChange = event => {
         setSearchTerm(event.target.value);
     };
-    // useEffect(() => {
 
-
-    //     const results = classes.filter(classe =>
-    //         classe.toLowerCase().includes(searchTerm)
-    //     );
-    //     setSearchResults(results);
-    // }, [searchTerm]);
     useEffect(() => {
         HomeService.courseList().then((res) => {
             const response = res.data;
@@ -56,8 +49,6 @@ const Subscription = (props) => {
             } else if (response.status == 'error') {
                 alert(response?.message);
             }
-            // console.log(subscriptionList);
-            // console.log(courselist)
         }).catch(function (error) {
             ErrorHandler(error);
         });
@@ -195,8 +186,7 @@ const Subscription = (props) => {
                                                     className="anal-btn"
                                                     style={{ border: '1px solid #45acff' }}
                                                     onClick={() => {
-                                                        history.push({ pathname: '/role-based-test', state: test.subscription_id })
-
+                                                        history.push({ pathname: '/role-based-test', state: { subscription_id: test.subscription_id, data: test } })
                                                     }
                                                     }
                                                 >

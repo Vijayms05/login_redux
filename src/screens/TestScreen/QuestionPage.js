@@ -13,6 +13,7 @@ const QuestionPage = () => {
     var question = [];
     const [questionLength, setQuestionLength] = useState(0);
     const [questionType, setQuestionType] = useState('');
+    console.log(questionStatus);
     useEffect(() => {
         TestService.baselineTest({ user_subscription_id: location.state }).then(result => {
             var response = result.data;
@@ -37,7 +38,7 @@ const QuestionPage = () => {
                 setQuestionLength(len);
                 for (var i = 0; i < len; i++) {
                     // status 0-not visited, 1-answered, 2-not answered, 3-current question                   
-                    question.push({ qno: i + 1, status: 0, answer: '' });
+                    question.push({ qno: i + 1, status: 0, answer: '', user_baseline_test_question_id: '' });
                 }
                 setQuestionStatus(question);
             }

@@ -20,8 +20,7 @@ import {
     NumbIcon,
     ScaleIcon,
 } from '../../assets/images/index'
-import { Link, useLocation } from 'react-router-dom'
-import { history } from '../../routes/Routes';
+import { Link, useLocation, useHistory } from 'react-router-dom'
 import { ErrorHandler } from '../../service/ErrorHandler'
 
 const SubscriptionList = (props) => {
@@ -29,10 +28,10 @@ const SubscriptionList = (props) => {
     const [subscription_details, setSubscriptionDetails] = useState('');
 
     const progValue = "25";
-    // const history= useHistory();
+    const history = useHistory();
     const location = useLocation();
     useEffect(() => {
-        HomeService.courseDetails({ subscription_id: location.state }).then((res) => {
+        HomeService.courseDetails({ subscription_id: location.state.subscription_id }).then((res) => {
             const response = res.data;
             if (response?.status == 'success') {
                 setSubscriptionDetails(response.subscription);
@@ -113,7 +112,10 @@ const SubscriptionList = (props) => {
                                             </Row>
                                             {/* <h2 className="">Free</h2> */}
                                             {/* <Link to="/billings" className="anal-btn">Go to Billing</Link> */}
-                                            <Link to="/billings-details" className="anal-btn my-3">Go to Billing</Link>
+                                            <Button onClick={() => {
+                                                history.push({ pathname: '/billings-details', state: { subscription_id: location.state.subscription_id, data: subscription_details } })
+                                            }
+                                            } className="anal-btn my-3">Go to Billing</Button>
                                         </Col>
                                         <Col className="hori-image" sm={3} xs={12}> {/*className="d-none d-md-block" */}
                                             <Billingrit />

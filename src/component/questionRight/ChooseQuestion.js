@@ -7,6 +7,8 @@ import { data } from '../../locale/data';
 import useRecorder from "../voiceRecoder/useRecorder";
 import AudioPlayer from '../Player/AudioPlayer';
 import ComprehensionQuestions from './ComprehensionQuestions';
+import TestService from '../../service/TestService';
+import { ErrorHandler } from '../../service/ErrorHandler';
 
 const ChooseQuestion = (props) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -39,17 +41,78 @@ const ChooseQuestion = (props) => {
     var questionType = props.questionType;
     const [accent, setAccent] = useState('NEUTRAL');
     const [textValue, setTextValue] = useState('');
-
+    const [options, setOptions] = useState([]);
+    const [answer, setAnswer] = useState('');
+    console.log(props.data[currentQuestion]);
     const handleNext = () => {
-        var temp = [...props.questionStatus]
-        temp[currentQuestion] = { qno: currentQuestion + 1, status: 1, answer: '' }
-        props.setQuestionStatus(temp);
-        setCurrentQuestion(currentQuestion + 1);
-        props.setCurrentQuestion(currentQuestion + 1);
+        if (questionType == 'comprehension_questions') {
+            if (props.data[currentQuestion].option_type == 4) {
+                if (answer != null && answer != "") {
+                    var payload = {
+                        user_subscription_id: props.user_subscription_id,
+                        question_bank_id: props.data[currentQuestion].comprehension_question.question_bank_id,
+                        question_id: props.data[currentQuestion].id,
+                        options: null,
+                        acent: null,
+                        question: null,
+                        answer: answer,
+                    }
+                    TestService.baselineTestAnswer(payload).then((res) => {
+                        const response = res.data;
+                        if (response?.status == 'success') {
+                            var temp = [...props.questionStatus];
+                            temp[currentQuestion] = { qno: currentQuestion + 1, status: 1, answer: answer, user_baseline_test_question_id: response.user_baseline_test_question_id }
+                            props.setQuestionStatus(temp);
+                            setCurrentQuestion(currentQuestion + 1);
+                            props.setCurrentQuestion(currentQuestion + 1);
+                            setAnswer(null);
+                        } else if (response.status == 'error') {
+                            alert(response?.message);
+                        }
+                    }).catch(function (error) {
+                        ErrorHandler(error);
+                    });
+                } else {
+                    alert('Please answer this question')
+                }
+            } else {
+                if (options.length > 0) {
+                    var payload = {
+                        user_subscription_id: props.user_subscription_id,
+                        question_bank_id: props.data[currentQuestion].comprehension_question.question_bank_id,
+                        question_id: props.data[currentQuestion].id,
+                        options: options,
+                        acent: null,
+                        question: null,
+                        answer: null,
+                    }
+                    TestService.baselineTestAnswer(payload).then((res) => {
+                        const response = res.data;
+                        if (response?.status == 'success') {
+                            var temp = [...props.questionStatus];
+                            temp[currentQuestion] = { qno: currentQuestion + 1, status: 1, answer: options, user_baseline_test_question_id: response.user_baseline_test_question_id }
+                            props.setQuestionStatus(temp);
+                            setCurrentQuestion(currentQuestion + 1);
+                            props.setCurrentQuestion(currentQuestion + 1);
+                            setOptions([]);
+                        } else if (response.status == 'error') {
+                            alert(response?.message);
+                        }
+                    }).catch(function (error) {
+                        ErrorHandler(error);
+                    });
+                } else {
+                    alert("Please select your answer");
+                }
+            }
+        } else {
+
+        }
+
     }
     const handleSkip = () => {
         var temp = [...props.questionStatus]
-        temp[currentQuestion] = { qno: currentQuestion + 1, status: 2, answer: '' }
+        temp[currentQuestion] = { qno: currentQuestion + 1, status: 2, answer: '', user_baseline_test_question_id: '' }
         props.setQuestionStatus(temp);
         setCurrentQuestion(currentQuestion + 1);
         props.setCurrentQuestion(currentQuestion + 1);
@@ -61,10 +124,10 @@ const ChooseQuestion = (props) => {
     const handleFinish = () => {
         const result = window.confirm("Do you really want to Finish Test");
         if (result) {
+            handleNext();
             window.location.href = '/';
         }
     }
-    console.log(props.data[currentQuestion])
     return (
         <div className="tl-rt-qst d-grid m-auto">
             {props.questionStatus.length > 0 && currentQuestion < questionLength &&
@@ -79,7 +142,12 @@ const ChooseQuestion = (props) => {
                                 <p>Description : {props.data[currentQuestion].comprehension_question.type == 1 ? props.data[currentQuestion].comprehension_question.passage : props.data[currentQuestion].comprehension_question.type == 2 ? '2' : props.data[currentQuestion].comprehension_question.type == 3 ? '3' : props.data[currentQuestion].comprehension_question.type == 4 ? '4' : props.data[currentQuestion].comprehension_question.type == 5 ? '5' : null}</p>
                             </div>
                             {/* <div> */}
-                            <ComprehensionQuestions data={props.data[currentQuestion]} currentQuestion={currentQuestion} />
+                            <ComprehensionQuestions data={props.data[currentQuestion]} currentQuestion={currentQuestion}
+                                setOptions={setOptions}
+                                options={options}
+                                setAnswer={setAnswer}
+                                answer={answer}
+                            />
                             {/* {questionOptions(props.data.comprehension_questions[currentQuestion])} */}
                             {/* {props.data.comprehension_questions[currentQuestion].option_type == 1 ?
                                     <div>
