@@ -1,6 +1,6 @@
 export const BASE_URL =
     //'http://test.backendtest.vowstays.com/public/';
-    'http://192.168.1.24/skilltally-script/public/index.php/';
+    'http://192.168.1.6/skilltally-script/public/index.php/';
 // 'http://ninos.crm.script.skilltally.com/public/index.php/api/';
 
 export const URL = {
